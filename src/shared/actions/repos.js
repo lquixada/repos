@@ -4,7 +4,4 @@ export const REPOS_FAILED = 'REPOS_FAILED';
 
 export const fetchRepos = () => ({
   type: REPOS_REQUESTED,
-  payload: {
-    url: 'https://api.github.com/orgs/facebook/repos'
-  }
 });

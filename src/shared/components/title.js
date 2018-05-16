@@ -3,12 +3,13 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Title = () => (
-  <Wrapper><Link to="/">Facebook Repos</Link></Wrapper>
+  <Wrapper><Link to="/"><strong>Facebook</strong> Repos</Link></Wrapper>
 );
 
 const Wrapper = styled.h1`
   color: #fff;
   font-size: 3rem;
+  font-weight: normal;
   letter-spacing: -.1rem;
   line-height: 1.5;
   text-shadow: .2rem .4rem .3rem rgba(0, 0, 0, .3);

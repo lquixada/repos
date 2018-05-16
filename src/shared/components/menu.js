@@ -8,11 +8,13 @@ export default class Menu extends React.Component {
     return (
       <Wrapper>
         <List>
-          {this.props.repos.map((repo) => (
+          {this.props.repos.map((repo, i) => (
             <Item key={repo.name}>
-              <A href="#">
+              <A href="#" className={i===0?'active':''}>
                 <Icon />
                 {repo.name}
+                {' '}
+                ({repo.totalContributors})
               </A>
             </Item>
           ))}
@@ -39,8 +41,18 @@ const A = styled.a`
   padding: 8px 10px;
   color: #333;
   font-size: 14px;
-  border-left: 2px solid #d26911;
-  background-color: #f4f4f4;
+
+  &:hover {
+    text-decoration: none;
+    color: #327fc7;
+    background-color: #fdfdfd;
+  }
+
+  &.active {
+    color: #333;
+    border-left: 2px solid #d26911;
+    background-color: #f4f4f4;
+  }
 `;
 
 const List = styled.ul`

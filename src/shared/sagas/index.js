@@ -1,17 +1,38 @@
-import {call, put, takeEvery} from 'redux-saga/effects';
+import {call, put, take, all} from 'redux-saga/effects';
 
 import {REPOS_SUCCEEDED, REPOS_FAILED, REPOS_REQUESTED} from '../actions';
-import {fetchRepos} from '../helpers';
+import {fetchRepos, fetchContributors} from '../helpers';
 
-export function* fetchData(action) {
-  try {
-    const data = yield call(fetchRepos, action.payload.url);
-    yield put({type: REPOS_SUCCEEDED, data});
-  } catch (error) {
-    yield put({type: REPOS_FAILED, error});
+function totalContributorsDesc(a, b) {
+  if (a.totalContributors > b.totalContributors) {
+    return -1;
   }
+  if (a.totalContributors < b.totalContributors) {
+    return 1;
+  }
+  return 0;
 }
 
+
 export default function* root() {
-  yield takeEvery(REPOS_REQUESTED, fetchData);
+  while (true) {
+    yield take(REPOS_REQUESTED);
+
+    try {
+      const repos = yield call(fetchRepos);
+      const calls = repos.map((repo) => call(fetchContributors, repo.name));
+      const counts = yield all(calls);
+
+      counts.forEach((count, i) => {
+        repos[i].totalContributors = count;
+      });
+
+      repos.sort(totalContributorsDesc);
+
+      yield put({type: REPOS_SUCCEEDED, data: repos});
+    } catch (error) {
+      console.log(error);
+      yield put({type: REPOS_FAILED, error});
+    }
+  }
 }
