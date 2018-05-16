@@ -29,6 +29,17 @@ img {
   height: 100%;
 }
 
+/* Github */
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: #fff;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
