@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {Icon} from './icon';
@@ -8,12 +9,12 @@ export const Menu = ({repos}) => (
     <List>
       {repos.map((repo, i) => (
         <Item key={repo.name}>
-          <A href="#" className={i===0?'active':''}>
+          <NavLink to={repo.name}>
             <Icon />
             {repo.name}
             {' '}
             ({repo.totalContributors})
-          </A>
+          </NavLink>
         </Item>
       ))}
     </List>
@@ -31,7 +32,9 @@ const Wrapper = styled.div`
   padding: 0;
 `;
 
-const A = styled.a`
+const NavLink = styled(Link).attrs({
+  activeClassName: 'active'
+})`
   text-decoration: none;
   display: block;
   padding: .8rem 1rem;
