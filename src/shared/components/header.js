@@ -3,15 +3,11 @@ import styled from 'styled-components';
 
 import {flex} from '../helpers';
 
-export default class Header extends React.Component {
-  render() {
-    return (
-      <Wrapper>
-        Facebook Repos
-      </Wrapper>
-    );
-  }
-}
+export const Header = () => (
+  <Wrapper>
+    Facebook Repos
+  </Wrapper>
+);
 
 export const Wrapper = styled.header`
   ${flex.display()}

@@ -3,26 +3,22 @@ import styled from 'styled-components';
 
 import {Icon} from './icon';
 
-export default class Menu extends React.Component {
-  render() {
-    return (
-      <Wrapper>
-        <List>
-          {this.props.repos.map((repo, i) => (
-            <Item key={repo.name}>
-              <A href="#" className={i===0?'active':''}>
-                <Icon />
-                {repo.name}
-                {' '}
-                ({repo.totalContributors})
-              </A>
-            </Item>
-          ))}
-        </List>
-      </Wrapper>
-    );
-  }
-}
+export const Menu = ({repos}) => (
+  <Wrapper>
+    <List>
+      {repos.map((repo, i) => (
+        <Item key={repo.name}>
+          <A href="#" className={i===0?'active':''}>
+            <Icon />
+            {repo.name}
+            {' '}
+            ({repo.totalContributors})
+          </A>
+        </Item>
+      ))}
+    </List>
+  </Wrapper>
+);
 
 const Wrapper = styled.div`
   margin-top: 12px;
