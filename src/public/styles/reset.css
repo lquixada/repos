@@ -13,7 +13,7 @@ html {
 
 html,
 body {
-  background-color: #484848;
+  /* background-color: #484848; */
   height: 100%;
 }
 
@@ -34,7 +34,7 @@ img {
 .octicon {
   display: inline-block;
   vertical-align: text-top;
-  fill: #fff;
+  /* fill: #fff; */
   margin-right: 10px;
   vertical-align: middle;
 }

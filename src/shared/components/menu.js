@@ -1,25 +1,53 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import {Icon} from './icon';
 
 export default class Menu extends React.Component {
   render() {
     return (
-      <ul>
-        {this.props.repos.map((repo) => (
-          <li key={repo.name}>
-            <svg class="octicon octicon-repo"
-              viewBox="0 0 12 16"
-              version="1.1"
-              width="12"
-              height="16"
-              aria-hidden="true">
-              <path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0
-              .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1
-              1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z" />
-            </svg>
-            {repo.name}
-          </li>
-        ))}
-      </ul>
+      <Wrapper>
+        <List>
+          {this.props.repos.map((repo) => (
+            <Item key={repo.name}>
+              <A href="#">
+                <Icon />
+                {repo.name}
+              </A>
+            </Item>
+          ))}
+        </List>
+      </Wrapper>
     );
   }
 }
+
+const Wrapper = styled.div`
+  margin-top: 12px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 0;
+`;
+
+const A = styled.a`
+  text-decoration: none;
+  display: block;
+  padding: 8px 10px;
+  color: #333;
+  font-size: 14px;
+  border-left: 2px solid #d26911;
+  background-color: #f4f4f4;
+`;
+
+const List = styled.ul`
+  border-radius: 6px;
+`;
+
+const Item = styled.li`
+  list-style-type: none;
+`;
+
