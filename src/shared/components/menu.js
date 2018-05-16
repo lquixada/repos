@@ -21,22 +21,22 @@ export const Menu = ({repos}) => (
 );
 
 const Wrapper = styled.div`
-  margin-top: 12px;
+  margin-top: 1.2rem;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
-  margin-bottom: 20px;
-  font-size: 12px;
+  border: .1rem solid #e5e5e5;
+  border-radius: .6rem;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,.1);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
   padding: 0;
 `;
 
 const A = styled.a`
   text-decoration: none;
   display: block;
-  padding: 8px 10px;
+  padding: .8rem 1rem;
   color: #333;
-  font-size: 14px;
+  font-size: 1.4rem;
 
   &:hover {
     text-decoration: none;
@@ -46,13 +46,13 @@ const A = styled.a`
 
   &.active {
     color: #333;
-    border-left: 2px solid #d26911;
+    border-left: .2rem solid #d26911;
     background-color: #f4f4f4;
   }
 `;
 
 const List = styled.ul`
-  border-radius: 6px;
+  border-radius: .6rem;
 `;
 
 const Item = styled.li`

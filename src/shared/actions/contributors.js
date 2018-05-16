@@ -2,6 +2,6 @@ export const CONTRIBUTORS_REQUESTED = 'CONTRIBUTORS_REQUESTED';
 export const CONTRIBUTORS_SUCCEEDED = 'CONTRIBUTORS_SUCCEEDED';
 export const CONTRIBUTORS_FAILED = 'CONTRIBUTORS_FAILED';
 
-export const fetchRepos = () => ({
+export const fetchContributors = () => ({
   type: CONTRIBUTORS_REQUESTED,
 });
