@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Menu from '../containers/menu';
+
 export class App extends React.Component {
   render() {
     return (
@@ -9,9 +11,7 @@ export class App extends React.Component {
         </button>
         {' '}
         <hr />
-        <div>
-          Clicked: value times
-        </div>
+        <Menu />
       </div>
     );
   }
