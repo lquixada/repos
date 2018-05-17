@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
 export const Link = ({to: repo}) => (
-  <Wrapper to={`/${repo.name}`}>
+  <Wrapper to={`/r/${repo.name}`}>
     <Icon />
     {repo.name}
     {' '}

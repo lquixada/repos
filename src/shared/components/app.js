@@ -26,7 +26,7 @@ export const App = ({onSubmit}) => (
           <Footer />
         </Aside>
         <Content>
-          <Route path="/:repo" component={Repo}/>
+          <Route path="/r/:repo" component={Repo}/>
         </Content>
       </SectionContainer>
     </Section>
