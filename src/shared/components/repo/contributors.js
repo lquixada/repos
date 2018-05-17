@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import fetch from 'cross-fetch';
 
 import {flex} from '../../helpers';
+import config from '../../config';
 
 export class Contributors extends React.Component {
   constructor(props) {
@@ -13,13 +14,23 @@ export class Contributors extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.repo.name, 'componentDidMount');
-    const url = `https://api.github.com/repos/facebook/${this.props.repo.name}/contributors?page=1&per_page=40`;
-    fetch(url).then((res) => res.json()).then((contributors) => this.setState({contributors}));
+    this.fetch();
   }
 
-  componentDidUpdate() {
-    console.log(this.props.repo.name, 'componentDidUpdate');
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.repo.name !== this.props.repo.name) {
+      // Reset and fetch
+      this.setState({contributors: []}, () => this.fetch());
+    }
+  }
+
+  async fetch() {
+    const endpoint = config.endpoints.contributors;
+    const url = `${endpoint.replace('%{repo}', this.props.repo.name)}?page=1&per_page=40`;
+    const res = await fetch(url);
+    const contributors = await res.json();
+
+    this.setState({contributors});
   }
 
   render() {
