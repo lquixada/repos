@@ -1,12 +1,16 @@
 import {REPOS_SUCCEEDED} from '../actions';
 
-// const normalize = (repos) => repos.reduce((memo, repo) => memo[repo.name] = repo, {});
+const normalize = (repos) => {
+  return repos.reduce((memo, repo) => {
+    memo[repo.name] = repo;
+    return memo;
+  }, {});
+};
 
-export default function repos(state = [], action) {
+export default function repos(state = {}, action) {
   switch (action.type) {
     case REPOS_SUCCEEDED:
-      return action.data;
-      // return normalize(action.data);
+      return normalize(action.data);
     default:
       return state;
   }
