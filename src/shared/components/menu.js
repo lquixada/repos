@@ -16,13 +16,15 @@ export const Menu = ({repos}) => (
 );
 
 const Wrapper = styled.div`
+  margin-bottom: 1rem;
+  padding: 0;
+  max-height: 40rem;
+  font-size: 1.2rem;
   background-color: #fff;
   border: .1rem solid #e5e5e5;
   border-radius: .6rem;
   box-shadow: 0 .1rem .1rem rgba(0,0,0,.1);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  padding: 0;
+  overflow-y: auto;
 `;
 
 const List = styled.ul`
