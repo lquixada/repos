@@ -8,7 +8,7 @@ export const Link = ({to: repo}) => (
     <Icon />
     {repo.name}
     {' '}
-    ({repo.totalContributors})
+    ({repo.contributors_count})
   </Wrapper>
 );
 

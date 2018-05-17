@@ -13,7 +13,7 @@ export default function* root() {
       const counts = yield all(calls);
 
       counts.forEach((count, i) => {
-        repos[i].totalContributors = count;
+        repos[i].contributors_count = count;
       });
 
       repos.sort(totalContributorsDesc);

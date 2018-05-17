@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
+import {Contributors} from './contributors';
 import {Header} from './header';
 import {flex} from '../../helpers';
 
@@ -20,6 +21,8 @@ export const Repo = ({repo=null}) => (
         <Item><Octicon name="law"/> {repo.license.spdx_id}</Item>
       </List>
 
+      <Contributors repo={repo} />
+
       {console.log(repo)}
     </div>
 );
@@ -36,7 +39,6 @@ const List = styled.ul`
   ${flex.flow('row', 'nowrap')};
   margin-top: 2rem;
   padding: 1rem 2rem;
-  list-style-type: none;
   border: 1px solid #e5e5e5;
   border-radius: .6rem;
 `;
@@ -45,7 +47,6 @@ const Item = styled.li`
   ${flex.display()}
   ${flex.justify()}
   ${flex.middle()}
-  list-style-type: none;
   font-size: 1.2rem;
   white-space: nowrap;
 

@@ -21,6 +21,15 @@ img {
   border: 0;
 }
 
+ul, li {
+  list-style-type: none;
+}
+
+a {
+  color: #767676;
+  text-decoration: none;
+}
+
 #app {
   height: 100%;
 }

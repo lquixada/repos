@@ -30,8 +30,6 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  list-style-type: none;
-
   &:first-child {
     border-radius: .6rem .6rem 0 0;
     overflow: hidden;

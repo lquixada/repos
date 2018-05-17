@@ -1,10 +1,10 @@
 import fetch from 'cross-fetch';
 
 export const totalContributorsDesc = (a, b) => {
-  if (a.totalContributors > b.totalContributors) {
+  if (a.contributors_count > b.contributors_count) {
     return -1;
   }
-  if (a.totalContributors < b.totalContributors) {
+  if (a.contributors_count < b.contributors_count) {
     return 1;
   }
   return 0;
