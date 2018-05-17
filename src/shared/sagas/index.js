@@ -20,7 +20,8 @@ export default function* root() {
 
       yield put({type: REPOS_SUCCEEDED, data: repos});
     } catch (error) {
-      yield put({type: REPOS_FAILED, error});
+      console.error(error);
+      yield put({type: REPOS_FAILED, error: error.stack});
     }
   }
 }
