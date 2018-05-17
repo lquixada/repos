@@ -1,8 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
-
-import {Icon} from './icon';
+import Octicon from 'react-component-octicons';
 
 export const Link = ({to: repo}) => (
   <Wrapper to={`/${repo.name}`}>
@@ -12,6 +11,13 @@ export const Link = ({to: repo}) => (
     ({repo.totalContributors})
   </Wrapper>
 );
+
+
+const Icon = styled(Octicon).attrs({
+  name: 'repo'
+})`
+  margin-right: 1rem;
+`;
 
 const Wrapper = styled(NavLink).attrs({
   activeClassName: 'active'
