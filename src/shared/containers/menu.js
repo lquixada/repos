@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 import {Menu} from '../components/menu';
 
@@ -10,4 +11,5 @@ const mapStateToProps = ({contributors}) => ({
     }))
     .sort((a, b) => b.contributors_count - a.contributors_count)
 });
-export default connect(mapStateToProps)(Menu);
+
+export default withRouter(connect(mapStateToProps)(Menu));

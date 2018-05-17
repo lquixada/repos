@@ -5,7 +5,7 @@ import Octicon from 'react-component-octicons';
 
 export const Link = ({to: repo}) => (
   <Wrapper to={`/r/${repo.name}`}>
-    <Icon />
+    <Icon name="repo" />
     {repo.name}
     {' '}
     (<Help title="number of contributors">{repo.contributors_count}</Help>)
@@ -13,15 +13,11 @@ export const Link = ({to: repo}) => (
 );
 
 
-const Icon = styled(Octicon).attrs({
-  name: 'repo'
-})`
-  margin-right: 1rem;
+const Icon = styled(Octicon)`
+  margin-right: .5rem;
 `;
 
-const Wrapper = styled(NavLink).attrs({
-  activeClassName: 'active'
-})`
+const Wrapper = styled(NavLink)`
   text-decoration: none;
   display: block;
   padding: .8rem 1rem;
