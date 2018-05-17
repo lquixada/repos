@@ -16,7 +16,6 @@ export const Menu = ({repos}) => (
 );
 
 const Wrapper = styled.div`
-  margin-top: 1.2rem;
   background-color: #fff;
   border: .1rem solid #e5e5e5;
   border-radius: .6rem;
@@ -32,5 +31,15 @@ const List = styled.ul`
 
 const Item = styled.li`
   list-style-type: none;
+
+  &:first-child {
+    border-radius: .6rem .6rem 0 0;
+    overflow: hidden;
+  }
+
+  &:last-child {
+    border-radius: 0 0 .6rem .6rem;
+    overflow: hidden;
+  }
 `;
 

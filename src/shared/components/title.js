@@ -3,20 +3,18 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Title = () => (
-  <Wrapper><Link to="/"><strong>Facebook</strong> Repos</Link></Wrapper>
+  <Wrapper><NavLink to="/"><strong>Facebook</strong> Repos</NavLink></Wrapper>
 );
 
 const Wrapper = styled.h1`
   color: #fff;
+  opacity: .9;
   font-size: 3rem;
   font-weight: normal;
-  letter-spacing: -.1rem;
-  line-height: 1.5;
-  text-shadow: .2rem .4rem .3rem rgba(0, 0, 0, .3);
-  vertical-align: middle;
+  letter-spacing: -1px;
+`;
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+const NavLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `;

@@ -10,35 +10,27 @@ export const Main = styled.main`
 `;
 
 export const Aside = styled.aside`
-  ${flex.display()}
-  ${flex.justify()}
-  ${flex.flow('column', 'nowrap')}
-  ${flex(1)}
-  min-width: 25rem;
+  margin-right: 2rem;
+  width: 20rem;
   vertical-align: top;
 
   @media (max-width: 540px) {
-    ${flex('none')}
-    ${flex.dir('row')}
     margin: 0;
     width: 100%;
     height: auto;
   }
 `;
 
-export const Container = styled.div`
-  ${flex.display()}
-  ${flex.justify()}
-  ${flex.top()}
-  max-width: 54rem;
-  width: 100%;
+export const Content = styled.article`
+  width: 55rem;
+  color: #666;
 `;
 
-export const Box = styled.div`
-  background-color: #404040;
-  border: .1rem solid;
-  border-radius: .5rem;
-  border-color: #303030 #505050 #505050 #303030;
+export const Container = styled.div`
+  ${flex.display()}
+  ${flex.justify()} 
+  ${flex.top()}
+  width: 100%;
 `;
 
 export const Header = styled.header`
@@ -46,7 +38,7 @@ export const Header = styled.header`
   ${flex.left()}
   ${flex('none')}
   padding: 2rem;
-  background-color: #565656;
+  background-color: #3c4146;
 `;
 
 export const HeaderContainer = Container.extend`
@@ -63,23 +55,10 @@ export const Section = styled.section`
 `;
 
 export const SectionContainer = Container.extend`
+  ${flex.left()} 
+
   @media (max-width: 540px) {
     ${flex.left()}
     ${flex.dir('column')}
-  }
-`;
-
-export const Footer = styled.footer`
-  ${flex.display()}
-  ${flex.center()}
-  ${flex('none')}
-  padding: 2rem;
-  color: #999;
-  font-size: 1.2rem;
-  background-color: #565656;
-
-  a {
-    display: inline-block;
-    color: #999;
   }
 `;

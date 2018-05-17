@@ -1,10 +1,11 @@
 import React from 'react';
 import {Route} from 'react-router';
 
-import {Title} from './title';
 import Repo from '../containers/repo';
 import Menu from '../containers/menu';
-import {Main, Aside, Header, HeaderContainer, Section, SectionContainer} from './grid';
+
+import {Title} from './title';
+import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
 
 export const App = ({onSubmit}) => (
   <Main>
@@ -22,7 +23,9 @@ export const App = ({onSubmit}) => (
         <Aside>
           <Menu />
         </Aside>
-        <Route path="/:repo" component={Repo}/>
+        <Content>
+          <Route path="/:repo" component={Repo}/>
+        </Content>
       </SectionContainer>
     </Section>
   </Main>
