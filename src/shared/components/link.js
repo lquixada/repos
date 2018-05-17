@@ -27,6 +27,7 @@ const Wrapper = styled(NavLink).attrs({
   padding: .8rem 1rem;
   color: #333;
   font-size: 1.4rem;
+  border-left: .2rem solid transparent;
 
   &:hover {
     text-decoration: none;
