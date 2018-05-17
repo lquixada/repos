@@ -3,7 +3,11 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Title = () => (
-  <Wrapper><NavLink to="/"><strong>Facebook</strong> Repos</NavLink></Wrapper>
+  <Wrapper>
+    <NavLink to="/">
+      <strong>Facebook</strong> Repos
+    </NavLink>
+  </Wrapper>
 );
 
 const Wrapper = styled.h1`
