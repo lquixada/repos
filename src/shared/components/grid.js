@@ -14,6 +14,7 @@ export const Aside = styled.aside`
   ${flex.justify()}
   ${flex.flow('column', 'nowrap')}
   ${flex(1)}
+  min-width: 25rem;
   vertical-align: top;
 
   @media (max-width: 540px) {
