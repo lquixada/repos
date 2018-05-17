@@ -2,7 +2,8 @@ import fetch from 'cross-fetch';
 
 import config from '../config';
 
-export const fetchRepos = () => {
+export const fetchRepos = async () => {
   const url = config.endpoints.repos;
-  return fetch(url).then((res) => res.json());
+  const res = await fetch(url);
+  return await res.json();
 };
