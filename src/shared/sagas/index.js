@@ -1,18 +1,7 @@
 import {call, put, take, all} from 'redux-saga/effects';
 
 import {REPOS_SUCCEEDED, REPOS_FAILED, REPOS_REQUESTED} from '../actions';
-import {fetchRepos, fetchContributors} from '../helpers';
-
-function totalContributorsDesc(a, b) {
-  if (a.totalContributors > b.totalContributors) {
-    return -1;
-  }
-  if (a.totalContributors < b.totalContributors) {
-    return 1;
-  }
-  return 0;
-}
-
+import {fetchRepos, fetchContributors, totalContributorsDesc} from '../helpers';
 
 export default function* root() {
   while (true) {
@@ -20,7 +9,7 @@ export default function* root() {
 
     try {
       const repos = yield call(fetchRepos);
-      const calls = repos.map((repo) => call(fetchContributors, repo.name));
+      const calls = repos.map((repo) => call(fetchContributors, repo.contributors_url));
       const counts = yield all(calls);
 
       counts.forEach((count, i) => {
@@ -31,7 +20,6 @@ export default function* root() {
 
       yield put({type: REPOS_SUCCEEDED, data: repos});
     } catch (error) {
-      console.log(error);
       yield put({type: REPOS_FAILED, error});
     }
   }
