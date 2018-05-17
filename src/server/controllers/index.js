@@ -19,7 +19,6 @@ export default (req, res) => {
 
   const store = configureStore();
   const state = JSON.stringify(store.getState());
-
   const sheet = new ServerStyleSheet();
   const content = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
