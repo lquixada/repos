@@ -1,14 +1,6 @@
 import fetch from 'cross-fetch';
 
-export const totalContributorsDesc = (a, b) => {
-  if (a.contributors_count > b.contributors_count) {
-    return -1;
-  }
-  if (a.contributors_count < b.contributors_count) {
-    return 1;
-  }
-  return 0;
-};
+export const totalContributorsDesc = (a, b) => b.contributors_count - a.contributors_count;
 
 export const extractTotal = (header) => {
   const [, last] = header.split(',');

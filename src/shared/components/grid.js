@@ -42,6 +42,7 @@ export const Header = styled.header`
 `;
 
 export const HeaderContainer = Container.extend`
+  width: 78rem;
   @media (max-width: 540px) {
     ${flex.wrap('wrap')}
   }
