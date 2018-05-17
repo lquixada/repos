@@ -18,7 +18,7 @@ export const Repo = ({repo=null}) => (
         <Item><Octicon name="eye"/> {repo.watchers_count} watchers</Item>
         <Item><Octicon name="repo-forked"/> {repo.forks_count} forks</Item>
         <Item><Octicon name="issue-opened"/> {repo.open_issues_count} issues</Item>
-        <Item><Octicon name="law"/> {repo.license.spdx_id}</Item>
+        <Item><Octicon name="law"/> {repo.license.name}</Item>
       </List>
 
       <Contributors repo={repo} />
