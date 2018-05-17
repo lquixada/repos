@@ -29,7 +29,7 @@ export class Contributors extends React.Component {
 
         <List>
           {this.state.contributors.map((contributor) =>
-            <Item>
+            <Item key={contributor.login}>
               <Link href={contributor.html_url}>
                 <Image src={contributor.avatar_url} />
                 <Text>{contributor.login}</Text>
