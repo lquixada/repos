@@ -27,8 +27,4 @@ const Link = styled.a`
   color: #767676;
   font-size: 1rem;
   text-decoration: none;
-
-  &:hover {
-    color: #005b9e;
-  }
 `;

@@ -10,7 +10,7 @@ export const Main = styled.main`
 `;
 
 export const Aside = styled.aside`
-  margin-right: 2rem;
+  margin-right: 3rem;
   width: 20rem;
   vertical-align: top;
 

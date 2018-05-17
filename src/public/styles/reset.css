@@ -13,7 +13,6 @@ html {
 
 html,
 body {
-  /* background-color: #484848; */
   height: 100%;
 }
 
@@ -28,6 +27,10 @@ ul, li {
 a {
   color: #767676;
   text-decoration: none;
+}
+
+a:hover {
+  color: #005b9e;
 }
 
 #app {

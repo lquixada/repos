@@ -38,8 +38,4 @@ const Link = styled.a`
   svg {
     margin-right: .3rem;
   }
-
-  &:hover {
-    color: #005b9e;
-  }
 `;
