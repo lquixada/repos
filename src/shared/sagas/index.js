@@ -1,6 +1,9 @@
 import {call, put, take, all} from 'redux-saga/effects';
 
-import {REPOS_SUCCEEDED, REPOS_FAILED, REPOS_REQUESTED} from '../actions';
+import {
+  REPOS_SUCCEEDED, REPOS_FAILED, REPOS_REQUESTED,
+  CONTRIBUTORS_SUCCEEDED
+} from '../actions';
 import {fetchRepos, fetchContributors, totalContributorsDesc} from '../helpers';
 
 export default function* root() {
@@ -9,15 +12,16 @@ export default function* root() {
 
     try {
       const repos = yield call(fetchRepos);
-      const calls = repos.map((repo) => call(fetchContributors, repo.contributors_url));
-      const counts = yield all(calls);
+      const calls = repos.map((repo) => call(fetchContributors, repo.name));
+      const contributors = yield all(calls);
 
-      counts.forEach((count, i) => {
-        repos[i].contributors_count = count;
+      contributors.forEach((pair, i) => {
+        repos[i].contributors_count = pair[1];
       });
 
       repos.sort(totalContributorsDesc);
 
+      yield put({type: CONTRIBUTORS_SUCCEEDED, data: contributors});
       yield put({type: REPOS_SUCCEEDED, data: repos});
     } catch (error) {
       console.error(error);
