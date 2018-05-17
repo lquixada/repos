@@ -8,7 +8,7 @@ export const Link = ({to: repo}) => (
     <Icon />
     {repo.name}
     {' '}
-    ({repo.contributors_count})
+    (<Help title="number of contributors">{repo.contributors_count}</Help>)
   </Wrapper>
 );
 
@@ -41,3 +41,11 @@ const Wrapper = styled(NavLink).attrs({
     background-color: #f4f4f4;
   }
 `;
+
+const Help = styled.span`
+  color: #327fc7;
+  font-size: 1.1rem;
+  border-bottom: 1px dashed #327fc7;
+  cursor: help;
+`;
+
