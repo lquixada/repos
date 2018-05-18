@@ -1,9 +1,0 @@
-sudo: required
-language: node_js
-branches:
-  only:
-  # Only run on release tags (example: v1.0.1)
-  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
-script:
-- npm run -s test:lint
-- npm run -s test:jest
