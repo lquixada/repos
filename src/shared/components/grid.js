@@ -22,7 +22,7 @@ export const Aside = styled.aside`
 `;
 
 export const Content = styled.article`
-  width: 55rem;
+  max-width: 55rem;
   color: #666;
 `;
 
