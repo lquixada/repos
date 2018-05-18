@@ -11,7 +11,9 @@ export default function* root() {
     yield take(REPOS_REQUESTED);
 
     try {
-      const repos = yield call(fetchRepos);
+      let repos = yield call(fetchRepos);
+      // Restricting repos temporarily to prevent api rate limit
+      repos = [repos[0]];
       const calls = repos.map((repo) => call(fetchContributors, repo.name));
       const contributors = yield all(calls);
 
