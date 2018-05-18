@@ -61,7 +61,6 @@ module.exports = {
       ? new CleanWebpackPlugin(path.join(webPath, 'scripts'))
       : new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-      'src/public/images',
       'src/public/styles'
     ]),
     new AssetsPlugin({
