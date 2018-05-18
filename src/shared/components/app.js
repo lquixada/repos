@@ -8,14 +8,11 @@ import {Footer} from './footer';
 import {Title} from './title';
 import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
 
-export const App = ({onSubmit}) => (
+export const App = () => (
   <Main>
     <Header>
       <HeaderContainer>
         <Title />
-        <button onClick={onSubmit}>
-          Fetch repos
-        </button>
       </HeaderContainer>
     </Header>
 

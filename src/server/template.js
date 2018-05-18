@@ -1,6 +1,5 @@
 import pkg from '../../package.json';
 
-
 export default ({
   state, styleTags, content, assets, bundle
 }) => (`
