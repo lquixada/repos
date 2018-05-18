@@ -18,9 +18,9 @@ export const Summary = ({repo}) => (
     <Item>
       <Link href={issuesUrl(repo)}><Octicon name="issue-opened"/>{repo.open_issues_count} issues</Link>
     </Item>
-    <Item>
+    {repo.license && <Item>
       <NoLink><Octicon name="law"/>{repo.license.name}</NoLink>
-    </Item>
+    </Item>}
   </List>
 );
 
