@@ -4,11 +4,11 @@ import {withRouter} from 'react-router';
 import {Menu} from '../components/menu';
 import {totalContributorsDesc} from '../helpers';
 
-const mapStateToProps = ({contributors}) => ({
-  repos: Object.keys(contributors)
+const mapStateToProps = ({contributorsCount}) => ({
+  repos: Object.keys(contributorsCount)
     .map((key) => ({
       name: key,
-      contributors_count: contributors[key],
+      contributors_count: contributorsCount[key],
     }))
     .sort(totalContributorsDesc)
 });
