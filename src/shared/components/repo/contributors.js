@@ -13,7 +13,7 @@ export class Contributors extends React.Component {
     this.fetch();
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.repo.name !== this.props.repo.name) {
       this.fetch();
     }

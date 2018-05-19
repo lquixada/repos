@@ -20,7 +20,7 @@ const result = (state = [], action) => {
 };
 
 export default function contributors(state = {}, action) {
-  const {payload, type, error} = action;
+  const {payload, type} = action;
 
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
@@ -48,7 +48,7 @@ export default function contributors(state = {}, action) {
       return merge({}, state, {
         [payload.repoName]: {
           isLoading: false,
-          error,
+          error: payload.error,
         },
       });
 
