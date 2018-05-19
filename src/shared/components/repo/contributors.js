@@ -4,6 +4,11 @@ import styled from 'styled-components';
 import {flex} from '../../helpers';
 
 export class Contributors extends React.Component {
+  constructor(props) {
+    super(props);
+    this.fetchNext = this.fetchNext.bind(this);
+  }
+
   componentDidMount() {
     this.fetch();
   }
@@ -20,9 +25,18 @@ export class Contributors extends React.Component {
     }
   }
 
+  fetchNext() {
+    const {repo, contributors} = this.props;
+    this.props.fetchMoreContributors(repo.name, contributors.next);
+  }
+
   hasContributorsLoaded() {
     const {contributors} = this.props;
     return contributors && contributors.result && contributors.result.length !== 0;
+  }
+
+  hasMoreContributors() {
+    return !!this.props.contributors.next;
   }
 
   isLoading() {
@@ -41,27 +55,28 @@ export class Contributors extends React.Component {
   renderContent() {
     if (!this.hasContributorsLoaded()) {
       return (
-        <div>No content</div>
-      );
-    }
-
-    if (this.isLoading()) {
-      return (
-        <div>Loading</div>
+        <div>Loading...</div>
       );
     }
 
     return (
-      <List>
-        {this.props.contributors.result.map((contributor) =>
-          <Item key={contributor.login}>
-            <Link href={contributor.html_url}>
-              <Image src={contributor.avatar_url} />
-              <Text>{contributor.login}</Text>
-            </Link>
-          </Item>
-        )}
-      </List>
+      <div>
+        <List>
+          {this.props.contributors.result.map((contributor, i) =>
+            <Item key={contributor.login+i}>
+              <Link href={contributor.html_url}>
+                <Image src={contributor.avatar_url} />
+                <Text>{contributor.login}</Text>
+              </Link>
+            </Item>
+          )}
+        </List>
+        {this.hasMoreContributors() &&
+          <Button onClick={this.fetchNext}>
+            {this.isLoading()? 'Loading...' : 'More'}
+          </Button>
+        }
+      </div>
     );
   }
 }
@@ -116,4 +131,22 @@ const Text = styled.span`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+`;
+
+const Button = styled.button`
+  display: block;
+  width: 100%;
+  padding: .6rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0366d6;
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: .3rem;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: #f6f8fa;
+  }
 `;

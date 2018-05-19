@@ -1,12 +1,13 @@
-import {call, put, take} from 'redux-saga/effects';
+import {call, put, take, all} from 'redux-saga/effects';
 
 import {
-  CONTRIBUTORS_REQUESTED,
+  CONTRIBUTORS_REQUESTED, MORE_CONTRIBUTORS_REQUESTED,
+  fetchMoreContributorsSucceeded, fetchMoreContributorsFailed,
   fetchContributorsSucceeded, fetchContributorsFailed
 } from '../actions';
-import {fetchContributors} from '../helpers';
+import {fetchContributors, fetchMoreContributors} from '../helpers';
 
-export default function* watchContributors() {
+function* watchContributors() {
   while (true) {
     const action = yield take(CONTRIBUTORS_REQUESTED);
 
@@ -21,3 +22,27 @@ export default function* watchContributors() {
     }
   }
 }
+
+function* watchMoreContributors() {
+  while (true) {
+    const action = yield take(MORE_CONTRIBUTORS_REQUESTED);
+
+    try {
+      const {repoName, nextUrl} = action.payload;
+      const data = yield call(fetchMoreContributors, nextUrl);
+
+      yield put(fetchMoreContributorsSucceeded(repoName, data));
+    } catch (error) {
+      console.error(error);
+      yield put(fetchMoreContributorsFailed(repoName, error.stack));
+    }
+  }
+}
+
+export default function* rootContributorsSaga() {
+  yield all([
+    watchContributors(),
+    watchMoreContributors()
+  ]);
+}
+

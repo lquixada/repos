@@ -11,9 +11,9 @@ const result = (state = [], action) => {
 
   switch (type) {
     case CONTRIBUTORS_SUCCEEDED:
-      return payload.data;
+      return payload.data.result;
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return state.result.concat(payload.data);
+      return state.concat(payload.data.result);
     default:
       return state;
   }
@@ -36,7 +36,8 @@ export default function contributors(state = {}, action) {
     case MORE_CONTRIBUTORS_SUCCEEDED:
       return merge({}, state, {
         [payload.repoName]: {
-          result: result(state[payload.data], action),
+          result: result(state[payload.repoName].result, action),
+          next: payload.data.next,
           isLoading: false,
           error: null,
         },
