@@ -32,7 +32,7 @@ export class Repo extends React.Component {
   }
 
   render() {
-    const repo = this.props.repo;
+    const {repo} = this.props;
 
     if (!this.hasLoaded()) {
       return (

@@ -1,8 +1,10 @@
 import {call, put, take, all} from 'redux-saga/effects';
 
 import {
-  REPOS_SUCCEEDED, REPOS_FAILED, REPOS_REQUESTED,
-  CONTRIBUTORS_COUNT_SUCCEEDED
+  REPOS_REQUESTED,
+  fetchReposSucceeded,
+  fetchReposFailed,
+  fetchContributorsCountSucceeded
 } from '../actions';
 import {fetchRepos, fetchContributorsCount, totalContributorsDesc} from '../helpers';
 
@@ -24,11 +26,11 @@ export default function* watchRepos() {
 
       repos.sort(totalContributorsDesc);
 
-      yield put({type: CONTRIBUTORS_COUNT_SUCCEEDED, data: contributors});
-      yield put({type: REPOS_SUCCEEDED, data: repos});
+      yield put(fetchContributorsCountSucceeded(contributors));
+      yield put(fetchReposSucceeded(repos));
     } catch (error) {
       console.error(error);
-      yield put({type: REPOS_FAILED, error: error.stack});
+      yield put(fetchReposFailed(error.stack));
     }
   }
 }

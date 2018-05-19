@@ -8,9 +8,11 @@ const normalize = (counts) => {
 };
 
 export default function contributorsCount(state = {}, action) {
-  switch (action.type) {
+  const {payload, type} = action;
+
+  switch (type) {
     case CONTRIBUTORS_COUNT_SUCCEEDED:
-      return normalize(action.data);
+      return normalize(payload.data);
     default:
       return state;
   }

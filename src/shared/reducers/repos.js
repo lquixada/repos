@@ -8,9 +8,11 @@ const normalize = (repos) => {
 };
 
 export default function repos(state = {}, action) {
-  switch (action.type) {
+  const {payload, type} = action;
+
+  switch (type) {
     case REPOS_SUCCEEDED:
-      return normalize(action.data);
+      return normalize(payload.data);
     default:
       return state;
   }

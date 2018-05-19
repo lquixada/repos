@@ -46,7 +46,7 @@ export class Contributors extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Title>Contributors ({this.props.repo.contributors_count})</Title>
+        <Title>Contributors ({this.props.contributorsCount})</Title>
         {this.renderContent()}
       </Wrapper>
     );
