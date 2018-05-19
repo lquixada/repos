@@ -43,10 +43,15 @@ export class Contributors extends React.Component {
     return this.props.contributors.isLoading;
   }
 
+  getCount() {
+    const count = this.props;
+    return count? count[1] : 'error';
+  }
+
   render() {
     return (
       <Wrapper>
-        <Title>Contributors ({this.props.contributorsCount})</Title>
+        <Title>Contributors ({this.getCount()})</Title>
         {this.renderContent()}
       </Wrapper>
     );

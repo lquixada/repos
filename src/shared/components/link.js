@@ -3,12 +3,12 @@ import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
-export const Link = ({to: repo}) => (
-  <Wrapper to={`/r/${repo.name}`}>
+export const Link = ({repoName, contributorsCount}) => (
+  <Wrapper to={`/r/${repoName}`}>
     <Icon name="repo" />
-    {repo.name}
+    {repoName}
     {' '}
-    (<Help title="number of contributors">{repo.contributors_count}</Help>)
+    (<Help title="number of contributors">{contributorsCount}</Help>)
   </Wrapper>
 );
 

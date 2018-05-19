@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import {Link} from './link';
 
-export const Menu = ({repos}) => (
+export const Menu = ({reposContributorsCount}) => (
   <Wrapper>
     <List>
-      {repos.map((repo) => (
-        <Item key={repo.name}>
-          <Link to={repo} />
+      {reposContributorsCount.map(([repoName, contributorsCount]) => (
+        <Item key={repoName}>
+          <Link repoName={repoName} contributorsCount={contributorsCount} />
         </Item>
       ))}
     </List>

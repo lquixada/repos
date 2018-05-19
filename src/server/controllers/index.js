@@ -10,7 +10,7 @@ import assets from '../../public/assets.json';
 import template from '../template';
 import routes from '../../shared/routes';
 import configureStore from '../../shared/store';
-import {fetchRepos} from '../../shared/actions';
+import {fetchReposContributorsCount} from '../../shared/actions';
 
 export default (req, res) => {
   const matchs = matchRoutes(routes, req.url);
@@ -45,6 +45,6 @@ export default (req, res) => {
     }));
   });
 
-  store.dispatch(fetchRepos());
+  store.dispatch(fetchReposContributorsCount());
   store.dispatch(END);
 };

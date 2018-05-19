@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {Contributors} from '../../components/repo/contributors';
 import * as actions from '../../actions';
 
-const mapStateToProps = ({contributors, contributorsCount}, {repo}) => ({
-  contributorsCount: contributorsCount[repo.name],
+const mapStateToProps = ({contributors, reposContributorsCount}, {repo}) => ({
+  count: reposContributorsCount.find(([repoName]) => repoName === repo.name),
   contributors: contributors[repo.name]
 });
 
