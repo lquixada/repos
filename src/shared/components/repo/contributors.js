@@ -1,54 +1,67 @@
 import React from 'react';
 import styled from 'styled-components';
-import fetch from 'cross-fetch';
 
 import {flex} from '../../helpers';
-import config from '../../config';
 
 export class Contributors extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contributors: []
-    };
-  }
-
   componentDidMount() {
     this.fetch();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.repo.name !== this.props.repo.name) {
-      // Reset and fetch
-      this.setState({contributors: []}, () => this.fetch());
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.repo.name !== this.props.repo.name) {
+      this.fetch();
     }
   }
 
-  async fetch() {
-    const endpoint = config.endpoints.contributors;
-    const url = `${endpoint.replace('%{repo}', this.props.repo.name)}?page=1&per_page=40`;
-    const res = await fetch(url);
-    const contributors = await res.json();
+  fetch() {
+    if (!this.hasContributorsLoaded()) {
+      this.props.fetchContributors(this.props.repo.name);
+    }
+  }
 
-    this.setState({contributors});
+  hasContributorsLoaded() {
+    const {contributors} = this.props;
+    return contributors && contributors.result && contributors.result.length !== 0;
+  }
+
+  isLoading() {
+    return this.props.contributors.isLoading;
   }
 
   render() {
     return (
       <Wrapper>
         <Title>Contributors ({this.props.repo.contributors_count})</Title>
-
-        <List>
-          {this.state.contributors.map((contributor) =>
-            <Item key={contributor.login}>
-              <Link href={contributor.html_url}>
-                <Image src={contributor.avatar_url} />
-                <Text>{contributor.login}</Text>
-              </Link>
-            </Item>
-          )}
-        </List>
+        {this.renderContent()}
       </Wrapper>
+    );
+  }
+
+  renderContent() {
+    if (!this.hasContributorsLoaded()) {
+      return (
+        <div>No content</div>
+      );
+    }
+
+    if (this.isLoading()) {
+      return (
+        <div>Loading</div>
+      );
+    }
+
+    return (
+      <List>
+        {this.props.contributors.result.map((contributor) =>
+          <Item key={contributor.login}>
+            <Link href={contributor.html_url}>
+              <Image src={contributor.avatar_url} />
+              <Text>{contributor.login}</Text>
+            </Link>
+          </Item>
+        )}
+      </List>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Contributors} from './contributors';
+import Contributors from '../../containers/repo/contributors';
 import {Description} from './description';
 import {Header} from './header';
 import {Summary} from './summary';
