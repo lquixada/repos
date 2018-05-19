@@ -40,8 +40,8 @@ module.exports = {
   },
 
   performance: {
-    maxEntrypointSize: 450000,
-    maxAssetSize: 450000
+    maxEntrypointSize: 500000,
+    maxAssetSize: 500000
   },
 
   optimization: {
@@ -61,7 +61,10 @@ module.exports = {
       ? new CleanWebpackPlugin(path.join(webPath, 'scripts'))
       : new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-      'src/public/styles'
+      {
+        to: 'src/public/styles',
+        from: path.join(webPath, 'styles')
+      }
     ]),
     new AssetsPlugin({
       filename: 'assets.json',
