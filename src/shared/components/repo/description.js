@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Description = ({repo=null}) => (
-  <P>{repo.description}</P>
+export const Description = ({text}) => (
+  <P>{text}</P>
 );
 
 const P = styled.p`

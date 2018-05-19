@@ -42,10 +42,10 @@ export class Repo extends React.Component {
 
     return (
       <div>
-        <Header repo={repo.data} />
-        <Description repo={repo.data} />
+        <Header title={repo.data.name} url={repo.data.html_url} />
+        <Description text={repo.data.description} />
         <Summary repo={repo.data} />
-        <Contributors repo={repo.data} />
+        <Contributors repoName={repo.data.name} />
       </div>
     );
   }

@@ -5,11 +5,11 @@ import Octicon from 'react-component-octicons';
 import {Title} from './title';
 import {flex} from '../../helpers';
 
-export const Header = ({repo=null}) => (
+export const Header = ({title, url}) => (
   <Wrapper>
-    <Title>{repo.name}</Title>
+    <Title>{title}</Title>
 
-    <Link href={repo.html_url} target="_blank">
+    <Link href={url} target="_blank">
       <Octicon name="mark-github"/>
       <span>Github</span>
     </Link>

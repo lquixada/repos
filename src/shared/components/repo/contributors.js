@@ -14,20 +14,20 @@ export class Contributors extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.repo.name !== this.props.repo.name) {
+    if (prevProps.repoName !== this.props.repoName) {
       this.fetch();
     }
   }
 
   fetch() {
     if (!this.hasContributorsLoaded()) {
-      this.props.fetchContributors(this.props.repo.name);
+      this.props.fetchContributors(this.props.repoName);
     }
   }
 
   fetchNext() {
-    const {repo, contributors} = this.props;
-    this.props.fetchMoreContributors(repo.name, contributors.next);
+    const {repoName, contributors} = this.props;
+    this.props.fetchMoreContributors(repoName, contributors.next);
   }
 
   hasContributorsLoaded() {
