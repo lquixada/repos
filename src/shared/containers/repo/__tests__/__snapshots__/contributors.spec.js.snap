@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContributorsContainer /> renders Contributors component 1`] = `
+<Contributors
+  data={
+    Array [
+      Object {
+        "id": 1,
+        "login": "lquixada1",
+      },
+      Object {
+        "id": 2,
+        "login": "lquixada2",
+      },
+    ]
+  }
+  hasLoaded={true}
+  hasMore={true}
+  isLoadingMore={false}
+  onNext={[Function]}
+  total={2}
+/>
+`;
+
+exports[`<ContributorsContainer /> renders loading Contributors component 1`] = `
+<Contributors
+  data={
+    Array [
+      Object {
+        "id": 1,
+        "login": "lquixada1",
+      },
+      Object {
+        "id": 2,
+        "login": "lquixada2",
+      },
+    ]
+  }
+  hasLoaded={true}
+  hasMore={true}
+  isLoadingMore={true}
+  onNext={[Function]}
+  total={2}
+/>
+`;
+
+exports[`<ContributorsContainer /> renders the end of Contributors component 1`] = `
+<Contributors
+  data={
+    Array [
+      Object {
+        "id": 1,
+        "login": "lquixada1",
+      },
+      Object {
+        "id": 2,
+        "login": "lquixada2",
+      },
+    ]
+  }
+  hasLoaded={true}
+  hasMore={false}
+  isLoadingMore={false}
+  onNext={[Function]}
+  total={2}
+/>
+`;
