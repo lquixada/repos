@@ -9,7 +9,7 @@ export const extractTotal = (header) => {
 };
 
 export const fetchContributorsCount = async (repoName) => {
-  const url = config.endpoints.contributors.replace('%{repo}', repoName);
+  const url = config.endpoints.contributors.replace(':repo', repoName);
   const res = await fetch(`${url}?page=1&per_page=1`);
   return extractTotal(res.headers.get('Link'));
 };

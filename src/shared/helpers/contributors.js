@@ -10,7 +10,7 @@ export const extractNext = (header) => {
 
 export const fetchContributors = async (repoName) => {
   const endpoint = config.endpoints.contributors;
-  const url = `${endpoint.replace('%{repo}', repoName)}?page=1&per_page=40`;
+  const url = `${endpoint.replace(':repo', repoName)}?page=1&per_page=40`;
   const res = await fetch(url);
   const linkHeader = res.headers.get('Link');
   const next = linkHeader && extractNext(linkHeader);
