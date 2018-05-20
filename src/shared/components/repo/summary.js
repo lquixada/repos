@@ -2,21 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
-import {flex, issuesUrl, forksUrl, watchersUrl, stargazersUrl} from '../../helpers';
+import {flex, issuesUrl, forksUrl, watchersUrl, stargazersUrl, addSeparator} from '../../helpers';
 
 export const Summary = ({repo}) => (
   <List>
     <Item>
-      <Link href={stargazersUrl(repo)}><Octicon name="star"/>{repo.stargazers_count} stars</Link>
+      <Link href={stargazersUrl(repo)}><Octicon name="star"/>{addSeparator(repo.stargazers_count)} stars</Link>
     </Item>
     <Item>
-      <Link href={watchersUrl(repo)}><Octicon name="eye"/>{repo.subscribers_count} watchers</Link>
+      <Link href={watchersUrl(repo)}><Octicon name="eye"/>{addSeparator(repo.subscribers_count)} watchers</Link>
     </Item>
     <Item>
-      <Link href={forksUrl(repo)}><Octicon name="repo-forked"/>{repo.forks_count} forks</Link>
+      <Link href={forksUrl(repo)}><Octicon name="repo-forked"/>{addSeparator(repo.forks_count)} forks</Link>
     </Item>
     <Item>
-      <Link href={issuesUrl(repo)}><Octicon name="issue-opened"/>{repo.open_issues_count} issues</Link>
+      <Link href={issuesUrl(repo)}><Octicon name="issue-opened"/>{addSeparator(repo.open_issues_count)} issues</Link>
     </Item>
     {repo.license && <Item>
       <NoLink><Octicon name="law"/>{repo.license.name}</NoLink>
