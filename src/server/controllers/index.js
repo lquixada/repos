@@ -14,6 +14,7 @@ import {fetchReposContributorsCount} from '../../shared/actions';
 
 export default (req, res) => {
   const matchs = matchRoutes(routes, req.url);
+  const {ssr} = req.query;
 
   if (matchs.length === 0) {
     return res.status(404).end('Not found');
@@ -24,7 +25,7 @@ export default (req, res) => {
 
   store.runnedSagas.toPromise().then(() => {
     const sheet = new ServerStyleSheet();
-    const content = renderToString(
+    const content = ssr==='false'? '' : renderToString(
       /* Provides sheet to styled-components */
       <StyleSheetManager sheet={sheet.instance}>
         {/* Provides store to containers */}
