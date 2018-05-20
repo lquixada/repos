@@ -6,7 +6,7 @@ import {
 } from '../actions';
 import {fetchRepo} from '../helpers';
 
-function* loadRepo(repoName) {
+export function* loadRepo(repoName) {
   try {
     const data = yield call(fetchRepo, repoName);
     yield put(fetchRepoSucceeded(repoName, data));

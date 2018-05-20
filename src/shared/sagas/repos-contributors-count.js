@@ -9,7 +9,7 @@ import {
 import {fetchRepos, fetchContributorsCount} from '../helpers';
 
 
-function* loadReposContributorsCount() {
+export function* loadReposContributorsCount() {
   try {
     let repos = yield call(fetchRepos);
     // Restricting repos temporarily to prevent api rate limit
@@ -33,6 +33,7 @@ function* loadReposContributorsCount() {
 export default function* watchReposContributorsCount() {
   while (true) {
     yield take(REPOS_CONTRIBUTORS_COUNT_REQUESTED);
+
     yield fork(loadReposContributorsCount);
   }
 }

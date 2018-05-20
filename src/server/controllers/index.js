@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
@@ -10,7 +11,6 @@ import assets from '../../public/assets.json';
 import template from '../template';
 import routes from '../../shared/routes';
 import configureStore from '../../shared/store';
-import {fetchReposContributorsCount} from '../../shared/actions';
 
 export default (req, res) => {
   const matchs = matchRoutes(routes, req.url);
@@ -21,7 +21,8 @@ export default (req, res) => {
   }
 
   const store = configureStore();
-  const [{route}] = matchs;
+  const [{match, route}] = matchs;
+  const {params} = match;
 
   store.runnedSagas.toPromise().then(() => {
     const sheet = new ServerStyleSheet();
@@ -46,6 +47,6 @@ export default (req, res) => {
     }));
   });
 
-  store.dispatch(fetchReposContributorsCount());
+  store.dispatch(route.initialLoad(params));
   store.dispatch(END);
 };

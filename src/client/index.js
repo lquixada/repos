@@ -17,7 +17,9 @@ const renderApp = () => {
   ReactDOM.hydrate(
     <AppContainer>
       <Provider store={store}>
-        <ConnectedRouter history={history} children={renderRoutes(routes)} />
+        <ConnectedRouter history={history}>
+          {renderRoutes(routes)}
+        </ConnectedRouter>
       </Provider>
     </AppContainer>
     , document.getElementById('app')
