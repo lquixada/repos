@@ -1,6 +1,6 @@
 import {REPO_SUCCEEDED, REPO_FAILED, REPO_REQUESTED} from '../actions';
 
-export default function repo(state = {}, action) {
+export default function repo(state = {}, action = {}) {
   const {payload, type} = action;
 
   switch (type) {

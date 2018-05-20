@@ -22,7 +22,7 @@ export const fetchContributorsSucceeded = (repoName, data) => ({
 });
 
 export const fetchContributorsFailed = (repoName, error) => ({
-  type: CONTRIBUTORS_REQUESTED,
+  type: CONTRIBUTORS_FAILED,
   payload: {
     repoName,
     error
@@ -46,7 +46,7 @@ export const fetchMoreContributorsSucceeded = (repoName, data) => ({
 });
 
 export const fetchMoreContributorsFailed = (repoName, error) => ({
-  type: MORE_CONTRIBUTORS_REQUESTED,
+  type: MORE_CONTRIBUTORS_FAILED,
   payload: {
     repoName,
     error

@@ -1,6 +1,6 @@
 import {REPOS_CONTRIBUTORS_COUNT_SUCCEEDED} from '../actions';
 
-export default function reposContributorsCount(state = [], action) {
+export default function reposContributorsCount(state = [], action = {}) {
   const {payload, type} = action;
 
   switch (type) {

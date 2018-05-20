@@ -17,7 +17,7 @@ const data = (state = [], action) => {
   }
 };
 
-export default function contributors(state = {}, action) {
+export default function contributors(state = {}, action = {}) {
   const {payload, type} = action;
 
   switch (type) {
