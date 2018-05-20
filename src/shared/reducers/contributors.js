@@ -4,7 +4,7 @@ import {
   MORE_CONTRIBUTORS_SUCCEEDED, MORE_CONTRIBUTORS_FAILED, MORE_CONTRIBUTORS_REQUESTED
 } from '../actions';
 
-const result = (state = [], action) => {
+const data = (state = [], action) => {
   const {payload, type} = action;
 
   switch (type) {
@@ -34,7 +34,7 @@ export default function contributors(state = {}, action) {
     case MORE_CONTRIBUTORS_SUCCEEDED:
       return Object.assign({}, state, {
         [payload.repoName]: {
-          result: result(state[payload.repoName].result, action),
+          data: data(state[payload.repoName].data, action),
           next: payload.data.next,
           isLoading: false,
           error: null,

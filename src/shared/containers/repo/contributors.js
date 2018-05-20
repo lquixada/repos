@@ -33,7 +33,7 @@ export class ContributorsContainer extends React.Component {
 
   hasLoaded() {
     const {contributors} = this.props;
-    return contributors && contributors.result && contributors.result.length !== 0;
+    return contributors && contributors.data && contributors.data.length !== 0;
   }
 
   hasMore() {
@@ -57,7 +57,7 @@ export class ContributorsContainer extends React.Component {
     return (
       <Contributors
         total={this.getCount()}
-        data={this.props.contributors.result}
+        data={this.props.contributors.data}
         isLoadingMore={this.isLoading()}
         hasLoaded={this.hasLoaded()}
         hasMore={this.hasMore()}
