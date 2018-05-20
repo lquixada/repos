@@ -6,7 +6,7 @@ import {
   fetchReposContributorsCountSucceeded,
   fetchReposContributorsCountFailed
 } from '../actions';
-import {fetchRepos, fetchContributorsCount, totalContributorsDesc} from '../helpers';
+import {fetchRepos, fetchContributorsCount} from '../helpers';
 
 export default function* watchReposContributorsCount() {
   while (true) {
@@ -16,10 +16,13 @@ export default function* watchReposContributorsCount() {
       let repos = yield call(fetchRepos);
       // Restricting repos temporarily to prevent api rate limit
       repos = repos.slice(0, 3).map((repo) => repo.name);
+
       const calls = repos.map((repoName) => call(fetchContributorsCount, repoName));
-      const contributorsCount = yield all(calls);
-      const data = repos.map((repoName, i) => [repoName, contributorsCount[i]]);
-      data.sort(totalContributorsDesc);
+      const counts = yield all(calls);
+
+      const data = repos
+        .map((repoName, i) => [repoName, counts[i]])
+        .sort((a, b) => b[1] - a[1]);
 
       yield put(fetchReposContributorsCountSucceeded(data));
     } catch (error) {

@@ -2,8 +2,6 @@ import fetch from 'cross-fetch';
 
 import config from '../config';
 
-export const totalContributorsDesc = (a, b) => b[1] - a[1];
-
 export const extractTotal = (header) => {
   const [, last] = header.split(',');
   const match = last.match(/page=(.*)&/);
