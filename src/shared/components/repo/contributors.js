@@ -3,88 +3,36 @@ import styled from 'styled-components';
 
 import {flex} from '../../helpers';
 
-export class Contributors extends React.Component {
-  constructor(props) {
-    super(props);
-    this.fetchNext = this.fetchNext.bind(this);
-  }
+export const Contributors = (props) => (
+  <Wrapper>
+    <Title>Contributors ({props.total})</Title>
+    {!props.hasLoaded? <Loading /> : <Content {...props} />}
+  </Wrapper>
+);
 
-  componentDidMount() {
-    this.fetch();
-  }
+const Loading = () => (
+  <div>Loading...</div>
+);
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.repoName !== this.props.repoName) {
-      this.fetch();
+const Content = ({data, hasMore, isLoadingMore, onNext}) => (
+  <div>
+    <List>
+      {data.map((contributor, i) =>
+        <Item key={contributor.login+i}>
+          <Link href={contributor.html_url}>
+            <Image src={contributor.avatar_url} />
+            <Text>{contributor.login}</Text>
+          </Link>
+        </Item>
+      )}
+    </List>
+    {hasMore &&
+      <Button onClick={onNext}>
+        {isLoadingMore? 'Loading...' : 'More'}
+      </Button>
     }
-  }
-
-  fetch() {
-    if (!this.hasContributorsLoaded()) {
-      this.props.fetchContributors(this.props.repoName);
-    }
-  }
-
-  fetchNext() {
-    const {repoName, contributors} = this.props;
-    this.props.fetchMoreContributors(repoName, contributors.next);
-  }
-
-  hasContributorsLoaded() {
-    const {contributors} = this.props;
-    return contributors && contributors.result && contributors.result.length !== 0;
-  }
-
-  hasMoreContributors() {
-    return !!this.props.contributors.next;
-  }
-
-  isLoading() {
-    return this.props.contributors.isLoading;
-  }
-
-  getCount() {
-    const {count} = this.props;
-    return count? count[1] : 'error';
-  }
-
-  render() {
-    return (
-      <Wrapper>
-        <Title>Contributors ({this.getCount()})</Title>
-        {this.renderContent()}
-      </Wrapper>
-    );
-  }
-
-  renderContent() {
-    if (!this.hasContributorsLoaded()) {
-      return (
-        <div>Loading...</div>
-      );
-    }
-
-    return (
-      <div>
-        <List>
-          {this.props.contributors.result.map((contributor, i) =>
-            <Item key={contributor.login+i}>
-              <Link href={contributor.html_url}>
-                <Image src={contributor.avatar_url} />
-                <Text>{contributor.login}</Text>
-              </Link>
-            </Item>
-          )}
-        </List>
-        {this.hasMoreContributors() &&
-          <Button onClick={this.fetchNext}>
-            {this.isLoading()? 'Loading...' : 'More'}
-          </Button>
-        }
-      </div>
-    );
-  }
-}
+  </div>
+);
 
 const Wrapper = styled.div`
   margin: 2rem 0;
