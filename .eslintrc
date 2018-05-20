@@ -15,7 +15,11 @@
     }
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
   },
   "rules": {
     "block-scoped-var": "off",
@@ -62,7 +66,6 @@
     "no-proto": "off",
     "no-script-url": "off",
     "no-shadow": "off",
-    "no-undef": "off",
     "no-underscore-dangle": "off",
     "no-unused-expressions": "off",
     "no-use-before-define": "off",

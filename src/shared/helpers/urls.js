@@ -1,10 +1,10 @@
 
-export const githubUrl = (repo, resource) => `https://github.com/facebook/${repo.name}/${resource}`;
+export const githubUrl = (repoName, resource) => `https://github.com/facebook/${repoName}/${resource}`;
 
-export const issuesUrl = (repo) => githubUrl(repo, 'issues');
+export const issuesUrl = (repoName) => githubUrl(repoName, 'issues');
 
-export const forksUrl = (repo) => githubUrl(repo, 'network');
+export const forksUrl = (repoName) => githubUrl(repoName, 'network');
 
-export const stargazersUrl = (repo) => githubUrl(repo, 'stargazers');
+export const stargazersUrl = (repoName) => githubUrl(repoName, 'stargazers');
 
-export const watchersUrl = (repo) => githubUrl(repo, 'watchers');
+export const watchersUrl = (repoName) => githubUrl(repoName, 'watchers');

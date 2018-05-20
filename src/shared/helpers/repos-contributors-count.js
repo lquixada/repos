@@ -3,9 +3,9 @@ import fetch from 'cross-fetch';
 import config from '../config';
 
 export const extractTotal = (header) => {
-  const [, last] = header.split(',');
-  const match = last.match(/page=(.*)&/);
-  return parseInt(match[1], 10);
+  header = header || '';
+  const match = header.match(/<.*?[&?]page=(.*?)&?>; rel="last"/);
+  return match? parseInt(match[1], 10) : 0;
 };
 
 export const fetchContributorsCount = async (repoName) => {

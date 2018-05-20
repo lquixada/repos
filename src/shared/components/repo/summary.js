@@ -7,16 +7,24 @@ import {flex, issuesUrl, forksUrl, watchersUrl, stargazersUrl, addSeparator} fro
 export const Summary = ({repo}) => (
   <List>
     <Item>
-      <Link href={stargazersUrl(repo)}><Octicon name="star"/>{addSeparator(repo.stargazers_count)} stars</Link>
+      <Link href={stargazersUrl(repo.name)}>
+        <Octicon name="star"/>{addSeparator(repo.stargazers_count)} stars
+      </Link>
     </Item>
     <Item>
-      <Link href={watchersUrl(repo)}><Octicon name="eye"/>{addSeparator(repo.subscribers_count)} watchers</Link>
+      <Link href={watchersUrl(repo.name)}>
+        <Octicon name="eye"/>{addSeparator(repo.subscribers_count)} watchers
+      </Link>
     </Item>
     <Item>
-      <Link href={forksUrl(repo)}><Octicon name="repo-forked"/>{addSeparator(repo.forks_count)} forks</Link>
+      <Link href={forksUrl(repo.name)}>
+        <Octicon name="repo-forked"/>{addSeparator(repo.forks_count)} forks
+      </Link>
     </Item>
     <Item>
-      <Link href={issuesUrl(repo)}><Octicon name="issue-opened"/>{addSeparator(repo.open_issues_count)} issues</Link>
+      <Link href={issuesUrl(repo.name)}>
+        <Octicon name="issue-opened"/>{addSeparator(repo.open_issues_count)} issues
+      </Link>
     </Item>
     {repo.license && <Item>
       <NoLink><Octicon name="law"/>{repo.license.name}</NoLink>

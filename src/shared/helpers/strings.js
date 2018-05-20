@@ -1,4 +1,8 @@
 export function addSeparator(num) {
+  if (typeof num !== 'string' && typeof num !== 'number') {
+    return '0';
+  }
+
   let str = num+'';
   let reversed = str.split('').reverse().join('');
   let separated = reversed.replace(/(\d{3})/g, '$1.');
