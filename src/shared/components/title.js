@@ -3,27 +3,20 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Title = () => (
-  <Wrapper>
+  <h1>
     <NavLink to="/">
-      <Strong>Facebook</Strong> Repos
+      <Image src="/images/logo.jpg" />
     </NavLink>
-  </Wrapper>
+  </h1>
 );
 
-const Wrapper = styled.h1`
-  color: #fff;
-  opacity: .9;
-  font-size: 3rem;
-  font-weight: normal;
-  letter-spacing: -2px;
-`;
-
-const Strong = styled.strong`
-  font-weight: normal;
-`;
-
 const NavLink = styled(Link)`
-  color: inherit;
-  font-weight: 100;
+  display: inline-block;
+  font-size: 1rem;
   text-decoration: none;
+`;
+
+const Image = styled.img`
+  height: 4.5rem;
+  vertical-align: middle;
 `;

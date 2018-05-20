@@ -37,7 +37,7 @@ export const Header = styled.header`
   ${flex.display()}
   ${flex.left()}
   ${flex('none')}
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   background-color: #3c4146;
 `;
 

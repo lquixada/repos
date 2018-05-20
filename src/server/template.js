@@ -13,6 +13,7 @@ export default ({
       <meta name="version" content="${pkg.version}">
       <title>Facebook Repos</title>
 
+      <link rel="shortcut icon" href="/images/favicon.ico" />
       <link href="${assets.app.css}" rel="stylesheet" />
       ${styleTags}
       <script>
