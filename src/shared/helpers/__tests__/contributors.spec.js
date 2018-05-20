@@ -39,10 +39,7 @@ describe('Helpers (Contributors)', () => {
           'Link': '<http://facebook-repos/?page=2>; rel="next", '
         })
         .get('/repos/facebook/some-repo/contributors')
-        .query({
-          page: 1,
-          per_page: 40,
-        })
+        .query(true)
         .reply(200, contributors);
     });
 
@@ -79,6 +76,7 @@ describe('Helpers (Contributors)', () => {
           'Link': '<http://facebook-repos/?page=2>; rel="next", '
         })
         .get('/')
+        .query(true)
         .reply(200, contributors);
     });
 

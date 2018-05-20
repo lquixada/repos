@@ -16,6 +16,7 @@ describe('Helpers (Repo)', () => {
 
       nock('https://api.github.com')
         .get('/repos/facebook/some-repo')
+        .query(true)
         .reply(200, data);
 
       const result = await fetchRepo('some-repo');

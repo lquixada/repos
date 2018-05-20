@@ -37,6 +37,7 @@ describe('Helpers (ReposContributorsCount)', () => {
 
       nock('https://api.github.com')
         .get('/orgs/facebook/repos')
+        .query(true)
         .reply(200, repos);
     });
 
@@ -57,10 +58,7 @@ describe('Helpers (ReposContributorsCount)', () => {
           'Link': '<http://facebook-repos/?page=5>; rel="last", '
         })
         .get('/repos/facebook/some-repo/contributors')
-        .query({
-          page: 1,
-          per_page: 1,
-        })
+        .query(true)
         .reply(200);
     });
 

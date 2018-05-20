@@ -1,5 +1,4 @@
-import fetch from 'cross-fetch';
-
+import fetch from './fetch';
 import config from '../config';
 
 export const fetchRepo = async (repoName) => {
