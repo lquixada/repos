@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> matches the snapshot 1`] = `
+<Footer>
+  <styled.footer>
+    <footer
+      className="sc-bdVaJa kXnLAJ"
+    >
+      <styled.a
+        href="https://facebook.com/lquixada/"
+      >
+        <a
+          className="sc-bwzfXH LlvFc"
+          href="https://facebook.com/lquixada/"
+        >
+          Facebook
+        </a>
+      </styled.a>
+       
+      |
+       
+      <styled.a
+        href="https://github.com/lquixada/"
+      >
+        <a
+          className="sc-bwzfXH LlvFc"
+          href="https://github.com/lquixada/"
+        >
+          Github
+        </a>
+      </styled.a>
+       
+      |
+       
+      <styled.a
+        href="https://twitter.com/lquixada/"
+      >
+        <a
+          className="sc-bwzfXH LlvFc"
+          href="https://twitter.com/lquixada/"
+        >
+          Twitter
+        </a>
+      </styled.a>
+      <br />
+      © Copyright 2016 Leonardo Quixadá. All rights reserved.
+    </footer>
+  </styled.footer>
+</Footer>
+`;

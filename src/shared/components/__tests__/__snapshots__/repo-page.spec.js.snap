@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RepoPage /> matches the snapshot 1`] = `
+<styled.main>
+  <styled.header>
+    <styled.div>
+      <Title />
+    </styled.div>
+  </styled.header>
+  <styled.section>
+    <styled.div>
+      <styled.aside>
+        <withRouter(Connect(Menu)) />
+        <Footer />
+      </styled.aside>
+      <styled.article>
+        <Route
+          component={[Function]}
+          path="/r/:repo"
+        />
+      </styled.article>
+    </styled.div>
+  </styled.section>
+</styled.main>
+`;

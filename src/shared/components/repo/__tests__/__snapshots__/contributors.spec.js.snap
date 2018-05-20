@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Contributors /> list contributors 1`] = `
+<Contributors
+  data={
+    Array [
+      Object {
+        "avatar": "https://avatars1/",
+        "html_url": "https://lquixada1/\\",",
+        "login": "lquixada1",
+      },
+      Object {
+        "avatar": "https://avatars2/",
+        "html_url": "https://lquixada2/\\",",
+        "login": "lquixada2",
+      },
+      Object {
+        "avatar": "https://avatars3/",
+        "html_url": "https://lquixada3/\\",",
+        "login": "lquixada3",
+      },
+    ]
+  }
+  hasLoaded={true}
+  hasMore={true}
+  isLoadingMore={false}
+  onNext={[Function]}
+  total={3}
+>
+  <styled.div>
+    <div
+      className="sc-bdVaJa LrVZr"
+    >
+      <styled.h3>
+        <h3
+          className="sc-bwzfXH iAozsW"
+        >
+          Contributors (
+          3
+          )
+        </h3>
+      </styled.h3>
+      <Content
+        data={
+          Array [
+            Object {
+              "avatar": "https://avatars1/",
+              "html_url": "https://lquixada1/\\",",
+              "login": "lquixada1",
+            },
+            Object {
+              "avatar": "https://avatars2/",
+              "html_url": "https://lquixada2/\\",",
+              "login": "lquixada2",
+            },
+            Object {
+              "avatar": "https://avatars3/",
+              "html_url": "https://lquixada3/\\",",
+              "login": "lquixada3",
+            },
+          ]
+        }
+        hasLoaded={true}
+        hasMore={true}
+        isLoadingMore={false}
+        onNext={[Function]}
+        total={3}
+      >
+        <div>
+          <styled.ul>
+            <ul
+              className="sc-htpNat hppgGZ"
+            >
+              <styled.li
+                key="lquixada10"
+              >
+                <li
+                  className="sc-bxivhb eEjJeP"
+                >
+                  <styled.a
+                    href="https://lquixada1/\\","
+                  >
+                    <a
+                      className="sc-ifAKCX ibOcjp"
+                      href="https://lquixada1/\\","
+                    >
+                      <styled.img>
+                        <img
+                          className="sc-EHOje dcMEop"
+                        />
+                      </styled.img>
+                      <styled.span>
+                        <span
+                          className="sc-bZQynM fGQOqI"
+                        >
+                          lquixada1
+                        </span>
+                      </styled.span>
+                    </a>
+                  </styled.a>
+                </li>
+              </styled.li>
+              <styled.li
+                key="lquixada21"
+              >
+                <li
+                  className="sc-bxivhb eEjJeP"
+                >
+                  <styled.a
+                    href="https://lquixada2/\\","
+                  >
+                    <a
+                      className="sc-ifAKCX ibOcjp"
+                      href="https://lquixada2/\\","
+                    >
+                      <styled.img>
+                        <img
+                          className="sc-EHOje dcMEop"
+                        />
+                      </styled.img>
+                      <styled.span>
+                        <span
+                          className="sc-bZQynM fGQOqI"
+                        >
+                          lquixada2
+                        </span>
+                      </styled.span>
+                    </a>
+                  </styled.a>
+                </li>
+              </styled.li>
+              <styled.li
+                key="lquixada32"
+              >
+                <li
+                  className="sc-bxivhb eEjJeP"
+                >
+                  <styled.a
+                    href="https://lquixada3/\\","
+                  >
+                    <a
+                      className="sc-ifAKCX ibOcjp"
+                      href="https://lquixada3/\\","
+                    >
+                      <styled.img>
+                        <img
+                          className="sc-EHOje dcMEop"
+                        />
+                      </styled.img>
+                      <styled.span>
+                        <span
+                          className="sc-bZQynM fGQOqI"
+                        >
+                          lquixada3
+                        </span>
+                      </styled.span>
+                    </a>
+                  </styled.a>
+                </li>
+              </styled.li>
+            </ul>
+          </styled.ul>
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="sc-gzVnrw kKiVFV"
+              onClick={[Function]}
+            >
+              More
+            </button>
+          </styled.button>
+        </div>
+      </Content>
+    </div>
+  </styled.div>
+</Contributors>
+`;
+
+exports[`<Contributors /> show button Loading 1`] = `
+<Contributors
+  data={Array []}
+  hasLoaded={true}
+  hasMore={true}
+  isLoadingMore={false}
+  onNext={[Function]}
+  total={3}
+>
+  <styled.div>
+    <div
+      className="sc-bdVaJa LrVZr"
+    >
+      <styled.h3>
+        <h3
+          className="sc-bwzfXH iAozsW"
+        >
+          Contributors (
+          3
+          )
+        </h3>
+      </styled.h3>
+      <Content
+        data={Array []}
+        hasLoaded={true}
+        hasMore={true}
+        isLoadingMore={false}
+        onNext={[Function]}
+        total={3}
+      >
+        <div>
+          <styled.ul>
+            <ul
+              className="sc-htpNat hppgGZ"
+            />
+          </styled.ul>
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="sc-gzVnrw kKiVFV"
+              onClick={[Function]}
+            >
+              More
+            </button>
+          </styled.button>
+        </div>
+      </Content>
+    </div>
+  </styled.div>
+</Contributors>
+`;
+
+exports[`<Contributors /> show button More 1`] = `
+<Contributors
+  data={Array []}
+  hasLoaded={true}
+  hasMore={true}
+  isLoadingMore={false}
+  onNext={[Function]}
+  total={3}
+>
+  <styled.div>
+    <div
+      className="sc-bdVaJa LrVZr"
+    >
+      <styled.h3>
+        <h3
+          className="sc-bwzfXH iAozsW"
+        >
+          Contributors (
+          3
+          )
+        </h3>
+      </styled.h3>
+      <Content
+        data={Array []}
+        hasLoaded={true}
+        hasMore={true}
+        isLoadingMore={false}
+        onNext={[Function]}
+        total={3}
+      >
+        <div>
+          <styled.ul>
+            <ul
+              className="sc-htpNat hppgGZ"
+            />
+          </styled.ul>
+          <styled.button
+            onClick={[Function]}
+          >
+            <button
+              className="sc-gzVnrw kKiVFV"
+              onClick={[Function]}
+            >
+              More
+            </button>
+          </styled.button>
+        </div>
+      </Content>
+    </div>
+  </styled.div>
+</Contributors>
+`;
+
+exports[`<Contributors /> shows loading 1`] = `
+<Contributors
+  hasLoaded={false}
+  total={3}
+>
+  <styled.div>
+    <div
+      className="sc-bdVaJa LrVZr"
+    >
+      <styled.h3>
+        <h3
+          className="sc-bwzfXH iAozsW"
+        >
+          Contributors (
+          3
+          )
+        </h3>
+      </styled.h3>
+      <Loading>
+        <div>
+          Loading...
+        </div>
+      </Loading>
+    </div>
+  </styled.div>
+</Contributors>
+`;

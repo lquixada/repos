@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> matches the snapshot 1`] = `
+<Styled(NavLink)
+  to="/r/Facebook Repos"
+>
+  <Styled(Octicon)
+    name="repo"
+  />
+  Facebook Repos
+   
+  (
+  <styled.span
+    title="number of contributors"
+  >
+    10
+  </styled.span>
+  )
+</Styled(NavLink)>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> matches the snapshot 1`] = `
+<styled.main>
+  <styled.header>
+    <styled.div>
+      <Title />
+    </styled.div>
+  </styled.header>
+  <styled.section>
+    <styled.div>
+      <styled.aside>
+        <withRouter(Connect(Menu)) />
+        <Footer />
+      </styled.aside>
+      <styled.article>
+        <p>
+          Choose a repo on the menu.
+        </p>
+      </styled.article>
+    </styled.div>
+  </styled.section>
+</styled.main>
+`;

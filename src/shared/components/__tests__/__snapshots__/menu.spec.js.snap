@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> matches the snapshot 1`] = `
+<styled.div>
+  <styled.ul>
+    <styled.li
+      key="repo1"
+    >
+      <Link
+        contributorsCount={2}
+        repoName="repo1"
+      />
+    </styled.li>
+    <styled.li
+      key="repo2"
+    >
+      <Link
+        contributorsCount={5}
+        repoName="repo2"
+      />
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

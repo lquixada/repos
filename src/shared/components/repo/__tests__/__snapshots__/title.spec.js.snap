@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> matches the snapshot 1`] = `
+<Title>
+  <styled.h2>
+    <h2
+      className="sc-bdVaJa gxIwaj"
+    >
+      Facebook Repos
+    </h2>
+  </styled.h2>
+</Title>
+`;
