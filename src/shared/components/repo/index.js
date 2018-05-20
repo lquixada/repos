@@ -6,10 +6,6 @@ import {Header} from './header';
 import {Summary} from './summary';
 
 export class Repo extends React.Component {
-  componentDidMount() {
-    this.fetch();
-  }
-
   componentDidUpdate(prevProps) {
     if (this.hasChanged(prevProps)) {
       this.fetch();

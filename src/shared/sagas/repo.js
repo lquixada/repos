@@ -1,4 +1,4 @@
-import {call, put, take} from 'redux-saga/effects';
+import {call, put, take, fork} from 'redux-saga/effects';
 
 import {
   REPO_REQUESTED,
@@ -6,17 +6,20 @@ import {
 } from '../actions';
 import {fetchRepo} from '../helpers';
 
+function* loadRepo(repoName) {
+  try {
+    const data = yield call(fetchRepo, repoName);
+    yield put(fetchRepoSucceeded(repoName, data));
+  } catch (error) {
+    console.error(error);
+    yield put(fetchRepoFailed(repoName, error.stack));
+  }
+}
+
 export default function* watchRepo() {
   while (true) {
-    const action = yield take(REPO_REQUESTED);
+    const {payload} = yield take(REPO_REQUESTED);
 
-    try {
-      const {repoName} = action.payload;
-      const data = yield call(fetchRepo, repoName);
-      yield put(fetchRepoSucceeded(repoName, data));
-    } catch (error) {
-      console.error(error);
-      yield put(fetchRepoFailed(repoName, error.stack));
-    }
+    yield fork(loadRepo, payload.repoName);
   }
 }

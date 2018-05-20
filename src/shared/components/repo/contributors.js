@@ -49,7 +49,6 @@ export class Contributors extends React.Component {
   }
 
   render() {
-    console.log(this.getCount());
     return (
       <Wrapper>
         <Title>Contributors ({this.getCount()})</Title>
