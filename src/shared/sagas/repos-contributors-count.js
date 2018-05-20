@@ -8,6 +8,7 @@ import {
 } from '../actions';
 import {fetchRepos, fetchContributorsCount} from '../helpers';
 
+/* Loaders */
 
 export function* loadReposContributorsCount() {
   try {
@@ -24,11 +25,12 @@ export function* loadReposContributorsCount() {
 
     yield put(fetchReposContributorsCountSucceeded(data));
   } catch (error) {
-    console.error(error);
+    console.info(error);
     yield put(fetchReposContributorsCountFailed(error.stack));
   }
 }
 
+/* Watchers */
 
 export default function* watchReposContributorsCount() {
   while (true) {

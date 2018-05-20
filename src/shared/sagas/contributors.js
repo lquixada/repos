@@ -9,24 +9,24 @@ import {fetchContributors, fetchMoreContributors} from '../helpers';
 
 /* Loaders */
 
-function* loadContributors(repoName) {
+export function* loadContributors(repoName) {
   try {
     const data = yield call(fetchContributors, repoName);
 
     yield put(fetchContributorsSucceeded(repoName, data));
   } catch (error) {
-    console.error(error);
+    console.info(error);
     yield put(fetchContributorsFailed(repoName, error.stack));
   }
 }
 
-function* loadMoreContributors(repoName, nextUrl) {
+export function* loadMoreContributors(repoName, nextUrl) {
   try {
     const data = yield call(fetchMoreContributors, nextUrl);
 
     yield put(fetchMoreContributorsSucceeded(repoName, data));
   } catch (error) {
-    console.error(error);
+    console.info(error);
     yield put(fetchMoreContributorsFailed(repoName, error.stack));
   }
 }
@@ -34,7 +34,7 @@ function* loadMoreContributors(repoName, nextUrl) {
 
 /* Watchers */
 
-function* watchContributors() {
+export function* watchContributors() {
   while (true) {
     const {payload} = yield take(CONTRIBUTORS_REQUESTED);
 
@@ -42,7 +42,7 @@ function* watchContributors() {
   }
 }
 
-function* watchMoreContributors() {
+export function* watchMoreContributors() {
   while (true) {
     const {payload} = yield take(MORE_CONTRIBUTORS_REQUESTED);
 
