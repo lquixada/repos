@@ -44,11 +44,12 @@ export class Contributors extends React.Component {
   }
 
   getCount() {
-    const count = this.props;
+    const {count} = this.props;
     return count? count[1] : 'error';
   }
 
   render() {
+    console.log(this.getCount());
     return (
       <Wrapper>
         <Title>Contributors ({this.getCount()})</Title>
