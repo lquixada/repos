@@ -34,14 +34,15 @@ export const Summary = ({repo}) => (
 
 const List = styled.ul`
   ${flex.display()}
-  ${flex.justify()}
-  ${flex.flow('row', 'nowrap')};
+  ${flex.around()}
+  ${flex.flow('row', 'wrap')};
   margin-top: 2rem;
   border: 1px solid #e5e5e5;
   border-radius: .6rem;
 `;
 
 const Item = styled.li`
+  ${flex('1 0 auto')}
   overflow: hidden;
 
   &:first-child {
@@ -55,7 +56,7 @@ const Item = styled.li`
 
 const BaseLink = `
   ${flex.display()}
-  ${flex.justify()}
+  ${flex.center()}
   ${flex.middle()}
   text-decoration: none;
   padding: 1rem;

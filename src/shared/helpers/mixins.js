@@ -28,6 +28,11 @@ flex.justify = () => `
   -ms-flex-pack: justify;
 `;
 
+flex.around = () => `
+  justify-content: space-around;
+  -ms-flex-pack: justify;
+`;
+
 flex.top = () => `
   align-items: flex-start;
   -ms-flex-align: start;
