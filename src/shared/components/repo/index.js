@@ -5,44 +5,19 @@ import {Description} from './description';
 import {Header} from './header';
 import {Summary} from './summary';
 
-export class Repo extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (this.hasChanged(prevProps)) {
-      this.fetch();
-    }
-  }
+export const Repo = ({repo, hasLoaded}) => (
+  hasLoaded? <Loading /> : <Content repo={repo} />
+);
 
-  fetch() {
-    if (!this.hasLoaded()) {
-      this.props.fetchRepo(this.props.match.params.repo);
-    }
-  }
+const Loading = () => (
+  <div>Loading...</div>
+);
 
-  hasLoaded() {
-    const {repo} = this.props;
-    return repo && repo.data;
-  }
-
-  hasChanged(prevProps) {
-    return prevProps.match.params.repo !== this.props.match.params.repo;
-  }
-
-  render() {
-    const {repo} = this.props;
-
-    if (!this.hasLoaded()) {
-      return (
-        <div>Loading...</div>
-      );
-    }
-
-    return (
-      <div>
-        <Header title={repo.data.name} url={repo.data.html_url} />
-        <Description text={repo.data.description} />
-        <Summary repo={repo.data} />
-        <Contributors repoName={repo.data.name} />
-      </div>
-    );
-  }
-}
+const Content = ({repo}) => (
+  <div>
+    <Header title={repo.name} url={repo.html_url} />
+    <Description text={repo.description} />
+    <Summary repo={repo} />
+    <Contributors repoName={repo.name} />
+  </div>
+);
