@@ -2,12 +2,12 @@
 
 exports[`<Link /> matches the snapshot 1`] = `
 <Styled(NavLink)
-  to="/r/Facebook Repos"
+  to="/r/repo1"
 >
   <Styled(Octicon)
     name="repo"
   />
-  Facebook Repos
+  repo1
    
   (
   <styled.span

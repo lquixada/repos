@@ -11,7 +11,7 @@ describe('Sagas (Repo)', () => {
   beforeEach(() => {
     data = {key: 'value'};
     error = {stack: 'file.js:1:2'};
-    repoName = 'facebook-repos';
+    repoName = 'repo1';
   });
 
   describe('watchRepo', () => {

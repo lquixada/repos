@@ -9,7 +9,7 @@ describe('Reducers (Contributors)', () => {
   let contributors;
 
   beforeEach(() => {
-    repoName = 'facebook-repos';
+    repoName = 'repo1';
     contributors = [
       {id: 1, login: 'user1'},
       {id: 2, login: 'user2'},

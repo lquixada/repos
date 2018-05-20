@@ -8,7 +8,7 @@ import {loadRepo} from '../repo';
 describe('Sagas (Repo Page)', () => {
   describe('watchLoadRepoPage', () => {
     it('watches repo page load', () => {
-      const repoName = 'facebook-repo';
+      const repoName = 'repo1';
       const action = {payload: {repoName}};
       const gen = watchLoadRepoPage();
 

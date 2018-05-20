@@ -17,7 +17,7 @@ describe('Sagas (Contributors)', () => {
   beforeEach(() => {
     data = {key: 'value'};
     error = {stack: 'file.js:1:2'};
-    repoName = 'facebook-repos';
+    repoName = 'repo1';
   });
 
   describe('First Contributors', () => {

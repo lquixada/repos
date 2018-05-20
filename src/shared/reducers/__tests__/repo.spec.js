@@ -5,7 +5,7 @@ describe('Reducers (Repo)', () => {
   let repoName;
 
   beforeEach(() => {
-    repoName = 'facebook-repos';
+    repoName = 'repo1';
   });
 
   it('starts empty', () => {
