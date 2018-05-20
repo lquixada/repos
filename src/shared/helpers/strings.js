@@ -9,3 +9,5 @@ export function addSeparator(num) {
   let reverted = separated.split('').reverse().join('');
   return reverted.replace(/^\./, '');
 }
+
+export const isEnabled = (str) => ['false', '0', 0, false].indexOf(str) < 0;
