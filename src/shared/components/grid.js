@@ -5,11 +5,11 @@ import {flex} from '../helpers';
 export const Main = styled.main`
   ${flex.display()};
   ${flex.flow('column', 'nowrap')};
-  min-width: 35rem;
   height: 100%;
 `;
 
 export const Aside = styled.aside`
+  ${flex('0 0 20rem')}
   margin-right: 3rem;
   width: 20rem;
   vertical-align: top;
