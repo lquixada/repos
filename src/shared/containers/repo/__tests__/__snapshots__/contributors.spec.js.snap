@@ -6,11 +6,11 @@ exports[`<ContributorsContainer /> renders Contributors component 1`] = `
     Array [
       Object {
         "id": 1,
-        "login": "lquixada1",
+        "login": "user1",
       },
       Object {
         "id": 2,
-        "login": "lquixada2",
+        "login": "user2",
       },
     ]
   }
@@ -28,11 +28,11 @@ exports[`<ContributorsContainer /> renders loading Contributors component 1`] = 
     Array [
       Object {
         "id": 1,
-        "login": "lquixada1",
+        "login": "user1",
       },
       Object {
         "id": 2,
-        "login": "lquixada2",
+        "login": "user2",
       },
     ]
   }
@@ -50,11 +50,11 @@ exports[`<ContributorsContainer /> renders the end of Contributors component 1`]
     Array [
       Object {
         "id": 1,
-        "login": "lquixada1",
+        "login": "user1",
       },
       Object {
         "id": 2,
-        "login": "lquixada2",
+        "login": "user2",
       },
     ]
   }

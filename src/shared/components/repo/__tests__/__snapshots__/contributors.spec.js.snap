@@ -6,18 +6,18 @@ exports[`<Contributors /> list contributors 1`] = `
     Array [
       Object {
         "avatar": "https://avatars1/",
-        "html_url": "https://lquixada1/\\",",
-        "login": "lquixada1",
+        "html_url": "https://user1/\\",",
+        "login": "user1",
       },
       Object {
         "avatar": "https://avatars2/",
-        "html_url": "https://lquixada2/\\",",
-        "login": "lquixada2",
+        "html_url": "https://user2/\\",",
+        "login": "user2",
       },
       Object {
         "avatar": "https://avatars3/",
-        "html_url": "https://lquixada3/\\",",
-        "login": "lquixada3",
+        "html_url": "https://user3/\\",",
+        "login": "user3",
       },
     ]
   }
@@ -45,18 +45,18 @@ exports[`<Contributors /> list contributors 1`] = `
           Array [
             Object {
               "avatar": "https://avatars1/",
-              "html_url": "https://lquixada1/\\",",
-              "login": "lquixada1",
+              "html_url": "https://user1/\\",",
+              "login": "user1",
             },
             Object {
               "avatar": "https://avatars2/",
-              "html_url": "https://lquixada2/\\",",
-              "login": "lquixada2",
+              "html_url": "https://user2/\\",",
+              "login": "user2",
             },
             Object {
               "avatar": "https://avatars3/",
-              "html_url": "https://lquixada3/\\",",
-              "login": "lquixada3",
+              "html_url": "https://user3/\\",",
+              "login": "user3",
             },
           ]
         }
@@ -72,17 +72,17 @@ exports[`<Contributors /> list contributors 1`] = `
               className="sc-htpNat hppgGZ"
             >
               <styled.li
-                key="lquixada10"
+                key="user10"
               >
                 <li
                   className="sc-bxivhb eEjJeP"
                 >
                   <styled.a
-                    href="https://lquixada1/\\","
+                    href="https://user1/\\","
                   >
                     <a
                       className="sc-ifAKCX ibOcjp"
-                      href="https://lquixada1/\\","
+                      href="https://user1/\\","
                     >
                       <styled.img>
                         <img
@@ -93,7 +93,7 @@ exports[`<Contributors /> list contributors 1`] = `
                         <span
                           className="sc-bZQynM fGQOqI"
                         >
-                          lquixada1
+                          user1
                         </span>
                       </styled.span>
                     </a>
@@ -101,17 +101,17 @@ exports[`<Contributors /> list contributors 1`] = `
                 </li>
               </styled.li>
               <styled.li
-                key="lquixada21"
+                key="user21"
               >
                 <li
                   className="sc-bxivhb eEjJeP"
                 >
                   <styled.a
-                    href="https://lquixada2/\\","
+                    href="https://user2/\\","
                   >
                     <a
                       className="sc-ifAKCX ibOcjp"
-                      href="https://lquixada2/\\","
+                      href="https://user2/\\","
                     >
                       <styled.img>
                         <img
@@ -122,7 +122,7 @@ exports[`<Contributors /> list contributors 1`] = `
                         <span
                           className="sc-bZQynM fGQOqI"
                         >
-                          lquixada2
+                          user2
                         </span>
                       </styled.span>
                     </a>
@@ -130,17 +130,17 @@ exports[`<Contributors /> list contributors 1`] = `
                 </li>
               </styled.li>
               <styled.li
-                key="lquixada32"
+                key="user32"
               >
                 <li
                   className="sc-bxivhb eEjJeP"
                 >
                   <styled.a
-                    href="https://lquixada3/\\","
+                    href="https://user3/\\","
                   >
                     <a
                       className="sc-ifAKCX ibOcjp"
-                      href="https://lquixada3/\\","
+                      href="https://user3/\\","
                     >
                       <styled.img>
                         <img
@@ -151,7 +151,7 @@ exports[`<Contributors /> list contributors 1`] = `
                         <span
                           className="sc-bZQynM fGQOqI"
                         >
-                          lquixada3
+                          user3
                         </span>
                       </styled.span>
                     </a>

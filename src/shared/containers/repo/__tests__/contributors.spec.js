@@ -18,8 +18,8 @@ describe('<ContributorsContainer />', () => {
       isLoading: false,
       next: 'http://next-url/',
       data: [
-        {id: 1, login: 'lquixada1'},
-        {id: 2, login: 'lquixada2'},
+        {id: 1, login: 'user1'},
+        {id: 2, login: 'user2'},
       ]
     };
   });

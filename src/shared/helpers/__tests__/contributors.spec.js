@@ -31,7 +31,7 @@ describe('Helpers (Contributors)', () => {
     beforeEach(() => {
       contributors = [{
         id: 1,
-        login: 'lquixada1',
+        login: 'user1',
       }];
 
       nock('https://api.github.com')
@@ -71,7 +71,7 @@ describe('Helpers (Contributors)', () => {
     beforeEach(() => {
       contributors = [{
         id: 1,
-        login: 'lquixada1',
+        login: 'user1',
       }];
 
       nock('http://facebook-repos/')
