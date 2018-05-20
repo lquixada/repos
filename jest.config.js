@@ -9,10 +9,10 @@ module.exports = {
   'coverageDirectory': '<rootDir>/.reports/coverage',
   'coverageThreshold': {
     'global': {
-      'branches': 50,
-      'functions': 50,
-      'lines': 50,
-      'statements': 50
+      'branches': 80,
+      'functions': 80,
+      'lines': 90,
+      'statements': 90
     }
   }
 };
