@@ -75,7 +75,7 @@ exports[`<Contributors /> list contributors 1`] = `
                 key="user10"
               >
                 <li
-                  className="sc-bxivhb eEjJeP"
+                  className="sc-bxivhb gUOEDj"
                 >
                   <styled.a
                     href="https://user1/\\","
@@ -104,7 +104,7 @@ exports[`<Contributors /> list contributors 1`] = `
                 key="user21"
               >
                 <li
-                  className="sc-bxivhb eEjJeP"
+                  className="sc-bxivhb gUOEDj"
                 >
                   <styled.a
                     href="https://user2/\\","
@@ -133,7 +133,7 @@ exports[`<Contributors /> list contributors 1`] = `
                 key="user32"
               >
                 <li
-                  className="sc-bxivhb eEjJeP"
+                  className="sc-bxivhb gUOEDj"
                 >
                   <styled.a
                     href="https://user3/\\","

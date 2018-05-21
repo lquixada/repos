@@ -7,13 +7,13 @@ exports[`<Footer /> matches the snapshot 1`] = `
       className="sc-bdVaJa kXnLAJ"
     >
       <styled.a
-        href="https://facebook.com/lquixada/"
+        href="http://linkedin.com/in/lquixada"
       >
         <a
           className="sc-bwzfXH LlvFc"
-          href="https://facebook.com/lquixada/"
+          href="http://linkedin.com/in/lquixada"
         >
-          Facebook
+          LinkedIn
         </a>
       </styled.a>
        
