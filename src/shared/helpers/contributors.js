@@ -1,5 +1,5 @@
 import fetch from './fetch';
-import config from '../config';
+import {github} from '../config';
 
 export const extractNext = (header) => {
   header = header || '';
@@ -8,7 +8,7 @@ export const extractNext = (header) => {
 };
 
 export const fetchContributors = async (repoName) => {
-  const endpoint = config.endpoints.contributors;
+  const endpoint = github.endpoints.contributors;
   const url = `${endpoint.replace(':repo', repoName)}?page=1&per_page=40`;
   const res = await fetch(url);
   const next = extractNext(res.headers.get('Link'));
