@@ -1,5 +1,4 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
 
 import Repo from '../containers/repo';
 import Menu from '../containers/menu';
@@ -7,7 +6,7 @@ import {Footer} from './footer';
 import {Title} from './title';
 import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
 
-export const RepoPage = () => (
+export const RepoPage = ({match}) => (
   <Main>
     <Header>
       <HeaderContainer>
@@ -22,7 +21,7 @@ export const RepoPage = () => (
           <Footer />
         </Aside>
         <Content>
-          <Route path="/r/:repo" component={Repo}/>
+          <Repo match={match} />
         </Content>
       </SectionContainer>
     </Section>
