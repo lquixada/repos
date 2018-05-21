@@ -9,7 +9,7 @@ export const Footer = () => (
     {' '}|{' '}
     <Link href="https://twitter.com/lquixada/">Twitter</Link>
     <br/>
-    © Copyright 2016 Leonardo Quixadá. All rights reserved.
+    Made with ❤ by Leonardo Quixadá.
   </Wrapper>
 );
 
