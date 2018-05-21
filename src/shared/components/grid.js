@@ -22,6 +22,8 @@ export const Aside = styled.aside`
 `;
 
 export const Content = styled.article`
+  ${flex('1')}
+  width: 100%;
   max-width: 55rem;
   color: #666;
 `;
