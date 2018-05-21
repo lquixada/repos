@@ -1,8 +1,8 @@
 import fetch from 'cross-fetch';
 
-import config from '../config';
+import {github} from '../config';
 
 export default (url) => {
   const separator = (url.indexOf('?')>-1?'&':'?');
-  return fetch(`${url}${separator}access_token=${config.accessToken}`);
+  return fetch(`${url}${separator}access_token=${github.accessToken}`);
 };

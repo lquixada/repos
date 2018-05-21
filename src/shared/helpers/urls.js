@@ -1,5 +1,6 @@
+import {github} from '../config';
 
-export const githubUrl = (repoName, resource) => `https://github.com/facebook/${repoName}/${resource}`;
+export const githubUrl = (repoName, resource) => `${github.hosts.web}/facebook/${repoName}/${resource}`;
 
 export const issuesUrl = (repoName) => githubUrl(repoName, 'issues');
 
