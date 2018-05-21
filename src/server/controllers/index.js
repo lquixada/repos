@@ -34,7 +34,7 @@ export default (req, res, next) => {
         <Provider store={store}>
           {/* Provides router to ReactRouter components (ex: Link) */}
           <StaticRouter location={req.url} context={{}}>
-            <route.component />
+            <route.component match={match} />
           </StaticRouter>
         </Provider>
       </StyleSheetManager>
