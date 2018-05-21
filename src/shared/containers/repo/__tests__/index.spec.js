@@ -3,10 +3,13 @@ import {shallow} from 'enzyme';
 import {RepoContainer} from '../index';
 
 describe('<RepoContainer />', () => {
+  let fetchRepo;
   let match;
   let repo;
 
   beforeEach(() => {
+    fetchRepo = jest.fn();
+
     match = {
       params: {
         repo: 'repo1'
@@ -21,17 +24,16 @@ describe('<RepoContainer />', () => {
   });
 
   it('renders null if there is no repo', () => {
-    const component = shallow(<RepoContainer match={match} />);
+    const component = shallow(<RepoContainer match={match} fetchRepo={fetchRepo} />);
     expect(component.html()).toBeNull();
   });
 
   it('renders Repo component', () => {
-    const component = shallow(<RepoContainer repo={repo} match={match} />);
+    const component = shallow(<RepoContainer repo={repo} match={match} fetchRepo={fetchRepo} />);
     expect(component.find('Repo').prop('repo')).toEqual(repo.data);
   });
 
   it('fetches other Repo component', () => {
-    const fetchRepo = jest.fn();
     const newMatch = {
       params: {
         repo: 'repo2'
