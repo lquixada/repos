@@ -14,7 +14,9 @@ exports[`<HomePage /> matches the snapshot 1`] = `
         <Footer />
       </styled.aside>
       <styled.article>
-        <Empty />
+        <styled.div>
+          Choose a repository on the menu.
+        </styled.div>
       </styled.article>
     </styled.div>
   </styled.section>
