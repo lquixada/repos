@@ -8,17 +8,17 @@ import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
 
 import assets from '../../public/assets.json';
-import template from '../template';
+import template from '../templates';
 import routes from '../../shared/routes';
 import {isEnabled} from '../../shared/helpers';
 import configureStore from '../../shared/store';
 
-export default (req, res) => {
+export default (req, res, next) => {
   const matchs = matchRoutes(routes, req.url);
   const ssrEnabled = isEnabled(req.query.ssr);
 
   if (matchs.length === 0) {
-    return res.status(404).end('Not found');
+    throw new Error(`React Router: Not found ${req.url}`);
   }
 
   const store = configureStore();
@@ -46,7 +46,7 @@ export default (req, res) => {
       content,
       assets
     }));
-  });
+  }).catch(next);
 
   if (ssrEnabled) {
     store.dispatch(route.initialLoad(params));

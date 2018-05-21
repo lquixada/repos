@@ -83,4 +83,23 @@ describe('App API', () => {
         .end(done);
     });
   });
+
+  describe('/notfound', () => {
+    it('is not a valid path', (done) => {
+      request(server)
+        .get('/notfound')
+        .expect(404, done);
+    });
+
+    it('renders the not found page', (done) => {
+      request(server)
+        .get('/notfound')
+        .expect((res) => {
+          document.writeln(res.text);
+          const p = document.querySelector('p');
+          expect(p.innerHTML).toBe('Whoops, looks like that page doesn\'t exist.');
+        })
+        .end(done);
+    });
+  });
 });

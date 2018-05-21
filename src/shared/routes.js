@@ -13,5 +13,5 @@ export default [
     path: '/r/:repo',
     initialLoad: (params) => loadRepoPage(params.repo),
     component: RepoPage
-  },
+  }
 ];

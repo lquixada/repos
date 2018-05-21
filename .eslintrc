@@ -40,7 +40,7 @@
     "max-depth": ["error", 4],
     "max-len": ["error", 120],
     "max-nested-callbacks": ["error", 4],
-    "max-params": ["error", 3],
+    "max-params": ["error", 4],
     "max-statements": ["error", 13],
     "new-cap": "off",
     "no-alert": "off",
