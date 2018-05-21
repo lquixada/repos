@@ -4,18 +4,18 @@ import {extractNext, fetchContributors, fetchMoreContributors} from '../contribu
 describe('Helpers (Contributors)', () => {
   describe('extractNext', () => {
     it('extract the next url from Link header', () => {
-      const header = `
-        <https://api.github.com/repos/?page=2>; rel="next",
-        <https://api.github.com/repos/?page=5>; rel="last"
-      `;
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="next"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
       expect(extractNext(header)).toBe('https://api.github.com/repos/?page=2');
     });
 
     it('returns empty if there is no next url', () => {
-      const header = `
-        <https://api.github.com/repos/?page=2>; rel="prev",
-        <https://api.github.com/repos/?page=5>; rel="last"
-      `;
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
       expect(extractNext(header)).toBe('');
     });
 

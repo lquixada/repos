@@ -5,18 +5,18 @@ import {extractTotal, fetchRepos, fetchContributorsCount} from '../repos-contrib
 describe('Helpers (ReposContributorsCount)', () => {
   describe('extractTotal', () => {
     it('extract total pages from Link header\'s last url', () => {
-      const header = `
-        <https://api.github.com/repos/?page=2>; rel="next",
-        <https://api.github.com/repos/?page=5>; rel="last"
-      `;
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
       expect(extractTotal(header)).toBe(5);
     });
 
     it('returns zero if there is no last url on Link header', () => {
-      const header = `
-        <https://api.github.com/repos/?page=2>; rel="prev",
-        <https://api.github.com/repos/?page=5>; rel="next"
-      `;
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="next"'
+      ].join(', ');
       expect(extractTotal(header)).toBe(0);
     });
 
