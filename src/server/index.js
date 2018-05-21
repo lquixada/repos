@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import loggerMiddleware from './middlewares/logger';
 import staticMiddleware from './middlewares/static';
 import indexController from './controllers/index';
+import errorController from './controllers/error';
 
 const {NODE_ENV} = process.env;
 
@@ -25,5 +26,6 @@ server.use(bodyParser.urlencoded({extended: true}));
 
 /* Controllers */
 server.use('/', indexController);
+server.use(errorController);
 
 export default server;

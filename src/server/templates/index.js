@@ -1,8 +1,6 @@
-import pkg from '../../package.json';
+import pkg from '../../../package.json';
 
-export default ({
-  state, styleTags, content, assets, bundle
-}) => (`
+export default ({state, styleTags, content, assets}) => (`
   <!DOCTYPE html>
 
   <html>
