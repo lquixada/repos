@@ -14,7 +14,7 @@ export const Aside = styled.aside`
   width: 20rem;
   vertical-align: top;
 
-  @media (max-width: 540px) {
+  @media (max-width: 576px) {
     margin: 0;
     width: 100%;
     height: auto;
@@ -45,7 +45,7 @@ export const Header = styled.header`
 
 export const HeaderContainer = Container.extend`
   width: 78rem;
-  @media (max-width: 540px) {
+  @media (max-width: 576px) {
     ${flex.wrap('wrap')}
   }
 `;
@@ -60,7 +60,7 @@ export const Section = styled.section`
 export const SectionContainer = Container.extend`
   ${flex.left()} 
 
-  @media (max-width: 540px) {
+  @media (max-width: 576px) {
     ${flex.left()}
     ${flex.dir('column')}
   }
