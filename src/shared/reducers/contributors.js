@@ -1,4 +1,6 @@
 /* eslint-disable complexity */
+import merge from 'lodash.merge';
+
 import {
   CONTRIBUTORS_SUCCEEDED, CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED,
   MORE_CONTRIBUTORS_SUCCEEDED, MORE_CONTRIBUTORS_FAILED, MORE_CONTRIBUTORS_REQUESTED
@@ -23,7 +25,7 @@ export default function contributors(state = {}, action = {}) {
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
     case MORE_CONTRIBUTORS_REQUESTED:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [payload.repoName]: {
           isLoading: true,
           error: null,
@@ -32,7 +34,7 @@ export default function contributors(state = {}, action = {}) {
 
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [payload.repoName]: {
           data: data(state[payload.repoName].data, action),
           next: payload.data.next,
@@ -43,7 +45,7 @@ export default function contributors(state = {}, action = {}) {
 
     case CONTRIBUTORS_FAILED:
     case MORE_CONTRIBUTORS_FAILED:
-      return Object.assign({}, state, {
+      return merge({}, state, {
         [payload.repoName]: {
           isLoading: false,
           error: payload.error,
