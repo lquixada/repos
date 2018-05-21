@@ -60,6 +60,10 @@ const Item = styled.li`
   width: 25%;
   font-size: 1.2rem;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    width: 33.33%;
+  }
 `;
 
 const Link = styled.a`
