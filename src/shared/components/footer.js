@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Footer = () => (
   <Wrapper>
-    <Link href="https://facebook.com/lquixada/">Facebook</Link>
+    <Link href="http://linkedin.com/in/lquixada">LinkedIn</Link>
     {' '}|{' '}
     <Link href="https://github.com/lquixada/">Github</Link>
     {' '}|{' '}
