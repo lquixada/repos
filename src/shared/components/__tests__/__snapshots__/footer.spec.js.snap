@@ -43,7 +43,7 @@ exports[`<Footer /> matches the snapshot 1`] = `
         </a>
       </styled.a>
       <br />
-      © Copyright 2016 Leonardo Quixadá. All rights reserved.
+      Made with ❤ by Leonardo Quixadá.
     </footer>
   </styled.footer>
 </Footer>
