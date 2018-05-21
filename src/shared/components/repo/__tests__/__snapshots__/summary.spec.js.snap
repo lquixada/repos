@@ -17,17 +17,17 @@ exports[`<Summary /> matches the snapshot 1`] = `
 >
   <styled.ul>
     <ul
-      className="sc-bdVaJa jgxkRZ"
+      className="sc-bdVaJa dElRfG"
     >
       <styled.li>
         <li
-          className="sc-bwzfXH gEuWGc"
+          className="sc-bwzfXH coPMTf"
         >
           <styled.a
             href="https://github.com/facebook/Facebook Repos/stargazers"
           >
             <a
-              className="sc-htpNat hahfNc"
+              className="sc-htpNat gKbeMX"
               href="https://github.com/facebook/Facebook Repos/stargazers"
               target="_blank"
             >
@@ -62,13 +62,13 @@ exports[`<Summary /> matches the snapshot 1`] = `
       </styled.li>
       <styled.li>
         <li
-          className="sc-bwzfXH gEuWGc"
+          className="sc-bwzfXH coPMTf"
         >
           <styled.a
             href="https://github.com/facebook/Facebook Repos/watchers"
           >
             <a
-              className="sc-htpNat hahfNc"
+              className="sc-htpNat gKbeMX"
               href="https://github.com/facebook/Facebook Repos/watchers"
               target="_blank"
             >
@@ -103,13 +103,13 @@ exports[`<Summary /> matches the snapshot 1`] = `
       </styled.li>
       <styled.li>
         <li
-          className="sc-bwzfXH gEuWGc"
+          className="sc-bwzfXH coPMTf"
         >
           <styled.a
             href="https://github.com/facebook/Facebook Repos/network"
           >
             <a
-              className="sc-htpNat hahfNc"
+              className="sc-htpNat gKbeMX"
               href="https://github.com/facebook/Facebook Repos/network"
               target="_blank"
             >
@@ -144,13 +144,13 @@ exports[`<Summary /> matches the snapshot 1`] = `
       </styled.li>
       <styled.li>
         <li
-          className="sc-bwzfXH gEuWGc"
+          className="sc-bwzfXH coPMTf"
         >
           <styled.a
             href="https://github.com/facebook/Facebook Repos/issues"
           >
             <a
-              className="sc-htpNat hahfNc"
+              className="sc-htpNat gKbeMX"
               href="https://github.com/facebook/Facebook Repos/issues"
               target="_blank"
             >
@@ -185,11 +185,11 @@ exports[`<Summary /> matches the snapshot 1`] = `
       </styled.li>
       <styled.li>
         <li
-          className="sc-bwzfXH gEuWGc"
+          className="sc-bwzfXH coPMTf"
         >
           <styled.span>
             <span
-              className="sc-bxivhb kXXnrI"
+              className="sc-bxivhb kLQwIX"
             >
               <Octicon
                 name="law"
