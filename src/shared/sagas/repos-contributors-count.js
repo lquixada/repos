@@ -13,8 +13,7 @@ import {fetchRepos, fetchContributorsCount} from '../helpers';
 export function* loadReposContributorsCount() {
   try {
     let repos = yield call(fetchRepos);
-    // Restricting repos temporarily to prevent api rate limit
-    repos = repos.slice(0, 3).map((repo) => repo.name);
+    repos = repos.map((repo) => repo.name);
 
     const calls = repos.map((repoName) => call(fetchContributorsCount, repoName));
     const counts = yield all(calls);

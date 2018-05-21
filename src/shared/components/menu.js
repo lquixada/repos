@@ -25,6 +25,10 @@ const Wrapper = styled.div`
   border-radius: .6rem;
   box-shadow: 0 .1rem .1rem rgba(0,0,0,.1);
   overflow-y: auto;
+
+  @media (max-width: 540px) {
+    max-height: 20rem;
+  }
 `;
 
 const List = styled.ul`
