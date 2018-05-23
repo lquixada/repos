@@ -6,6 +6,7 @@ import {matchRoutes} from 'react-router-config';
 import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
+import {Helmet} from 'react-helmet';
 
 import {App} from '../../shared/components/app';
 import template from '../templates';
@@ -43,6 +44,7 @@ export default (req, res, next) => {
     ) : '';
 
     res.send(template({
+      helmet: Helmet.renderStatic(),
       styles: sheet.getStyleTags(),
       state: JSON.stringify(store.getState()),
       html,
