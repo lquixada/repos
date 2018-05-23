@@ -7,6 +7,7 @@ import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
 
+import {App} from '../../shared/components/app';
 import template from '../templates';
 import routes from '../../shared/routes';
 import {isEnabled} from '../../shared/helpers';
@@ -31,10 +32,12 @@ export default (req, res, next) => {
       <StyleSheetManager sheet={sheet.instance}>
         {/* Provides store to containers */}
         <Provider store={store}>
-          {/* Provides router to ReactRouter components (ex: Link) */}
-          <StaticRouter location={req.url} context={{}}>
-            <route.component match={match} />
-          </StaticRouter>
+          <App>
+            {/* Provides router to ReactRouter components (ex: Link) */}
+            <StaticRouter location={req.url} context={{}}>
+              <route.component match={match} />
+            </StaticRouter>
+          </App>
         </Provider>
       </StyleSheetManager>
     ) : '';
