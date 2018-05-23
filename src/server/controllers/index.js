@@ -7,7 +7,6 @@ import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
 
-
 import template from '../templates';
 import routes from '../../shared/routes';
 import {isEnabled} from '../../shared/helpers';
