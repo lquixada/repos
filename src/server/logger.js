@@ -2,8 +2,6 @@ import winston from 'winston';
 
 winston.emitErrs = true;
 
-const isBenchmark = () => process.env.NODE_ENV === 'benchmark';
-
 const logger = new winston.Logger({
   transports: [
     new winston.transports.File({
@@ -20,7 +18,7 @@ const logger = new winston.Logger({
       handleExceptions: true,
       json: false,
       colorize: true,
-      silent: isBenchmark()
+      silent: false
     })
   ],
   exitOnError: false,
