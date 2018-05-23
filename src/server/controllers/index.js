@@ -7,7 +7,7 @@ import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
 
-import assets from '../../public/assets.json';
+
 import template from '../templates';
 import routes from '../../shared/routes';
 import {isEnabled} from '../../shared/helpers';
@@ -27,7 +27,7 @@ export default (req, res, next) => {
 
   store.runnedSagas.toPromise().then(() => {
     const sheet = new ServerStyleSheet();
-    const content = ssrEnabled? renderToString(
+    const html = ssrEnabled? renderToString(
       /* Provides sheet to styled-components */
       <StyleSheetManager sheet={sheet.instance}>
         {/* Provides store to containers */}
@@ -41,10 +41,9 @@ export default (req, res, next) => {
     ) : '';
 
     res.send(template({
+      styles: sheet.getStyleTags(),
       state: JSON.stringify(store.getState()),
-      styleTags: sheet.getStyleTags(),
-      content,
-      assets
+      html,
     }));
   }).catch(next);
 

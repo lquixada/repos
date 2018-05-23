@@ -5,13 +5,12 @@ import {StaticRouter} from 'react-router-dom';
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
 
 import {NotFoundPage} from '../../shared/components/not-found-page';
-import assets from '../../public/assets.json';
 import template from '../templates/error';
 import configureStore from '../../shared/store';
 
 const errorMiddleware = (err, req, res, next) => {
   const sheet = new ServerStyleSheet();
-  const content = renderToString(
+  const html = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
       <Provider store={configureStore()}>
         <StaticRouter location={req.url} context={{}}>
@@ -23,9 +22,8 @@ const errorMiddleware = (err, req, res, next) => {
 
   res.set({Error: err.message});
   res.status(404).send(template({
-    styleTags: sheet.getStyleTags(),
-    content,
-    assets
+    styles: sheet.getStyleTags(),
+    html,
   }));
 };
 
