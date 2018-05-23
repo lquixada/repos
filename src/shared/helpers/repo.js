@@ -1,8 +1,8 @@
 import fetch from './fetch';
-import {github} from '../config';
+import {repoUrl} from './urls';
 
 export const fetchRepo = async (repoName) => {
-  const url = github.endpoints.repo.replace(':repo', repoName);
+  const url = repoUrl(repoName);
   const res = await fetch(url);
   return await res.json();
 };
