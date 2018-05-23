@@ -1,6 +1,7 @@
+import assets from '../../public/assets.json';
 import pkg from '../../../package.json';
 
-export default ({state, styleTags, content, assets}) => (`
+export default ({state, styles, html}) => (`
   <!DOCTYPE html>
 
   <html>
@@ -12,14 +13,14 @@ export default ({state, styleTags, content, assets}) => (`
       <title>Facebook Repos</title>
 
       <link href="${assets.app.css}" rel="stylesheet" />
-      ${styleTags}
-      <script>
-        window.__INITIAL_STATE__ = ${state};
-      </script>
+      ${styles}
     </head>
 
     <body>
-      <div id="app">${content}</div>
+      <div id="app">${html}</div>
+      <script>
+        window.__INITIAL_STATE__ = ${state};
+      </script>
       <script src="${assets.vendor.js}"></script>
       <script src="${assets.app.js}"></script>
     </body>
