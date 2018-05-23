@@ -6,10 +6,10 @@ import sagas from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const configureStore = (initialState = {}, middlewares = [], devTools = (f) => f) => {
+const configureStore = (state = {}, middlewares = [], devTools = (f) => f) => {
   middlewares = middlewares.concat([sagaMiddleware]);
   middlewares = compose(applyMiddleware(...middlewares), devTools);
-  let store = createStore(reducers, initialState, middlewares);
+  let store = createStore(reducers, state, middlewares);
   store.runnedSagas = sagaMiddleware.run(sagas);
   return store;
 };
