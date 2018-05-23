@@ -6,6 +6,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config';
 import {AppContainer} from 'react-hot-loader';
 
+import {App} from '../shared/components/app';
 import routes from '../shared/routes'; // eslint-disable-line no-unused-vars
 import store from './store';
 
@@ -15,9 +16,11 @@ const renderApp = () => {
   ReactDOM.hydrate(
     <AppContainer>
       <Provider store={store}>
-        <BrowserRouter>
-          {renderRoutes(routes)}
-        </BrowserRouter>
+        <App>
+          <BrowserRouter>
+            {renderRoutes(routes)}
+          </BrowserRouter>
+        </App>
       </Provider>
     </AppContainer>
     , document.getElementById('app')

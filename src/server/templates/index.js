@@ -1,7 +1,7 @@
 import assets from '../../public/assets.json';
 import pkg from '../../../package.json';
 
-export default ({state, styles, html}) => (`
+export default ({state, html, styles}) => (`
   <!DOCTYPE html>
 
   <html>
@@ -11,8 +11,6 @@ export default ({state, styles, html}) => (`
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="version" content="${pkg.version}">
       <title>Facebook Repos</title>
-
-      <link href="${assets.app.css}" rel="stylesheet" />
       ${styles}
     </head>
 
