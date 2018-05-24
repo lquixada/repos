@@ -14,12 +14,6 @@ export class ContributorsContainer extends React.Component {
     this.fetch();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.repoName !== this.props.repoName) {
-      this.fetch();
-    }
-  }
-
   fetch() {
     if (!this.hasLoaded()) {
       this.props.fetchContributors(this.props.repoName);
