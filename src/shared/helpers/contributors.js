@@ -18,8 +18,8 @@ export const extractNext = (header) => {
 export const fetchContributors = async (repoName) => {
   const url = `${contributorsUrl(repoName)}?per_page=40`;
   const res = await fetch(url);
-  const next = extractNext(res.headers.get('Link'));
   const result = await res.json();
+  const next = extractNext(res.headers.get('Link'));
 
   return {
     next,
@@ -29,8 +29,8 @@ export const fetchContributors = async (repoName) => {
 
 export const fetchMoreContributors = async (url) => {
   const res = await fetch(url);
-  const next = extractNext(res.headers.get('Link'));
   const result = await res.json();
+  const next = extractNext(res.headers.get('Link'));
 
   return {
     next,
