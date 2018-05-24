@@ -1,31 +1,31 @@
 /* eslint-disable complexity */
-import merge from 'lodash.merge';
+import {Map, List, fromJS} from 'immutable';
 
 import {
   CONTRIBUTORS_SUCCEEDED, CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED,
   MORE_CONTRIBUTORS_SUCCEEDED, MORE_CONTRIBUTORS_FAILED, MORE_CONTRIBUTORS_REQUESTED
 } from '../actions';
 
-const data = (state = [], action) => {
+const data = (state = List(), action) => {
   const {payload, type} = action;
 
   switch (type) {
     case CONTRIBUTORS_SUCCEEDED:
-      return payload.data.result;
+      return fromJS(payload.data.result);
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return state.concat(payload.data.result);
+      return state.concat(fromJS(payload.data.result));
     default:
       return state;
   }
 };
 
-export default function contributors(state = {}, action = {}) {
+export default function contributors(state = Map(), action = {}) {
   const {payload, type} = action;
 
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
     case MORE_CONTRIBUTORS_REQUESTED:
-      return merge({}, state, {
+      return state.mergeDeep({
         [payload.repoName]: {
           isLoading: true,
           error: null,
@@ -34,9 +34,9 @@ export default function contributors(state = {}, action = {}) {
 
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return merge({}, state, {
+      return state.mergeDeep({
         [payload.repoName]: {
-          data: data(state[payload.repoName].data, action),
+          data: data(state.getIn([payload.repoName, 'data']), action),
           next: payload.data.next,
           isLoading: false,
           error: null,
@@ -45,7 +45,7 @@ export default function contributors(state = {}, action = {}) {
 
     case CONTRIBUTORS_FAILED:
     case MORE_CONTRIBUTORS_FAILED:
-      return merge({}, state, {
+      return state.mergeDeep({
         [payload.repoName]: {
           isLoading: false,
           error: payload.error,

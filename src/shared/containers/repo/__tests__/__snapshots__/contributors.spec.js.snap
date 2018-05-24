@@ -3,12 +3,12 @@
 exports[`<ContributorsContainer /> renders Contributors component 1`] = `
 <Contributors
   data={
-    Array [
-      Object {
+    Immutable.List [
+      Immutable.Map {
         "id": 1,
         "login": "user1",
       },
-      Object {
+      Immutable.Map {
         "id": 2,
         "login": "user2",
       },
@@ -25,12 +25,12 @@ exports[`<ContributorsContainer /> renders Contributors component 1`] = `
 exports[`<ContributorsContainer /> renders loading Contributors component 1`] = `
 <Contributors
   data={
-    Array [
-      Object {
+    Immutable.List [
+      Immutable.Map {
         "id": 1,
         "login": "user1",
       },
-      Object {
+      Immutable.Map {
         "id": 2,
         "login": "user2",
       },
@@ -47,12 +47,12 @@ exports[`<ContributorsContainer /> renders loading Contributors component 1`] = 
 exports[`<ContributorsContainer /> renders the end of Contributors component 1`] = `
 <Contributors
   data={
-    Array [
-      Object {
+    Immutable.List [
+      Immutable.Map {
         "id": 1,
         "login": "user1",
       },
-      Object {
+      Immutable.Map {
         "id": 2,
         "login": "user2",
       },

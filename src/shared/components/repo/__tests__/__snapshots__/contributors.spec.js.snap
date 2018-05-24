@@ -3,21 +3,21 @@
 exports[`<Contributors /> list contributors 1`] = `
 <Contributors
   data={
-    Array [
-      Object {
-        "avatar": "https://avatars1/",
-        "html_url": "https://user1/\\",",
+    Immutable.List [
+      Immutable.Map {
         "login": "user1",
+        "html_url": "https://user1/\\",",
+        "avatar": "https://avatars1/",
       },
-      Object {
-        "avatar": "https://avatars2/",
-        "html_url": "https://user2/\\",",
+      Immutable.Map {
         "login": "user2",
+        "html_url": "https://user2/\\",",
+        "avatar": "https://avatars2/",
       },
-      Object {
-        "avatar": "https://avatars3/",
-        "html_url": "https://user3/\\",",
+      Immutable.Map {
         "login": "user3",
+        "html_url": "https://user3/\\",",
+        "avatar": "https://avatars3/",
       },
     ]
   }
@@ -42,21 +42,21 @@ exports[`<Contributors /> list contributors 1`] = `
       </styled.h3>
       <Content
         data={
-          Array [
-            Object {
-              "avatar": "https://avatars1/",
-              "html_url": "https://user1/\\",",
+          Immutable.List [
+            Immutable.Map {
               "login": "user1",
+              "html_url": "https://user1/\\",",
+              "avatar": "https://avatars1/",
             },
-            Object {
-              "avatar": "https://avatars2/",
-              "html_url": "https://user2/\\",",
+            Immutable.Map {
               "login": "user2",
+              "html_url": "https://user2/\\",",
+              "avatar": "https://avatars2/",
             },
-            Object {
-              "avatar": "https://avatars3/",
-              "html_url": "https://user3/\\",",
+            Immutable.Map {
               "login": "user3",
+              "html_url": "https://user3/\\",",
+              "avatar": "https://avatars3/",
             },
           ]
         }

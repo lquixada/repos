@@ -1,10 +1,12 @@
 import React from 'react';
+import {fromJS} from 'immutable';
 import {shallow} from 'enzyme';
 import {ContributorsContainer} from '../contributors';
 
 describe('<ContributorsContainer />', () => {
   let actions;
   let contributors;
+  let count;
   let repoName;
 
   beforeEach(() => {
@@ -14,14 +16,16 @@ describe('<ContributorsContainer />', () => {
       fetchMoreContributors: jest.fn()
     };
 
-    contributors = {
+    contributors = fromJS({
       isLoading: false,
       next: 'http://next-url/',
       data: [
         {id: 1, login: 'user1'},
         {id: 2, login: 'user2'},
       ]
-    };
+    });
+
+    count = fromJS(['repo1', 2]);
   });
 
   it('renders null if there is no repo', () => {
@@ -40,7 +44,7 @@ describe('<ContributorsContainer />', () => {
       <ContributorsContainer
         repoName={repoName}
         contributors={contributors}
-        count={['repo1', 2]}
+        count={count}
         {...actions}
       />
     );
@@ -48,12 +52,12 @@ describe('<ContributorsContainer />', () => {
   });
 
   it('renders loading Contributors component', () => {
-    contributors.isLoading = true;
+    contributors = contributors.set('isLoading', true);
     const component = shallow(
       <ContributorsContainer
         repoName={repoName}
         contributors={contributors}
-        count={['repo1', 2]}
+        count={count}
         {...actions}
       />
     );
@@ -61,12 +65,12 @@ describe('<ContributorsContainer />', () => {
   });
 
   it('renders the end of Contributors component', () => {
-    contributors.next = '';
+    contributors = contributors.set('next', '');
     const component = shallow(
       <ContributorsContainer
         repoName={repoName}
         contributors={contributors}
-        count={['repo1', 2]}
+        count={count}
         {...actions}
       />
     );
@@ -78,7 +82,7 @@ describe('<ContributorsContainer />', () => {
       <ContributorsContainer
         repoName={repoName}
         contributors={contributors}
-        count={['repo1', 2]}
+        count={count}
         {...actions}
       />
     );
@@ -96,7 +100,7 @@ describe('<ContributorsContainer />', () => {
       <ContributorsContainer
         repoName={repoName}
         contributors={contributors}
-        count={['repo1', 2]}
+        count={count}
         {...actions}
       />
     );

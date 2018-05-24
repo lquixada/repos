@@ -32,20 +32,20 @@ export class ContributorsContainer extends React.Component {
 
   hasLoaded() {
     const {contributors} = this.props;
-    return contributors && contributors.data && contributors.data.length !== 0;
+    return contributors && contributors.get('data') && !contributors.get('data').isEmpty();
   }
 
   hasMore() {
-    return !!this.props.contributors.next;
+    return !!this.props.contributors.get('next');
   }
 
   isLoading() {
-    return this.props.contributors.isLoading;
+    return this.props.contributors.get('isLoading');
   }
 
   getCount() {
     const {count} = this.props;
-    return count? count[1] : 'error';
+    return count? count.get(1) : 'error';
   }
 
   render() {
@@ -56,7 +56,7 @@ export class ContributorsContainer extends React.Component {
     return (
       <Contributors
         total={this.getCount()}
-        data={this.props.contributors.data}
+        data={this.props.contributors.get('data')}
         isLoadingMore={this.isLoading()}
         hasLoaded={this.hasLoaded()}
         hasMore={this.hasMore()}
@@ -70,8 +70,8 @@ export class ContributorsContainer extends React.Component {
 const mapStateToProps = ({contributors, reposContributorsCount}, {repoName}) => ({
   // REMEMBER: "reposContributorsCount" has the following
   // scheme [[repoName1, count1], [repoName2, count2]]
-  count: reposContributorsCount.find(([repo]) => repo === repoName),
-  contributors: contributors[repoName]
+  count: reposContributorsCount.find((repoContributorsCount) => repoContributorsCount.get(0) === repoName),
+  contributors: contributors.get(repoName)
 });
 
 export default connect(mapStateToProps, actions)(ContributorsContainer);

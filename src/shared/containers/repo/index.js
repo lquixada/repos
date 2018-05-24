@@ -23,7 +23,7 @@ export class RepoContainer extends React.Component {
 
   hasLoaded() {
     const {repo} = this.props;
-    return repo && repo.data;
+    return repo && repo.get('data');
   }
 
   hasChanged(prevProps) {
@@ -36,12 +36,12 @@ export class RepoContainer extends React.Component {
     }
 
     return (
-      <Repo repo={this.props.repo.data} />
+      <Repo repo={this.props.repo.get('data')} />
     );
   }
 }
 
 const mapStateToProps = ({repo}, {match}) => ({
-  repo: repo[match.params.repo]
+  repo: repo.get(match.params.repo)
 });
 export default connect(mapStateToProps, actions)(RepoContainer);

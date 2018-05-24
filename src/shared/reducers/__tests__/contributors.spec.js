@@ -1,3 +1,4 @@
+import {fromJS} from 'immutable';
 import {
   fetchContributors, fetchContributorsSucceeded, fetchContributorsFailed,
   fetchMoreContributors, fetchMoreContributorsSucceeded, fetchMoreContributorsFailed
@@ -17,7 +18,8 @@ describe('Reducers (Contributors)', () => {
   });
 
   it('starts empty', () => {
-    expect(reducer()).toEqual({});
+    const state = reducer();
+    expect(state.toJS()).toEqual({});
   });
 
   describe('First Contributors', () => {
@@ -25,8 +27,8 @@ describe('Reducers (Contributors)', () => {
       const action = fetchContributors(repoName);
       const state = reducer(undefined, action);
 
-      expect(state[repoName].isLoading).toBe(true);
-      expect(state[repoName].error).toBe(null);
+      expect(state.getIn([repoName, 'isLoading'])).toBe(true);
+      expect(state.getIn([repoName, 'error'])).toBe(null);
     });
 
     it('sets the repo state', () => {
@@ -37,26 +39,26 @@ describe('Reducers (Contributors)', () => {
         ]
       };
       const action = fetchContributorsSucceeded(repoName, data);
-      const prevState = {
+      const prevState = fromJS({
         [repoName]: {}
-      };
+      });
       const state = reducer(prevState, action);
 
-      expect(state[repoName].isLoading).toBe(false);
-      expect(state[repoName].error).toBe(null);
-      expect(state[repoName].data).toEqual([contributors[0]]);
-      expect(state[repoName].next).toEqual('http://nexturl/');
+      expect(state.getIn([repoName, 'isLoading'])).toBe(false);
+      expect(state.getIn([repoName, 'error'])).toBe(null);
+      expect(state.getIn([repoName, 'data']).toJS()).toEqual([contributors[0]]);
+      expect(state.getIn([repoName, 'next'])).toEqual('http://nexturl/');
     });
 
     it('sets an error state', () => {
       const action = fetchContributorsFailed(repoName, 'some-error');
-      const prevState = {
+      const prevState = fromJS({
         [repoName]: {}
-      };
+      });
       const state = reducer(prevState, action);
 
-      expect(state[repoName].isLoading).toBe(false);
-      expect(state[repoName].error).toBe('some-error');
+      expect(state.getIn([repoName, 'isLoading'])).toBe(false);
+      expect(state.getIn([repoName, 'error'])).toBe('some-error');
     });
   });
 
@@ -65,8 +67,8 @@ describe('Reducers (Contributors)', () => {
       const action = fetchMoreContributors(repoName);
       const state = reducer(undefined, action);
 
-      expect(state[repoName].isLoading).toBe(true);
-      expect(state[repoName].error).toBe(null);
+      expect(state.getIn([repoName, 'isLoading'])).toBe(true);
+      expect(state.getIn([repoName, 'error'])).toBe(null);
     });
 
     it('sets the repo state', () => {
@@ -77,30 +79,30 @@ describe('Reducers (Contributors)', () => {
         ]
       };
       const action = fetchMoreContributorsSucceeded(repoName, data);
-      const prevState = {
+      const prevState = fromJS({
         [repoName]: {
           data: [
             contributors[0]
           ]
         }
-      };
+      });
       const state = reducer(prevState, action);
 
-      expect(state[repoName].isLoading).toBe(false);
-      expect(state[repoName].error).toBe(null);
-      expect(state[repoName].data).toEqual(contributors);
-      expect(state[repoName].next).toEqual('http://nexturl/');
+      expect(state.getIn([repoName, 'isLoading'])).toBe(false);
+      expect(state.getIn([repoName, 'error'])).toBe(null);
+      expect(state.getIn([repoName, 'data']).toJS()).toEqual(contributors);
+      expect(state.getIn([repoName, 'next'])).toEqual('http://nexturl/');
     });
 
     it('sets an error state', () => {
       const action = fetchMoreContributorsFailed(repoName, 'some-error');
-      const prevState = {
+      const prevState = fromJS({
         [repoName]: {}
-      };
+      });
       const state = reducer(prevState, action);
 
-      expect(state[repoName].isLoading).toBe(false);
-      expect(state[repoName].error).toBe('some-error');
+      expect(state.getIn([repoName, 'isLoading'])).toBe(false);
+      expect(state.getIn([repoName, 'error'])).toBe('some-error');
     });
   });
 });

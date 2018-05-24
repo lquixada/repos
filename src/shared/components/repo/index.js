@@ -15,9 +15,9 @@ const Loading = () => (
 
 const Content = ({repo}) => (
   <div>
-    <Header title={repo.name} url={repo.html_url} />
-    <Description text={repo.description} />
+    <Header title={repo.get('name')} url={repo.get('html_url')} />
+    <Description text={repo.get('description')} />
     <Summary repo={repo} />
-    <Contributors repoName={repo.name} />
+    <Contributors repoName={repo.get('name')} />
   </div>
 );

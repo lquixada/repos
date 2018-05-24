@@ -1,4 +1,5 @@
 import React from 'react';
+import {fromJS} from 'immutable';
 import {shallow} from 'enzyme';
 import {RepoContainer} from '../index';
 
@@ -16,11 +17,11 @@ describe('<RepoContainer />', () => {
       }
     };
 
-    repo = {
+    repo = fromJS({
       data: {
         name: 'repo1'
       }
-    };
+    });
   });
 
   it('renders null if there is no repo', () => {
@@ -30,7 +31,7 @@ describe('<RepoContainer />', () => {
 
   it('renders Repo component', () => {
     const component = shallow(<RepoContainer repo={repo} match={match} fetchRepo={fetchRepo} />);
-    expect(component.find('Repo').prop('repo')).toEqual(repo.data);
+    expect(component.find('Repo').prop('repo').toJS()).toEqual(repo.get('data').toJS());
   });
 
   it('fetches other Repo component', () => {

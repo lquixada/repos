@@ -3,15 +3,15 @@
 exports[`<Summary /> matches the snapshot 1`] = `
 <Summary
   repo={
-    Object {
-      "forks_count": 5,
-      "license": Object {
-        "name": "MIT",
-      },
+    Immutable.Map {
       "name": "Facebook Repos",
-      "open_issues_count": 5,
       "stargazers_count": 5,
       "subscribers_count": 5,
+      "forks_count": 5,
+      "open_issues_count": 5,
+      "license": Immutable.Map {
+        "name": "MIT",
+      },
     }
   }
 >
