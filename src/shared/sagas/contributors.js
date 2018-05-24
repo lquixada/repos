@@ -1,4 +1,4 @@
-import {call, put, take, all, fork} from 'redux-saga/effects';
+import {call, put, take, all, fork, select} from 'redux-saga/effects';
 
 import {
   CONTRIBUTORS_REQUESTED, MORE_CONTRIBUTORS_REQUESTED,
@@ -6,6 +6,7 @@ import {
   fetchContributorsSucceeded, fetchContributorsFailed
 } from '../actions';
 import {fetchContributors, fetchMoreContributors} from '../helpers';
+import {getNextUrl} from '../selectors';
 
 /* Loaders */
 
@@ -20,8 +21,9 @@ export function* loadContributors(repoName) {
   }
 }
 
-export function* loadMoreContributors(repoName, nextUrl) {
+export function* loadMoreContributors(repoName) {
   try {
+    const nextUrl = yield select(getNextUrl, repoName);
     const data = yield call(fetchMoreContributors, nextUrl);
 
     yield put(fetchMoreContributorsSucceeded(repoName, data));
@@ -46,7 +48,7 @@ export function* watchMoreContributors() {
   while (true) {
     const {payload} = yield take(MORE_CONTRIBUTORS_REQUESTED);
 
-    yield fork(loadMoreContributors, payload.repoName, payload.nextUrl);
+    yield fork(loadMoreContributors, payload.repoName);
   }
 }
 

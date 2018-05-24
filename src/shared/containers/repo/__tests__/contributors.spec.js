@@ -103,6 +103,6 @@ describe('<ContributorsContainer />', () => {
 
     const {onNext} = component.find('Contributors').props();
     onNext();
-    expect(actions.fetchMoreContributors).toBeCalledWith('repo1', 'http://next-url/');
+    expect(actions.fetchMoreContributors).toBeCalledWith('repo1');
   });
 });

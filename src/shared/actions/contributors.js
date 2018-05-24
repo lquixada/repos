@@ -29,11 +29,10 @@ export const fetchContributorsFailed = (repoName, error) => ({
   }
 });
 
-export const fetchMoreContributors = (repoName, nextUrl) => ({
+export const fetchMoreContributors = (repoName) => ({
   type: MORE_CONTRIBUTORS_REQUESTED,
   payload: {
-    repoName,
-    nextUrl
+    repoName
   }
 });
 
