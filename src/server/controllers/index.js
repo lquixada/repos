@@ -11,7 +11,7 @@ import {Helmet} from 'react-helmet';
 import {App} from '../../shared/components/app';
 import template from '../templates';
 import routes from '../../shared/routes';
-import {isEnabled} from '../../shared/helpers';
+import {isEnabled, trigger} from '../../shared/helpers';
 import configureStore from '../../shared/store';
 
 export default (req, res, next) => {
@@ -52,7 +52,7 @@ export default (req, res, next) => {
   }).catch(next);
 
   if (ssrEnabled) {
-    store.dispatch(route.initialLoad(params));
+    store.dispatch(trigger('fetch', route.component, params));
   }
 
   store.dispatch(END);
