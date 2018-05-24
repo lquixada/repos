@@ -5,10 +5,6 @@ import {Repo} from '../../components/repo';
 import * as actions from '../../actions';
 
 export class RepoContainer extends React.Component {
-  componentDidMount() {
-    this.fetch();
-  }
-
   componentDidUpdate(prevProps) {
     if (this.hasChanged(prevProps)) {
       this.fetch();
