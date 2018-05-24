@@ -24,8 +24,7 @@ describe('Actions (Contributors)', () => {
 
   describe('More Contributors', () => {
     it('fetchMoreContributors is FSA-compliant', () => {
-      const nextUrl = 'https://api.github.com/';
-      expect(isFSA(fetchMoreContributors('some-repo', nextUrl))).toBe(true);
+      expect(isFSA(fetchMoreContributors('some-repo'))).toBe(true);
     });
 
     it('fetchMoreContributorsSucceeded is FSA-compliant', () => {

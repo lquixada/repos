@@ -1,4 +1,4 @@
-import {put, call, take, fork} from 'redux-saga/effects';
+import {put, call, take, fork, select} from 'redux-saga/effects';
 import {fetchContributors, fetchMoreContributors} from '../../helpers';
 import {
   CONTRIBUTORS_REQUESTED, MORE_CONTRIBUTORS_REQUESTED,
@@ -8,6 +8,7 @@ import {
 import {
   loadContributors, loadMoreContributors, watchContributors, watchMoreContributors
 } from '../contributors';
+import {getNextUrl} from '../../selectors';
 
 describe('Sagas (Contributors)', () => {
   let data;
@@ -51,37 +52,37 @@ describe('Sagas (Contributors)', () => {
   });
 
   describe('More Contributors', () => {
-    let nextUrl;
     let url;
 
     beforeEach(() => {
-      nextUrl = 'http://next-url/';
       url = 'http://facebook-repos/';
     });
 
     describe('watchMoreContributors', () => {
       it('watches repo', () => {
-        const action = {payload: {repoName, nextUrl}};
+        const action = {payload: {repoName}};
         const gen = watchMoreContributors();
 
         expect(gen.next().value).toEqual(take(MORE_CONTRIBUTORS_REQUESTED));
-        expect(gen.next(action).value).toEqual(fork(loadMoreContributors, repoName, nextUrl));
+        expect(gen.next(action).value).toEqual(fork(loadMoreContributors, repoName));
       });
     });
 
     describe('loadMoreContributors', () => {
       it('loads more contributors', () => {
-        const gen = loadMoreContributors(repoName, url);
+        const gen = loadMoreContributors(repoName);
 
-        expect(gen.next().value).toEqual(call(fetchMoreContributors, url));
+        expect(gen.next().value).toEqual(select(getNextUrl, repoName));
+        expect(gen.next(url).value).toEqual(call(fetchMoreContributors, url));
         expect(gen.next(data).value).toEqual(put(fetchMoreContributorsSucceeded(repoName, data)));
         expect(gen.next()).toEqual({done: true, value: undefined});
       });
 
       it('handle error', () => {
-        const gen = loadMoreContributors(repoName, url);
+        const gen = loadMoreContributors(repoName);
 
-        expect(gen.next().value).toEqual(call(fetchMoreContributors, url));
+        expect(gen.next().value).toEqual(select(getNextUrl, repoName));
+        expect(gen.next(url).value).toEqual(call(fetchMoreContributors, url));
         expect(gen.throw(error).value).toEqual(put(fetchMoreContributorsFailed(repoName, error.stack)));
         expect(gen.next()).toEqual({done: true, value: undefined});
       });

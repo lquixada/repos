@@ -27,8 +27,7 @@ export class ContributorsContainer extends React.Component {
   }
 
   fetchNext() {
-    const {repoName, contributors} = this.props;
-    this.props.fetchMoreContributors(repoName, contributors.next);
+    this.props.fetchMoreContributors(this.props.repoName);
   }
 
   hasLoaded() {
