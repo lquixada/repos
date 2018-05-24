@@ -11,7 +11,6 @@ const data = (state = List(), action) => {
 
   switch (type) {
     case CONTRIBUTORS_SUCCEEDED:
-      return fromJS(payload.data.result);
     case MORE_CONTRIBUTORS_SUCCEEDED:
       return state.concat(fromJS(payload.data.result));
     default:
