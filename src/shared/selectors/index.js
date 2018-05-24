@@ -1,1 +1,1 @@
-export const getNextUrl = (state, repoName) => state.contributors[repoName].next;
+export const getNextUrl = (state, repoName) => state.contributors.getIn([repoName, 'next']);

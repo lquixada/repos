@@ -1,11 +1,12 @@
 import React from 'react';
+import {fromJS} from 'immutable';
 import {mount} from 'enzyme';
 
 import {Summary} from '../summary';
 
 describe('<Summary />', () => {
   it('matches the snapshot', () => {
-    const repo = {
+    const repo = fromJS({
       name: 'Facebook Repos',
       stargazers_count: 5,
       subscribers_count: 5,
@@ -14,7 +15,7 @@ describe('<Summary />', () => {
       license: {
         name: 'MIT'
       }
-    };
+    });
     const component = mount(<Summary repo={repo} />);
     expect(component).toMatchSnapshot();
   });

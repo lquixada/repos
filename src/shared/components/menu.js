@@ -6,9 +6,12 @@ import {Link} from './link';
 export const Menu = ({reposContributorsCount}) => (
   <Wrapper>
     <List>
-      {reposContributorsCount.map(([repoName, contributorsCount]) => (
-        <Item key={repoName}>
-          <Link repoName={repoName} contributorsCount={contributorsCount} />
+      {reposContributorsCount.map((repoContributorCount) => (
+        <Item key={repoContributorCount.get(0)}>
+          <Link
+            repoName={repoContributorCount.get(0)}
+            contributorsCount={repoContributorCount.get(1)}
+          />
         </Item>
       ))}
     </List>

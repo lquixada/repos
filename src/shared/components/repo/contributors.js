@@ -18,10 +18,10 @@ const Content = ({data, hasMore, isLoadingMore, onNext}) => (
   <div>
     <List>
       {data.map((contributor, i) =>
-        <Item key={contributor.login+i}>
-          <Link href={contributor.html_url}>
-            <Image src={contributor.avatar_url} />
-            <Text>{contributor.login}</Text>
+        <Item key={contributor.get('login')+i}>
+          <Link href={contributor.get('html_url')}>
+            <Image src={contributor.get('avatar_url')} />
+            <Text>{contributor.get('login')}</Text>
           </Link>
         </Item>
       )}
