@@ -32,6 +32,7 @@ if (matchs.length === 0) {
   throw new Error(`React Router: Not found ${window.location.pathname}`);
 }
 
+// Take over if server is not capable of providing the initial state
 if (!window.__INITIAL_STATE__) {
   store.runnedSagas.toPromise().then(renderApp);
   trigger('fetch', matchs, store.dispatch);
