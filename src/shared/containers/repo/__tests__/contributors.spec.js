@@ -77,22 +77,16 @@ describe('<ContributorsContainer />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('fetches first load od Contributors component', () => {
-    const component = shallow(
+  it('fetches first load of Contributors component', () => {
+    shallow(
       <ContributorsContainer
         repoName={repoName}
-        contributors={contributors}
         count={count}
         {...actions}
       />
     );
 
-    component.setProps({
-      repoName: 'repo2',
-      contributors: undefined, // at this point there's any data from the new repo available
-    });
-
-    expect(actions.fetchContributors).toBeCalledWith('repo2');
+    expect(actions.fetchContributors).toBeCalledWith('repo1');
   });
 
   it('fetches next load od Contributors component', () => {

@@ -5,23 +5,24 @@ import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
 import {Helmet} from 'react-helmet';
 
 import {App} from '../../shared/components/app';
-import {NotFoundPage} from '../../shared/components/not-found-page';
+import {ErrorPage} from '../../shared/components/error-page';
 import template from '../templates/error';
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const errorMiddleware = (err, req, res, next) => {
   const sheet = new ServerStyleSheet();
   const html = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
-      <App>
+      <App> {/* This is wrong :( */}
         <StaticRouter location={req.url} context={{}}>
-          <NotFoundPage />
+          <ErrorPage message={isProd? '' : err.stack} />
         </StaticRouter>
       </App>
     </StyleSheetManager>
   );
 
-  res.set({Error: err.message});
-  res.status(404).send(template({
+  res.status(500).send(template({
     helmet: Helmet.renderStatic(),
     styles: sheet.getStyleTags(),
     html,
