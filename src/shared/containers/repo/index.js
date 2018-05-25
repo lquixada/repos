@@ -28,7 +28,7 @@ export class RepoContainer extends React.Component {
 
   render() {
     if (!this.hasLoaded()) {
-      return null;
+      return <div>Loading...</div>;
     }
 
     return (
