@@ -26,7 +26,7 @@ describe('<RepoContainer />', () => {
 
   it('renders null if there is no repo', () => {
     const component = shallow(<RepoContainer match={match} fetchRepo={fetchRepo} />);
-    expect(component.html()).toBeNull();
+    expect(component).toMatchSnapshot();
   });
 
   it('renders Repo component', () => {

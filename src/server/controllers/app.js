@@ -1,4 +1,3 @@
-/* eslint-disable max-statements */
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
@@ -9,17 +8,14 @@ import {Helmet} from 'react-helmet';
 
 import template from '../templates/app';
 import routes from '../../shared/routes';
+import configureStore from '../../shared/store';
 import {isEnabled, trigger} from '../../shared/helpers';
-import store from '../store';
 
 export default (req, res, next) => {
-  const ssrEnabled = isEnabled(req.query.ssr);
-
-  const matchs = matchRoutes(routes, req.url);
-
-  if (matchs.length === 0) {
-    throw new Error(`React Router: Not found ${req.url}`);
-  }
+  const {url, query} = req;
+  const ssrEnabled = isEnabled(query.ssr);
+  const matchs = matchRoutes(routes, url);
+  const store = configureStore();
 
   const renderApp = () => {
     const sheet = new ServerStyleSheet();
@@ -30,7 +26,7 @@ export default (req, res, next) => {
         {/* Provides store to containers */}
         <Provider store={store}>
           {/* Provides router to ReactRouter components (ex: Link) */}
-          <StaticRouter location={req.url} context={{}}>
+          <StaticRouter location={url} context={{}}>
             {renderRoutes(routes)}
           </StaticRouter>
         </Provider>

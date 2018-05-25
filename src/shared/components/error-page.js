@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {Title} from './title';
 import {Main, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
 
-export const NotFoundPage = () => (
+export const ErrorPage = ({message}) => (
   <Main>
     <Header>
       <HeaderContainer>
@@ -15,7 +15,8 @@ export const NotFoundPage = () => (
     <Section>
       <SectionContainer>
         <Content>
-          <P>Whoops, looks like that page doesn't exist.</P>
+          <P>Whoops, looks like an error occurred.</P>
+          {message && <pre>{message}</pre>}
         </Content>
       </SectionContainer>
     </Section>
@@ -23,6 +24,7 @@ export const NotFoundPage = () => (
 );
 
 const P = styled.p`
+  margin-bottom: 1rem;
   font-size: 4rem;
   font-weight: lighter;
   letter-spacing: -.1rem;

@@ -66,6 +66,37 @@ describe('App API', () => {
   });
 
   describe('/r/:repo', () => {
+    beforeEach(() => {
+      nock('https://api.github.com')
+        .persist(true)
+        .get('/orgs/facebook/repos')
+        .query(true)
+        .reply(200, [{
+          id: 1,
+          name: 'react',
+          full_name: 'facebook/react'
+        }]);
+
+      nock('https://api.github.com')
+        .persist(true)
+        .get('/repos/facebook/react/contributors')
+        .query(true)
+        .reply(200, [{
+          id: 1,
+          login: 'user',
+        }]);
+
+      nock('https://api.github.com')
+        .persist(true)
+        .get('/repos/facebook/react')
+        .query(true)
+        .reply(200, {
+          id: 1,
+          name: 'react',
+          full_name: 'facebook/react'
+        });
+    });
+
     it('is a valid path', (done) => {
       request(server)
         .get('/r/react')
@@ -88,7 +119,7 @@ describe('App API', () => {
     it('is not a valid path', (done) => {
       request(server)
         .get('/notfound')
-        .expect(404, done);
+        .expect(200, done);
     });
 
     it('renders the not found page', (done) => {

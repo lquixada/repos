@@ -8,13 +8,10 @@ import {AppContainer} from 'react-hot-loader';
 
 import {trigger} from '../shared/helpers';
 import routes from '../shared/routes'; // eslint-disable-line no-unused-vars
+
 import store from './store';
 
 const matchs = matchRoutes(routes, window.location.pathname);
-
-if (matchs.length === 0) {
-  throw new Error(`React Router: Not found ${window.location.pathname}`);
-}
 
 const renderApp = () => {
   const routes = require('../shared/routes').default;
