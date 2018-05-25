@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import {END} from 'redux-saga';
 import {Helmet} from 'react-helmet';
 
-import template from '../templates';
+import template from '../templates/app';
 import routes from '../../shared/routes';
 import {isEnabled, trigger} from '../../shared/helpers';
 import configureStore from '../../shared/store';
