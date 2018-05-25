@@ -3,7 +3,7 @@ import {provideHooks} from '../helpers';
 import {loadRepoPage} from '../actions';
 
 const hooks = {
-  fetch: (params) => loadRepoPage(params.repo),
+  fetch: ({params, dispatch}) => dispatch(loadRepoPage(params.repo)),
 };
 
 export default provideHooks(hooks)(RepoPage);

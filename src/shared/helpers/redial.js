@@ -5,8 +5,11 @@ export const provideHooks = (hooks) => (ComposedComponent) => Object.assign(Comp
 export const trigger = (hookName, matchs, dispatch) =>
   matchs.forEach(({match, route}) => {
     const {hooks} = route.component;
+    const {params} = match;
+
     if (hooks && hooks[hookName]) {
-      const action = hooks[hookName];
-      dispatch(action(match.params));
+      const hook = hooks[hookName];
+
+      hook({params, dispatch});
     }
   });
