@@ -16,18 +16,19 @@ import configureStore from '../../shared/store';
 
 export default (req, res, next) => {
   const matchs = matchRoutes(routes, req.url);
-  const ssrEnabled = isEnabled(req.query.ssr);
 
   if (matchs.length === 0) {
     throw new Error(`React Router: Not found ${req.url}`);
   }
 
+  const ssrEnabled = isEnabled(req.query.ssr);
   const store = configureStore();
   const [{match, route}] = matchs;
   const {params} = match;
 
   store.runnedSagas.toPromise().then(() => {
     const sheet = new ServerStyleSheet();
+    const state = ssrEnabled? JSON.stringify(store.getState()) : void(0);
     const html = ssrEnabled? renderToString(
       /* Provides sheet to styled-components */
       <StyleSheetManager sheet={sheet.instance}>
@@ -46,7 +47,7 @@ export default (req, res, next) => {
     res.send(template({
       helmet: Helmet.renderStatic(),
       styles: sheet.getStyleTags(),
-      state: JSON.stringify(store.getState()),
+      state,
       html,
     }));
   }).catch(next);
