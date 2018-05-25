@@ -5,11 +5,16 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import {renderRoutes, matchRoutes} from 'react-router-config';
 import {AppContainer} from 'react-hot-loader';
-import {END} from 'redux-saga';
 
 import {trigger} from '../shared/helpers';
 import routes from '../shared/routes'; // eslint-disable-line no-unused-vars
 import store from './store';
+
+const matchs = matchRoutes(routes, window.location.pathname);
+
+if (matchs.length === 0) {
+  throw new Error(`React Router: Not found ${window.location.pathname}`);
+}
 
 const renderApp = () => {
   const routes = require('../shared/routes').default;
@@ -26,17 +31,10 @@ const renderApp = () => {
   );
 };
 
-const matchs = matchRoutes(routes, window.location.pathname);
-
-if (matchs.length === 0) {
-  throw new Error(`React Router: Not found ${window.location.pathname}`);
-}
-
 // Take over if server is not capable of providing the initial state
 if (!window.__INITIAL_STATE__) {
   store.runnedSagas.toPromise().then(renderApp);
   trigger('fetch', matchs, store.dispatch);
-  store.dispatch(END);
 } else {
   renderApp();
 }
