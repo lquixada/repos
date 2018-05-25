@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {Helmet} from 'react-helmet';
 import {injectGlobal} from 'styled-components';
+import {renderRoutes} from 'react-router-config';
 
 import pkg from '../../../package.json';
 
@@ -10,6 +11,7 @@ export class App extends React.Component {
   }
 
   render() {
+    const {routes} = this.props.route;
     return (
       <Fragment>
         <Helmet>
@@ -19,7 +21,7 @@ export class App extends React.Component {
           <meta name="version" content={pkg.version} />
           <title>Facebook Repos</title>
         </Helmet>
-        {this.props.children}
+        {renderRoutes(routes)}
       </Fragment>
     );
   }
