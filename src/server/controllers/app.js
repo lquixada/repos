@@ -5,25 +5,23 @@ import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
 import {matchRoutes, renderRoutes} from 'react-router-config';
 import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {END} from 'redux-saga';
 import {Helmet} from 'react-helmet';
 
 import template from '../templates/app';
 import routes from '../../shared/routes';
 import {isEnabled, trigger} from '../../shared/helpers';
-import configureStore from '../../shared/store';
+import store from '../store';
 
 export default (req, res, next) => {
+  const ssrEnabled = isEnabled(req.query.ssr);
+
   const matchs = matchRoutes(routes, req.url);
 
   if (matchs.length === 0) {
     throw new Error(`React Router: Not found ${req.url}`);
   }
 
-  const ssrEnabled = isEnabled(req.query.ssr);
-  const store = configureStore();
-
-  store.runnedSagas.toPromise().then(() => {
+  const renderApp = () => {
     const sheet = new ServerStyleSheet();
     const state = ssrEnabled? JSON.stringify(store.getState()) : void(0);
     const html = ssrEnabled? renderToString(
@@ -45,11 +43,12 @@ export default (req, res, next) => {
       state,
       html,
     }));
-  }).catch(next);
+  };
 
   if (ssrEnabled) {
+    store.runnedSagas.toPromise().then(renderApp).catch(next);
     trigger('fetch', matchs, store.dispatch);
+  } else {
+    renderApp();
   }
-
-  store.dispatch(END);
 };
