@@ -5,7 +5,12 @@ import {RepoPage} from '../repo-page';
 
 describe('<RepoPage />', () => {
   it('matches the snapshot', () => {
-    const component = shallow(<RepoPage />);
+    const match = {
+      params: {
+        repo: 'repo1'
+      }
+    };
+    const component = shallow(<RepoPage match={match} />);
     expect(component).toMatchSnapshot();
   });
 });

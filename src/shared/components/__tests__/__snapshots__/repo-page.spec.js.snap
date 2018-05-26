@@ -2,6 +2,15 @@
 
 exports[`<RepoPage /> matches the snapshot 1`] = `
 <styled.main>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      repo1
+       - Facebook Repos
+    </title>
+  </HelmetWrapper>
   <styled.header>
     <styled.div>
       <Title />
@@ -14,7 +23,15 @@ exports[`<RepoPage /> matches the snapshot 1`] = `
         <Footer />
       </styled.aside>
       <styled.article>
-        <Connect(RepoContainer) />
+        <Connect(RepoContainer)
+          match={
+            Object {
+              "params": Object {
+                "repo": "repo1",
+              },
+            }
+          }
+        />
       </styled.article>
     </styled.div>
   </styled.section>
