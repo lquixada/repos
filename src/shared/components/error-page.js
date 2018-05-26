@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import {Title} from './title';
@@ -22,6 +23,10 @@ export const ErrorPage = ({message}) => (
     </Section>
   </Main>
 );
+
+ErrorPage.propTypes = {
+  message: PropTypes.string,
+};
 
 const P = styled.p`
   margin-bottom: 1rem;
