@@ -1,9 +1,32 @@
+import React from 'react';
+import {connect} from 'react-redux';
+
 import {HomePage} from '../components/home-page';
 import {provideHooks} from '../helpers';
-import {loadHomePage} from '../actions';
+import * as actions from '../actions';
 
 const hooks = {
-  fetch: ({dispatch}) => dispatch(loadHomePage()),
+  fetch: ({dispatch}) => dispatch(actions.loadHomePage()),
 };
 
-export default provideHooks(hooks)(HomePage);
+export class HomePageContainer extends React.Component {
+  componentDidMount(prevProps) {
+    if (!this.hasLoaded()) {
+      this.props.loadHomePage();
+    }
+  }
+
+  hasLoaded() {
+    return !this.props.reposContributorsCount.isEmpty();
+  }
+
+  render() {
+    return (
+      <HomePage />
+    );
+  }
+}
+
+const mapStateToProps = ({reposContributorsCount}) => ({reposContributorsCount});
+const connected = connect(mapStateToProps, actions)(HomePageContainer);
+export default provideHooks(hooks)(connected);
