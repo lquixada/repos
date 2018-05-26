@@ -11,3 +11,31 @@ export function addSeparator(num) {
 }
 
 export const isEnabled = (str) => ['false', '0', 0, false].indexOf(str) < 0;
+
+export const extractNext = (header) => {
+  const str = header || '';
+  const result = str
+    .split(',')
+    .find((fragment) => /rel="next"/.test(fragment));
+
+  if (!result) {
+    return '';
+  }
+
+  const match = result.match(/<(.*)>/);
+  return match? match[1] : '';
+};
+
+export const extractTotal = (header) => {
+  const str = header || '';
+  const result = str
+    .split(',')
+    .find((fragment) => /rel="last"/.test(fragment));
+
+  if (!result) {
+    return 0;
+  }
+
+  const match = result.match(/[&?]page=(\d+)/);
+  return match? parseInt(match[1], 10) : 0;
+};
