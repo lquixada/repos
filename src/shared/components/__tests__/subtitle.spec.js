@@ -1,11 +1,11 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import {Title} from '../title';
+import {Subtitle} from '../subtitle';
 
-describe('<Title />', () => {
+describe('<Subtitle />', () => {
   it('matches the snapshot', () => {
-    const component = mount(<Title>Facebook Repos</Title>);
+    const component = mount(<Subtitle>Facebook Repos</Subtitle>);
     expect(component).toMatchSnapshot();
   });
 });

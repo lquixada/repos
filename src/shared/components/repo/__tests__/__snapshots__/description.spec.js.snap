@@ -6,7 +6,7 @@ exports[`<Description /> matches the snapshot 1`] = `
 >
   <styled.p>
     <p
-      className="sc-bdVaJa dvageB"
+      className="sc-htoDjs BulxG"
     >
       some text
     </p>

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export const Title = ({children}) => (
+export const Subtitle = ({children}) => (
   <Wrapper>{children}</Wrapper>
 );
 
-Title.propTypes = {
+Subtitle.propTypes = {
   children: PropTypes.node,
 };
 

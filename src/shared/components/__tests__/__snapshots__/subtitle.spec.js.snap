@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Title /> matches the snapshot 1`] = `
-<Title>
+exports[`<Subtitle /> matches the snapshot 1`] = `
+<Subtitle>
   <styled.h2>
     <h2
       className="sc-bdVaJa ketyGn"
@@ -9,5 +9,5 @@ exports[`<Title /> matches the snapshot 1`] = `
       Facebook Repos
     </h2>
   </styled.h2>
-</Title>
+</Subtitle>
 `;
