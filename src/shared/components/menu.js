@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 import {Link} from './link';
 
-export const Menu = ({reposContributorsCount}) => (
+export const Menu = ({items}) => (
   <Wrapper>
     <List>
-      {reposContributorsCount.map((repoContributorCount) => (
-        <Item key={repoContributorCount.get(0)}>
+      {items.map((item) => (
+        <Item key={item.get(0)}>
           <Link
-            repoName={repoContributorCount.get(0)}
-            contributorsCount={repoContributorCount.get(1)}
-            isLoading={repoContributorCount.get(2)}
+            repoName={item.get(0)}
+            contributorsCount={item.get(1)}
+            isLoading={item.get(2)}
           />
         </Item>
       ))}

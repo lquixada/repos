@@ -5,7 +5,7 @@ import {List} from 'immutable';
 import {Menu} from '../components/menu';
 
 const mapStateToProps = ({reposContributorsCount, repo}, {match}) => ({
-  reposContributorsCount: reposContributorsCount.map((item) => {
+  items: reposContributorsCount.map((item) => {
     const repoName = item.get(0);
     const count = item.get(1);
     const isLoading = repo.getIn([repoName, 'isLoading']);
