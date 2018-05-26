@@ -24,13 +24,7 @@ exports[`<RepoPage /> matches the snapshot 1`] = `
       </styled.aside>
       <styled.article>
         <Connect(RepoContainer)
-          match={
-            Object {
-              "params": Object {
-                "repo": "repo1",
-              },
-            }
-          }
+          name="repo1"
         />
       </styled.article>
     </styled.div>

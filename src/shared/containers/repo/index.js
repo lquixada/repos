@@ -13,7 +13,7 @@ export class RepoContainer extends React.Component {
 
   fetch() {
     if (!this.hasLoaded()) {
-      this.props.fetchRepo(this.props.match.params.repo);
+      this.props.fetchRepo(this.props.name);
     }
   }
 
@@ -23,7 +23,7 @@ export class RepoContainer extends React.Component {
   }
 
   hasChanged(prevProps) {
-    return prevProps.match.params.repo !== this.props.match.params.repo;
+    return prevProps.name !== this.props.name;
   }
 
   render() {
@@ -37,7 +37,7 @@ export class RepoContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({repo}, {match}) => ({
-  repo: repo.get(match.params.repo)
+const mapStateToProps = ({repo}, {name}) => ({
+  repo: repo.get(name)
 });
 export default connect(mapStateToProps, actions)(RepoContainer);
