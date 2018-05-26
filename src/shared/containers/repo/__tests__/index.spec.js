@@ -1,21 +1,15 @@
 import React from 'react';
 import {fromJS} from 'immutable';
 import {shallow} from 'enzyme';
+
 import {RepoContainer} from '../index';
 
 describe('<RepoContainer />', () => {
   let fetchRepo;
-  let match;
   let repo;
 
   beforeEach(() => {
     fetchRepo = jest.fn();
-
-    match = {
-      params: {
-        repo: 'repo1'
-      }
-    };
 
     repo = fromJS({
       data: {
@@ -25,27 +19,21 @@ describe('<RepoContainer />', () => {
   });
 
   it('renders null if there is no repo', () => {
-    const component = shallow(<RepoContainer match={match} fetchRepo={fetchRepo} />);
+    const component = shallow(<RepoContainer name={'repo1'} fetchRepo={fetchRepo} />);
     expect(component).toMatchSnapshot();
   });
 
   it('renders Repo component', () => {
-    const component = shallow(<RepoContainer repo={repo} match={match} fetchRepo={fetchRepo} />);
+    const component = shallow(<RepoContainer name={'repo1'} fetchRepo={fetchRepo} repo={repo} />);
     expect(component.find('Repo').prop('repo').toJS()).toEqual(repo.get('data').toJS());
   });
 
   it('fetches other Repo component', () => {
-    const newMatch = {
-      params: {
-        repo: 'repo2'
-      }
-    };
-
-    const component = shallow(<RepoContainer repo={repo} match={match} fetchRepo={fetchRepo} />);
+    const component = shallow(<RepoContainer name={'repo1'} fetchRepo={fetchRepo} repo={repo} />);
 
     component.setProps({
       repo: undefined, // at this point there's any data from the new repo available
-      match: newMatch
+      name: 'repo2'
     });
 
     expect(fetchRepo).toBeCalledWith('repo2');

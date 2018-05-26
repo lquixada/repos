@@ -26,7 +26,7 @@ export const RepoPage = ({match}) => (
           <Footer />
         </Aside>
         <Content>
-          <Repo match={match} />
+          <Repo name={match.params.repo} />
         </Content>
       </SectionContainer>
     </Section>
