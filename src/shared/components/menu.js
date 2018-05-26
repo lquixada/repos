@@ -11,6 +11,7 @@ export const Menu = ({reposContributorsCount}) => (
           <Link
             repoName={repoContributorCount.get(0)}
             contributorsCount={repoContributorCount.get(1)}
+            isLoading={repoContributorCount.get(2)}
           />
         </Item>
       ))}

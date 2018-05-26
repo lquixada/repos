@@ -24,5 +24,4 @@ const NavLink = styled(Link)`
 const Image = styled.img`
   display: inline-block;
   height: 100%;
-  vertical-align: middle;
 `;

@@ -3,23 +3,24 @@ import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
-export const Link = ({repoName, contributorsCount}) => (
+import {flex} from '../helpers';
+
+export const Link = ({repoName, contributorsCount, isLoading}) => (
   <Wrapper to={`/r/${repoName}`}>
     <Icon name="repo" />
-    {repoName}
-    {' '}
-    (<Help title="number of contributors">{contributorsCount}</Help>)
+    <Text>
+      {repoName}
+      {' '}
+      (<Help title="number of contributors">{contributorsCount}</Help>)
+    </Text>
+    {isLoading? <img src="/images/loading.gif" /> : ''}
   </Wrapper>
 );
 
-
-const Icon = styled(Octicon)`
-  margin-right: .5rem;
-`;
-
 const Wrapper = styled(NavLink)`
+  ${flex.display()}
+  ${flex.flow('row', 'nowrap')};
   text-decoration: none;
-  display: block;
   padding: .8rem 1rem;
   color: #333;
   font-size: 1.2rem;
@@ -36,6 +37,14 @@ const Wrapper = styled(NavLink)`
     border-left: .2rem solid #d26911;
     background-color: #f4f4f4;
   }
+`;
+
+const Icon = styled(Octicon)`
+  margin-right: .5rem;
+`;
+
+const Text = styled.span`
+  ${flex('1')}
 `;
 
 const Help = styled.span`
