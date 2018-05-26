@@ -4,7 +4,7 @@ exports[`<Title /> matches the snapshot 1`] = `
 <Title>
   <styled.h2>
     <h2
-      className="sc-bdVaJa gxIwaj"
+      className="sc-bdVaJa ketyGn"
     >
       Facebook Repos
     </h2>

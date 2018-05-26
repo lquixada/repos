@@ -29,6 +29,8 @@ export class App extends React.Component {
 
 const resetStyles = () => injectGlobal`
   /* Reset */
+  @import url('https://fonts.googleapis.com/css?family=Lato:300');
+  
   * {
     margin: 0;
     padding: 0;
