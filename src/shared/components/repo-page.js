@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 
 import Repo from '../containers/repo';
@@ -32,3 +33,11 @@ export const RepoPage = ({match}) => (
     </Section>
   </Main>
 );
+
+RepoPage.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      repo: PropTypes.string,
+    }),
+  }),
+};

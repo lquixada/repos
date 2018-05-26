@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
@@ -15,6 +16,11 @@ export const Header = ({title, url}) => (
     </Link>
   </Wrapper>
 );
+
+Header.propTypes = {
+  title: PropTypes.string,
+  url: PropTypes.string,
+};
 
 const Wrapper = styled.header`
   ${flex.display()}
