@@ -1,5 +1,3 @@
-require('babel-polyfill');
-
 const {PORT = 3000} = process.env;
 const server = require('./server');
 
