@@ -9,7 +9,7 @@ exports[`<Header /> matches the snapshot 1`] = `
     <header
       className="sc-bwzfXH cxwHyp"
     >
-      <Title>
+      <Subtitle>
         <styled.h2>
           <h2
             className="sc-bdVaJa ketyGn"
@@ -17,7 +17,7 @@ exports[`<Header /> matches the snapshot 1`] = `
             Facebook Repos
           </h2>
         </styled.h2>
-      </Title>
+      </Subtitle>
       <styled.a
         href="http://facebook-repos/"
         target="_blank"

@@ -1,11 +1,11 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 import {Footer} from '../footer';
 
 describe('<Footer />', () => {
   it('matches the snapshot', () => {
-    const component = mount(<Footer />);
+    const component = shallow(<Footer />);
     expect(component).toMatchSnapshot();
   });
 });

@@ -1,50 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> matches the snapshot 1`] = `
-<Footer>
-  <styled.footer>
-    <footer
-      className="sc-bdVaJa kXnLAJ"
-    >
-      <styled.a
-        href="http://linkedin.com/in/lquixada"
-      >
-        <a
-          className="sc-bwzfXH LlvFc"
-          href="http://linkedin.com/in/lquixada"
-        >
-          LinkedIn
-        </a>
-      </styled.a>
-       
-      |
-       
-      <styled.a
-        href="https://github.com/lquixada/"
-      >
-        <a
-          className="sc-bwzfXH LlvFc"
-          href="https://github.com/lquixada/"
-        >
-          Github
-        </a>
-      </styled.a>
-       
-      |
-       
-      <styled.a
-        href="https://twitter.com/lquixada/"
-      >
-        <a
-          className="sc-bwzfXH LlvFc"
-          href="https://twitter.com/lquixada/"
-        >
-          Twitter
-        </a>
-      </styled.a>
-      <br />
-      Made with ❤ by Leonardo Quixadá.
-    </footer>
-  </styled.footer>
-</Footer>
+<styled.footer>
+  <styled.a
+    href="http://linkedin.com/in/lquixada"
+  >
+    LinkedIn
+  </styled.a>
+   
+  |
+   
+  <styled.a
+    href="https://github.com/lquixada/"
+  >
+    Github
+  </styled.a>
+   
+  |
+   
+  <Styled(NavLink)
+    to="/about"
+  >
+    About me
+  </Styled(NavLink)>
+  <br />
+  Made with ❤ by Leonardo Quixadá.
+</styled.footer>
 `;

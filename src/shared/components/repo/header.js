@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Octicon from 'react-component-octicons';
 
-import {Title} from './title';
+import {Subtitle} from '../subtitle';
 import {flex} from '../../helpers';
 
 export const Header = ({title, url}) => (
   <Wrapper>
-    <Title>{title}</Title>
+    <Subtitle>{title}</Subtitle>
 
     <Link href={url} target="_blank">
       <Octicon name="mark-github"/>

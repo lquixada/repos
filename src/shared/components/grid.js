@@ -65,3 +65,10 @@ export const SectionContainer = Container.extend`
     ${flex.dir('column')}
   }
 `;
+
+export const P = styled.p`
+  margin-bottom: 1rem;
+  color: #393939;
+  font-size: 1.4rem;
+  line-height: 1.5;
+`;

@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 
 export const Footer = () => (
   <Wrapper>
-    <Link href="http://linkedin.com/in/lquixada">LinkedIn</Link>
+    <OutLink href="http://linkedin.com/in/lquixada">LinkedIn</OutLink>
     {' '}|{' '}
-    <Link href="https://github.com/lquixada/">Github</Link>
+    <OutLink href="https://github.com/lquixada/">Github</OutLink>
     {' '}|{' '}
-    <Link href="https://twitter.com/lquixada/">Twitter</Link>
+    <InLink to="/about">About me</InLink>
     <br/>
     Made with ❤ by Leonardo Quixadá.
   </Wrapper>
@@ -22,7 +23,14 @@ const Wrapper = styled.footer`
   line-height: 1.5;
 `;
 
-const Link = styled.a`
+const InLink = styled(NavLink)`
+  margin-bottom: 1rem;
+  color: #767676;
+  font-size: 1rem;
+  text-decoration: none;
+`;
+
+const OutLink = styled.a`
   margin-bottom: 1rem;
   color: #767676;
   font-size: 1rem;
