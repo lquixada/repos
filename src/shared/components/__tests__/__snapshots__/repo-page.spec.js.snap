@@ -19,7 +19,7 @@ exports[`<RepoPage /> matches the snapshot 1`] = `
   <styled.section>
     <styled.div>
       <styled.aside>
-        <withRouter(Connect(Menu)) />
+        <withRouter(Connect(MenuContainer)) />
         <Footer />
       </styled.aside>
       <styled.article>
