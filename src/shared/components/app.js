@@ -47,6 +47,8 @@ const resetStyles = () => injectGlobal`
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     border: 0;
   }
 
