@@ -1,4 +1,4 @@
-import {addSeparator} from '../strings';
+import {addSeparator, extractNext, extractTotal} from '../strings';
 
 describe('Helpers (String)', () => {
   describe('addSeparator', () => {
@@ -48,6 +48,52 @@ describe('Helpers (String)', () => {
       it('returns zero if any object is given', () => {
         expect(addSeparator({})).toBe('0');
       });
+    });
+  });
+
+  describe('extractNext', () => {
+    it('extract the next url from Link header', () => {
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="next"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
+      expect(extractNext(header)).toBe('https://api.github.com/repos/?page=2');
+    });
+
+    it('returns empty if there is no next url', () => {
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
+      expect(extractNext(header)).toBe('');
+    });
+
+    it('returns empty if no header is provided', () => {
+      expect(extractNext(undefined)).toBe('');
+      expect(extractNext(null)).toBe('');
+    });
+  });
+
+  describe('extractTotal', () => {
+    it('extract total pages from Link header\'s last url', () => {
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="last"'
+      ].join(', ');
+      expect(extractTotal(header)).toBe(5);
+    });
+
+    it('returns zero if there is no last url on Link header', () => {
+      const header = [
+        '<https://api.github.com/repos/?page=2>; rel="prev"',
+        '<https://api.github.com/repos/?page=5>; rel="next"'
+      ].join(', ');
+      expect(extractTotal(header)).toBe(0);
+    });
+
+    it('returns zero if no header is provided', () => {
+      expect(extractTotal(undefined)).toBe(0);
+      expect(extractTotal(null)).toBe(0);
     });
   });
 });
