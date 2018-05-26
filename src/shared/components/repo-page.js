@@ -1,4 +1,5 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 
 import Repo from '../containers/repo';
 import Menu from '../containers/menu';
@@ -8,6 +9,10 @@ import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer
 
 export const RepoPage = ({match}) => (
   <Main>
+    <Helmet>
+      <title>{match.params.repo} - Facebook Repos</title>
+    </Helmet>
+
     <Header>
       <HeaderContainer>
         <Title />
