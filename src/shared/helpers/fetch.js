@@ -2,7 +2,10 @@ import fetch from 'cross-fetch';
 
 import {github} from '../config';
 
-export default (url) => {
+export default async (url) => {
   const separator = (url.indexOf('?')>-1? '&' : '?');
-  return fetch(`${url}${separator}access_token=${github.accessToken}`);
+  const response = await fetch(`${url}${separator}access_token=${github.accessToken}`);
+  const json = await response.json();
+
+  return {response, json};
 };

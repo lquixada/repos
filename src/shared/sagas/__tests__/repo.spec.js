@@ -4,13 +4,9 @@ import {fetchRepoSucceeded, fetchRepoFailed, REPO_REQUESTED} from '../../actions
 import watchRepo, {loadRepo} from '../repo';
 
 describe('Sagas (Repo)', () => {
-  let data;
-  let error;
   let repoName;
 
   beforeEach(() => {
-    data = {key: 'value'};
-    error = {stack: 'file.js:1:2'};
     repoName = 'repo1';
   });
 
@@ -26,14 +22,16 @@ describe('Sagas (Repo)', () => {
 
   describe('loadRepo', () => {
     it('loads repo', () => {
+      const data = {key: 'value'};
       const gen = loadRepo(repoName);
 
       expect(gen.next().value).toEqual(call(fetchRepo, repoName));
-      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data)));
+      expect(gen.next({json: data}).value).toEqual(put(fetchRepoSucceeded(repoName, data)));
       expect(gen.next()).toEqual({done: true, value: undefined});
     });
 
     it('handle error', () => {
+      const error = {stack: 'file.js:1:2'};
       const gen = loadRepo(repoName);
 
       expect(gen.next().value).toEqual(call(fetchRepo, repoName));
