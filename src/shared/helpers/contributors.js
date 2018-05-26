@@ -17,23 +17,19 @@ export const extractNext = (header) => {
 
 export const fetchContributors = async (repoName) => {
   const url = `${contributorsUrl(repoName)}?per_page=40`;
-  const res = await fetch(url);
-  const result = await res.json();
-  const next = extractNext(res.headers.get('Link'));
+  const {response, json} = await fetch(url);
 
   return {
-    next,
-    result
+    next: extractNext(response.headers.get('Link')),
+    result: json,
   };
 };
 
 export const fetchMoreContributors = async (url) => {
-  const res = await fetch(url);
-  const result = await res.json();
-  const next = extractNext(res.headers.get('Link'));
+  const {response, json} = await fetch(url);
 
   return {
-    next,
-    result
+    next: extractNext(response.headers.get('Link')),
+    result: json,
   };
 };

@@ -59,7 +59,7 @@ describe('Helpers (ReposContributorsCount)', () => {
         })
         .get('/repos/facebook/some-repo/contributors')
         .query(true)
-        .reply(200);
+        .reply(200, {});
     });
 
     afterEach(() => {

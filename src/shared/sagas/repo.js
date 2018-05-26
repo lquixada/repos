@@ -10,8 +10,8 @@ import {fetchRepo} from '../helpers';
 
 export function* loadRepo(repoName) {
   try {
-    const data = yield call(fetchRepo, repoName);
-    yield put(fetchRepoSucceeded(repoName, data));
+    const {json} = yield call(fetchRepo, repoName);
+    yield put(fetchRepoSucceeded(repoName, json));
   } catch (error) {
     console.info(error);
     yield put(fetchRepoFailed(repoName, error.stack));

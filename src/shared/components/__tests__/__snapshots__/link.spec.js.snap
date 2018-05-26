@@ -7,14 +7,16 @@ exports[`<Link /> matches the snapshot 1`] = `
   <Styled(Octicon)
     name="repo"
   />
-  repo1
-   
-  (
-  <styled.span
-    title="number of contributors"
-  >
-    10
+  <styled.span>
+    repo1
+     
+    (
+    <styled.span
+      title="number of contributors"
+    >
+      10
+    </styled.span>
+    )
   </styled.span>
-  )
 </Styled(NavLink)>
 `;

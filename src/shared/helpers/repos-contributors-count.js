@@ -17,12 +17,12 @@ export const extractTotal = (header) => {
 
 export const fetchContributorsCount = async (repoName) => {
   const url = contributorsUrl(repoName);
-  const res = await fetch(`${url}?page=1&per_page=1`);
-  return extractTotal(res.headers.get('Link'));
+  const {response} = await fetch(`${url}?page=1&per_page=1`);
+  return extractTotal(response.headers.get('Link'));
 };
 
 export const fetchRepos = async () => {
   const url = reposUrl();
-  const res = await fetch(url);
-  return await res.json();
+  const {json} = await fetch(url);
+  return json;
 };

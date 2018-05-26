@@ -19,8 +19,8 @@ describe('Helpers (Repo)', () => {
         .query(true)
         .reply(200, data);
 
-      const result = await fetchRepo('some-repo');
-      expect(result).toEqual(data);
+      const {json} = await fetchRepo('some-repo');
+      expect(json).toEqual(data);
     });
   });
 });
