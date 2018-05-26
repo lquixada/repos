@@ -1,5 +1,5 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components';
 import {matchRoutes, renderRoutes} from 'react-router-config';
 import {StaticRouter} from 'react-router-dom';
@@ -20,7 +20,7 @@ export default (req, res, next) => {
   const renderApp = () => {
     const sheet = new ServerStyleSheet();
     const state = ssrEnabled? JSON.stringify(store.getState()) : void(0);
-    const html = ssrEnabled? renderToString(
+    const html = ssrEnabled? ReactDOMServer.renderToString(
       /* Provides sheet to styled-components */
       <StyleSheetManager sheet={sheet.instance}>
         {/* Provides store to containers */}
