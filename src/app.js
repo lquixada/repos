@@ -1,6 +1,7 @@
-const {PORT = 3000} = process.env;
-const server = require('./server');
+import server from './server';
 
-server.default.listen(PORT, () => {
+const {PORT = 3000} = process.env;
+
+server.listen(PORT, () => {
   console.info(`Server running on: http://localhost:${PORT}/`);
 });
