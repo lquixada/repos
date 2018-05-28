@@ -10,9 +10,12 @@ export class App extends React.Component {
     resetStyles();
   }
 
-  render() {
-    const {routes} = this.props.route;
+  renderError() {
+    // Children only exist on error.
+    return this.props.children;
+  }
 
+  render() {
     return (
       <Fragment>
         <Helmet>
@@ -24,7 +27,7 @@ export class App extends React.Component {
           <link rel="icon" href="data:," />
           <title>Facebook Repos</title>
         </Helmet>
-        {renderRoutes(routes)}
+        {this.renderError() || renderRoutes(this.props.route.routes)}
       </Fragment>
     );
   }
