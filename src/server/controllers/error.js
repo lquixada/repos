@@ -14,11 +14,11 @@ const errorMiddleware = (err, req, res, next) => {
   const sheet = new ServerStyleSheet();
   const html = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
-      <App> {/* This is wrong :( */}
-        <StaticRouter location={req.url} context={{}}>
+      <StaticRouter location={req.url} context={{}}>
+        <App>
           <ErrorPage message={isProd? '' : err.stack} />
-        </StaticRouter>
-      </App>
+        </App>
+      </StaticRouter>
     </StyleSheetManager>
   );
 
