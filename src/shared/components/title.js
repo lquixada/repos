@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Title = () => (
   <Wrapper>
     <NavLink to="/">
-      <Image src="/images/logo.jpg" />
+      <Image src="/assets/images/logo.jpg" />
     </NavLink>
   </Wrapper>
 );

@@ -33,7 +33,7 @@ module.exports = {
 
   output: {
     path: webPath,
-    publicPath: '/',
+    publicPath: '/assets/',
     filename: `scripts/[name]${isProd() ? '.[chunkhash]' : ''}.js`
   },
 
