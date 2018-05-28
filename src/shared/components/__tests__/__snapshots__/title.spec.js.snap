@@ -6,7 +6,7 @@ exports[`<Title /> matches the snapshot 1`] = `
     to="/"
   >
     <styled.img
-      src="/images/logo.jpg"
+      src="/assets/images/logo.jpg"
     />
   </Styled(Link)>
 </styled.h1>

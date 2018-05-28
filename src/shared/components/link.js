@@ -14,7 +14,7 @@ export const Link = ({repoName, contributorsCount, isLoading}) => (
       {' '}
       (<Help title="number of contributors">{contributorsCount}</Help>)
     </Text>
-    {isLoading? <img src="/images/loading.gif" /> : ''}
+    {isLoading? <img src="/assets/images/loading.gif" /> : ''}
   </Wrapper>
 );
 
