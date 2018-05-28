@@ -10,7 +10,7 @@ import template from '../templates/error';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const errorMiddleware = (err, req, res, next) => {
+export default (err, req, res, next) => {
   const sheet = new ServerStyleSheet();
   const html = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
@@ -28,5 +28,3 @@ const errorMiddleware = (err, req, res, next) => {
     html,
   }));
 };
-
-export default errorMiddleware;

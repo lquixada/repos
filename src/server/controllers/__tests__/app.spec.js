@@ -1,7 +1,7 @@
 import request from 'supertest';
 import nock from 'nock';
 
-describe('App API', () => {
+describe('App Controller', () => {
   let server;
 
   beforeEach(() => {
