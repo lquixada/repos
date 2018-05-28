@@ -12,6 +12,7 @@ export class App extends React.Component {
 
   render() {
     const {routes} = this.props.route;
+
     return (
       <Fragment>
         <Helmet>

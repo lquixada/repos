@@ -1,7 +1,7 @@
 import React from 'react';
+import {List} from 'immutable';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-import {List} from 'immutable';
 
 import {Menu} from '../components/menu';
 import * as actions from '../actions';
@@ -25,7 +25,7 @@ export class MenuContainer extends React.Component {
 }
 
 const mapStateToProps = ({reposContributorsCount, repo}, {match}) => ({
-  items: reposContributorsCount.map((item) => {
+  items: reposContributorsCount.get('data', List()).map((item) => {
     const repoName = item.get(0);
     const count = item.get(1);
     const isLoading = repo.getIn([repoName, 'isLoading']);

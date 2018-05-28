@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {List} from 'immutable';
 
 import {Contributors} from '../../components/repo/contributors';
 import * as actions from '../../actions';
@@ -63,8 +64,8 @@ export class ContributorsContainer extends React.Component {
 
 const mapStateToProps = ({contributors, reposContributorsCount}, {repoName}) => ({
   // REMEMBER: "reposContributorsCount" has the following
-  // scheme [[repoName1, count1], [repoName2, count2]]
-  count: reposContributorsCount.find((repoContributorsCount) => repoContributorsCount.get(0) === repoName),
+  // scheme [[repoName1, count1, false], [repoName2, count2, false]]
+  count: reposContributorsCount.get('data', List()).find((count) => count.get(0) === repoName),
   contributors: contributors.get(repoName)
 });
 
