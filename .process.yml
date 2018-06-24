@@ -2,5 +2,6 @@ apps:
   - script   : ./web/app.js
     instances: 4
     exec_mode: cluster
+    node_args: --require dotenv/config
     env      :
       NODE_ENV: production

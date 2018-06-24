@@ -10,6 +10,8 @@ COPY web ./web
 
 COPY .process.yml .
 
+COPY .env .
+
 COPY logs ./logs
 
 EXPOSE 3000

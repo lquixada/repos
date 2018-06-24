@@ -6,6 +6,7 @@ web/*
 *.swo
 *.swp
 .tmp
+.env
 node_modules
 
 # Logs and databases
