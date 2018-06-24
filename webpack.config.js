@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const DotenvPlugin = require('dotenv-webpack');
 const babelConfig = require('./.babelrc');
 
 const babelOptions = Object.assign({babelrc: false}, babelConfig.env.client);
@@ -58,6 +59,7 @@ module.exports = {
     isProd()
       ? new CleanWebpackPlugin(path.join(webPath, 'scripts'))
       : new webpack.HotModuleReplacementPlugin(),
+    new DotenvPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'src/public/images',

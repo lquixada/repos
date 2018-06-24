@@ -7,7 +7,7 @@ export const github = {
    * admin privileges. It will expire very soon. A better approach would be to place it
    * in a environment variable.
    */
-  accessToken: '',
+  accessToken: process.env.GITHUB_ACCESS_TOKEN,
   hosts: {
     api: apiHost,
     web: pageHost,
