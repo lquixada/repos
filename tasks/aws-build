@@ -6,7 +6,7 @@ const pkg = require('../package.json');
 const zip = new require('node-zip')();
 
 zip.file('Dockerfile', `
-FROM lquixada/facebook-repos
+FROM lquixada/facebook-repos:${pkg.version}
 
 EXPOSE 3000
 
