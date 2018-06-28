@@ -3,7 +3,7 @@
 exports[`<Header /> matches the snapshot 1`] = `
 <Header
   title="Facebook Repos"
-  url="http://facebook-repos/"
+  url="http://repos/"
 >
   <styled.header>
     <header
@@ -19,12 +19,12 @@ exports[`<Header /> matches the snapshot 1`] = `
         </styled.h2>
       </Subtitle>
       <styled.a
-        href="http://facebook-repos/"
+        href="http://repos/"
         target="_blank"
       >
         <a
           className="sc-htpNat ckgzdb"
-          href="http://facebook-repos/"
+          href="http://repos/"
           target="_blank"
         >
           <Octicon

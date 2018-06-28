@@ -13,7 +13,7 @@ describe('Helpers (Services)', () => {
 
       nock('https://api.github.com')
         .defaultReplyHeaders({
-          'Link': '<http://facebook-repos/?page=2>; rel="next", '
+          'Link': '<http://repos/?page=2>; rel="next", '
         })
         .get('/repos/facebook/some-repo/contributors')
         .query(true)
@@ -28,14 +28,14 @@ describe('Helpers (Services)', () => {
       const data = await fetchContributors('some-repo');
 
       expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://facebook-repos/?page=2');
+      expect(data.next).toBe('http://repos/?page=2');
     });
 
     it('returns contributors from a repo', async () => {
       const data = await fetchContributors('some-repo');
 
       expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://facebook-repos/?page=2');
+      expect(data.next).toBe('http://repos/?page=2');
     });
   });
 
@@ -48,9 +48,9 @@ describe('Helpers (Services)', () => {
         login: 'user1',
       }];
 
-      nock('http://facebook-repos/')
+      nock('http://repos/')
         .defaultReplyHeaders({
-          'Link': '<http://facebook-repos/?page=2>; rel="next", '
+          'Link': '<http://repos/?page=2>; rel="next", '
         })
         .get('/')
         .query(true)
@@ -62,17 +62,17 @@ describe('Helpers (Services)', () => {
     });
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://facebook-repos/');
+      const data = await fetchMoreContributors('http://repos/');
 
       expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://facebook-repos/?page=2');
+      expect(data.next).toBe('http://repos/?page=2');
     });
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://facebook-repos/');
+      const data = await fetchMoreContributors('http://repos/');
 
       expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://facebook-repos/?page=2');
+      expect(data.next).toBe('http://repos/?page=2');
     });
   });
 
@@ -126,7 +126,7 @@ describe('Helpers (Services)', () => {
     beforeEach(() => {
       nock('https://api.github.com')
         .defaultReplyHeaders({
-          'Link': '<http://facebook-repos/?page=5>; rel="last", '
+          'Link': '<http://repos/?page=5>; rel="last", '
         })
         .get('/repos/facebook/some-repo/contributors')
         .query(true)

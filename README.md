@@ -7,8 +7,8 @@ An explorer app for Facebook projects in Github.
 ### Installation
 
 ```
-$ git clone https://github.com/lquixada/facebook-repos.git
-$ cd facebook-repos
+$ git clone https://github.com/lquixada/repos.git
+$ cd repos
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 $ nvm install
 $ nvm use
@@ -65,7 +65,7 @@ Facebook Repos will be ready on http://localhost:3000/. You can use Docker to ru
 
 ### License
 
-facebook-repos is licensed under the [MIT license](https://github.com/lquixada/facebook-repos/src/master/LICENSE) © [Leonardo Quixadá](https://twitter.com/lquixada/)
+repos is licensed under the [MIT license](https://github.com/lquixada/repos/src/master/LICENSE) © [Leonardo Quixadá](https://twitter.com/lquixada/)
 
 
 ### Author
