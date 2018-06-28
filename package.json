@@ -98,8 +98,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/lquixada/facebook-repos/"
-  },
-  "engines": {
-    "node": "8.11.1"
   }
 }
