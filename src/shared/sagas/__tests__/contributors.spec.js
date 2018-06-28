@@ -55,7 +55,7 @@ describe('Sagas (Contributors)', () => {
     let url;
 
     beforeEach(() => {
-      url = 'http://facebook-repos/';
+      url = 'http://repos/';
     });
 
     describe('watchMoreContributors', () => {
