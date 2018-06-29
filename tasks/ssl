@@ -1,0 +1,41 @@
+#!/bin/bash
+# This command is just for development purposes
+set -e
+
+export KEY="web/ssl/localhost.key"
+export CERT="web/ssl/localhost.cert"
+
+if [ -f "$KEY" ]
+then
+  echo Key and certificate already built.
+  exit 0
+fi
+
+openssl genrsa -out $KEY 2048 &&
+
+openssl req \
+  -newkey rsa:2048 \
+  -x509 \
+  -nodes \
+  -keyout $KEY \
+  -new \
+  -out $CERT \
+  -subj /CN=localhost \
+  -reqexts SAN \
+  -extensions SAN \
+  -config <(cat /System/Library/OpenSSL/openssl.cnf \
+      <(printf '[SAN]\nsubjectAltName=DNS:localhost')) \
+  -sha256 \
+  -days 3650 &&
+
+echo &&
+
+cat << EOF
+In order to make the self-signed certificate trusted we need to accept it as a valid certificate on our machine. Doing this will replace red warning (“Unsecured”) notices with a green lock, fully replicating a https/SSL website on localhost for testing.
+
+MAC OS X
+1. Open the “Keychain Access” application, in Finder > Applications > Utilities
+2. Drag and drop the cert file into the application window
+3. Select “Always Trust” in the dialog box which appears, or alternatively double click on the certificate with the name localhost under the "Certificates" category
+Restart your browser and open up https://localhost to see your trusted, SSL localhost setup in action
+EOF
