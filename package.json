@@ -21,7 +21,7 @@
     "docker:build": "docker build -t lquixada/repos:$npm_package_version .",
     "docker:pull": "docker pull lquixada/repos",
     "docker:push": "docker push lquixada/repos:$npm_package_version",
-    "docker:start": "docker run -t -i -p 3000:3000 lquixada/repos:$npm_package_version",
+    "docker:start": "docker run -it --rm -p 3000:3000 lquixada/repos:$npm_package_version",
     "start": "pm2 start .process.yml --no-daemon",
     "test": "npm run -s test:jest && npm run -s test:lint",
     "test:jest": "jest",
