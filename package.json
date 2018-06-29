@@ -59,7 +59,7 @@
     "redux": "4.0.0",
     "redux-saga": "1.0.0-beta.1",
     "styled-components": "3.3.3",
-    "winston": "2.4.2"
+    "winston": "3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.51",
