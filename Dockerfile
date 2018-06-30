@@ -4,16 +4,16 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --production
+COPY yarn.lock ./
+
+RUN yarn --production
 
 COPY web ./web
 
 COPY .process.yml .
 
-COPY .env .
-
 COPY logs ./logs
 
-EXPOSE 3000 4000
+EXPOSE 3000
 
 CMD ["npm", "start"]
