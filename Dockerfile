@@ -1,6 +1,14 @@
 FROM node:8
 
+ENV NODE_ENV production
+
 WORKDIR /app
+
+RUN apt-get update
+
+RUN apt-get install htop
+
+RUN mkdir -p ./logs
 
 COPY package*.json ./
 
@@ -11,8 +19,6 @@ RUN yarn --production
 COPY web ./web
 
 COPY .process.yml .
-
-COPY logs ./logs
 
 EXPOSE 3000
 
