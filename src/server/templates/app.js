@@ -1,4 +1,4 @@
-import assets from '../../public/assets.json';
+import assets from '../../public/assets.json'
 
 export default ({helmet, styles, html, state}) => (`
   <!DOCTYPE html>
@@ -19,4 +19,4 @@ export default ({helmet, styles, html, state}) => (`
       <script src="${assets.app.js}"></script>
     </body>
   </html>
-`);
+`)

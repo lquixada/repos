@@ -1,26 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Octicon from 'react-component-octicons';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Octicon from 'react-component-octicons'
 
-import {Subtitle} from '../subtitle';
-import {flex} from '../../helpers';
+import {Subtitle} from '../subtitle'
+import {flex} from '../../helpers'
 
 export const Header = ({title, url}) => (
   <Wrapper>
     <Subtitle>{title}</Subtitle>
 
-    <Link href={url} target="_blank">
-      <Octicon name="mark-github"/>
+    <Link href={url} target='_blank'>
+      <Octicon name='mark-github' />
       <span>Github</span>
     </Link>
   </Wrapper>
-);
+)
 
 Header.propTypes = {
   title: PropTypes.string,
-  url: PropTypes.string,
-};
+  url: PropTypes.string
+}
 
 const Wrapper = styled.header`
   ${flex.display()}
@@ -30,7 +30,7 @@ const Wrapper = styled.header`
   margin-bottom: 2rem;
   padding-bottom: .5rem;
   border-bottom: 1px solid #ddd;
-`;
+`
 
 const Link = styled.a`
   ${flex.display()}
@@ -44,4 +44,4 @@ const Link = styled.a`
   svg {
     margin-right: .3rem;
   }
-`;
+`

@@ -1,17 +1,17 @@
-import {github} from '../config';
+import {github} from '../config'
 
-export const githubUrl = (repoName, resource) => `${github.hosts.web}/facebook/${repoName}/${resource}`;
+export const githubUrl = (repoName, resource) => `${github.hosts.web}/facebook/${repoName}/${resource}`
 
-export const issuesUrl = (repoName) => githubUrl(repoName, 'issues');
+export const issuesUrl = (repoName) => githubUrl(repoName, 'issues')
 
-export const forksUrl = (repoName) => githubUrl(repoName, 'network');
+export const forksUrl = (repoName) => githubUrl(repoName, 'network')
 
-export const stargazersUrl = (repoName) => githubUrl(repoName, 'stargazers');
+export const stargazersUrl = (repoName) => githubUrl(repoName, 'stargazers')
 
-export const watchersUrl = (repoName) => githubUrl(repoName, 'watchers');
+export const watchersUrl = (repoName) => githubUrl(repoName, 'watchers')
 
-export const contributorsUrl = (repoName) => github.endpoints.contributors.replace(':repo', repoName);
+export const contributorsUrl = (repoName) => github.endpoints.contributors.replace(':repo', repoName)
 
-export const repoUrl = (repoName) => github.endpoints.repo.replace(':repo', repoName);
+export const repoUrl = (repoName) => github.endpoints.repo.replace(':repo', repoName)
 
-export const reposUrl = (repoName) => github.endpoints.repos;
+export const reposUrl = (repoName) => github.endpoints.repos

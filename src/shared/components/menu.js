@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {Link} from './link';
+import {Link} from './link'
 
 export const Menu = ({items}) => (
   <Wrapper>
@@ -17,7 +17,7 @@ export const Menu = ({items}) => (
       ))}
     </List>
   </Wrapper>
-);
+)
 
 const Wrapper = styled.div`
   margin-bottom: 1rem;
@@ -33,11 +33,11 @@ const Wrapper = styled.div`
   @media (max-width: 576px) {
     max-height: 20rem;
   }
-`;
+`
 
 const List = styled.ul`
   border-radius: .6rem;
-`;
+`
 
 const Item = styled.li`
   &:first-child {
@@ -49,5 +49,4 @@ const Item = styled.li`
     border-radius: 0 0 .6rem .6rem;
     overflow: hidden;
   }
-`;
-
+`

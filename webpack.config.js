@@ -1,17 +1,17 @@
-const path = require('path');
-const webpack = require('webpack');
-const AssetsPlugin = require('assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const DotenvPlugin = require('dotenv-webpack');
-const babelConfig = require('./.babelrc');
+const path = require('path')
+const webpack = require('webpack')
+const AssetsPlugin = require('assets-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const DotenvPlugin = require('dotenv-webpack')
+const babelConfig = require('./.babelrc')
 
-const babelOptions = Object.assign({babelrc: false}, babelConfig.env.client);
-const webPath = path.join(__dirname, 'web', 'public');
-const isProd = () => process.env.NODE_ENV === 'production';
+const babelOptions = Object.assign({babelrc: false}, babelConfig.env.client)
+const webPath = path.join(__dirname, 'web', 'public')
+const isProd = () => process.env.NODE_ENV === 'production'
 
 module.exports = {
-  mode: isProd()? 'production' : 'development',
+  mode: isProd() ? 'production' : 'development',
 
   entry: {
     app: isProd()
@@ -75,6 +75,6 @@ module.exports = {
   ],
 
   stats: {
-    modules: false,
+    modules: false
   }
-};
+}

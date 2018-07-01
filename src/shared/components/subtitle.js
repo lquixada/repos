@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 export const Subtitle = ({children}) => (
   <Wrapper>{children}</Wrapper>
-);
+)
 
 Subtitle.propTypes = {
-  children: PropTypes.node,
-};
+  children: PropTypes.node
+}
 
 const Wrapper = styled.h2`
   color: #3c4146;
@@ -18,4 +18,4 @@ const Wrapper = styled.h2`
   letter-spacing: -.1rem;
   line-height: 1.5;
   vertical-align: middle;
-`;
+`

@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {Title} from './title';
-import {Main, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
+import {Title} from './title'
+import {Main, Content, Header, HeaderContainer, Section, SectionContainer} from './grid'
 
 export const NotFoundPage = () => (
   <Main>
@@ -20,10 +20,10 @@ export const NotFoundPage = () => (
       </SectionContainer>
     </Section>
   </Main>
-);
+)
 
 const P = styled.p`
   font-size: 4rem;
   font-weight: lighter;
   letter-spacing: -.1rem;
-`;
+`

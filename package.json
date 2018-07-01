@@ -26,13 +26,16 @@
     "ssl:build": "./tasks/ssl",
     "test": "npm run -s test:jest && npm run -s test:lint",
     "test:jest": "jest",
-    "test:lint": "eslint --ignore-path .gitignore ."
+    "test:lint": "standard"
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "standard --fix",
       "git add"
     ]
+  },
+  "standard": {
+    "env": "jest"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
@@ -77,10 +80,6 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
-    "eslint": "5.0.1",
-    "eslint-config-google": "0.9.1",
-    "eslint-plugin-import": "2.13.0",
-    "eslint-plugin-react": "7.10.0",
     "flux-standard-action": "2.0.3",
     "husky": "0.14.3",
     "jest": "23.2.0",
@@ -89,6 +88,7 @@
     "node-zip": "1.1.1",
     "nodemon": "1.17.5",
     "react-test-renderer": "16.4.1",
+    "standard": "11.0.1",
     "supertest": "3.1.0",
     "webpack": "4.14.0",
     "webpack-bundle-analyzer": "2.13.1",

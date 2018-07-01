@@ -1,25 +1,25 @@
 /* eslint-disable complexity */
-import {Map, List, fromJS} from 'immutable';
+import {Map, List, fromJS} from 'immutable'
 
 import {
   CONTRIBUTORS_SUCCEEDED, CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED,
   MORE_CONTRIBUTORS_SUCCEEDED, MORE_CONTRIBUTORS_FAILED, MORE_CONTRIBUTORS_REQUESTED
-} from '../actions';
+} from '../actions'
 
 const data = (state = List(), action) => {
-  const {payload, type} = action;
+  const {payload, type} = action
 
   switch (type) {
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return state.concat(fromJS(payload.data.result));
+      return state.concat(fromJS(payload.data.result))
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default function contributors(state = Map(), action = {}) {
-  const {payload, type} = action;
+export default function contributors (state = Map(), action = {}) {
+  const {payload, type} = action
 
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
@@ -27,9 +27,9 @@ export default function contributors(state = Map(), action = {}) {
       return state.mergeDeep({
         [payload.repoName]: {
           isLoading: true,
-          error: null,
-        },
-      });
+          error: null
+        }
+      })
 
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
@@ -38,20 +38,20 @@ export default function contributors(state = Map(), action = {}) {
           data: data(state.getIn([payload.repoName, 'data']), action),
           next: payload.data.next,
           isLoading: false,
-          error: null,
-        },
-      });
+          error: null
+        }
+      })
 
     case CONTRIBUTORS_FAILED:
     case MORE_CONTRIBUTORS_FAILED:
       return state.mergeDeep({
         [payload.repoName]: {
           isLoading: false,
-          error: payload.error,
-        },
-      });
+          error: payload.error
+        }
+      })
 
     default:
-      return state;
+      return state
   }
 }

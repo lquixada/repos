@@ -1,8 +1,8 @@
-import React from 'react';
-import {fromJS} from 'immutable';
-import {mount} from 'enzyme';
+import React from 'react'
+import {fromJS} from 'immutable'
+import {mount} from 'enzyme'
 
-import {Summary} from '../summary';
+import {Summary} from '../summary'
 
 describe('<Summary />', () => {
   it('matches the snapshot', () => {
@@ -15,8 +15,8 @@ describe('<Summary />', () => {
       license: {
         name: 'MIT'
       }
-    });
-    const component = mount(<Summary repo={repo} />);
-    expect(component).toMatchSnapshot();
-  });
-});
+    })
+    const component = mount(<Summary repo={repo} />)
+    expect(component).toMatchSnapshot()
+  })
+})

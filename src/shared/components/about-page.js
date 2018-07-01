@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {Title} from './title';
-import {Subtitle} from './subtitle';
-import {Main, Content, Header, HeaderContainer, Section, SectionContainer, P} from './grid';
+import {Title} from './title'
+import {Subtitle} from './subtitle'
+import {Main, Content, Header, HeaderContainer, Section, SectionContainer, P} from './grid'
 
 export const AboutPage = () => (
   <Main>
@@ -19,7 +19,7 @@ export const AboutPage = () => (
 
           <Subtitle>About me</Subtitle>
 
-          <Image src="https://s.gravatar.com/avatar/a0ac79788f87ca12cda519b3a1bb2a7c?s=100" />
+          <Image src='https://s.gravatar.com/avatar/a0ac79788f87ca12cda519b3a1bb2a7c?s=100' />
 
           <P>Loving Software, Delivering Product.</P>
 
@@ -42,9 +42,9 @@ export const AboutPage = () => (
       </SectionContainer>
     </Section>
   </Main>
-);
+)
 
 const Image = styled.img`
   margin: 0 1rem 1rem 0;
   float: left;
-`;
+`

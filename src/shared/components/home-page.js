@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import Menu from '../containers/menu';
-import {Footer} from './footer';
-import {Title} from './title';
-import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
-import {flex} from '../helpers';
+import Menu from '../containers/menu'
+import {Footer} from './footer'
+import {Title} from './title'
+import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid'
+import {flex} from '../helpers'
 
 export const HomePage = () => (
   <Main>
@@ -29,7 +29,7 @@ export const HomePage = () => (
       </SectionContainer>
     </Section>
   </Main>
-);
+)
 
 const Wrapper = styled.div`
   ${flex.display()}
@@ -40,4 +40,4 @@ const Wrapper = styled.div`
   border-radius: .6rem;
   font-size: 1.4rem;
   letter-spacing: -.1px;
-`;
+`

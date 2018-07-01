@@ -1,35 +1,35 @@
-import React, {Fragment} from 'react';
-import {Helmet} from 'react-helmet';
-import {injectGlobal} from 'styled-components';
-import {renderRoutes} from 'react-router-config';
+import React, {Fragment} from 'react'
+import {Helmet} from 'react-helmet'
+import {injectGlobal} from 'styled-components'
+import {renderRoutes} from 'react-router-config'
 
-import pkg from '../../../package.json';
+import pkg from '../../../package.json'
 
 export class App extends React.Component {
-  componentWillMount() {
-    resetStyles();
+  componentWillMount () {
+    resetStyles()
   }
 
-  renderError() {
+  renderError () {
     // Children only exist on error.
-    return this.props.children;
+    return this.props.children
   }
 
-  render() {
+  render () {
     return (
       <Fragment>
         <Helmet>
-          <meta charset="utf-8" />
-          <meta http-equiv="x-ua-compatible" content="ie=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="version" content={pkg.version} />
+          <meta charset='utf-8' />
+          <meta http-equiv='x-ua-compatible' content='ie=edge' />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <meta name='version' content={pkg.version} />
           {/* Disabled favicon for now, it is hitting the appController. */}
-          <link rel="icon" href="data:," />
+          <link rel='icon' href='data:,' />
           <title>Facebook Repos</title>
         </Helmet>
         {this.renderError() || renderRoutes(this.props.route.routes)}
       </Fragment>
-    );
+    )
   }
 }
 
@@ -117,4 +117,4 @@ const resetStyles = () => injectGlobal`
   ::-webkit-scrollbar-corner {
     background-color: #000;
   }
-`;
+`

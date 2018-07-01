@@ -1,15 +1,15 @@
-import nock from 'nock';
-import {fetchContributors, fetchContributorsCount, fetchMoreContributors, fetchRepo, fetchRepos} from '../services';
+import nock from 'nock'
+import {fetchContributors, fetchContributorsCount, fetchMoreContributors, fetchRepo, fetchRepos} from '../services'
 
 describe('Helpers (Services)', () => {
   describe('fetchContributors', () => {
-    let contributors;
+    let contributors
 
     beforeEach(() => {
       contributors = [{
         id: 1,
-        login: 'user1',
-      }];
+        login: 'user1'
+      }]
 
       nock('https://api.github.com')
         .defaultReplyHeaders({
@@ -17,36 +17,36 @@ describe('Helpers (Services)', () => {
         })
         .get('/repos/facebook/some-repo/contributors')
         .query(true)
-        .reply(200, contributors);
-    });
+        .reply(200, contributors)
+    })
 
     afterEach(() => {
-      nock.cleanAll();
-    });
+      nock.cleanAll()
+    })
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchContributors('some-repo');
+      const data = await fetchContributors('some-repo')
 
-      expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://repos/?page=2');
-    });
+      expect(data.result).toEqual(contributors)
+      expect(data.next).toBe('http://repos/?page=2')
+    })
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchContributors('some-repo');
+      const data = await fetchContributors('some-repo')
 
-      expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://repos/?page=2');
-    });
-  });
+      expect(data.result).toEqual(contributors)
+      expect(data.next).toBe('http://repos/?page=2')
+    })
+  })
 
   describe('fetchMoreContributors', () => {
-    let contributors;
+    let contributors
 
     beforeEach(() => {
       contributors = [{
         id: 1,
-        login: 'user1',
-      }];
+        login: 'user1'
+      }]
 
       nock('http://repos/')
         .defaultReplyHeaders({
@@ -54,73 +54,73 @@ describe('Helpers (Services)', () => {
         })
         .get('/')
         .query(true)
-        .reply(200, contributors);
-    });
+        .reply(200, contributors)
+    })
 
     afterEach(() => {
-      nock.cleanAll();
-    });
+      nock.cleanAll()
+    })
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://repos/');
+      const data = await fetchMoreContributors('http://repos/')
 
-      expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://repos/?page=2');
-    });
+      expect(data.result).toEqual(contributors)
+      expect(data.next).toBe('http://repos/?page=2')
+    })
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://repos/');
+      const data = await fetchMoreContributors('http://repos/')
 
-      expect(data.result).toEqual(contributors);
-      expect(data.next).toBe('http://repos/?page=2');
-    });
-  });
+      expect(data.result).toEqual(contributors)
+      expect(data.next).toBe('http://repos/?page=2')
+    })
+  })
 
   describe('fetchRepo', () => {
     afterEach(() => {
-      nock.cleanAll();
-    });
+      nock.cleanAll()
+    })
 
     it('returns data from a repo', async () => {
       const data = {
         id: 1,
-        name: 'repo1',
-      };
+        name: 'repo1'
+      }
 
       nock('https://api.github.com')
         .get('/repos/facebook/some-repo')
         .query(true)
-        .reply(200, data);
+        .reply(200, data)
 
-      const {json} = await fetchRepo('some-repo');
-      expect(json).toEqual(data);
-    });
-  });
+      const {json} = await fetchRepo('some-repo')
+      expect(json).toEqual(data)
+    })
+  })
 
   describe('fetchRepos', () => {
-    let repos;
+    let repos
 
     beforeEach(() => {
       repos = [{
         id: 1,
-        name: 'repo1',
-      }];
+        name: 'repo1'
+      }]
 
       nock('https://api.github.com')
         .get('/orgs/facebook/repos')
         .query(true)
-        .reply(200, repos);
-    });
+        .reply(200, repos)
+    })
 
     afterEach(() => {
-      nock.cleanAll();
-    });
+      nock.cleanAll()
+    })
 
     it('returns repos from an organization', async () => {
-      const data = await fetchRepos();
-      expect(data).toEqual(repos);
-    });
-  });
+      const data = await fetchRepos()
+      expect(data).toEqual(repos)
+    })
+  })
 
   describe('fetchContributorsCount', () => {
     beforeEach(() => {
@@ -130,16 +130,16 @@ describe('Helpers (Services)', () => {
         })
         .get('/repos/facebook/some-repo/contributors')
         .query(true)
-        .reply(200, {});
-    });
+        .reply(200, {})
+    })
 
     afterEach(() => {
-      nock.cleanAll();
-    });
+      nock.cleanAll()
+    })
 
     it('returns contributors from a repo', async () => {
-      const data = await fetchContributorsCount('some-repo');
-      expect(data).toEqual(5);
-    });
-  });
-});
+      const data = await fetchContributorsCount('some-repo')
+      expect(data).toEqual(5)
+    })
+  })
+})

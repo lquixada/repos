@@ -1,11 +1,11 @@
-import React from 'react';
-import {mount} from 'enzyme';
+import React from 'react'
+import {mount} from 'enzyme'
 
-import {Description} from '../description';
+import {Description} from '../description'
 
 describe('<Description />', () => {
   it('matches the snapshot', () => {
-    const component = mount(<Description text="some text" />);
-    expect(component).toMatchSnapshot();
-  });
-});
+    const component = mount(<Description text='some text' />)
+    expect(component).toMatchSnapshot()
+  })
+})

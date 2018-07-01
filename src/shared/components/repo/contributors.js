@@ -1,24 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {flex} from '../../helpers';
+import {flex} from '../../helpers'
 
 export const Contributors = (props) => (
   <Wrapper>
     <Title>Contributors ({props.total})</Title>
-    {!props.hasLoaded? <Loading /> : <Content {...props} />}
+    {!props.hasLoaded ? <Loading /> : <Content {...props} />}
   </Wrapper>
-);
+)
 
 const Loading = () => (
   <div>Loading...</div>
-);
+)
 
 const Content = ({data, hasMore, isLoadingMore, onNext}) => (
   <div>
     <List>
       {data.map((contributor, i) =>
-        <Item key={contributor.get('login')+i}>
+        <Item key={contributor.get('login') + i}>
           <Link href={contributor.get('html_url')}>
             <Image src={contributor.get('avatar_url')} />
             <Text>{contributor.get('login')}</Text>
@@ -28,29 +28,29 @@ const Content = ({data, hasMore, isLoadingMore, onNext}) => (
     </List>
     {hasMore &&
       <Button onClick={onNext}>
-        {isLoadingMore? 'Loading...' : 'More'}
+        {isLoadingMore ? 'Loading...' : 'More'}
       </Button>
     }
   </div>
-);
+)
 
 const Wrapper = styled.div`
   margin: 2rem 0;
-`;
+`
 
 const Title = styled.h3`
   color: #767676;
   font-size: 1.4rem;
   font-weight: normal;
   line-height: 1.5;
-`;
+`
 
 const List = styled.ul`
   ${flex.display()}
   ${flex.left()}
   ${flex.flow('row', 'wrap')};
   margin-top: 1rem;
-`;
+`
 
 const Item = styled.li`
   ${flex.display()}
@@ -64,7 +64,7 @@ const Item = styled.li`
   @media (max-width: 768px) {
     width: 33.33%;
   }
-`;
+`
 
 const Link = styled.a`
   ${flex.display()}
@@ -73,7 +73,7 @@ const Link = styled.a`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-`;
+`
 
 const Image = styled.img`
   margin-right: 1rem;
@@ -81,14 +81,14 @@ const Image = styled.img`
   height: 4rem;
   border-radius: 2rem;
   overflow: hidden;
-`;
+`
 
 const Text = styled.span`
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-`;
+`
 
 const Button = styled.button`
   display: block;
@@ -106,4 +106,4 @@ const Button = styled.button`
   &:hover, &:focus {
     background-color: #f6f8fa;
   }
-`;
+`

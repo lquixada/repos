@@ -12,4 +12,4 @@ export default ({helmet, styles, html}) => (`
       <div id="app">${html}</div>
     </body>
   </html>
-`);
+`)

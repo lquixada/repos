@@ -1,7 +1,7 @@
-import React from 'react';
-import {shallow} from 'enzyme';
+import React from 'react'
+import {shallow} from 'enzyme'
 
-import {RepoPage} from '../repo-page';
+import {RepoPage} from '../repo-page'
 
 describe('<RepoPage />', () => {
   it('matches the snapshot', () => {
@@ -9,8 +9,8 @@ describe('<RepoPage />', () => {
       params: {
         repo: 'repo1'
       }
-    };
-    const component = shallow(<RepoPage match={match} />);
-    expect(component).toMatchSnapshot();
-  });
-});
+    }
+    const component = shallow(<RepoPage match={match} />)
+    expect(component).toMatchSnapshot()
+  })
+})

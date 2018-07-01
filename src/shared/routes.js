@@ -1,8 +1,8 @@
-import {App} from './components/app';
-import {AboutPage} from './components/about-page';
-import {NotFoundPage} from './components/not-found-page';
-import HomePage from './containers/home-page';
-import RepoPage from './containers/repo-page';
+import {App} from './components/app'
+import {AboutPage} from './components/about-page'
+import {NotFoundPage} from './components/not-found-page'
+import HomePage from './containers/home-page'
+import RepoPage from './containers/repo-page'
 
 export default [
   {
@@ -12,20 +12,20 @@ export default [
       {
         path: '/',
         exact: true,
-        component: HomePage,
+        component: HomePage
       },
       {
         path: '/r/:repo',
-        component: RepoPage,
+        component: RepoPage
       },
       {
         path: '/about',
-        component: AboutPage,
+        component: AboutPage
       },
       {
         path: '*',
-        component: NotFoundPage,
-      },
+        component: NotFoundPage
+      }
     ]
   }
-];
+]

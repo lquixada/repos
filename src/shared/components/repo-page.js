@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Helmet} from 'react-helmet'
 
-import Repo from '../containers/repo';
-import Menu from '../containers/menu';
-import {Footer} from './footer';
-import {Title} from './title';
-import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid';
+import Repo from '../containers/repo'
+import Menu from '../containers/menu'
+import {Footer} from './footer'
+import {Title} from './title'
+import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid'
 
 export const RepoPage = ({match}) => (
   <Main>
@@ -32,12 +32,12 @@ export const RepoPage = ({match}) => (
       </SectionContainer>
     </Section>
   </Main>
-);
+)
 
 RepoPage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      repo: PropTypes.string,
-    }),
-  }),
-};
+      repo: PropTypes.string
+    })
+  })
+}
