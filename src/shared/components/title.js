@@ -2,10 +2,12 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
+import {imgUrl} from '../helpers'
+
 export const Title = () => (
   <Wrapper>
     <NavLink to='/'>
-      <Image src='/assets/images/logo.jpg' />
+      <Image src={imgUrl('logo.jpg')} />
     </NavLink>
   </Wrapper>
 )

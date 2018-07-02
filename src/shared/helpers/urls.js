@@ -1,4 +1,6 @@
-import {github} from '../config'
+import {github, cloudfront} from '../config'
+
+export const imgUrl = (filename) => `${cloudfront}/images/${filename}`
 
 export const githubUrl = (repoName, resource) => `${github.hosts.web}/facebook/${repoName}/${resource}`
 

@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import Octicon from 'react-component-octicons'
 
-import {flex} from '../helpers'
+import {flex, imgUrl} from '../helpers'
 
 export const Link = ({repoName, contributorsCount, isLoading}) => (
   <Wrapper to={`/r/${repoName}`}>
@@ -14,7 +14,7 @@ export const Link = ({repoName, contributorsCount, isLoading}) => (
       {' '}
       (<Help title='number of contributors'>{contributorsCount}</Help>)
     </Text>
-    {isLoading ? <img src='/assets/images/loading.gif' /> : ''}
+    {isLoading ? <img src={imgUrl('loading.gif')} /> : ''}
   </Wrapper>
 )
 
