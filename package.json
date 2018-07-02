@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
+    "prestart": "npm run -s build",
     "predocker:build": "npm run -s build",
     "aws:build": "./tasks/aws-build",
     "build": "npm run -s build:server && npm run -s build:client",
