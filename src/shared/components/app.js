@@ -3,8 +3,6 @@ import {Helmet} from 'react-helmet'
 import {injectGlobal} from 'styled-components'
 import {renderRoutes} from 'react-router-config'
 
-import pkg from '../../../package.json'
-
 export class App extends React.Component {
   componentWillMount () {
     resetStyles()
@@ -22,7 +20,7 @@ export class App extends React.Component {
           <meta charset='utf-8' />
           <meta http-equiv='x-ua-compatible' content='ie=edge' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
-          <meta name='version' content={pkg.version} />
+          <meta name='version' content={this.props.version} />
           {/* Disabled favicon for now, it is hitting the appController. */}
           <link rel='icon' href='data:,' />
           <title>Facebook Repos</title>

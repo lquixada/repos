@@ -25,6 +25,6 @@ if (process.env.SECURE) {
   http
     .createServer(server)
     .listen(PORT, () => {
-      console.info(`\n🔓 Insecure Server running on: http://localhost:${PORT}/`)
+      console.info(`\n🔓 Insecure server running on: http://localhost:${PORT}/`)
     })
 }

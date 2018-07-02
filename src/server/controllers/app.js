@@ -6,6 +6,7 @@ import {StaticRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {Helmet} from 'react-helmet'
 
+import pkg from '../../../package.json'
 import template from '../templates/app'
 import routes from '../../shared/routes'
 import configureStore from '../../shared/store'
@@ -27,7 +28,7 @@ export default (req, res, next) => {
         <Provider store={store}>
           {/* Provides router to ReactRouter components (ex: Link) */}
           <StaticRouter location={url} context={{}}>
-            {renderRoutes(routes)}
+            {renderRoutes(routes, {version: pkg.version})}
           </StaticRouter>
         </Provider>
       </StyleSheetManager>
