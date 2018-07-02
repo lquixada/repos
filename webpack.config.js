@@ -59,7 +59,7 @@ module.exports = {
     isProd()
       ? new CleanWebpackPlugin(path.join(webPath, 'scripts'))
       : new webpack.HotModuleReplacementPlugin(),
-    new DotenvPlugin(),
+    new DotenvPlugin({systemvars: true}),
     new CopyWebpackPlugin([
       {
         from: 'src/public/images',
