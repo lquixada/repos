@@ -8,7 +8,6 @@ services:
 script:
 - yarn -s test:lint
 - yarn -s test:jest
-before_deploy:
 - yarn -s docker:build
 - yarn -s docker:login
 - yarn -s docker:push
