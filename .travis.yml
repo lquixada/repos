@@ -16,17 +16,27 @@ before_deploy:
 - yarn -s docker:push
 - yarn -s aws:build
 deploy:
-  provider: elasticbeanstalk
-  skip_cleanup: true
-  access_key_id:
-    secure: uEmGODOP8x0TRD0wAOf5UONAtx2Em9wlv49OvR5TwGAQkSywzsjG98ygj25FjvdGnkCz2EeNCIpojzfL/BnuJe0yAggYB6rBFmlYNbwhBibRSdoqFw8HVuFAX1VgBkGkkyp8/R36tFZlr9zdca088LCjlBUMPk9QXKyyU31/Fa8lmYuF9BGxPt36z3Um9Mhb8elUWHX2rf5ys+oBt2N5uLXwiM3AMlCLfmKWYoHs+eA/Br+dyZTd13BcAsZhX01aB3SnSsbvzgInfRB2ISn6F+05Zww1EH6mgGTcUTj8XUlFLx8R9P+n+ovlyXdmYahrCuiM/vaGWGWNZ9KSaoIT6BevVL7ERn7dpz56Xi5ahsmxo110r26yNKRZYsvol4HOf/R2raWiX9hhICOyexMDKsXbc1o9FmW5Pi3fHE3uDuwiTC9SKISF6I0I9eE77jd4w6Qz89aB6Y8moPLGVBM7s7ltcQ//TSRL/FLXlot2BBlXQ1pzTCnFa1ckp3R1P4E5yHOhpk4d95MApvgyVfFyNGw+V2U1M6CwKPmH/PgEzL5egNDkSmOQ13IFOR/HSlj5xjk7GhnGZbh0r/Xsda/3Ft+C7pLdTccxbpUfv0ALBqmyOs1kt4qPoxwGpx6Wu8b/N02zi4dMqpXIYf11WEbpn+ohrE+48QYhyld6ycBd/UA=
-  secret_access_key:
-    secure: SPCfP++LDMKpYCh8HuHhkz2T2LjUyw4+5W5eMyPhygBv4DK569+xjZyz3/K3AI+6WMjs9eQSWUkD5FAfnOdpBUiVxE6CMUF8ti5dZvkoA7jVs4Ag0d61ZfnJBWFt+/dGrWGguLR1t8/nLCq5O1upY/TPDPzQCSrtHmc5KGA69yBZUVhRZq+RY6rsNVGqX8bpuSCsGWK6YhWyXewpeq8vsOs+m5t+2+P3TkxDdw6uFfbBrzvhuxDtyHZGJPSoO35QTaT+zd4SSTVijysVj8P9iuBVNYF2wBGn5EJLjiSCIl66yaqvYDJjx/Okx/qmZVhuU7Wl2scAF6Ka/DaRZAEZHchqin3zTZf5bM7ZN1Jg2lmcqU3DWH5XyM8cEIYFRg+hBvCxkrNbv5nr7bskNQqr+TK+eJLsEhCLTMWsnsK+v6yy/xOdx6N4a91jO4p1FvFpcqjWef73ILuM7X2zRKMeo4PIuGRJQcwF4yNRNAYhNotyG0RVHlP2L1SFvn1el/fTRBrEi9DAXTQghnkf/zMEyBuIhFISBmxSIW63g3e5ZTKnoye9rWOdClrSBNb6+MjAMgECic1290R8R8ZLs/LoI3kQ3hdyNH4/cc/LrVHOFdolTKEXaE0mq4Lwq15Zu2leu49KSoRIVAdbZswTfP4Fg5uOXPE6JK+xHAPnUVcRUYY=
-  region: us-east-1
-  app: Repos
-  env: repos-prod
-  bucket_name: elasticbeanstalk-us-east-1-328217091811
-  bucket_path: repos
-  zip_file: web/build.zip
-  on:
-    tags: true
+  - provider: elasticbeanstalk
+    skip_cleanup: true
+    access_key_id:
+      secure: uEmGODOP8x0TRD0wAOf5UONAtx2Em9wlv49OvR5TwGAQkSywzsjG98ygj25FjvdGnkCz2EeNCIpojzfL/BnuJe0yAggYB6rBFmlYNbwhBibRSdoqFw8HVuFAX1VgBkGkkyp8/R36tFZlr9zdca088LCjlBUMPk9QXKyyU31/Fa8lmYuF9BGxPt36z3Um9Mhb8elUWHX2rf5ys+oBt2N5uLXwiM3AMlCLfmKWYoHs+eA/Br+dyZTd13BcAsZhX01aB3SnSsbvzgInfRB2ISn6F+05Zww1EH6mgGTcUTj8XUlFLx8R9P+n+ovlyXdmYahrCuiM/vaGWGWNZ9KSaoIT6BevVL7ERn7dpz56Xi5ahsmxo110r26yNKRZYsvol4HOf/R2raWiX9hhICOyexMDKsXbc1o9FmW5Pi3fHE3uDuwiTC9SKISF6I0I9eE77jd4w6Qz89aB6Y8moPLGVBM7s7ltcQ//TSRL/FLXlot2BBlXQ1pzTCnFa1ckp3R1P4E5yHOhpk4d95MApvgyVfFyNGw+V2U1M6CwKPmH/PgEzL5egNDkSmOQ13IFOR/HSlj5xjk7GhnGZbh0r/Xsda/3Ft+C7pLdTccxbpUfv0ALBqmyOs1kt4qPoxwGpx6Wu8b/N02zi4dMqpXIYf11WEbpn+ohrE+48QYhyld6ycBd/UA=
+    secret_access_key:
+      secure: SPCfP++LDMKpYCh8HuHhkz2T2LjUyw4+5W5eMyPhygBv4DK569+xjZyz3/K3AI+6WMjs9eQSWUkD5FAfnOdpBUiVxE6CMUF8ti5dZvkoA7jVs4Ag0d61ZfnJBWFt+/dGrWGguLR1t8/nLCq5O1upY/TPDPzQCSrtHmc5KGA69yBZUVhRZq+RY6rsNVGqX8bpuSCsGWK6YhWyXewpeq8vsOs+m5t+2+P3TkxDdw6uFfbBrzvhuxDtyHZGJPSoO35QTaT+zd4SSTVijysVj8P9iuBVNYF2wBGn5EJLjiSCIl66yaqvYDJjx/Okx/qmZVhuU7Wl2scAF6Ka/DaRZAEZHchqin3zTZf5bM7ZN1Jg2lmcqU3DWH5XyM8cEIYFRg+hBvCxkrNbv5nr7bskNQqr+TK+eJLsEhCLTMWsnsK+v6yy/xOdx6N4a91jO4p1FvFpcqjWef73ILuM7X2zRKMeo4PIuGRJQcwF4yNRNAYhNotyG0RVHlP2L1SFvn1el/fTRBrEi9DAXTQghnkf/zMEyBuIhFISBmxSIW63g3e5ZTKnoye9rWOdClrSBNb6+MjAMgECic1290R8R8ZLs/LoI3kQ3hdyNH4/cc/LrVHOFdolTKEXaE0mq4Lwq15Zu2leu49KSoRIVAdbZswTfP4Fg5uOXPE6JK+xHAPnUVcRUYY=
+    region: us-east-1
+    app: Repos
+    env: repos-prod
+    bucket_name: elasticbeanstalk-us-east-1-328217091811
+    bucket_path: repos
+    zip_file: web/aws.dockerrun.zip
+    on:
+      tags: true
+  - provider: s3
+    skip_cleanup: true
+    access_key_id:
+      secure: uEmGODOP8x0TRD0wAOf5UONAtx2Em9wlv49OvR5TwGAQkSywzsjG98ygj25FjvdGnkCz2EeNCIpojzfL/BnuJe0yAggYB6rBFmlYNbwhBibRSdoqFw8HVuFAX1VgBkGkkyp8/R36tFZlr9zdca088LCjlBUMPk9QXKyyU31/Fa8lmYuF9BGxPt36z3Um9Mhb8elUWHX2rf5ys+oBt2N5uLXwiM3AMlCLfmKWYoHs+eA/Br+dyZTd13BcAsZhX01aB3SnSsbvzgInfRB2ISn6F+05Zww1EH6mgGTcUTj8XUlFLx8R9P+n+ovlyXdmYahrCuiM/vaGWGWNZ9KSaoIT6BevVL7ERn7dpz56Xi5ahsmxo110r26yNKRZYsvol4HOf/R2raWiX9hhICOyexMDKsXbc1o9FmW5Pi3fHE3uDuwiTC9SKISF6I0I9eE77jd4w6Qz89aB6Y8moPLGVBM7s7ltcQ//TSRL/FLXlot2BBlXQ1pzTCnFa1ckp3R1P4E5yHOhpk4d95MApvgyVfFyNGw+V2U1M6CwKPmH/PgEzL5egNDkSmOQ13IFOR/HSlj5xjk7GhnGZbh0r/Xsda/3Ft+C7pLdTccxbpUfv0ALBqmyOs1kt4qPoxwGpx6Wu8b/N02zi4dMqpXIYf11WEbpn+ohrE+48QYhyld6ycBd/UA=
+    secret_access_key:
+      secure: SPCfP++LDMKpYCh8HuHhkz2T2LjUyw4+5W5eMyPhygBv4DK569+xjZyz3/K3AI+6WMjs9eQSWUkD5FAfnOdpBUiVxE6CMUF8ti5dZvkoA7jVs4Ag0d61ZfnJBWFt+/dGrWGguLR1t8/nLCq5O1upY/TPDPzQCSrtHmc5KGA69yBZUVhRZq+RY6rsNVGqX8bpuSCsGWK6YhWyXewpeq8vsOs+m5t+2+P3TkxDdw6uFfbBrzvhuxDtyHZGJPSoO35QTaT+zd4SSTVijysVj8P9iuBVNYF2wBGn5EJLjiSCIl66yaqvYDJjx/Okx/qmZVhuU7Wl2scAF6Ka/DaRZAEZHchqin3zTZf5bM7ZN1Jg2lmcqU3DWH5XyM8cEIYFRg+hBvCxkrNbv5nr7bskNQqr+TK+eJLsEhCLTMWsnsK+v6yy/xOdx6N4a91jO4p1FvFpcqjWef73ILuM7X2zRKMeo4PIuGRJQcwF4yNRNAYhNotyG0RVHlP2L1SFvn1el/fTRBrEi9DAXTQghnkf/zMEyBuIhFISBmxSIW63g3e5ZTKnoye9rWOdClrSBNb6+MjAMgECic1290R8R8ZLs/LoI3kQ3hdyNH4/cc/LrVHOFdolTKEXaE0mq4Lwq15Zu2leu49KSoRIVAdbZswTfP4Fg5uOXPE6JK+xHAPnUVcRUYY=
+    bucket: repos.lquixada.com
+    local_dir: web/public
+    on:
+      tags: true
