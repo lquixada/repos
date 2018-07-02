@@ -23,7 +23,7 @@
     "docker:pull": "docker pull lquixada/repos:$npm_package_version",
     "docker:push": "docker push lquixada/repos:$npm_package_version",
     "docker:start": "docker run -it --rm -p 3000:3000 lquixada/repos:$npm_package_version",
-    "start": "pm2 start .process.yml --no-daemon",
+    "start": "NODE_ENV=production pm2 start .process.yml --no-daemon",
     "ssl:build": "./tasks/ssl",
     "test": "npm run -s test:jest && npm run -s test:lint",
     "test:jest": "jest",
