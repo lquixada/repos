@@ -13,7 +13,7 @@
     "build": "npm run -s build:server && npm run -s build:client",
     "build:analyze": "./tasks/analyze",
     "build:client": "NODE_ENV=production webpack-cli -p",
-    "build:server": "babel -D src -d web",
+    "build:server": "NODE_ENV=production babel -D src -d web",
     "deploy:major": "npm version major && git push --follow-tags",
     "deploy:minor": "npm version minor && git push --follow-tags",
     "deploy:patch": "npm version patch && git push --follow-tags",
