@@ -1,4 +1,6 @@
-Facebook Repos
+Facebook Repos<br>
+[![Build Status](https://travis-ci.org/lquixada/repos.svg?branch=master)](https://travis-ci.org/lquixada/repos)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ================
 
 An explorer app for Facebook projects in Github.
@@ -39,7 +41,7 @@ $ yarn build
 $ yarn start
 ```
 
-Facebook Repos will be ready on http://localhost:3000/. You can use Docker to run the app. Just pull the image with `yarn docker:pull` and then `yarn docker:start`.
+Facebook Repos will be ready on http://localhost:3000/.
 
 
 ### Folder Structure
@@ -59,8 +61,12 @@ Facebook Repos will be ready on http://localhost:3000/. You can use Docker to ru
 
 * **App**: react, redux, redux-saga, react-router
 * **Style**: styled-components
-* **Tests**: jest, eslint
+* **Tests**: jest
+* **Lint**: standard
 * **Utils**: npm, webpack, babel
+* **CI**: [TravisCI](https://travis-ci.org/lquixada/repos/)
+* **Infra**: [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
+
 
 
 ### License
