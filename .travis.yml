@@ -25,7 +25,8 @@ deploy:
       tags: true
   - provider: s3
     skip_cleanup: true
-    bucket: repos.lquixada.com
+    bucket: static.lquixada.com
     local_dir: web/public
+    upload-dir: repos
     on:
       tags: true

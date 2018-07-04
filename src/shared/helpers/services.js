@@ -2,11 +2,11 @@ import fetch from 'cross-fetch'
 
 import {repoUrl, contributorsUrl, reposUrl} from './urls'
 import {extractNext, extractTotal} from './strings'
-import {github} from '../config'
+import config from '../config'
 
 export const fetchJson = async (url) => {
   const separator = (url.indexOf('?') > -1 ? '&' : '?')
-  const response = await fetch(`${url}${separator}access_token=${github.accessToken}`)
+  const response = await fetch(`${url}${separator}access_token=${config.github.accessToken}`)
   const json = await response.json()
 
   return {response, json}

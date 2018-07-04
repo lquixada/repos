@@ -1,8 +1,8 @@
-import {github, cloudfront} from '../config'
+import config from '../config'
 
-export const imgUrl = (filename) => `${cloudfront}/images/${filename}`
+export const imgUrl = (filename) => `${config.staticUrl}/images/${filename}`
 
-export const githubUrl = (repoName, resource) => `${github.hosts.web}/facebook/${repoName}/${resource}`
+export const githubUrl = (repoName, resource) => `${config.github.webUrl}/facebook/${repoName}/${resource}`
 
 export const issuesUrl = (repoName) => githubUrl(repoName, 'issues')
 
@@ -12,8 +12,8 @@ export const stargazersUrl = (repoName) => githubUrl(repoName, 'stargazers')
 
 export const watchersUrl = (repoName) => githubUrl(repoName, 'watchers')
 
-export const contributorsUrl = (repoName) => github.endpoints.contributors.replace(':repo', repoName)
+export const contributorsUrl = (repoName) => config.github.contributorsUrl.replace(':repo', repoName)
 
-export const repoUrl = (repoName) => github.endpoints.repo.replace(':repo', repoName)
+export const repoUrl = (repoName) => config.github.repoUrl.replace(':repo', repoName)
 
-export const reposUrl = (repoName) => github.endpoints.repos
+export const reposUrl = (repoName) => config.github.reposUrl

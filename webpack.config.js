@@ -34,7 +34,7 @@ module.exports = {
 
   output: {
     path: webPath,
-    publicPath: isProd ? 'https://d3jdhqonup1j2z.cloudfront.net/' : '/assets/',
+    publicPath: isProd ? 'https://static.lquixada.com/repos/' : '/assets/',
     filename: `scripts/[name]${isProd ? '.[chunkhash]' : ''}.js`
   },
 
