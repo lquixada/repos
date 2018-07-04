@@ -1,5 +1,6 @@
 Facebook Repos<br>
 [![Build Status](https://travis-ci.org/lquixada/repos.svg?branch=master)](https://travis-ci.org/lquixada/repos)
+[![codecov](https://codecov.io/gh/lquixada/repos/branch/master/graph/badge.svg)](https://codecov.io/gh/lquixada/repos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ================
 

@@ -12,6 +12,7 @@ install:
 script:
 - yarn -s test:lint
 - yarn -s test:jest
+- yarn -s test:codecov
 - yarn -s build
 - yarn -s aws:login
 - yarn -s aws:pack

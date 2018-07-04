@@ -23,6 +23,7 @@
     "start": "NODE_ENV=production pm2 start .process.yml --no-daemon",
     "ssl:build": "./tasks/ssl",
     "test": "npm run -s test:jest && npm run -s test:lint",
+    "test:codecov": "codecov",
     "test:jest": "jest",
     "test:lint": "standard"
   },
@@ -76,6 +77,7 @@
     "babel-jest": "23.2.0",
     "babel-loader": "8.0.0-beta.3",
     "clean-webpack-plugin": "0.1.19",
+    "codecov": "3.0.2",
     "copy-webpack-plugin": "4.5.2",
     "dotenv-webpack": "1.5.7",
     "enzyme": "3.3.0",
