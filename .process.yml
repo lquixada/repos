@@ -1,5 +1,5 @@
 apps:
-  - script   : ./web/app.js
+  - script   : ./web/node.js
     instances: max
     exec_mode: cluster
     node_args: --require dotenv/config

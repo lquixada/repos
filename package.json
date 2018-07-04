@@ -12,10 +12,9 @@
     "aws:login": "eval $(aws ecr get-login --no-include-email --region us-east-1)",
     "aws:pack": "./tasks/aws-pack",
     "aws:push": "docker push $npm_package_docker_registry/repos:$npm_package_version",
-    "build": "npm run -s build:server && npm run -s build:client",
+    "build": "npm run -s build:babel && npm run -s webpack",
     "build:analyze": "./tasks/analyze",
-    "build:client": "NODE_ENV=production webpack-cli -p",
-    "build:server": "NODE_ENV=production babel -D src -d web",
+    "build:babel": "NODE_ENV=production babel -D src -d web",
     "deploy:major": "npm version major && git push --follow-tags",
     "deploy:minor": "npm version minor && git push --follow-tags",
     "deploy:patch": "npm version patch && git push --follow-tags",
@@ -25,7 +24,10 @@
     "test": "npm run -s test:jest && npm run -s test:lint",
     "test:codecov": "codecov",
     "test:jest": "jest",
-    "test:lint": "standard"
+    "test:lint": "standard",
+    "webpack": "npm run -s webpack:client && npm run -s webpack:server",
+    "webpack:client": "webpack-cli -p --env.prod --env.client",
+    "webpack:server": "webpack-cli -p --env.prod --env.server"
   },
   "lint-staged": {
     "*.js": [

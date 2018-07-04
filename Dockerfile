@@ -2,6 +2,8 @@ FROM node:8
 
 ENV NODE_ENV production
 
+EXPOSE 3000
+
 WORKDIR /app
 
 RUN apt-get update
@@ -10,18 +12,12 @@ RUN apt-get install -y htop vim
 
 RUN yarn global add pm2
 
-RUN mkdir -p ./logs
+RUN yarn add dotenv
 
-COPY package*.json ./
-
-COPY yarn.lock ./
-
-RUN yarn --production
-
-COPY web ./web
+RUN mkdir -p ./logs ./web
 
 COPY .process.yml .
 
-EXPOSE 3000
+COPY web/node.js ./web
 
 CMD ["pm2", "start", ".process.yml", "--no-daemon"]

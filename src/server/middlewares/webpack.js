@@ -4,7 +4,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 
 import config from '../../../webpack.config'
 
-const compiler = webpack(config)
+const compiler = webpack(config[0])
 
 export default [
   webpackDevMiddleware(compiler, {
