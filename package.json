@@ -8,8 +8,10 @@
   "scripts": {
     "precommit": "lint-staged",
     "prestart": "npm run -s build",
-    "predocker:build": "npm run -s build",
-    "aws:build": "./tasks/aws-build",
+    "aws:build": "docker build -t $npm_package_docker_registry/repos:$npm_package_version .",
+    "aws:login": "eval $(aws ecr get-login --no-include-email --region us-east-1)",
+    "aws:pack": "./tasks/aws-pack",
+    "aws:push": "docker push $npm_package_docker_registry/repos:$npm_package_version",
     "build": "npm run -s build:server && npm run -s build:client",
     "build:analyze": "./tasks/analyze",
     "build:client": "NODE_ENV=production webpack-cli -p",
@@ -18,11 +20,6 @@
     "deploy:minor": "npm version minor && git push --follow-tags",
     "deploy:patch": "npm version patch && git push --follow-tags",
     "dev": "nodemon src/app",
-    "docker:build": "docker build -t lquixada/repos:$npm_package_version .",
-    "docker:login": "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin",
-    "docker:pull": "docker pull lquixada/repos:$npm_package_version",
-    "docker:push": "docker push lquixada/repos:$npm_package_version",
-    "docker:start": "docker run -it --rm -p 3000:3000 lquixada/repos:$npm_package_version",
     "start": "NODE_ENV=production pm2 start .process.yml --no-daemon",
     "ssl:build": "./tasks/ssl",
     "test": "npm run -s test:jest && npm run -s test:lint",
@@ -37,6 +34,9 @@
   },
   "standard": {
     "env": "jest"
+  },
+  "docker": {
+    "registry": "328217091811.dkr.ecr.us-east-1.amazonaws.com"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",

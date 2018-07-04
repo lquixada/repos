@@ -5,13 +5,18 @@ branches:
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
 services:
 - docker
+install:
+- export PATH=$PATH:$HOME/.local/bin
+- pip install --user awscli
+- yarn
 script:
 - yarn -s test:lint
 - yarn -s test:jest
-- yarn -s docker:build
-- yarn -s docker:login
-- yarn -s docker:push
+- yarn -s build
+- yarn -s aws:login
+- yarn -s aws:pack
 - yarn -s aws:build
+- yarn -s aws:push
 deploy:
   - provider: elasticbeanstalk
     skip_cleanup: true
