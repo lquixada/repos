@@ -10,14 +10,14 @@ install:
 - pip install --user awscli
 - yarn
 script:
-- yarn -s test:lint
-- yarn -s test:jest
-- yarn -s test:codecov
-- yarn -s build
-- yarn -s aws:login
-- yarn -s aws:pack
-- yarn -s aws:build
-- yarn -s aws:push
+- yarn test:lint
+- yarn test:jest
+- yarn test:codecov
+- yarn build
+- yarn aws:login
+- yarn aws:pack
+- yarn aws:build
+- yarn aws:push
 deploy:
   - provider: elasticbeanstalk
     skip_cleanup: true
