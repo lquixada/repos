@@ -4,9 +4,7 @@ const AssetsPlugin = require('assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const DotenvPlugin = require('dotenv-webpack')
-const babelConfig = require('./.babelrc')
 
-const babelOptions = Object.assign({babelrc: false}, babelConfig.env.client)
 const webPath = path.join(__dirname, 'web', 'public')
 
 module.exports = function (env) {
@@ -14,9 +12,7 @@ module.exports = function (env) {
     mode: env.prod ? 'production' : 'development',
 
     entry: {
-      app: env.prod
-        ? ['./src/client']
-        : ['webpack-hot-middleware/client', './src/client']
+      app: env.prod ? ['./src/client'] : ['webpack-hot-middleware/client', './src/client']
     },
 
     module: {
@@ -26,7 +22,17 @@ module.exports = function (env) {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: babelOptions
+            options: {
+              presets: [
+                ['@babel/env', {
+                  targets: {
+                    browsers: ['last 2 versions', 'not ie > 0']
+                  },
+                  modules: false
+                }]
+              ],
+              plugins: env.prod ? [] : ['react-hot-loader/babel']
+            }
           }
         }
       ]
@@ -35,7 +41,7 @@ module.exports = function (env) {
     output: {
       path: webPath,
       publicPath: env.prod ? 'https://static.lquixada.com/repos/' : '/assets/',
-      filename: `scripts/[name]${env.prod ? '.[chunkhash]' : ''}.js`
+      filename: env.prod ? 'scripts/[name].[chunkhash:6].js' : 'scripts/[name].js'
     },
 
     performance: {
@@ -98,7 +104,21 @@ module.exports = function (env) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/env',
+                  {
+                    targets: {
+                      node: 'current'
+                    }
+                  }
+                ]
+              ]
+            }
+          }
         }
       ]
     },

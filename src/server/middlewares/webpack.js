@@ -4,12 +4,14 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 
 import config from '../../../webpack.config'
 
-const compiler = webpack(config[0])
+const options = config({prod: false, client: true})
+const compiler = webpack(options)
 
 export default [
   webpackDevMiddleware(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: options.output.publicPath,
+    stats: options.stats
   }),
   webpackHotMiddleware(compiler)
 ]
