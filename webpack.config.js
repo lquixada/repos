@@ -5,7 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const DotenvPlugin = require('dotenv-webpack')
 
-const webPath = path.join(__dirname, 'web', 'public')
+const web = path.join(__dirname, 'web')
+const assets = path.join(web, 'public')
 
 module.exports = function (env) {
   const client = {
@@ -39,7 +40,7 @@ module.exports = function (env) {
     },
 
     output: {
-      path: webPath,
+      path: assets,
       publicPath: env.prod ? 'https://static.lquixada.com/repos/' : '/assets/',
       filename: env.prod ? 'scripts/[name].[chunkhash:6].js' : 'scripts/[name].js'
     },
@@ -63,18 +64,18 @@ module.exports = function (env) {
 
     plugins: [
       env.prod
-        ? new CleanWebpackPlugin(path.join(webPath, 'scripts'))
+        ? new CleanWebpackPlugin(path.join(assets, 'scripts'))
         : new webpack.HotModuleReplacementPlugin(),
       new DotenvPlugin({systemvars: true}),
       new CopyWebpackPlugin([
         {
           from: 'src/public/images',
-          to: path.join(webPath, 'images')
+          to: path.join(assets, 'images')
         }
       ]),
       new AssetsPlugin({
         filename: 'assets.json',
-        path: webPath,
+        path: assets,
         fullPath: false,
         prettyPrint: true,
         update: true
@@ -91,7 +92,7 @@ module.exports = function (env) {
 
     target: 'node',
 
-    entry: path.join(__dirname, 'web', 'app.js'),
+    entry: path.join(web, 'app.js'),
 
     externals: [
       'webpack',
@@ -124,7 +125,7 @@ module.exports = function (env) {
     },
 
     output: {
-      path: path.join(__dirname, 'web'),
+      path: web,
       filename: 'node.js'
     },
 
