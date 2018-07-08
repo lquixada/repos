@@ -2,6 +2,6 @@ apps:
   - script   : ./web/node.js
     instances: max
     exec_mode: cluster
-    node_args: --require dotenv/config
+    node_args: --require dotenv/config --require babel-polyfill
     env      :
       NODE_ENV: production
