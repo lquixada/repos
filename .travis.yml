@@ -14,10 +14,10 @@ script:
 - yarn test:jest
 - yarn test:codecov
 - yarn build
-- yarn aws:login
-- yarn aws:pack
-- yarn aws:build
-- yarn aws:push
+- yarn eb:login
+- yarn eb:pack
+- yarn eb:build
+- yarn eb:push
 deploy:
   - provider: elasticbeanstalk
     skip_cleanup: true
