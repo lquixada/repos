@@ -1,26 +1,31 @@
 import path from 'path'
 import winston from 'winston'
 
-const {format} = winston
-const logPath = path.join(__dirname, '..', '..', 'logs', 'all.log')
+const {combine, colorize, simple} = winston.format
+const isProd = process.env.NODE_ENV === 'production'
+const format = isProd ? simple() : combine(colorize(), simple())
 
-const logger = winston.createLogger({
-  transports: [
+const transports = [
+  new winston.transports.Console({
+    level: 'debug',
+    silent: false,
+    format
+  })
+]
+
+if (!isProd) {
+  transports.push(
     new winston.transports.File({
       level: 'info',
-      filename: logPath,
+      filename: path.join(__dirname, '..', '..', 'logs', 'all.log'),
       maxsize: 5242880, // 5MB
       maxFiles: 5
-    }),
-    new winston.transports.Console({
-      level: 'debug',
-      silent: false,
-      format: format.combine(
-        format.colorize(),
-        format.simple()
-      )
     })
-  ],
+  )
+}
+
+const logger = winston.createLogger({
+  transports,
   exitOnError: false
 })
 

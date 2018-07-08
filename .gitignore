@@ -47,3 +47,7 @@ project.xcworkspace
 
 # Reports such as coverage and bundle analyzer
 .reports
+
+# Serverless directories
+.serverless
+.webpack

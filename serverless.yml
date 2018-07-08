@@ -1,0 +1,44 @@
+service: repos
+
+custom:
+  assets:
+    auto: true
+    targets:
+      - bucket: static.lquixada.com
+        prefix: repos
+        files:
+        - source: web/public
+          globs: '**/*'
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  memorySize: 128
+  timeout: 5
+  stage: prod
+  region: us-east-1
+
+package:
+  exclude:
+    - '**'
+  include:
+    - web/**
+    - node_modules/**
+    - package.json
+
+functions:
+  app:
+    handler: web/lambda.handler
+    events:
+      - http:
+          path: /
+          method: get
+      - http:
+          path: /{proxy+}
+          method: get
+    environment:
+      NODE_ENV: production
+
+plugins:
+- serverless-offline
+- serverless-s3-deploy
