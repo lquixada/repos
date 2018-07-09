@@ -1,28 +1,28 @@
 import {Map} from 'immutable'
 import {
-  REPOS_CONTRIBUTORS_COUNT_REQUESTED,
-  REPOS_CONTRIBUTORS_COUNT_SUCCEEDED,
-  REPOS_CONTRIBUTORS_COUNT_FAILED
+  REPOS_REQUESTED,
+  REPOS_SUCCEEDED,
+  REPOS_FAILED
 } from '../actions'
 
-export default function reposContributorsCount (state = Map(), action = {}) {
+export default function repos (state = Map(), action = {}) {
   const {payload, type} = action
 
   switch (type) {
-    case REPOS_CONTRIBUTORS_COUNT_REQUESTED:
+    case REPOS_REQUESTED:
       return state.mergeDeep({
         isLoading: true,
         error: null
       })
 
-    case REPOS_CONTRIBUTORS_COUNT_SUCCEEDED:
+    case REPOS_SUCCEEDED:
       return state.mergeDeep({
         data: payload.data,
         isLoading: false,
         error: null
       })
 
-    case REPOS_CONTRIBUTORS_COUNT_FAILED:
+    case REPOS_FAILED:
       return state.mergeDeep({
         isLoading: false,
         error: payload.error

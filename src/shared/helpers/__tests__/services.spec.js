@@ -1,5 +1,5 @@
 import nock from 'nock'
-import {fetchContributors, fetchContributorsCount, fetchMoreContributors, fetchRepo, fetchRepos} from '../services'
+import {fetchContributors, fetchMoreContributors, fetchRepo, fetchRepos} from '../services'
 
 describe('Helpers (Services)', () => {
   describe('fetchContributors', () => {
@@ -119,27 +119,6 @@ describe('Helpers (Services)', () => {
     it('returns repos from an organization', async () => {
       const data = await fetchRepos()
       expect(data).toEqual(repos)
-    })
-  })
-
-  describe('fetchContributorsCount', () => {
-    beforeEach(() => {
-      nock('https://api.github.com')
-        .defaultReplyHeaders({
-          'Link': '<http://repos/?page=5>; rel="last", '
-        })
-        .get('/repos/facebook/some-repo/contributors')
-        .query(true)
-        .reply(200, {})
-    })
-
-    afterEach(() => {
-      nock.cleanAll()
-    })
-
-    it('returns contributors from a repo', async () => {
-      const data = await fetchContributorsCount('some-repo')
-      expect(data).toEqual(5)
     })
   })
 })

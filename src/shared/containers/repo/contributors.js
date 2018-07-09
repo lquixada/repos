@@ -61,10 +61,10 @@ export class ContributorsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({contributors, reposContributorsCount}, {repoName}) => ({
-  // REMEMBER: "reposContributorsCount" has the following
+const mapStateToProps = ({contributors, repos}, {repoName}) => ({
+  // REMEMBER: "repos" has the following
   // scheme [[repoName1, count1, false], [repoName2, count2, false]]
-  count: reposContributorsCount.get('data', List()).find((count) => count.get(0) === repoName),
+  count: repos.get('data', List()).find((count) => count.get(0) === repoName),
   contributors: contributors.get(repoName)
 })
 

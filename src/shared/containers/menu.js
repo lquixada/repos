@@ -9,7 +9,7 @@ import * as actions from '../actions'
 export class MenuContainer extends React.Component {
   componentDidMount () {
     if (!this.hasLoaded()) {
-      this.props.fetchReposContributorsCount()
+      this.props.fetchRepos()
     }
   }
 
@@ -24,8 +24,8 @@ export class MenuContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({reposContributorsCount, repo}, {match}) => ({
-  items: reposContributorsCount.get('data', List()).map((item) => {
+const mapStateToProps = ({repos, repo}, {match}) => ({
+  items: repos.get('data', List()).map((item) => {
     const repoName = item.get(0)
     const count = item.get(1)
     const isLoading = repo.getIn([repoName, 'isLoading'])

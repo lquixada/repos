@@ -5,20 +5,17 @@ import {repoUrl, contributorsUrl, reposUrl} from './urls'
 export const fetchJson = async (url) => {
   const response = await fetch(url)
   const json = await response.json()
-
   return {response, json}
 }
 
 export const fetchContributors = async (repoName) => {
   const url = `${contributorsUrl(repoName)}?per_page=40`
   const {json} = await fetchJson(url)
-
   return json
 }
 
 export const fetchMoreContributors = async (url) => {
   const {json} = await fetchJson(url)
-
   return json
 }
 
