@@ -10,28 +10,29 @@ describe('App Controller', () => {
   })
 
   beforeEach(() => {
-    nock('https://api.github.com')
+    nock('http://localhost:3000')
       .persist(true)
-      .get('/orgs/facebook/repos')
+      .get('/api/repos')
       .query(true)
-      .reply(200, [{
-        id: 1,
-        name: 'react',
-        full_name: 'facebook/react'
-      }])
+      .reply(200, [
+        ['react', 1]
+      ])
 
-    nock('https://api.github.com')
+    nock('http://localhost:3000')
       .persist(true)
-      .get('/repos/facebook/react/contributors')
+      .get('/api/react/contributors')
       .query(true)
-      .reply(200, [{
-        id: 1,
-        login: 'user'
-      }])
+      .reply(200, {
+        next: '',
+        result: [{
+          id: 1,
+          login: 'user'
+        }]
+      })
 
-    nock('https://api.github.com')
+    nock('http://localhost:3000')
       .persist(true)
-      .get('/repos/facebook/react')
+      .get('/api/react')
       .query(true)
       .reply(200, {
         id: 1,

@@ -10,14 +10,18 @@ describe('Helpers (Services)', () => {
         id: 1,
         login: 'user1'
       }]
+      const data = {
+        next: 'http://repos/?page=2',
+        result: contributors
+      }
 
-      nock('https://api.github.com')
+      nock('http://localhost:3000')
         .defaultReplyHeaders({
           'Link': '<http://repos/?page=2>; rel="next", '
         })
-        .get('/repos/facebook/some-repo/contributors')
+        .get('/api/some-repo/contributors')
         .query(true)
-        .reply(200, contributors)
+        .reply(200, data)
     })
 
     afterEach(() => {
@@ -47,14 +51,18 @@ describe('Helpers (Services)', () => {
         id: 1,
         login: 'user1'
       }]
+      const data = {
+        next: 'http://repos/?page=2',
+        result: contributors
+      }
 
-      nock('http://repos/')
+      nock('http://repos')
         .defaultReplyHeaders({
           'Link': '<http://repos/?page=2>; rel="next", '
         })
         .get('/')
         .query(true)
-        .reply(200, contributors)
+        .reply(200, data)
     })
 
     afterEach(() => {
@@ -87,8 +95,8 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }
 
-      nock('https://api.github.com')
-        .get('/repos/facebook/some-repo')
+      nock('http://localhost:3000')
+        .get('/api/some-repo')
         .query(true)
         .reply(200, data)
 
@@ -106,8 +114,8 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }]
 
-      nock('https://api.github.com')
-        .get('/orgs/facebook/repos')
+      nock('http://localhost:3000')
+        .get('/api/repos')
         .query(true)
         .reply(200, repos)
     })
