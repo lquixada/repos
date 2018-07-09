@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 
 import loggerMiddleware from './middlewares/logger'
 import staticMiddleware from './middlewares/static'
+import apiController from './controllers/api'
 import appController from './controllers/app'
 import errorController from './controllers/error'
 
@@ -25,6 +26,7 @@ server.use(loggerMiddleware)
 server.use(bodyParser.urlencoded({extended: true}))
 
 /* Controllers */
+server.use('/api', apiController)
 server.use('/', appController)
 server.use(errorController)
 

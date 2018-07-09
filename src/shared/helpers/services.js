@@ -1,12 +1,9 @@
 import fetch from 'cross-fetch'
 
 import {repoUrl, contributorsUrl, reposUrl} from './urls'
-import {extractNext, extractTotal} from './strings'
-import config from '../config'
 
 export const fetchJson = async (url) => {
-  const separator = (url.indexOf('?') > -1 ? '&' : '?')
-  const response = await fetch(`${url}${separator}access_token=${config.github.accessToken}`)
+  const response = await fetch(url)
   const json = await response.json()
 
   return {response, json}
@@ -14,28 +11,15 @@ export const fetchJson = async (url) => {
 
 export const fetchContributors = async (repoName) => {
   const url = `${contributorsUrl(repoName)}?per_page=40`
-  const {response, json} = await fetchJson(url)
+  const {json} = await fetchJson(url)
 
-  return {
-    next: extractNext(response.headers.get('Link')),
-    result: json
-  }
-}
-
-export const fetchContributorsCount = async (repoName) => {
-  const url = contributorsUrl(repoName)
-  const {response} = await fetchJson(`${url}?page=1&per_page=1`)
-
-  return extractTotal(response.headers.get('Link'))
+  return json
 }
 
 export const fetchMoreContributors = async (url) => {
-  const {response, json} = await fetchJson(url)
+  const {json} = await fetchJson(url)
 
-  return {
-    next: extractNext(response.headers.get('Link')),
-    result: json
-  }
+  return json
 }
 
 export const fetchRepo = async (repoName) => {
