@@ -6,6 +6,7 @@ import fetch from 'cross-fetch'
 import {extractNext, extractTotal} from '../../shared/helpers'
 
 const accessToken = process.env.GITHUB_ACCESS_TOKEN
+
 const router = express.Router()
 
 const config = {
@@ -67,47 +68,32 @@ const convertNext = (req, href) => {
 }
 
 router.get('/repos/', async (req, res) => {
-  try {
-    let repos = await fetchRepos()
-    repos = repos.map((repo) => repo.name)
+  let repos = await fetchRepos()
+  repos = repos.map((repo) => repo.name)
 
-    const calls = repos.map((name) => fetchContributorsCount(name))
-    const counts = await Promise.all(calls)
+  const calls = repos.map((name) => fetchContributorsCount(name))
+  const counts = await Promise.all(calls)
 
-    const data = repos
-      .map((repoName, i) => [repoName, counts[i]])
-      .sort((a, b) => b[1] - a[1])
+  const data = repos
+    .map((repoName, i) => [repoName, counts[i]])
+    .sort((a, b) => b[1] - a[1])
 
-    res.json(data)
-  } catch (error) {
-    console.info(error)
-    res.json(error)
-  }
+  res.json(data)
 })
 
 router.get('/:repo/contributors/', async (req, res) => {
-  try {
-    const uri = config.github.contributorsUrl.replace(':repo', req.params.repo)
-    const {search} = url.parse(req.url)
-    const data = await fetchContributors(`${uri}${search || ''}`)
+  const uri = config.github.contributorsUrl.replace(':repo', req.params.repo)
+  const {search} = url.parse(req.url)
+  const data = await fetchContributors(`${uri}${search || ''}`)
 
-    data.next = convertNext(req, data.next)
+  data.next = convertNext(req, data.next)
 
-    res.json(data)
-  } catch (error) {
-    console.info(error)
-    res.json(error)
-  }
+  res.json(data)
 })
 
 router.get('/:repo/', async (req, res) => {
-  try {
-    const {json} = await fetchRepo(req.params.repo)
-    res.json(json)
-  } catch (error) {
-    console.info(error)
-    res.json(error)
-  }
+  const {json} = await fetchRepo(req.params.repo)
+  res.json(json)
 })
 
 export default router

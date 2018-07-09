@@ -14,7 +14,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   memorySize: 128
-  timeout: 5
+  timeout: 20
   stage: prod
   region: us-east-1
 
@@ -30,12 +30,8 @@ functions:
   app:
     handler: web/lambda.handler
     events:
-      - http:
-          path: /
-          method: get
-      - http:
-          path: /{proxy+}
-          method: get
+      - http: GET /
+      - http: GET /{proxy+}
     environment:
       NODE_ENV: production
 
