@@ -26,7 +26,7 @@
     "ssl:build": "./tasks/ssl",
     "test": "run-s test:jest test:lint",
     "test:codecov": "codecov",
-    "test:jest": "jest",
+    "test:jest": "jest --coverage",
     "test:lint": "standard",
     "webpack": "run-s webpack:client webpack:server",
     "webpack:client": "webpack-cli -p --env.prod --env.client",
