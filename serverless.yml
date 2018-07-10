@@ -27,11 +27,19 @@ package:
     - package.json
 
 functions:
-  app:
-    handler: web/lambda.handler
+  server:
+    handler: web/lambda-server.handler
     events:
       - http: GET /
       - http: GET /{proxy+}
+    environment:
+      NODE_ENV: production
+
+  api:
+    handler: web/lambda-api.handler
+    events:
+      - http: GET /api
+      - http: GET /api/{proxy+}
     environment:
       NODE_ENV: production
 

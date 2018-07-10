@@ -15,7 +15,7 @@ describe('Helpers (Services)', () => {
         result: contributors
       }
 
-      nock('http://localhost:3000')
+      nock('https://repos.lquixada.com')
         .defaultReplyHeaders({
           'Link': '<http://repos/?page=2>; rel="next", '
         })
@@ -95,7 +95,7 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }
 
-      nock('http://localhost:3000')
+      nock('https://repos.lquixada.com')
         .get('/api/some-repo')
         .query(true)
         .reply(200, data)
@@ -114,7 +114,7 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }]
 
-      nock('http://localhost:3000')
+      nock('https://repos.lquixada.com')
         .get('/api/repos')
         .query(true)
         .reply(200, repos)
