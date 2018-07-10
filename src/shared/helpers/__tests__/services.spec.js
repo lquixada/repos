@@ -1,6 +1,8 @@
 import nock from 'nock'
 import {fetchContributors, fetchMoreContributors, fetchRepo, fetchRepos} from '../services'
 
+const port = process.env.API_PORT
+
 describe('Helpers (Services)', () => {
   describe('fetchContributors', () => {
     let contributors
@@ -15,7 +17,7 @@ describe('Helpers (Services)', () => {
         result: contributors
       }
 
-      nock('http://localhost:3000')
+      nock(`http://localhost:${port}`)
         .defaultReplyHeaders({
           'Link': '<http://repos/?page=2>; rel="next", '
         })
@@ -95,7 +97,7 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }
 
-      nock('http://localhost:3000')
+      nock(`http://localhost:${port}`)
         .get('/api/some-repo')
         .query(true)
         .reply(200, data)
@@ -114,7 +116,7 @@ describe('Helpers (Services)', () => {
         name: 'repo1'
       }]
 
-      nock('http://localhost:3000')
+      nock(`http://localhost:${port}`)
         .get('/api/repos')
         .query(true)
         .reply(200, repos)

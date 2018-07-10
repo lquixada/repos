@@ -1,6 +1,8 @@
 import request from 'supertest'
 import nock from 'nock'
 
+const port = process.env.API_PORT
+
 describe('App Controller', () => {
   let server
 
@@ -10,7 +12,7 @@ describe('App Controller', () => {
   })
 
   beforeEach(() => {
-    nock('http://localhost:3000')
+    nock(`http://localhost:${port}`)
       .persist(true)
       .get('/api/repos')
       .query(true)
@@ -18,7 +20,7 @@ describe('App Controller', () => {
         ['react', 1]
       ])
 
-    nock('http://localhost:3000')
+    nock(`http://localhost:${port}`)
       .persist(true)
       .get('/api/react/contributors')
       .query(true)
@@ -30,7 +32,7 @@ describe('App Controller', () => {
         }]
       })
 
-    nock('http://localhost:3000')
+    nock(`http://localhost:${port}`)
       .persist(true)
       .get('/api/react')
       .query(true)

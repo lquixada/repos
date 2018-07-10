@@ -1,3 +1,4 @@
+import './dotenv'
 import './enzyme'
 import './helmet'
 import './logger'
