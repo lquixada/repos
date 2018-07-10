@@ -38,8 +38,14 @@ functions:
   api:
     handler: dist/lambda-api.handler
     events:
-      - http: GET /api
-      - http: GET /api/{proxy+}
+      - http:
+          path: /api
+          method: get
+          cors: true
+      - http:
+          path: /api/{proxy+}
+          method: get
+          cors: true
     environment:
       NODE_ENV: production
 
