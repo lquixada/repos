@@ -17,6 +17,8 @@ provider:
   timeout: 20
   stage: prod
   region: us-east-1
+  environment:
+    NODE_ENV: production
 
 package:
   exclude:
@@ -32,8 +34,6 @@ functions:
     events:
       - http: GET /
       - http: GET /{proxy+}
-    environment:
-      NODE_ENV: production
 
   api:
     handler: dist/lambda-api.handler
@@ -47,7 +47,7 @@ functions:
           method: get
           cors: true
     environment:
-      NODE_ENV: production
+      GITHUB_ACCESS_TOKEN: ${file(./.env.js):env.GITHUB_ACCESS_TOKEN}
 
 plugins:
 - serverless-offline
