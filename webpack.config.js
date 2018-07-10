@@ -5,8 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const DotenvPlugin = require('dotenv-webpack')
 
-const web = path.join(__dirname, 'web')
-const assets = path.join(web, 'public')
+const dist = path.join(__dirname, 'dist')
+const assets = path.join(dist, 'public')
 
 module.exports = function (env) {
   return {

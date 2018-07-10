@@ -11,7 +11,7 @@
     "prelambda:deploy": "npm run -s build",
     "build": "npm run -s build:babel && npm run -s build:webpack",
     "build:analyze": "./tasks/analyze",
-    "build:babel": "babel -D src -d web",
+    "build:babel": "babel -D src -d dist",
     "build:webpack": "webpack-cli -p --env.prod",
     "deploy:major": "npm version major && git push --follow-tags",
     "deploy:minor": "npm version minor && git push --follow-tags",

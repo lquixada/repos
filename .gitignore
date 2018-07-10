@@ -1,6 +1,6 @@
-web/*
-!web/.gitkeep
-!web/images/
+dist/*
+!dist/.gitkeep
+!dist/images/
 
 *.orig
 *.swo

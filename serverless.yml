@@ -7,7 +7,7 @@ custom:
       - bucket: static.lquixada.com
         prefix: repos
         files:
-        - source: web/public
+        - source: dist/public
           globs: '**/*'
 
 provider:
@@ -22,13 +22,13 @@ package:
   exclude:
     - '**'
   include:
-    - web/**
+    - dist/**
     - node_modules/**
     - package.json
 
 functions:
   server:
-    handler: web/lambda-server.handler
+    handler: dist/lambda-server.handler
     events:
       - http: GET /
       - http: GET /{proxy+}
@@ -36,7 +36,7 @@ functions:
       NODE_ENV: production
 
   api:
-    handler: web/lambda-api.handler
+    handler: dist/lambda-api.handler
     events:
       - http: GET /api
       - http: GET /api/{proxy+}
