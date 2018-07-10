@@ -1,5 +1,5 @@
 import assets from '../../public/assets.json'
-import config from '../../shared/config'
+import config from '../config'
 
 export default ({helmet, styles, html, state}) => (`
   <!DOCTYPE html>

@@ -21,19 +21,17 @@ module.exports = function (env) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                ['@babel/env', {
-                  targets: {
-                    browsers: ['last 2 versions', 'not ie > 0']
-                  },
-                  modules: false
-                }]
-              ],
-              plugins: env.prod ? [] : ['react-hot-loader/babel']
-            }
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/env', {
+                targets: {
+                  browsers: ['last 2 versions', 'not ie > 0']
+                },
+                modules: false
+              }]
+            ],
+            plugins: env.prod ? [] : ['react-hot-loader/babel']
           }
         }
       ]
@@ -66,6 +64,10 @@ module.exports = function (env) {
       env.prod
         ? new CleanWebpackPlugin(path.join(assets, 'scripts'))
         : new webpack.HotModuleReplacementPlugin(),
+      new webpack.NormalModuleReplacementPlugin(
+        /\/server\/config\.js/,
+        path.join(__dirname, 'src', 'client', 'config.js')
+      ),
       new DotenvPlugin({systemvars: true}),
       new CopyWebpackPlugin([
         {
