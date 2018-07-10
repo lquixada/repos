@@ -18,7 +18,7 @@
     "deploy:patch": "npm version patch && git push --follow-tags",
     "dev": "nodemon src/app.js",
     "lambda:deploy": "serverless deploy -v",
-    "lambda:start": "serverless offline --skipCacheInvalidation",
+    "lambda:start": "NODE_ENV=development serverless offline --noEnvironment --skipCacheInvalidation --dontPrintOutput",
     "start": "NODE_ENV=production pm2 start .process.yml --no-daemon",
     "ssl:build": "./tasks/ssl",
     "test": "npm run -s test:jest && npm run -s test:lint",
