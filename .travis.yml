@@ -3,36 +3,13 @@ language: node_js
 branches:
   only:
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
-services:
-- docker
-install:
-- export PATH=$PATH:$HOME/.local/bin
-- pip install --user awscli
-- yarn
 script:
-- yarn test:lint
-- yarn test:jest
-- yarn test:codecov
-- yarn build
-- yarn eb:login
-- yarn eb:pack
-- yarn eb:build
-- yarn eb:push
+- yarn -s test:lint
+- yarn -s test:jest
+- yarn -s test:codecov
 deploy:
-  - provider: elasticbeanstalk
-    skip_cleanup: true
-    region: us-east-1
-    app: Repos
-    env: repos-prod
-    bucket_name: elasticbeanstalk-us-east-1-328217091811
-    bucket_path: repos
-    zip_file: web/aws.dockerrun.zip
-    on:
-      tags: true
-  - provider: s3
-    skip_cleanup: true
-    bucket: static.lquixada.com
-    local_dir: web/public
-    upload-dir: repos
-    on:
-      tags: true
+  provider: script
+  skip_cleanup: true
+  script: yarn -s lambda:deploy
+  on:
+    tags: true

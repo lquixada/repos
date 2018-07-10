@@ -8,14 +8,11 @@
   "scripts": {
     "precommit": "lint-staged",
     "prestart": "npm run -s build",
-    "prelambda:deploy": "run-s build:babel webpack:client",
-    "eb:build": "docker build -t $npm_package_docker_registry/repos:$npm_package_version .",
-    "eb:login": "eval $(aws ecr get-login --no-include-email --region us-east-1)",
-    "eb:pack": "./tasks/eb-pack",
-    "eb:push": "docker push $npm_package_docker_registry/repos:$npm_package_version",
-    "build": "run-s build:babel webpack",
+    "prelambda:deploy": "npm run -s build",
+    "build": "npm run -s build:babel && npm run -s build:webpack",
     "build:analyze": "./tasks/analyze",
     "build:babel": "babel -D src -d web",
+    "build:webpack": "webpack-cli -p --env.prod",
     "deploy:major": "npm version major && git push --follow-tags",
     "deploy:minor": "npm version minor && git push --follow-tags",
     "deploy:patch": "npm version patch && git push --follow-tags",
@@ -24,13 +21,10 @@
     "lambda:start": "serverless offline --skipCacheInvalidation",
     "start": "NODE_ENV=production pm2 start .process.yml --no-daemon",
     "ssl:build": "./tasks/ssl",
-    "test": "run-s test:jest test:lint",
+    "test": "npm run -s test:jest && npm run -s test:lint",
     "test:codecov": "codecov",
     "test:jest": "jest --coverage",
-    "test:lint": "standard",
-    "webpack": "run-s webpack:client webpack:server",
-    "webpack:client": "webpack-cli -p --env.prod --env.client",
-    "webpack:server": "webpack-cli -p --env.prod --env.server"
+    "test:lint": "standard"
   },
   "lint-staged": {
     "*.js": [
@@ -40,9 +34,6 @@
   },
   "standard": {
     "env": "jest"
-  },
-  "docker": {
-    "registry": "328217091811.dkr.ecr.us-east-1.amazonaws.com"
   },
   "dependencies": {
     "aws-serverless-express": "3.2.0",
@@ -95,7 +86,6 @@
     "nock": "9.4.1",
     "node-zip": "1.1.1",
     "nodemon": "1.17.5",
-    "npm-run-all": "4.1.3",
     "react-test-renderer": "16.4.1",
     "serverless": "1.28.0",
     "serverless-offline": "3.25.6",

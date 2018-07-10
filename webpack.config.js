@@ -9,7 +9,7 @@ const web = path.join(__dirname, 'web')
 const assets = path.join(web, 'public')
 
 module.exports = function (env) {
-  const client = {
+  return {
     mode: env.prod ? 'production' : 'development',
 
     entry: {
@@ -86,44 +86,4 @@ module.exports = function (env) {
       modules: false
     }
   }
-
-  const server = {
-    mode: 'production',
-
-    target: 'node',
-
-    entry: path.join(web, 'app.js'),
-
-    externals: [
-      'webpack',
-      'webpack-dev-middleware',
-      'webpack-hot-middleware'
-    ],
-
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        }
-      ]
-    },
-
-    output: {
-      path: web,
-      filename: 'node.js'
-    },
-
-    plugins: [
-      new webpack.IgnorePlugin(/webpack.config/),
-      new DotenvPlugin({systemvars: true})
-    ],
-
-    stats: {
-      modules: false
-    }
-  }
-
-  return env.client ? client : server
 }
