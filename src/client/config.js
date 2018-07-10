@@ -1,4 +1,5 @@
-const reposHost = process.env.NODE_ENV === 'production' ? 'https://repos.lquixada.com' : 'http://localhost:3000'
+// Client-side config
+const reposHost = process.env.NODE_ENV === 'production' ? 'https://repos.lquixada.com' : 'http://localhost:3001'
 
 export default {
   staticUrl: process.env.NODE_ENV === 'production' ? 'https://static.lquixada.com/repos' : '/assets',

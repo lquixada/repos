@@ -1,8 +1,10 @@
+const reposHost = 'https://api.github.com'
+
 export default {
   github: {
     accessToken: process.env.GITHUB_ACCESS_TOKEN,
-    contributorsUrl: 'https://api.github.com/repos/facebook/:repo/contributors',
-    repoUrl: 'https://api.github.com/repos/facebook/:repo',
-    reposUrl: 'https://api.github.com/orgs/facebook/repos'
+    contributorsUrl: `${reposHost}/repos/facebook/:repo/contributors`,
+    repoUrl: `${reposHost}/repos/facebook/:repo`,
+    reposUrl: `${reposHost}/orgs/facebook/repos`
   }
 }

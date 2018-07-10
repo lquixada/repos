@@ -1,9 +1,0 @@
-{
-  "watch": ["src/server"],
-  "execMap": {
-    "js": "babel-node --require node_modules/dotenv/config"
-  },
-  "env": {
-    "NODE_ENV": "development"
-  }
-}
