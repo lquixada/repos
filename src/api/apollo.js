@@ -14,6 +14,7 @@ octokit.authenticate({
 export default new ApolloServer({
   typeDefs,
   resolvers,
+  playground: true,
   context: () => ({
     api: octokit.repos
   })
