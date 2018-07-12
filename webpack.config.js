@@ -44,8 +44,8 @@ module.exports = function (env) {
     },
 
     performance: {
-      maxEntrypointSize: 550000,
-      maxAssetSize: 550000
+      maxEntrypointSize: 700000,
+      maxAssetSize: 600000
     },
 
     optimization: {
