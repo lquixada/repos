@@ -33,12 +33,13 @@ describe('Reducers (Contributors)', () => {
 
     it('sets the repo state', () => {
       const data = {
-        next: 'http://nexturl/',
-        result: [
+        nextPage: 2,
+        data: [
           contributors[0]
         ]
       }
       const action = fetchContributorsSucceeded(repoName, data)
+
       const prevState = fromJS({
         [repoName]: {}
       })
@@ -47,7 +48,7 @@ describe('Reducers (Contributors)', () => {
       expect(state.getIn([repoName, 'isLoading'])).toBe(false)
       expect(state.getIn([repoName, 'error'])).toBe(null)
       expect(state.getIn([repoName, 'data']).toJS()).toEqual([contributors[0]])
-      expect(state.getIn([repoName, 'next'])).toEqual('http://nexturl/')
+      expect(state.getIn([repoName, 'nextPage'])).toEqual(2)
     })
 
     it('sets an error state', () => {
@@ -73,8 +74,8 @@ describe('Reducers (Contributors)', () => {
 
     it('sets the repo state', () => {
       const data = {
-        next: 'http://nexturl/',
-        result: [
+        nextPage: 2,
+        data: [
           contributors[1]
         ]
       }
@@ -91,7 +92,7 @@ describe('Reducers (Contributors)', () => {
       expect(state.getIn([repoName, 'isLoading'])).toBe(false)
       expect(state.getIn([repoName, 'error'])).toBe(null)
       expect(state.getIn([repoName, 'data']).toJS()).toEqual(contributors)
-      expect(state.getIn([repoName, 'next'])).toEqual('http://nexturl/')
+      expect(state.getIn([repoName, 'nextPage'])).toEqual(2)
     })
 
     it('sets an error state', () => {

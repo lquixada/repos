@@ -39,6 +39,7 @@
     "env": "jest"
   },
   "dependencies": {
+    "@octokit/rest": "15.9.4",
     "aws-serverless-express": "3.2.0",
     "babel-polyfill": "6.26.0",
     "body-parser": "1.18.3",

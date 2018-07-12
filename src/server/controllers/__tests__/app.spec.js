@@ -25,8 +25,8 @@ describe('App Controller', () => {
       .get('/api/react/contributors')
       .query(true)
       .reply(200, {
-        next: '',
-        result: [{
+        nextPage: 2,
+        data: [{
           id: 1,
           login: 'user'
         }]

@@ -1,5 +1,5 @@
 import {put, call, take, fork, select} from 'redux-saga/effects'
-import {fetchContributors, fetchMoreContributors} from '../../helpers'
+import {fetchContributors} from '../../helpers'
 import {
   CONTRIBUTORS_REQUESTED, MORE_CONTRIBUTORS_REQUESTED,
   fetchContributorsSucceeded, fetchContributorsFailed,
@@ -8,7 +8,7 @@ import {
 import {
   loadContributors, loadMoreContributors, watchContributors, watchMoreContributors
 } from '../contributors'
-import {getNextUrl} from '../../selectors'
+import {getNextPage} from '../../selectors'
 
 describe('Sagas (Contributors)', () => {
   let data
@@ -36,7 +36,7 @@ describe('Sagas (Contributors)', () => {
       it('loads contributors', () => {
         const gen = loadContributors(repoName)
 
-        expect(gen.next().value).toEqual(call(fetchContributors, repoName))
+        expect(gen.next().value).toEqual(call(fetchContributors, repoName, 1))
         expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
@@ -44,7 +44,7 @@ describe('Sagas (Contributors)', () => {
       it('handle error', () => {
         const gen = loadContributors(repoName)
 
-        expect(gen.next().value).toEqual(call(fetchContributors, repoName))
+        expect(gen.next().value).toEqual(call(fetchContributors, repoName, 1))
         expect(gen.throw(error).value).toEqual(put(fetchContributorsFailed(repoName, error.stack)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
@@ -52,10 +52,10 @@ describe('Sagas (Contributors)', () => {
   })
 
   describe('More Contributors', () => {
-    let url
+    let nextPage
 
     beforeEach(() => {
-      url = 'http://repos/'
+      nextPage = 2
     })
 
     describe('watchMoreContributors', () => {
@@ -72,8 +72,8 @@ describe('Sagas (Contributors)', () => {
       it('loads more contributors', () => {
         const gen = loadMoreContributors(repoName)
 
-        expect(gen.next().value).toEqual(select(getNextUrl, repoName))
-        expect(gen.next(url).value).toEqual(call(fetchMoreContributors, url))
+        expect(gen.next().value).toEqual(select(getNextPage, repoName))
+        expect(gen.next(nextPage).value).toEqual(call(fetchContributors, repoName, nextPage))
         expect(gen.next(data).value).toEqual(put(fetchMoreContributorsSucceeded(repoName, data)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
@@ -81,8 +81,8 @@ describe('Sagas (Contributors)', () => {
       it('handle error', () => {
         const gen = loadMoreContributors(repoName)
 
-        expect(gen.next().value).toEqual(select(getNextUrl, repoName))
-        expect(gen.next(url).value).toEqual(call(fetchMoreContributors, url))
+        expect(gen.next().value).toEqual(select(getNextPage, repoName))
+        expect(gen.next(nextPage).value).toEqual(call(fetchContributors, repoName, nextPage))
         expect(gen.throw(error).value).toEqual(put(fetchMoreContributorsFailed(repoName, error.stack)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })

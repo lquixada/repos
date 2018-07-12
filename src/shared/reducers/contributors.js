@@ -12,7 +12,7 @@ const data = (state = List(), action) => {
   switch (type) {
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
-      return state.concat(fromJS(payload.data.result))
+      return state.concat(fromJS(payload.data.data))
     default:
       return state
   }
@@ -36,7 +36,7 @@ export default function contributors (state = Map(), action = {}) {
       return state.mergeDeep({
         [payload.repoName]: {
           data: data(state.getIn([payload.repoName, 'data']), action),
-          next: payload.data.next,
+          nextPage: payload.data.nextPage,
           isLoading: false,
           error: null
         }

@@ -5,14 +5,14 @@ import {
   fetchMoreContributorsSucceeded, fetchMoreContributorsFailed,
   fetchContributorsSucceeded, fetchContributorsFailed
 } from '../actions'
-import {fetchContributors, fetchMoreContributors} from '../helpers'
-import {getNextUrl} from '../selectors'
+import {fetchContributors} from '../helpers'
+import {getNextPage} from '../selectors'
 
 /* Loaders */
 
 export function * loadContributors (repoName) {
   try {
-    const data = yield call(fetchContributors, repoName)
+    const data = yield call(fetchContributors, repoName, 1)
 
     yield put(fetchContributorsSucceeded(repoName, data))
   } catch (error) {
@@ -23,8 +23,8 @@ export function * loadContributors (repoName) {
 
 export function * loadMoreContributors (repoName) {
   try {
-    const nextUrl = yield select(getNextUrl, repoName)
-    const data = yield call(fetchMoreContributors, nextUrl)
+    const nextPage = yield select(getNextPage, repoName)
+    const data = yield call(fetchContributors, repoName, nextPage)
 
     yield put(fetchMoreContributorsSucceeded(repoName, data))
   } catch (error) {

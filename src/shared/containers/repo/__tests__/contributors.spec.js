@@ -18,7 +18,7 @@ describe('<ContributorsContainer />', () => {
 
     contributors = fromJS({
       isLoading: false,
-      next: 'http://next-url/',
+      nextPage: 2,
       data: [
         {id: 1, login: 'user1'},
         {id: 2, login: 'user2'}
@@ -65,7 +65,7 @@ describe('<ContributorsContainer />', () => {
   })
 
   it('renders the end of Contributors component', () => {
-    contributors = contributors.set('next', '')
+    contributors = contributors.set('nextPage', '')
     const component = shallow(
       <ContributorsContainer
         repoName={repoName}

@@ -1,15 +1,13 @@
 import express from 'express'
 import cors from 'cors'
 
-import loggerMiddleware from './middlewares/logger'
-import apiController from './controllers/api'
+import loggerMiddleware from './logger'
+import apiRouter from './router'
 
 const server = express()
 
 server.use(cors())
 server.use(loggerMiddleware)
-
-/* Controllers */
-server.use('/api', apiController)
+server.use('/api', apiRouter)
 
 export default server

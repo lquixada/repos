@@ -1,4 +1,5 @@
 import winston from 'winston'
+import middleware from 'morgan'
 
 const {combine, colorize, simple} = winston.format
 const isProd = process.env.NODE_ENV === 'production'
@@ -15,4 +16,8 @@ const logger = winston.createLogger({
   exitOnError: false
 })
 
-export default logger
+export default middleware('combined', {
+  stream: {
+    write: (message, encoding) => logger.info(message)
+  }
+})

@@ -8,13 +8,8 @@ export const fetchJson = async (url) => {
   return {response, json}
 }
 
-export const fetchContributors = async (repoName) => {
-  const url = `${contributorsUrl(repoName)}?per_page=40`
-  const {json} = await fetchJson(url)
-  return json
-}
-
-export const fetchMoreContributors = async (url) => {
+export const fetchContributors = async (repoName, page) => {
+  const url = `${contributorsUrl(repoName)}?page=${page}`
   const {json} = await fetchJson(url)
   return json
 }

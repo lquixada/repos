@@ -1,5 +1,5 @@
 import nock from 'nock'
-import {fetchContributors, fetchMoreContributors, fetchRepo, fetchRepos} from '../services'
+import {fetchContributors, fetchRepo, fetchRepos} from '../services'
 
 const port = process.env.API_PORT
 
@@ -13,8 +13,8 @@ describe('Helpers (Services)', () => {
         login: 'user1'
       }]
       const data = {
-        next: 'http://repos/?page=2',
-        result: contributors
+        nextPage: 2,
+        data: contributors
       }
 
       nock(`http://localhost:${port}`)
@@ -33,56 +33,15 @@ describe('Helpers (Services)', () => {
     it('returns contributors from a repo', async () => {
       const data = await fetchContributors('some-repo')
 
-      expect(data.result).toEqual(contributors)
-      expect(data.next).toBe('http://repos/?page=2')
+      expect(data.data).toEqual(contributors)
+      expect(data.nextPage).toBe(2)
     })
 
     it('returns contributors from a repo', async () => {
       const data = await fetchContributors('some-repo')
 
-      expect(data.result).toEqual(contributors)
-      expect(data.next).toBe('http://repos/?page=2')
-    })
-  })
-
-  describe('fetchMoreContributors', () => {
-    let contributors
-
-    beforeEach(() => {
-      contributors = [{
-        id: 1,
-        login: 'user1'
-      }]
-      const data = {
-        next: 'http://repos/?page=2',
-        result: contributors
-      }
-
-      nock('http://repos')
-        .defaultReplyHeaders({
-          'Link': '<http://repos/?page=2>; rel="next", '
-        })
-        .get('/')
-        .query(true)
-        .reply(200, data)
-    })
-
-    afterEach(() => {
-      nock.cleanAll()
-    })
-
-    it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://repos/')
-
-      expect(data.result).toEqual(contributors)
-      expect(data.next).toBe('http://repos/?page=2')
-    })
-
-    it('returns contributors from a repo', async () => {
-      const data = await fetchMoreContributors('http://repos/')
-
-      expect(data.result).toEqual(contributors)
-      expect(data.next).toBe('http://repos/?page=2')
+      expect(data.data).toEqual(contributors)
+      expect(data.nextPage).toBe(2)
     })
   })
 

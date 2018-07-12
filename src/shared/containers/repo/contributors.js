@@ -31,7 +31,7 @@ export class ContributorsContainer extends React.Component {
   }
 
   hasMore () {
-    return !!this.props.contributors.get('next')
+    return !!this.props.contributors.get('nextPage')
   }
 
   isLoading () {
