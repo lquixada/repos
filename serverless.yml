@@ -30,7 +30,7 @@ package:
 
 functions:
   api:
-    handler: dist/api/lambda.handler
+    handler: dist/lambda-api.handler
     events:
       - http:
           path: /graphql
