@@ -29,29 +29,21 @@ package:
     - package.json
 
 functions:
-  server:
-    handler: dist/lambda-server.handler
-    events:
-      - http: GET /
-      - http: GET /{proxy+}
-
   api:
     handler: dist/lambda-api.handler
     events:
-      - http:
-          path: /api
-          method: get
-          cors: true
-      - http:
-          path: /api/{proxy+}
-          method: get
-          cors: true
       - http:
           path: /graphql
           method: get
           cors: true
     environment:
       GITHUB_ACCESS_TOKEN: ${file(./.env.js):env.GITHUB_ACCESS_TOKEN}
+
+  server:
+    handler: dist/lambda-server.handler
+    events:
+      - http: GET /
+      - http: GET /{proxy+}
 
 plugins:
 - serverless-offline
