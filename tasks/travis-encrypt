@@ -1,0 +1,5 @@
+#!/bin/bash
+# Encrypts sensitive environment variables for TravisCI
+set -e
+
+cat .env | travis encrypt --split --override --add
