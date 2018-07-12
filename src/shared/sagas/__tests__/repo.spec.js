@@ -26,7 +26,7 @@ describe('Sagas (Repo)', () => {
       const gen = loadRepo(repoName)
 
       expect(gen.next().value).toEqual(call(fetchRepo, repoName))
-      expect(gen.next({json: data}).value).toEqual(put(fetchRepoSucceeded(repoName, data)))
+      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 

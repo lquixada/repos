@@ -1,7 +1,7 @@
 import request from 'supertest'
-import nock from 'nock'
 
-const port = process.env.API_PORT
+import createMockClient from '../../../__tests__/mocked-client'
+import * as helpers from '../../../shared/helpers/client'
 
 describe('App Controller', () => {
   let server
@@ -12,43 +12,12 @@ describe('App Controller', () => {
   })
 
   beforeEach(() => {
-    nock(`http://localhost:${port}`)
-      .persist(true)
-      .get('/api/repos')
-      .query(true)
-      .reply(200, [
-        ['react', 1]
-      ])
-
-    nock(`http://localhost:${port}`)
-      .persist(true)
-      .get('/api/react/contributors')
-      .query(true)
-      .reply(200, {
-        nextPage: 2,
-        data: [{
-          id: 1,
-          login: 'user'
-        }]
-      })
-
-    nock(`http://localhost:${port}`)
-      .persist(true)
-      .get('/api/react')
-      .query(true)
-      .reply(200, {
-        id: 1,
-        name: 'react',
-        full_name: 'facebook/react'
-      })
+    const client = createMockClient()
+    helpers.getClient = () => client
   })
 
   afterEach((done) => {
     server.close((done))
-  })
-
-  afterEach(() => {
-    nock.cleanAll()
   })
 
   describe('/', () => {
@@ -81,7 +50,7 @@ describe('App Controller', () => {
         .expect((res) => {
           document.writeln(res.text)
           const h2 = document.querySelector('h2')
-          expect(h2.innerHTML).toBe('react')
+          expect(h2.innerHTML).toBe('repo1')
         })
         .end(done)
     })

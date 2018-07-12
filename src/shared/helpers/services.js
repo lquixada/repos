@@ -1,26 +1,65 @@
-import fetch from 'cross-fetch'
+import 'cross-fetch/polyfill'
+import gql from 'graphql-tag'
 
-import {repoUrl, contributorsUrl, reposUrl} from './urls'
-
-export const fetchJson = async (url) => {
-  const response = await fetch(url)
-  const json = await response.json()
-  return {response, json}
-}
+import {getClient} from './client'
 
 export const fetchContributors = async (repoName, page) => {
-  const url = `${contributorsUrl(repoName)}?page=${page}`
-  const {json} = await fetchJson(url)
-  return json
+  const client = getClient()
+  const {data} = await client.query({
+    query: gql`
+      {
+        contributors(repo: "${repoName}") {
+          nextPage
+          data {
+            login
+            html_url
+            avatar_url
+          }
+        }
+      }
+    `})
+
+  return data.contributors
 }
 
 export const fetchRepo = async (repoName) => {
-  const url = repoUrl(repoName)
-  return fetchJson(url)
+  const client = getClient()
+  const {data} = await client.query({
+    query: gql`
+      {
+        repo(name: "${repoName}") {
+          name
+          description
+          html_url
+          stargazers_count
+          forks_count
+          subscribers_count
+          open_issues_count
+          license {
+            name
+          }
+        }
+      }
+    `})
+
+  return data.repo
 }
 
 export const fetchRepos = async () => {
-  const url = reposUrl()
-  const {json} = await fetchJson(url)
-  return json
+  const client = getClient()
+  const {data} = await client.query({
+    query: gql`
+      {
+        repoCount {
+          name
+          count
+        }
+      }
+    `})
+
+  return data.repoCount
+    // Convert result
+    .map(repo => [repo.name, repo.count])
+    // Sort result
+    .sort((a, b) => b[1] - a[1])
 }

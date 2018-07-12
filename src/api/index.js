@@ -1,13 +1,16 @@
 import express from 'express'
 import cors from 'cors'
+import apollo from './apollo'
 
 import loggerMiddleware from './logger'
 import apiRouter from './router'
 
-const server = express()
+const app = express()
 
-server.use(cors())
-server.use(loggerMiddleware)
-server.use('/api', apiRouter)
+app.use(cors())
+app.use(loggerMiddleware)
+app.use('/api', apiRouter)
 
-export default server
+apollo.applyMiddleware({ app })
+
+export default app
