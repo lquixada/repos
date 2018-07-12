@@ -1,6 +1,7 @@
 import express from 'express'
 import gitHubApi from '@octokit/rest'
 
+import pkg from '../../package.json'
 import {extractTotal} from '../shared/helpers'
 
 const octokit = gitHubApi()
@@ -69,7 +70,7 @@ router.get('/:repo/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-  res.send('It\'s working!')
+  res.send(`v${pkg.version} is working!`)
 })
 
 export default router
