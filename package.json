@@ -89,7 +89,6 @@
     "jest": "23.3.0",
     "lint-staged": "7.2.0",
     "nock": "9.4.1",
-    "node-zip": "1.1.1",
     "react-test-renderer": "16.4.1",
     "serverless": "1.28.0",
     "serverless-offline": "3.25.6",
