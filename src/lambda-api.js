@@ -1,7 +1,13 @@
-import 'babel-polyfill'
-import awsServerlessExpress from 'aws-serverless-express'
-import app from './api'
+import { ApolloServer } from 'apollo-server-lambda'
 
-const server = awsServerlessExpress.createServer(app)
+import config from './api/config'
 
-exports.handler = (event, context) => awsServerlessExpress.proxy(server, event, context)
+const server = new ApolloServer(config)
+
+exports.handler = server.createHandler({
+  gui: true,
+  cors: {
+    origin: true,
+    credentials: true
+  }
+})

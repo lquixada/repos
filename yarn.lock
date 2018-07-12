@@ -1334,6 +1334,15 @@ apollo-server-express@2.0.0-rc.7:
     graphql-tools "^3.0.4"
     type-is "^1.6.16"
 
+apollo-server-lambda@2.0.0-rc.7:
+  version "2.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-2.0.0-rc.7.tgz#d4017146a9f0a9e9cf2d6d8ce079d836ac454ef9"
+  dependencies:
+    "@apollographql/graphql-playground-html" "^1.6.0"
+    apollo-server-core "^2.0.0-rc.7"
+    apollo-server-env "^2.0.0-rc.7"
+    graphql-tools "^3.0.4"
+
 apollo-tracing@^0.2.0-rc.0:
   version "0.2.0-rc.0"
   resolved "https://registry.yarnpkg.com/apollo-tracing/-/apollo-tracing-0.2.0-rc.0.tgz#fab22822451b3bd4fc3dec33d599071fd9a1de23"

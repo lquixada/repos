@@ -3,7 +3,7 @@ import path from 'path'
 import http from 'http'
 import https from 'https'
 
-import server from './api'
+import api from './api'
 
 const {SECURE, API_PORT} = process.env
 
@@ -17,13 +17,13 @@ if (SECURE) {
   }
 
   https
-    .createServer(credentials, server)
+    .createServer(credentials, api)
     .listen(API_PORT, function () {
       console.info(`\n🔒 Secure server running on: https://localhost:${this.address().port}/`)
     })
 } else {
   http
-    .createServer(server)
+    .createServer(api)
     .listen(API_PORT, function () {
       console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
     })

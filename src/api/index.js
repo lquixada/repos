@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
-import apollo from './apollo'
 
+import apollo from './apollo'
 import logger from './logger'
 
 const app = express()

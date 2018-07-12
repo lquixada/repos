@@ -30,11 +30,15 @@ package:
 
 functions:
   api:
-    handler: dist/lambda-api.handler
+    handler: dist/api/lambda.handler
     events:
       - http:
           path: /graphql
           method: get
+          cors: true
+      - http:
+          path: /graphql
+          method: post
           cors: true
     environment:
       GITHUB_ACCESS_TOKEN: ${file(./.env.js):env.GITHUB_ACCESS_TOKEN}
