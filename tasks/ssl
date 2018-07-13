@@ -2,8 +2,8 @@
 # This command is just for development purposes
 set -e
 
-export KEY="web/ssl/localhost.key"
-export CERT="web/ssl/localhost.cert"
+export KEY="dist/ssl/localhost.key"
+export CERT="dist/ssl/localhost.cert"
 
 if [ -f "$KEY" ]
 then

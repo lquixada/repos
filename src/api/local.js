@@ -8,7 +8,7 @@ import api from './index'
 const {SECURE, API_PORT = 3001} = process.env
 
 if (SECURE) {
-  const sslPath = path.join(__dirname, '..', 'web', 'ssl')
+  const sslPath = path.join(__dirname, '..', 'dist', 'ssl')
   const credentials = {
     key: fs.readFileSync(path.join(sslPath, 'localhost.key')),
     cert: fs.readFileSync(path.join(sslPath, 'localhost.cert')),
