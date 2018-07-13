@@ -2,7 +2,9 @@ import {call, put, take, fork} from 'redux-saga/effects'
 
 import {
   REPO_REQUESTED,
-  fetchRepoSucceeded, fetchRepoFailed
+  fetchRepoSucceeded,
+  fetchRepoFailed,
+  fetchContributorsSucceeded
 } from '../actions'
 import {fetchRepo} from '../helpers'
 
@@ -10,8 +12,9 @@ import {fetchRepo} from '../helpers'
 
 export function * loadRepo (repoName) {
   try {
-    const repo = yield call(fetchRepo, repoName)
-    yield put(fetchRepoSucceeded(repoName, repo))
+    const data = yield call(fetchRepo, repoName)
+    yield put(fetchRepoSucceeded(repoName, data.repo))
+    yield put(fetchContributorsSucceeded(repoName, data.contributors))
   } catch (error) {
     console.info(error)
     yield put(fetchRepoFailed(repoName, error.stack))

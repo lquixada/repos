@@ -8,3 +8,25 @@ export const loadRepoPage = (repoName) => ({
     repoName
   }
 })
+
+export const fetchPage = (repoName) => ({
+  type: REPO_PAGE_REQUESTED,
+  payload: {
+    repoName
+  }
+})
+
+export const fetchPageSucceeded = (repoName) => ({
+  type: REPO_PAGE_SUCCEEDED,
+  payload: {
+    repoName
+  }
+})
+
+export const fetchPageFailed = (repoName, error) => ({
+  type: REPO_PAGE_FAILED,
+  payload: {
+    repoName,
+    error
+  }
+})

@@ -8,7 +8,7 @@ export const fetchContributors = async (repoName, page) => {
   const {data} = await client.query({
     query: gql`
       {
-        contributors(repo: "${repoName}") {
+        contributors(repo: "${repoName}", page: ${page}) {
           nextPage
           data {
             login
@@ -39,10 +39,19 @@ export const fetchRepo = async (repoName) => {
             name
           }
         }
+
+        contributors(repo: "${repoName}", page: 1) {
+          nextPage
+          data {
+            login
+            html_url
+            avatar_url
+          }
+        }
       }
     `})
 
-  return data.repo
+  return data
 }
 
 export const fetchRepos = async () => {
@@ -62,4 +71,46 @@ export const fetchRepos = async () => {
     .map(repo => [repo.name, repo.count])
     // Sort result
     .sort((a, b) => b[1] - a[1])
+}
+
+export const fetchAll = async (repoName) => {
+  const client = getClient()
+  const {data} = await client.query({
+    query: gql`
+    {
+      repoCount {
+        name
+        count
+      }
+    
+      repo(name: "${repoName}") {
+        name
+        description
+        html_url
+        stargazers_count
+        forks_count
+        subscribers_count
+        open_issues_count
+        license {
+          name
+        }
+      }
+      
+      contributors(repo: "${repoName}", page: 1) {
+        nextPage
+        data {
+          login
+          html_url
+        }
+      }
+    }
+    `})
+
+  const repoCount = data.repoCount
+    // Convert result
+    .map(repo => [repo.name, repo.count])
+    // Sort result
+    .sort((a, b) => b[1] - a[1])
+
+  return Object.assign({}, data, {repoCount})
 }
