@@ -7,6 +7,15 @@ Repos<br>
 An explorer app for Facebook projects in Github.
 
 
+## Features
+
+* Cross-browser (latest Firefox/Chrome/Edge/Safari)
+* Responsive layout (from mobile to desktop)
+* Server-side rendering
+* Serverless
+* Secure connection with HTTPS
+
+
 ## Installation
 
 ```
