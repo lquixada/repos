@@ -97,6 +97,7 @@ export const fetchAll = async (repoName) => {
         data {
           login
           html_url
+          avatar_url
         }
       }
     }
