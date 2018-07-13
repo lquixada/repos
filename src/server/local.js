@@ -18,15 +18,15 @@ if (SECURE) {
 
   https
     .createServer(credentials, server)
-    .listen(WEB_PORT, () => {
-      console.info(`\n🔒 Secure server running on: https://localhost:${WEB_PORT}/`)
+    .listen(WEB_PORT, function () {
+      console.info(`\n🔒 Secure server running on: https://localhost:${this.address().port}/`)
       console.info('Compiling assets in memory...')
     })
 } else {
   http
     .createServer(server)
-    .listen(WEB_PORT, () => {
-      console.info(`\n🔓 Insecure server running on: http://localhost:${WEB_PORT}/`)
+    .listen(WEB_PORT, function () {
+      console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
       console.info('Compiling assets in memory...')
     })
 }
