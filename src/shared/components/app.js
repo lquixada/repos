@@ -3,6 +3,8 @@ import {Helmet} from 'react-helmet'
 import {injectGlobal} from 'styled-components'
 import {renderRoutes} from 'react-router-config'
 
+import {Ribbon} from './ribbon'
+
 export class App extends React.Component {
   componentWillMount () {
     resetStyles()
@@ -25,6 +27,7 @@ export class App extends React.Component {
           <link rel='icon' href='data:,' />
           <title>Facebook Repos</title>
         </Helmet>
+        <Ribbon />
         {this.renderError() || renderRoutes(this.props.route.routes)}
       </Fragment>
     )

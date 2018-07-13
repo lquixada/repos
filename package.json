@@ -60,6 +60,7 @@
     "react": "16.4.1",
     "react-component-octicons": "1.6.0",
     "react-dom": "16.4.1",
+    "react-github-fork-ribbon": "0.5.1",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.3.3",
     "react-redux": "5.0.7",
