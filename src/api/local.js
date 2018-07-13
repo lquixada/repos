@@ -3,11 +3,11 @@ import path from 'path'
 import http from 'http'
 import https from 'https'
 
-import server from './server'
+import api from './index'
 
-const PORT = 3000
+const {SECURE, API_PORT} = process.env
 
-if (process.env.SECURE) {
+if (SECURE) {
   const sslPath = path.join(__dirname, '..', 'web', 'ssl')
   const credentials = {
     key: fs.readFileSync(path.join(sslPath, 'localhost.key')),
@@ -17,14 +17,14 @@ if (process.env.SECURE) {
   }
 
   https
-    .createServer(credentials, server)
-    .listen(PORT, () => {
-      console.info(`\n🔒 Secure server running on: https://localhost:${PORT}/`)
+    .createServer(credentials, api)
+    .listen(API_PORT, function () {
+      console.info(`\n🔒 Secure server running on: https://localhost:${this.address().port}/`)
     })
 } else {
   http
-    .createServer(server)
-    .listen(PORT, () => {
-      console.info(`\n🔓 Insecure server running on: http://localhost:${PORT}/`)
+    .createServer(api)
+    .listen(API_PORT, function () {
+      console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
     })
 }

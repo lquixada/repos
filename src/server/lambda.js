@@ -1,6 +1,6 @@
 import 'babel-polyfill'
 import awsServerlessExpress from 'aws-serverless-express'
-import app from './server'
+import app from './index'
 
 const server = awsServerlessExpress.createServer(app)
 

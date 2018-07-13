@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-lambda'
 
-import config from './api/config'
+import config from './config'
 
 const server = new ApolloServer(config)
 

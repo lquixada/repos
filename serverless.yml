@@ -30,7 +30,7 @@ package:
 
 functions:
   api:
-    handler: dist/lambda-api.handler
+    handler: dist/api/lambda.handler
     events:
       - http:
           path: /graphql
@@ -44,7 +44,7 @@ functions:
       GITHUB_ACCESS_TOKEN: ${file(./.env.js):env.GITHUB_ACCESS_TOKEN}
 
   server:
-    handler: dist/lambda-server.handler
+    handler: dist/server/lambda.handler
     events:
       - http: GET /
       - http: GET /{proxy+}
