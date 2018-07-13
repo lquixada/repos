@@ -20,11 +20,13 @@ if (process.env.SECURE) {
     .createServer(credentials, server)
     .listen(PORT, () => {
       console.info(`\n🔒 Secure server running on: https://localhost:${PORT}/`)
+      console.info(`\nCompiling assets in memory...`)
     })
 } else {
   http
     .createServer(server)
     .listen(PORT, () => {
       console.info(`\n🔓 Insecure server running on: http://localhost:${PORT}/`)
+      console.info(`\nCompiling assets in memory...`)
     })
 }
