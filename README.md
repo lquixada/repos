@@ -25,6 +25,7 @@ In order to run the app, you will need a token from Github API. Please follow [t
 
 ```
 $ cat > .env <<EOL
+WEB_PORT = 3000
 API_PORT = 3001
 GITHUB_ACCESS_TOKEN=<your github token here>
 EOL

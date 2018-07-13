@@ -5,9 +5,9 @@ import https from 'https'
 
 import server from './index'
 
-const PORT = 3000
+const {SECURE, WEB_PORT = 3000} = process.env
 
-if (process.env.SECURE) {
+if (SECURE) {
   const sslPath = path.join(__dirname, '..', 'web', 'ssl')
   const credentials = {
     key: fs.readFileSync(path.join(sslPath, 'localhost.key')),
@@ -18,15 +18,15 @@ if (process.env.SECURE) {
 
   https
     .createServer(credentials, server)
-    .listen(PORT, () => {
-      console.info(`\n🔒 Secure server running on: https://localhost:${PORT}/`)
-      console.info(`\nCompiling assets in memory...`)
+    .listen(WEB_PORT, () => {
+      console.info(`\n🔒 Secure server running on: https://localhost:${WEB_PORT}/`)
+      console.info('Compiling assets in memory...')
     })
 } else {
   http
     .createServer(server)
-    .listen(PORT, () => {
-      console.info(`\n🔓 Insecure server running on: http://localhost:${PORT}/`)
-      console.info(`\nCompiling assets in memory...`)
+    .listen(WEB_PORT, () => {
+      console.info(`\n🔓 Insecure server running on: http://localhost:${WEB_PORT}/`)
+      console.info('Compiling assets in memory...')
     })
 }

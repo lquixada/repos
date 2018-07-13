@@ -5,7 +5,7 @@ import https from 'https'
 
 import api from './index'
 
-const {SECURE, API_PORT} = process.env
+const {SECURE, API_PORT = 3001} = process.env
 
 if (SECURE) {
   const sslPath = path.join(__dirname, '..', 'web', 'ssl')
