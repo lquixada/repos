@@ -1,6 +1,6 @@
 import {put, call, take, fork} from 'redux-saga/effects'
 import {fetchRepo} from '../../helpers'
-import {fetchRepoSucceeded, fetchRepoFailed, REPO_REQUESTED} from '../../actions'
+import {fetchRepoSucceeded, fetchRepoFailed, fetchContributorsSucceeded, REPO_REQUESTED} from '../../actions'
 import watchRepo, {loadRepo} from '../repo'
 
 describe('Sagas (Repo)', () => {
@@ -22,11 +22,13 @@ describe('Sagas (Repo)', () => {
 
   describe('loadRepo', () => {
     it('loads repo', () => {
-      const data = {key: 'value'}
+      const contributors = {nextPage: 2, data: [{login: 'user1'}]}
+      const data = { repo: {key: 'value'}, contributors }
       const gen = loadRepo(repoName)
 
       expect(gen.next().value).toEqual(call(fetchRepo, repoName))
-      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data)))
+      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data.repo)))
+      expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data.contributors)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 

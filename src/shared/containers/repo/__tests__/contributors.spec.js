@@ -77,18 +77,6 @@ describe('<ContributorsContainer />', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('fetches first load of Contributors component', () => {
-    shallow(
-      <ContributorsContainer
-        repoName={repoName}
-        count={count}
-        {...actions}
-      />
-    )
-
-    expect(actions.fetchContributors).toBeCalledWith('repo1')
-  })
-
   it('fetches next load od Contributors component', () => {
     const component = shallow(
       <ContributorsContainer

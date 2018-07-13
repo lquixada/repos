@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helpers (Queries) fetchContributors returns contributors from a repo 1`] = `
+Object {
+  "contributors": Object {
+    "data": Array [
+      Object {
+        "avatar_url": "http://avatar_url/",
+        "html_url": "http://html_url/",
+        "login": "user1",
+        Symbol(id): "$ROOT_QUERY.contributors({\\"page\\":1,\\"repo\\":\\"some-repo\\"}).data.0",
+      },
+    ],
+    "nextPage": 2,
+    Symbol(id): "$ROOT_QUERY.contributors({\\"page\\":1,\\"repo\\":\\"some-repo\\"})",
+  },
+  Symbol(id): "ROOT_QUERY",
+}
+`;
+
+exports[`Helpers (Queries) fetchRepo returns data from a repo 1`] = `
+Object {
+  "contributors": Object {
+    "data": Array [
+      Object {
+        "avatar_url": "http://avatar_url/",
+        "html_url": "http://html_url/",
+        "login": "user1",
+        Symbol(id): "$ROOT_QUERY.contributors({\\"page\\":1,\\"repo\\":\\"some-repo\\"}).data.0",
+      },
+    ],
+    "nextPage": 2,
+    Symbol(id): "$ROOT_QUERY.contributors({\\"page\\":1,\\"repo\\":\\"some-repo\\"})",
+  },
+  "repo": Object {
+    "description": "",
+    "forks_count": 1,
+    "html_url": "",
+    "license": Object {
+      "name": "",
+      Symbol(id): "$ROOT_QUERY.repo({\\"name\\":\\"some-repo\\"}).license",
+    },
+    "name": "repo1",
+    "open_issues_count": 1,
+    "stargazers_count": 1,
+    "subscribers_count": 1,
+    Symbol(id): "$ROOT_QUERY.repo({\\"name\\":\\"some-repo\\"})",
+  },
+  Symbol(id): "ROOT_QUERY",
+}
+`;
+
+exports[`Helpers (Queries) fetchRepos returns repos from an organization 1`] = `
+Object {
+  "repoCount": Array [
+    Object {
+      "count": 2,
+      "name": "repo1",
+      Symbol(id): "ROOT_QUERY.repoCount.0",
+    },
+  ],
+  Symbol(id): "ROOT_QUERY",
+}
+`;

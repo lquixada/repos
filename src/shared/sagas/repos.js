@@ -7,9 +7,9 @@ import {fetchRepos} from '../helpers'
 
 export function * loadRepos () {
   try {
-    const data = yield call(fetchRepos)
+    const {repoCount} = yield call(fetchRepos)
 
-    yield put(fetchReposSucceeded(data))
+    yield put(fetchReposSucceeded(repoCount))
   } catch (error) {
     console.info(error)
     yield put(fetchReposFailed(error.stack))

@@ -16,7 +16,7 @@ describe('Sagas (Contributors)', () => {
   let repoName
 
   beforeEach(() => {
-    data = {key: 'value'}
+    data = {contributors: {key: 'value'}}
     error = {stack: 'file.js:1:2'}
     repoName = 'repo1'
   })
@@ -37,7 +37,7 @@ describe('Sagas (Contributors)', () => {
         const gen = loadContributors(repoName)
 
         expect(gen.next().value).toEqual(call(fetchContributors, repoName, 1))
-        expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data)))
+        expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data.contributors)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
 
@@ -74,7 +74,7 @@ describe('Sagas (Contributors)', () => {
 
         expect(gen.next().value).toEqual(select(getNextPage, repoName))
         expect(gen.next(nextPage).value).toEqual(call(fetchContributors, repoName, nextPage))
-        expect(gen.next(data).value).toEqual(put(fetchMoreContributorsSucceeded(repoName, data)))
+        expect(gen.next(data).value).toEqual(put(fetchMoreContributorsSucceeded(repoName, data.contributors)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
 

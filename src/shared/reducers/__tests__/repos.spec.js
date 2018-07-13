@@ -8,7 +8,7 @@ describe('Reducers (Repos)', () => {
   })
 
   it('sets the repos state', () => {
-    const data = [['repo1', 2]]
+    const data = [{name: 'repo1', count: 2}]
     const action = fetchReposSucceeded(data)
     const state = reducer(undefined, action)
 

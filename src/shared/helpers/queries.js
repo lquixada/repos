@@ -1,4 +1,4 @@
-import 'cross-fetch/polyfill'
+import 'cross-fetch/dist/node-polyfill'
 import gql from 'graphql-tag'
 
 import {getClient} from './client'
@@ -19,7 +19,7 @@ export const fetchContributors = async (repoName, page) => {
       }
     `})
 
-  return data.contributors
+  return data
 }
 
 export const fetchRepo = async (repoName) => {
@@ -66,11 +66,7 @@ export const fetchRepos = async () => {
       }
     `})
 
-  return data.repoCount
-    // Convert result
-    .map(repo => [repo.name, repo.count])
-    // Sort result
-    .sort((a, b) => b[1] - a[1])
+  return data
 }
 
 export const fetchAll = async (repoName) => {
@@ -106,11 +102,5 @@ export const fetchAll = async (repoName) => {
     }
     `})
 
-  const repoCount = data.repoCount
-    // Convert result
-    .map(repo => [repo.name, repo.count])
-    // Sort result
-    .sort((a, b) => b[1] - a[1])
-
-  return Object.assign({}, data, {repoCount})
+  return data
 }

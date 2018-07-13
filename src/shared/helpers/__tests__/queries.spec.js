@@ -1,9 +1,9 @@
 import createMockClient from '../../../__tests__/mocked-client'
-import {fetchContributors, fetchRepo, fetchRepos} from '../services'
+import {fetchContributors, fetchRepo, fetchRepos} from '../queries'
 
 import * as helpers from '../client'
 
-describe('Helpers (Services)', () => {
+describe('Helpers (Queries)', () => {
   beforeEach(() => {
     const client = createMockClient()
     helpers.getClient = () => client
@@ -11,7 +11,7 @@ describe('Helpers (Services)', () => {
 
   describe('fetchContributors', () => {
     it('returns contributors from a repo', async () => {
-      const data = await fetchContributors('some-repo')
+      const data = await fetchContributors('some-repo', 1)
       expect(data).toMatchSnapshot()
     })
   })

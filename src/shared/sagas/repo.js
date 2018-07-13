@@ -13,6 +13,7 @@ import {fetchRepo} from '../helpers'
 export function * loadRepo (repoName) {
   try {
     const data = yield call(fetchRepo, repoName)
+
     yield put(fetchRepoSucceeded(repoName, data.repo))
     yield put(fetchContributorsSucceeded(repoName, data.contributors))
   } catch (error) {

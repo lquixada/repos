@@ -3,14 +3,14 @@ import {fetchRepos} from '../../helpers'
 import {fetchReposSucceeded, fetchReposFailed} from '../../actions'
 import {loadRepos} from '../repos'
 
-describe('Sagas (Repos Contributors Count)', () => {
+describe('Sagas (Repos)', () => {
   describe('loadRepos', () => {
-    it('loads repos contributors count', () => {
-      const repos = [{name: 'repo1'}, {name: 'repo2'}, {name: 'repo3'}]
+    it('loads repos', () => {
+      const repoCount = [{name: 'repo1'}, {name: 'repo2'}, {name: 'repo3'}]
       const gen = loadRepos()
 
       expect(gen.next().value).toEqual(call(fetchRepos))
-      expect(gen.next(repos).value).toEqual(put(fetchReposSucceeded(repos)))
+      expect(gen.next({repoCount}).value).toEqual(put(fetchReposSucceeded(repoCount)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 
