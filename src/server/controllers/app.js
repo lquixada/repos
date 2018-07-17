@@ -15,7 +15,6 @@ import {isEnabled, trigger} from '../../shared/helpers'
 export default (req, res, next) => {
   const {url, query} = req
   const ssrEnabled = isEnabled(query.ssr)
-  const matchs = matchRoutes(routes, url)
   const store = configureStore()
 
   const renderApp = () => {
@@ -44,6 +43,7 @@ export default (req, res, next) => {
 
   if (ssrEnabled) {
     store.runnedSagas.toPromise().then(renderApp).catch(next)
+    const matchs = matchRoutes(routes, url)
     trigger('fetch', matchs, store.dispatch)
   } else {
     renderApp()
