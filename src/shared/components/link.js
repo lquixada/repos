@@ -6,8 +6,8 @@ import Octicon from 'react-component-octicons'
 
 import {flex, imgUrl} from '../helpers'
 
-export const Link = ({repoName, contributorsCount, isLoading}) => (
-  <Wrapper to={`/r/${repoName}`}>
+export const Link = ({owner, repoName, contributorsCount, isLoading}) => (
+  <Wrapper to={`/r/${owner}/${repoName}`}>
     <Icon name='repo' />
     <Text>
       {repoName}

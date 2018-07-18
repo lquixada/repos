@@ -3,7 +3,10 @@ import {Helmet} from 'react-helmet'
 import {injectGlobal} from 'styled-components'
 import {renderRoutes} from 'react-router-config'
 
+import Input from '../containers/input'
+import {Title} from './title'
 import {Ribbon} from './ribbon'
+import {Main, Header, HeaderContainer} from './grid'
 
 export class App extends React.Component {
   componentWillMount () {
@@ -25,10 +28,20 @@ export class App extends React.Component {
           <meta name='version' content={this.props.version} />
           {/* Disabled favicon for now, it is hitting the appController. */}
           <link rel='icon' href='data:,' />
-          <title>Facebook Repos</title>
+          <title>Github Repos</title>
         </Helmet>
         <Ribbon />
-        {this.renderError() || renderRoutes(this.props.route.routes)}
+
+        <Main>
+          <Header>
+            <HeaderContainer>
+              <Title />
+              <Input />
+            </HeaderContainer>
+          </Header>
+
+          {this.renderError() || renderRoutes(this.props.route.routes)}
+        </Main>
       </Fragment>
     )
   }

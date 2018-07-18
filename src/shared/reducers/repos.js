@@ -11,8 +11,10 @@ export default function repos (state = Map(), action = {}) {
   switch (type) {
     case REPOS_REQUESTED:
       return state.mergeDeep({
-        isLoading: true,
-        error: null
+        [payload.owner]: {
+          isLoading: true,
+          error: null
+        }
       })
 
     case REPOS_SUCCEEDED:
@@ -22,15 +24,19 @@ export default function repos (state = Map(), action = {}) {
         .sort((a, b) => b[1] - a[1])
 
       return state.mergeDeep({
-        data,
-        isLoading: false,
-        error: null
+        [payload.owner]: {
+          data,
+          isLoading: false,
+          error: null
+        }
       })
 
     case REPOS_FAILED:
       return state.mergeDeep({
-        isLoading: false,
-        error: payload.error
+        [payload.owner]: {
+          isLoading: false,
+          error: payload.error
+        }
       })
 
     default:

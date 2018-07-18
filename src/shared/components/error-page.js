@@ -2,26 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {Title} from './title'
-import {Main, Content, Header, HeaderContainer, Section, SectionContainer} from './grid'
+import {Content, Section, SectionContainer} from './grid'
 
 export const ErrorPage = ({message}) => (
-  <Main>
-    <Header>
-      <HeaderContainer>
-        <Title />
-      </HeaderContainer>
-    </Header>
-
-    <Section>
-      <SectionContainer>
-        <Content>
-          <P>Whoops, looks like an error occurred.</P>
-          {message && <pre>{message}</pre>}
-        </Content>
-      </SectionContainer>
-    </Section>
-  </Main>
+  <Section>
+    <SectionContainer>
+      <Content>
+        <P>Whoops, looks like an error occurred.</P>
+        {message && <pre>{message}</pre>}
+      </Content>
+    </SectionContainer>
+  </Section>
 )
 
 ErrorPage.propTypes = {

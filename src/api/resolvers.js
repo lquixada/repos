@@ -1,8 +1,8 @@
 import {extractTotal} from '../shared/helpers'
 
-const getContributors = async (api, repo) => {
-  const {headers} = await api.getContributors({
-    owner: 'facebook',
+const getContributors = async (api, owner, repo) => {
+  const {headers} = await api.repos.getContributors({
+    owner,
     repo,
     per_page: 1,
     page: 1
@@ -11,28 +11,43 @@ const getContributors = async (api, repo) => {
   return extractTotal(headers.link)
 }
 
+const getRepos = async (api, owner) => {
+  const {data} = await api.users.getForUser({ username: owner })
+
+  if (data.type === 'User') {
+    return api.repos.getForUser({
+      username: owner
+    })
+  }
+
+  return api.repos.getForOrg({
+    org: owner,
+    type: 'public'
+  })
+}
+
 export default {
   Query: {
     repo: async (root, args, context) => {
-      const {data} = await context.api.get({owner: 'facebook', repo: args.name})
+      const owner = args.owner || 'facebook'
+      const {data} = await context.api.repos.get({owner, repo: args.name})
       return data
     },
 
     repoCount: async (root, args, context) => {
-      const {data} = await context.api.getForOrg({
-        org: 'facebook',
-        type: 'public'
-      })
+      const owner = args.owner || 'facebook'
+      const {data} = await getRepos(context.api, owner)
       const repos = data.map((repo) => repo.name)
-      const counts = await Promise.all(repos.map(repo => getContributors(context.api, repo)))
+      const counts = await Promise.all(repos.map(repo => getContributors(context.api, owner, repo)))
 
       return repos.map((name, i) => ({name, count: counts[i]}))
     },
 
     contributors: async (root, args, context) => {
       let nextPage = null
-      const {data, headers} = await context.api.getContributors({
-        owner: 'facebook',
+      const owner = args.owner || 'facebook'
+      const {data, headers} = await context.api.repos.getContributors({
+        owner,
         repo: args.repo,
         per_page: 40,
         page: args.page || 1

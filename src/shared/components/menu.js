@@ -3,12 +3,13 @@ import styled from 'styled-components'
 
 import {Link} from './link'
 
-export const Menu = ({items}) => (
+export const Menu = ({owner, items}) => (
   <Wrapper>
     <List>
       {items.map((item) => (
         <Item key={item.get(0)}>
           <Link
+            owner={owner}
             repoName={item.get(0)}
             contributorsCount={item.get(1)}
             isLoading={item.get(2)}
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
   padding: 0;
   max-height: 40rem;
+  color: #333;
   font-size: 1.2rem;
   background-color: #fff;
   border: .1rem solid #e5e5e5;

@@ -7,23 +7,35 @@ import {imgUrl} from '../helpers'
 export const Title = () => (
   <Wrapper>
     <NavLink to='/'>
-      <Image src={imgUrl('logo.jpg')} />
+      <Image src={imgUrl('logo.png')} />
     </NavLink>
   </Wrapper>
 )
 
 const Wrapper = styled.h1`
   line-height: 1;
+
+  &::after { 
+    content: "/";
+    margin: 0 .5rem;
+    color: #b9b9b9;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    vertical-align: middle;
+  }
 `
 
 const NavLink = styled(Link)`
   display: inline-block;
-  height: 4.5rem;
+  height: 3rem;
   font-size: 1rem;
+  vertical-align: middle; 
   text-decoration: none;
 `
 
 const Image = styled.img`
   display: inline-block;
-  height: 100%;
+  width: 15.8rem;
+  height: 3rem;
 `

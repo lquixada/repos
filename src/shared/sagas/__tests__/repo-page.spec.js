@@ -11,7 +11,7 @@ describe('Sagas (Repo Page)', () => {
       const gen = watchLoadRepoPage()
 
       expect(gen.next().value).toEqual(take(REPO_PAGE_REQUESTED))
-      expect(gen.next(action).value).toEqual(fork(loadAll, repoName))
+      expect(gen.next(action).value).toEqual(fork(loadAll, {repoName}))
     })
   })
 })

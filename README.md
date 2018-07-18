@@ -4,7 +4,7 @@ Repos<br>
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ================
 
-An explorer app for Facebook projects in Github.
+An explorer app for projects in Github.
 
 
 ## Features

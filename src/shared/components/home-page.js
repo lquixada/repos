@@ -3,32 +3,23 @@ import styled from 'styled-components'
 
 import Menu from '../containers/menu'
 import {Footer} from './footer'
-import {Title} from './title'
-import {Main, Aside, Content, Header, HeaderContainer, Section, SectionContainer} from './grid'
+import {Aside, Content, Section, SectionContainer} from './grid'
 import {flex} from '../helpers'
 
 export const HomePage = () => (
-  <Main>
-    <Header>
-      <HeaderContainer>
-        <Title />
-      </HeaderContainer>
-    </Header>
-
-    <Section>
-      <SectionContainer>
-        <Aside>
-          <Menu />
-          <Footer />
-        </Aside>
-        <Content>
-          <Wrapper>
-            Choose a repository on the menu.
-          </Wrapper>
-        </Content>
-      </SectionContainer>
-    </Section>
-  </Main>
+  <Section>
+    <SectionContainer>
+      <Aside>
+        <Menu />
+        <Footer />
+      </Aside>
+      <Content>
+        <Wrapper>
+          Choose a repository on the menu.
+        </Wrapper>
+      </Content>
+    </SectionContainer>
+  </Section>
 )
 
 const Wrapper = styled.div`

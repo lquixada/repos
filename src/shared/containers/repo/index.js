@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
 import {Repo} from '../../components/repo'
 import * as actions from '../../actions'
@@ -17,7 +18,10 @@ export class RepoContainer extends React.Component {
 
   fetch () {
     if (!this.hasLoaded()) {
-      this.props.fetchRepo(this.props.name)
+      this.props.fetchRepo({
+        owner: this.props.owner,
+        repoName: this.props.repoName
+      })
     }
   }
 
@@ -27,7 +31,10 @@ export class RepoContainer extends React.Component {
   }
 
   hasChanged (prevProps) {
-    return prevProps.name !== this.props.name
+    return (
+      prevProps.owner !== this.props.owner ||
+      prevProps.repoName !== this.props.repoName
+    )
   }
 
   render () {
@@ -36,12 +43,14 @@ export class RepoContainer extends React.Component {
     }
 
     return (
-      <Repo repo={this.props.repo.get('data')} />
+      <Repo owner={this.props.owner} repo={this.props.repo.get('data')} />
     )
   }
 }
 
-const mapStateToProps = ({repo}, {name}) => ({
-  repo: repo.get(name)
+const mapStateToProps = ({repo}, {match}) => ({
+  owner: match.params.owner,
+  repoName: match.params.repo,
+  repo: repo.getIn([match.params.owner, match.params.repo])
 })
-export default connect(mapStateToProps, actions)(RepoContainer)
+export default withRouter(connect(mapStateToProps, actions)(RepoContainer))

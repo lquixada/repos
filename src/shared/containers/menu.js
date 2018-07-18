@@ -7,28 +7,30 @@ import {Menu} from '../components/menu'
 import * as actions from '../actions'
 
 export class MenuContainer extends React.Component {
-  componentDidMount () {
-    if (!this.hasLoaded()) {
-      this.props.fetchRepos()
-    }
-  }
-
   hasLoaded () {
-    return !this.props.items.isEmpty()
+    const data = this.props.repos.getIn([this.props.owner, 'data'])
+    return !!data
   }
 
   render () {
+    if (!this.hasLoaded()) {
+      return <div style={{color: '#333'}}>Loading...</div>
+    }
+
     return (
-      <Menu items={this.props.items} />
+      <Menu {...this.props} />
     )
   }
 }
 
 const mapStateToProps = ({repos, repo}, {match}) => ({
-  items: repos.get('data', List()).map((item) => {
+  repos,
+  owner: match.params.owner,
+  items: repos.getIn([match.params.owner, 'data'], List()).map((item) => {
+    const {owner} = match.params
     const repoName = item.get(0)
     const count = item.get(1)
-    const isLoading = repo.getIn([repoName, 'isLoading'])
+    const isLoading = repo.getIn([owner, repoName, 'isLoading'])
 
     return List.of(repoName, count, isLoading)
   })

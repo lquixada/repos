@@ -3,9 +3,9 @@ import gitHubApi from '@octokit/rest'
 import typeDefs from './type-defs'
 import resolvers from './resolvers'
 
-const octokit = gitHubApi()
+const api = gitHubApi()
 
-octokit.authenticate({
+api.authenticate({
   type: 'token',
   token: process.env.GITHUB_ACCESS_TOKEN
 })
@@ -15,7 +15,5 @@ export default {
   resolvers,
   playground: true,
   introspection: true,
-  context: () => ({
-    api: octokit.repos
-  })
+  context: () => ({ api })
 }

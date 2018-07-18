@@ -6,19 +6,14 @@ export const MORE_CONTRIBUTORS_REQUESTED = 'MORE_CONTRIBUTORS_REQUESTED'
 export const MORE_CONTRIBUTORS_SUCCEEDED = 'MORE_CONTRIBUTORS_SUCCEEDED'
 export const MORE_CONTRIBUTORS_FAILED = 'MORE_CONTRIBUTORS_FAILED'
 
-export const fetchContributors = (repoName) => ({
+export const fetchContributors = (payload) => ({
   type: CONTRIBUTORS_REQUESTED,
-  payload: {
-    repoName
-  }
+  payload
 })
 
-export const fetchContributorsSucceeded = (repoName, data) => ({
+export const fetchContributorsSucceeded = (payload) => ({
   type: CONTRIBUTORS_SUCCEEDED,
-  payload: {
-    repoName,
-    data
-  }
+  payload
 })
 
 export const fetchContributorsFailed = (repoName, error) => ({
@@ -29,19 +24,14 @@ export const fetchContributorsFailed = (repoName, error) => ({
   }
 })
 
-export const fetchMoreContributors = (repoName) => ({
+export const fetchMoreContributors = (payload) => ({
   type: MORE_CONTRIBUTORS_REQUESTED,
-  payload: {
-    repoName
-  }
+  payload
 })
 
-export const fetchMoreContributorsSucceeded = (repoName, data) => ({
+export const fetchMoreContributorsSucceeded = (payload) => ({
   type: MORE_CONTRIBUTORS_SUCCEEDED,
-  payload: {
-    repoName,
-    data
-  }
+  payload
 })
 
 export const fetchMoreContributorsFailed = (repoName, error) => ({

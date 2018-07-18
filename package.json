@@ -2,7 +2,7 @@
   "name": "repos",
   "version": "2.0.8",
   "private": true,
-  "description": "An explorer app for Facebook projects in Github.",
+  "description": "An explorer app for projects in Github.",
   "author": "Leonardo Quixada <lquixada@gmail.com>",
   "license": "MIT",
   "scripts": {

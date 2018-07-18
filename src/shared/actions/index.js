@@ -1,5 +1,4 @@
 export * from './contributors'
-export * from './home-page'
+export * from './pages'
 export * from './repo'
 export * from './repos'
-export * from './repo-page'

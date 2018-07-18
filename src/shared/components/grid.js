@@ -44,6 +44,8 @@ export const Header = styled.header`
 `
 
 export const HeaderContainer = Container.extend`
+  ${flex.left()}
+  ${flex.middle()}
   width: 78rem;
   @media (max-width: 576px) {
     ${flex.wrap('wrap')}

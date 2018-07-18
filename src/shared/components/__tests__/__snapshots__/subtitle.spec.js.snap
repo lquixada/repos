@@ -6,7 +6,7 @@ exports[`<Subtitle /> matches the snapshot 1`] = `
     <h2
       className="sc-bdVaJa ketyGn"
     >
-      Facebook Repos
+      Github Repos
     </h2>
   </styled.h2>
 </Subtitle>

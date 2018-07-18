@@ -7,9 +7,11 @@ describe('<ContributorsContainer />', () => {
   let actions
   let contributors
   let count
+  let owner
   let repoName
 
   beforeEach(() => {
+    owner = 'owner1'
     repoName = 'repo1'
     actions = {
       fetchContributors: jest.fn(),
@@ -31,6 +33,7 @@ describe('<ContributorsContainer />', () => {
   it('renders null if there is no repo', () => {
     const component = shallow(
       <ContributorsContainer
+        owner={owner}
         repoName={repoName}
         contributors={undefined}
         {...actions}
@@ -42,6 +45,7 @@ describe('<ContributorsContainer />', () => {
   it('renders Contributors component', () => {
     const component = shallow(
       <ContributorsContainer
+        owner={owner}
         repoName={repoName}
         contributors={contributors}
         count={count}
@@ -55,6 +59,7 @@ describe('<ContributorsContainer />', () => {
     contributors = contributors.set('isLoading', true)
     const component = shallow(
       <ContributorsContainer
+        owner={owner}
         repoName={repoName}
         contributors={contributors}
         count={count}
@@ -68,6 +73,7 @@ describe('<ContributorsContainer />', () => {
     contributors = contributors.set('nextPage', '')
     const component = shallow(
       <ContributorsContainer
+        owner={owner}
         repoName={repoName}
         contributors={contributors}
         count={count}
@@ -80,6 +86,7 @@ describe('<ContributorsContainer />', () => {
   it('fetches next load od Contributors component', () => {
     const component = shallow(
       <ContributorsContainer
+        owner={owner}
         repoName={repoName}
         contributors={contributors}
         count={count}
@@ -89,6 +96,6 @@ describe('<ContributorsContainer />', () => {
 
     const {onNext} = component.find('Contributors').props()
     onNext()
-    expect(actions.fetchMoreContributors).toBeCalledWith('repo1')
+    expect(actions.fetchMoreContributors).toBeCalledWith({owner: 'owner1', repoName: 'repo1'})
   })
 })

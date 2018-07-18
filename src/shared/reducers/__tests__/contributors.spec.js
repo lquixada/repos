@@ -24,7 +24,7 @@ describe('Reducers (Contributors)', () => {
 
   describe('First Contributors', () => {
     it('switches to isLoading state', () => {
-      const action = fetchContributors(repoName)
+      const action = fetchContributors({repoName})
       const state = reducer(undefined, action)
 
       expect(state.getIn([repoName, 'isLoading'])).toBe(true)
@@ -65,7 +65,7 @@ describe('Reducers (Contributors)', () => {
 
   describe('More Contributors', () => {
     it('switches to isLoading state', () => {
-      const action = fetchMoreContributors(repoName)
+      const action = fetchMoreContributors({repoName})
       const state = reducer(undefined, action)
 
       expect(state.getIn([repoName, 'isLoading'])).toBe(true)

@@ -7,7 +7,7 @@ import {Summary} from '../summary'
 describe('<Summary />', () => {
   it('matches the snapshot', () => {
     const repo = fromJS({
-      name: 'Facebook Repos',
+      name: 'Github Repos',
       stargazers_count: 5,
       subscribers_count: 5,
       forks_count: 5,
@@ -16,7 +16,7 @@ describe('<Summary />', () => {
         name: 'MIT'
       }
     })
-    const component = mount(<Summary repo={repo} />)
+    const component = mount(<Summary owner='owner1' repo={repo} />)
     expect(component).toMatchSnapshot()
   })
 })

@@ -7,10 +7,11 @@ import watchLoadHomePage from '../home-page'
 describe('Sagas (Home Page)', () => {
   describe('watchLoadHomePage', () => {
     it('watches home page load', () => {
+      const action = {payload: {owner: 'owner1'}}
       const gen = watchLoadHomePage()
 
       expect(gen.next().value).toEqual(take(HOME_PAGE_REQUESTED))
-      expect(gen.next().value).toEqual(fork(loadRepos))
+      expect(gen.next(action).value).toEqual(fork(loadRepos, 'owner1'))
     })
   })
 })

@@ -8,7 +8,7 @@ exports[`<RepoPage /> matches the snapshot 1`] = `
   >
     <title>
       repo1
-       - Facebook Repos
+       - Github Repos
     </title>
   </HelmetWrapper>
   <styled.header>

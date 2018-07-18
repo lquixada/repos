@@ -2,19 +2,14 @@ export const REPO_REQUESTED = 'REPO_REQUESTED'
 export const REPO_SUCCEEDED = 'REPO_SUCCEEDED'
 export const REPO_FAILED = 'REPO_FAILED'
 
-export const fetchRepo = (repoName) => ({
+export const fetchRepo = (payload) => ({
   type: REPO_REQUESTED,
-  payload: {
-    repoName
-  }
+  payload
 })
 
-export const fetchRepoSucceeded = (repoName, data) => ({
+export const fetchRepoSucceeded = (payload) => ({
   type: REPO_SUCCEEDED,
-  payload: {
-    repoName,
-    data
-  }
+  payload
 })
 
 export const fetchRepoFailed = (repoName, error) => ({

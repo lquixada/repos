@@ -20,16 +20,16 @@ describe('App Controller', () => {
     server.close((done))
   })
 
-  describe('/', () => {
+  describe('/r/:owner', () => {
     it('is a valid path', (done) => {
       request(server)
-        .get('/')
+        .get('/r/owner')
         .expect(200, done)
     })
 
     it('renders the main page', (done) => {
       request(server)
-        .get('/')
+        .get('/r/owner')
         .expect((res) => {
           expect(res.text).toContain('Choose a repository on the menu.')
         })
@@ -37,16 +37,16 @@ describe('App Controller', () => {
     })
   })
 
-  describe('/r/:repo', () => {
+  describe('/r/:owner/:repo', () => {
     it('is a valid path', (done) => {
       request(server)
-        .get('/r/react')
+        .get('/r/owner1/react')
         .expect(200, done)
     })
 
     it('renders the repo page', (done) => {
       request(server)
-        .get('/r/react')
+        .get('/r/owner1/react')
         .expect((res) => {
           document.writeln(res.text)
           const h2 = document.querySelector('h2')

@@ -14,7 +14,7 @@ describe('Reducers (Repo)', () => {
   })
 
   it('switches to isLoading state', () => {
-    const action = fetchRepo(repoName)
+    const action = fetchRepo({repoName})
     const state = reducer(undefined, action)
 
     expect(state.getIn([repoName, 'isLoading'])).toBe(true)

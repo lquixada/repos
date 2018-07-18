@@ -2,7 +2,7 @@
 
 exports[`<Header /> matches the snapshot 1`] = `
 <Header
-  title="Facebook Repos"
+  title="Github Repos"
   url="http://repos/"
 >
   <styled.header>
@@ -14,7 +14,7 @@ exports[`<Header /> matches the snapshot 1`] = `
           <h2
             className="sc-bdVaJa ketyGn"
           >
-            Facebook Repos
+            Github Repos
           </h2>
         </styled.h2>
       </Subtitle>

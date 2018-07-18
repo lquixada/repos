@@ -1,32 +1,24 @@
-import {call, put, take, all, fork, select} from 'redux-saga/effects'
+import {call, put, take, fork, select} from 'redux-saga/effects'
 
 import {
-  CONTRIBUTORS_REQUESTED, MORE_CONTRIBUTORS_REQUESTED,
-  fetchMoreContributorsSucceeded, fetchMoreContributorsFailed,
-  fetchContributorsSucceeded, fetchContributorsFailed
+  MORE_CONTRIBUTORS_REQUESTED,
+  fetchMoreContributorsSucceeded, fetchMoreContributorsFailed
 } from '../actions'
 import {fetchContributors} from '../helpers'
 import {getNextPage} from '../selectors'
 
 /* Loaders */
 
-export function * loadContributors (repoName) {
+export function * loadMoreContributors ({owner, repoName}) {
   try {
-    const {contributors} = yield call(fetchContributors, repoName, 1)
+    const page = yield select(getNextPage, repoName)
+    const {contributors} = yield call(fetchContributors, {
+      owner,
+      repoName,
+      page
+    })
 
-    yield put(fetchContributorsSucceeded(repoName, contributors))
-  } catch (error) {
-    console.info(error)
-    yield put(fetchContributorsFailed(repoName, error.stack))
-  }
-}
-
-export function * loadMoreContributors (repoName) {
-  try {
-    const nextPage = yield select(getNextPage, repoName)
-    const {contributors} = yield call(fetchContributors, repoName, nextPage)
-
-    yield put(fetchMoreContributorsSucceeded(repoName, contributors))
+    yield put(fetchMoreContributorsSucceeded({owner, repoName, data: contributors}))
   } catch (error) {
     console.info(error)
     yield put(fetchMoreContributorsFailed(repoName, error.stack))
@@ -35,25 +27,10 @@ export function * loadMoreContributors (repoName) {
 
 /* Watchers */
 
-export function * watchContributors () {
-  while (true) {
-    const {payload} = yield take(CONTRIBUTORS_REQUESTED)
-
-    yield fork(loadContributors, payload.repoName)
-  }
-}
-
-export function * watchMoreContributors () {
+export default function * watchMoreContributors () {
   while (true) {
     const {payload} = yield take(MORE_CONTRIBUTORS_REQUESTED)
 
-    yield fork(loadMoreContributors, payload.repoName)
+    yield fork(loadMoreContributors, payload)
   }
-}
-
-export default function * rootContributorsSaga () {
-  yield all([
-    watchContributors(),
-    watchMoreContributors()
-  ])
 }

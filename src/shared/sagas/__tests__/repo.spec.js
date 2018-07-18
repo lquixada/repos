@@ -16,7 +16,7 @@ describe('Sagas (Repo)', () => {
       const gen = watchRepo()
 
       expect(gen.next().value).toEqual(take(REPO_REQUESTED))
-      expect(gen.next(action).value).toEqual(fork(loadRepo, repoName))
+      expect(gen.next(action).value).toEqual(fork(loadRepo, {repoName}))
     })
   })
 
@@ -24,9 +24,9 @@ describe('Sagas (Repo)', () => {
     it('loads repo', () => {
       const contributors = {nextPage: 2, data: [{login: 'user1'}]}
       const data = { repo: {key: 'value'}, contributors }
-      const gen = loadRepo(repoName)
+      const gen = loadRepo({repoName})
 
-      expect(gen.next().value).toEqual(call(fetchRepo, repoName))
+      expect(gen.next().value).toEqual(call(fetchRepo, {repoName}))
       expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data.repo)))
       expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data.contributors)))
       expect(gen.next()).toEqual({done: true, value: undefined})
@@ -34,9 +34,9 @@ describe('Sagas (Repo)', () => {
 
     it('handle error', () => {
       const error = {stack: 'file.js:1:2'}
-      const gen = loadRepo(repoName)
+      const gen = loadRepo({repoName})
 
-      expect(gen.next().value).toEqual(call(fetchRepo, repoName))
+      expect(gen.next().value).toEqual(call(fetchRepo, {repoName}))
       expect(gen.throw(error).value).toEqual(put(fetchRepoFailed(repoName, error.stack)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })

@@ -2,12 +2,12 @@ import config from '../../server/config'
 
 export const imgUrl = (filename) => `${config.staticUrl}/images/${filename}`
 
-export const githubUrl = (repoName, resource) => `${config.github}/facebook/${repoName}/${resource}`
+export const githubUrl = (owner, repoName, resource) => `${config.github}/${owner}/${repoName}/${resource}`
 
-export const issuesUrl = (repoName) => githubUrl(repoName, 'issues')
+export const issuesUrl = (owner, repoName) => githubUrl(owner, repoName, 'issues')
 
-export const forksUrl = (repoName) => githubUrl(repoName, 'network')
+export const forksUrl = (owner, repoName) => githubUrl(owner, repoName, 'network')
 
-export const stargazersUrl = (repoName) => githubUrl(repoName, 'stargazers')
+export const stargazersUrl = (owner, repoName) => githubUrl(owner, repoName, 'stargazers')
 
-export const watchersUrl = (repoName) => githubUrl(repoName, 'watchers')
+export const watchersUrl = (owner, repoName) => githubUrl(owner, repoName, 'watchers')

@@ -1,9 +1,11 @@
 import express from 'express'
 import cors from 'cors'
+import {ApolloServer} from 'apollo-server-express'
 
-import apollo from './apollo'
 import logger from './logger'
+import config from './config'
 
+const apollo = new ApolloServer(config)
 const app = express()
 
 app.use(cors())

@@ -3,12 +3,12 @@ import gql from 'graphql-tag'
 
 import {getClient} from './client'
 
-export const fetchContributors = async (repoName, page) => {
+export const fetchContributors = async ({owner, repoName, page}) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
       {
-        contributors(repo: "${repoName}", page: ${page}) {
+        contributors(owner: "${owner}", repo: "${repoName}", page: ${page}) {
           nextPage
           data {
             login
@@ -22,12 +22,12 @@ export const fetchContributors = async (repoName, page) => {
   return data
 }
 
-export const fetchRepo = async (repoName) => {
+export const fetchRepo = async ({ owner, repoName }) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
       {
-        repo(name: "${repoName}") {
+        repo(owner: "${owner}", name: "${repoName}") {
           name
           description
           html_url
@@ -40,7 +40,7 @@ export const fetchRepo = async (repoName) => {
           }
         }
 
-        contributors(repo: "${repoName}", page: 1) {
+        contributors(owner: "${owner}", repo: "${repoName}", page: 1) {
           nextPage
           data {
             login
@@ -54,12 +54,12 @@ export const fetchRepo = async (repoName) => {
   return data
 }
 
-export const fetchRepos = async () => {
+export const fetchRepos = async ({ owner }) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
       {
-        repoCount {
+        repoCount(owner: "${owner}") {
           name
           count
         }
@@ -69,17 +69,17 @@ export const fetchRepos = async () => {
   return data
 }
 
-export const fetchAll = async (repoName) => {
+export const fetchAll = async ({ owner, repoName }) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
     {
-      repoCount {
+      repoCount(owner: "${owner}") {
         name
         count
       }
     
-      repo(name: "${repoName}") {
+      repo(owner: "${owner}", name: "${repoName}") {
         name
         description
         html_url
@@ -92,7 +92,7 @@ export const fetchAll = async (repoName) => {
         }
       }
       
-      contributors(repo: "${repoName}", page: 1) {
+      contributors(owner: "${owner}", repo: "${repoName}", page: 1) {
         nextPage
         data {
           login

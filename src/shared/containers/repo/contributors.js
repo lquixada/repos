@@ -12,7 +12,10 @@ export class ContributorsContainer extends React.Component {
   }
 
   fetchNext () {
-    this.props.fetchMoreContributors(this.props.repoName)
+    this.props.fetchMoreContributors({
+      owner: this.props.owner,
+      repoName: this.props.repoName
+    })
   }
 
   hasLoaded () {
@@ -51,11 +54,11 @@ export class ContributorsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({contributors, repos}, {repoName}) => ({
+const mapStateToProps = ({contributors, repos}, {owner, repoName}) => ({
   // REMEMBER: "repos" has the following
   // scheme [[repoName1, count1, false], [repoName2, count2, false]]
   count: repos.get('data', List()).find((count) => count.get(0) === repoName),
-  contributors: contributors.get(repoName)
+  contributors: contributors.getIn([owner, repoName])
 })
 
 export default connect(mapStateToProps, actions)(ContributorsContainer)

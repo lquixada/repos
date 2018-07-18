@@ -11,21 +11,21 @@ describe('Helpers (Queries)', () => {
 
   describe('fetchContributors', () => {
     it('returns contributors from a repo', async () => {
-      const data = await fetchContributors('some-repo', 1)
+      const data = await fetchContributors({owner: 'owner1', repoName: 'some-repo', page: 1})
       expect(data).toMatchSnapshot()
     })
   })
 
   describe('fetchRepo', () => {
     it('returns data from a repo', async () => {
-      const data = await fetchRepo('some-repo')
+      const data = await fetchRepo({owner: 'owner1', repoName: 'some-repo'})
       expect(data).toMatchSnapshot()
     })
   })
 
   describe('fetchRepos', () => {
     it('returns repos from an organization', async () => {
-      const data = await fetchRepos()
+      const data = await fetchRepos({owner: 'owner1'})
       expect(data).toMatchSnapshot()
     })
   })

@@ -25,29 +25,35 @@ export default function contributors (state = Map(), action = {}) {
     case CONTRIBUTORS_REQUESTED:
     case MORE_CONTRIBUTORS_REQUESTED:
       return state.mergeDeep({
-        [payload.repoName]: {
-          isLoading: true,
-          error: null
+        [payload.owner]: {
+          [payload.repoName]: {
+            isLoading: true,
+            error: null
+          }
         }
       })
 
     case CONTRIBUTORS_SUCCEEDED:
     case MORE_CONTRIBUTORS_SUCCEEDED:
       return state.mergeDeep({
-        [payload.repoName]: {
-          data: data(state.getIn([payload.repoName, 'data']), action),
-          nextPage: payload.data.nextPage,
-          isLoading: false,
-          error: null
+        [payload.owner]: {
+          [payload.repoName]: {
+            data: data(state.getIn([payload.repoName, 'data']), action),
+            nextPage: payload.data.nextPage,
+            isLoading: false,
+            error: null
+          }
         }
       })
 
     case CONTRIBUTORS_FAILED:
     case MORE_CONTRIBUTORS_FAILED:
       return state.mergeDeep({
-        [payload.repoName]: {
-          isLoading: false,
-          error: payload.error
+        [payload.owner]: {
+          [payload.repoName]: {
+            isLoading: false,
+            error: payload.error
+          }
         }
       })
 

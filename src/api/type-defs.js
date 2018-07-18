@@ -2,9 +2,9 @@ import { gql } from 'apollo-server-express'
 
 export default gql`
   type Query {
-    repo(name: String!): Repo
-    repoCount: [RepoCount!]!
-    contributors(repo: String!, page: Int): Contributors
+    repo(owner: String, name: String!): Repo
+    repoCount(owner: String): [RepoCount!]!
+    contributors(owner: String, repo: String!, page: Int): Contributors
   }
 
   type Repo {
@@ -15,7 +15,7 @@ export default gql`
     subscribers_count: Int!
     forks_count: Int!
     open_issues_count: Int!
-    license: License!
+    license: License
   }
 
   type License {

@@ -10,12 +10,12 @@ import {fetchRepo} from '../helpers'
 
 /* Loaders */
 
-export function * loadRepo (repoName) {
+export function * loadRepo ({owner, repoName}) {
   try {
-    const data = yield call(fetchRepo, repoName)
+    const data = yield call(fetchRepo, {owner, repoName})
 
-    yield put(fetchRepoSucceeded(repoName, data.repo))
-    yield put(fetchContributorsSucceeded(repoName, data.contributors))
+    yield put(fetchRepoSucceeded({owner, repoName, data: data.repo}))
+    yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
   } catch (error) {
     console.info(error)
     yield put(fetchRepoFailed(repoName, error.stack))
@@ -28,6 +28,6 @@ export default function * watchRepo () {
   while (true) {
     const {payload} = yield take(REPO_REQUESTED)
 
-    yield fork(loadRepo, payload.repoName)
+    yield fork(loadRepo, payload)
   }
 }

@@ -10,12 +10,12 @@ export default [
     component: App,
     routes: [
       {
-        path: '/',
+        path: '/r/:owner',
         exact: true,
         component: HomePage
       },
       {
-        path: '/r/:repo',
+        path: '/r/:owner/:repo',
         component: RepoPage
       },
       {
