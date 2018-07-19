@@ -4,12 +4,12 @@ import {fetchAll, fetchRepos} from '../helpers'
 import {
   PAGE_REQUESTED,
   fetchRepoSucceeded,
-  fetchReposSucceeded, fetchReposFailed,
+  fetchReposSucceeded,
   fetchContributorsSucceeded,
   fetchPageSucceeded, fetchPageFailed
 } from '../actions'
 
-export function * loadHomePage ({name, owner}) {
+export function * loadOwnerPage ({name, owner}) {
   try {
     const {repoCount} = yield call(fetchRepos, { owner })
 
@@ -17,7 +17,7 @@ export function * loadHomePage ({name, owner}) {
     yield put(fetchPageSucceeded({name}))
   } catch (error) {
     console.info(error)
-    yield put(fetchReposFailed(name, error.stack))
+    yield put(fetchPageFailed(name, error.stack))
   }
 }
 
@@ -40,8 +40,8 @@ export default function * watchPages () {
     const {payload} = yield take(PAGE_REQUESTED)
 
     switch (payload.name) {
-      case 'home':
-        yield fork(loadHomePage, payload)
+      case 'owner':
+        yield fork(loadOwnerPage, payload)
         break
       case 'repo':
         yield fork(loadRepoPage, payload)

@@ -1,15 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Content, Section, SectionContainer} from './grid'
+import Menu from '../containers/menu'
+import {Footer} from './footer'
+import {Aside, Content, Section, SectionContainer} from './grid'
 import {flex} from '../helpers'
 
-export const HomePage = () => (
+export const OwnerPage = () => (
   <Section>
     <SectionContainer>
+      <Aside>
+        <Menu />
+        <Footer />
+      </Aside>
       <Content>
         <Wrapper>
-          Type a user in the input above.
+          Choose a repository on the menu.
         </Wrapper>
       </Content>
     </SectionContainer>

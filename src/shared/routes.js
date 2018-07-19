@@ -1,7 +1,8 @@
 import {App} from './components/app'
 import {AboutPage} from './components/about-page'
 import {NotFoundPage} from './components/not-found-page'
-import HomePage from './containers/home-page'
+import {HomePage} from './components/home-page'
+import OwnerPage from './containers/owner-page'
 import RepoPage from './containers/repo-page'
 
 export default [
@@ -10,9 +11,14 @@ export default [
     component: App,
     routes: [
       {
-        path: '/r/:owner',
+        path: '/',
         exact: true,
         component: HomePage
+      },
+      {
+        path: '/r/:owner',
+        exact: true,
+        component: OwnerPage
       },
       {
         path: '/r/:owner/:repo',

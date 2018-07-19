@@ -18,9 +18,4 @@ const TextInput = styled.input`
   letter-spacing: -.1rem;
   border-radius: .4rem;
   outline: none;
-
-  &::before { 
-    content: "«";
-    color: blue;
-  }
 `
