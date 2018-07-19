@@ -14,8 +14,7 @@ describe('<ContributorsContainer />', () => {
     owner = 'owner1'
     repoName = 'repo1'
     actions = {
-      fetchContributors: jest.fn(),
-      fetchMoreContributors: jest.fn()
+      fetchContributors: jest.fn()
     }
 
     contributors = fromJS({
@@ -83,7 +82,7 @@ describe('<ContributorsContainer />', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('fetches next load od Contributors component', () => {
+  it('fetches next load of Contributors component', () => {
     const component = shallow(
       <ContributorsContainer
         owner={owner}
@@ -96,6 +95,6 @@ describe('<ContributorsContainer />', () => {
 
     const {onNext} = component.find('Contributors').props()
     onNext()
-    expect(actions.fetchMoreContributors).toBeCalledWith({owner: 'owner1', repoName: 'repo1'})
+    expect(actions.fetchContributors).toBeCalledWith({owner: 'owner1', repoName: 'repo1'})
   })
 })

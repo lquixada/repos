@@ -1,8 +1,7 @@
 import {isFSA} from 'flux-standard-action'
 
 import {
-  fetchContributors, fetchContributorsSucceeded, fetchContributorsFailed,
-  fetchMoreContributors, fetchMoreContributorsSucceeded, fetchMoreContributorsFailed
+  fetchContributors, fetchContributorsSucceeded, fetchContributorsFailed
 } from '../contributors'
 
 describe('Actions (Contributors)', () => {
@@ -19,22 +18,6 @@ describe('Actions (Contributors)', () => {
     it('fetchContributorsFailed is FSA-compliant', () => {
       const error = {}
       expect(isFSA(fetchContributorsFailed('some-repo', error))).toBe(true)
-    })
-  })
-
-  describe('More Contributors', () => {
-    it('fetchMoreContributors is FSA-compliant', () => {
-      expect(isFSA(fetchMoreContributors('some-repo'))).toBe(true)
-    })
-
-    it('fetchMoreContributorsSucceeded is FSA-compliant', () => {
-      const data = {}
-      expect(isFSA(fetchMoreContributorsSucceeded('some-repo', data))).toBe(true)
-    })
-
-    it('fetchMoreContributorsFailed is FSA-compliant', () => {
-      const error = {}
-      expect(isFSA(fetchMoreContributorsFailed('some-repo', error))).toBe(true)
     })
   })
 })

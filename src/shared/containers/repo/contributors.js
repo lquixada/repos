@@ -12,7 +12,7 @@ export class ContributorsContainer extends React.Component {
   }
 
   fetchNext () {
-    this.props.fetchMoreContributors({
+    this.props.fetchContributors({
       owner: this.props.owner,
       repoName: this.props.repoName
     })
