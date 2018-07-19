@@ -1,4 +1,4 @@
-import 'cross-fetch/dist/node-polyfill'
+import 'cross-fetch/polyfill'
 import gql from 'graphql-tag'
 
 import {getClient} from './client'
