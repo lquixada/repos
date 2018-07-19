@@ -12,9 +12,10 @@ export const fetchRepoSucceeded = (payload) => ({
   payload
 })
 
-export const fetchRepoFailed = (repoName, error) => ({
+export const fetchRepoFailed = (owner, repoName, error) => ({
   type: REPO_FAILED,
   payload: {
+    owner,
     repoName,
     error
   }

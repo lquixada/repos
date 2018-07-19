@@ -33,7 +33,7 @@ describe('<RepoContainer />', () => {
 
     component.setProps({
       repo: undefined, // at this point there's any data from the new repo available
-      name: 'repo2'
+      repoName: 'repo2'
     })
 
     expect(fetchRepo).toBeCalledWith({owner: 'owner1', repoName: 'repo2'})

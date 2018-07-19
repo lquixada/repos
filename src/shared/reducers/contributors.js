@@ -38,7 +38,7 @@ export default function contributors (state = Map(), action = {}) {
       return state.mergeDeep({
         [payload.owner]: {
           [payload.repoName]: {
-            data: data(state.getIn([payload.repoName, 'data']), action),
+            data: data(state.getIn([payload.owner, payload.repoName, 'data']), action),
             nextPage: payload.data.nextPage,
             isLoading: false,
             error: null

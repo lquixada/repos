@@ -16,9 +16,10 @@ export const fetchContributorsSucceeded = (payload) => ({
   payload
 })
 
-export const fetchContributorsFailed = (repoName, error) => ({
+export const fetchContributorsFailed = (owner, repoName, error) => ({
   type: CONTRIBUTORS_FAILED,
   payload: {
+    owner,
     repoName,
     error
   }
@@ -34,9 +35,10 @@ export const fetchMoreContributorsSucceeded = (payload) => ({
   payload
 })
 
-export const fetchMoreContributorsFailed = (repoName, error) => ({
+export const fetchMoreContributorsFailed = (owner, repoName, error) => ({
   type: MORE_CONTRIBUTORS_FAILED,
   payload: {
+    owner,
     repoName,
     error
   }

@@ -6,10 +6,12 @@ import {
 import reducer from '../contributors'
 
 describe('Reducers (Contributors)', () => {
+  let owner
   let repoName
   let contributors
 
   beforeEach(() => {
+    owner = 'owner1'
     repoName = 'repo1'
     contributors = [
       {id: 1, login: 'user1'},
@@ -24,11 +26,11 @@ describe('Reducers (Contributors)', () => {
 
   describe('First Contributors', () => {
     it('switches to isLoading state', () => {
-      const action = fetchContributors({repoName})
+      const action = fetchContributors({owner, repoName})
       const state = reducer(undefined, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(true)
-      expect(state.getIn([repoName, 'error'])).toBe(null)
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(true)
+      expect(state.getIn([owner, repoName, 'error'])).toBe(null)
     })
 
     it('sets the repo state', () => {
@@ -38,38 +40,42 @@ describe('Reducers (Contributors)', () => {
           contributors[0]
         ]
       }
-      const action = fetchContributorsSucceeded(repoName, data)
+      const action = fetchContributorsSucceeded({owner, repoName, data})
 
       const prevState = fromJS({
-        [repoName]: {}
+        [owner]: {
+          [repoName]: {}
+        }
       })
       const state = reducer(prevState, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-      expect(state.getIn([repoName, 'error'])).toBe(null)
-      expect(state.getIn([repoName, 'data']).toJS()).toEqual([contributors[0]])
-      expect(state.getIn([repoName, 'nextPage'])).toEqual(2)
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+      expect(state.getIn([owner, repoName, 'error'])).toBe(null)
+      expect(state.getIn([owner, repoName, 'data']).toJS()).toEqual([contributors[0]])
+      expect(state.getIn([owner, repoName, 'nextPage'])).toEqual(2)
     })
 
     it('sets an error state', () => {
-      const action = fetchContributorsFailed(repoName, 'some-error')
+      const action = fetchContributorsFailed(owner, repoName, 'some-error')
       const prevState = fromJS({
-        [repoName]: {}
+        [owner]: {
+          [repoName]: {}
+        }
       })
       const state = reducer(prevState, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-      expect(state.getIn([repoName, 'error'])).toBe('some-error')
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+      expect(state.getIn([owner, repoName, 'error'])).toBe('some-error')
     })
   })
 
   describe('More Contributors', () => {
     it('switches to isLoading state', () => {
-      const action = fetchMoreContributors({repoName})
+      const action = fetchMoreContributors({owner, repoName})
       const state = reducer(undefined, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(true)
-      expect(state.getIn([repoName, 'error'])).toBe(null)
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(true)
+      expect(state.getIn([owner, repoName, 'error'])).toBe(null)
     })
 
     it('sets the repo state', () => {
@@ -79,31 +85,35 @@ describe('Reducers (Contributors)', () => {
           contributors[1]
         ]
       }
-      const action = fetchMoreContributorsSucceeded(repoName, data)
+      const action = fetchMoreContributorsSucceeded({owner, repoName, data})
       const prevState = fromJS({
-        [repoName]: {
-          data: [
-            contributors[0]
-          ]
+        [owner]: {
+          [repoName]: {
+            data: [
+              contributors[0]
+            ]
+          }
         }
       })
       const state = reducer(prevState, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-      expect(state.getIn([repoName, 'error'])).toBe(null)
-      expect(state.getIn([repoName, 'data']).toJS()).toEqual(contributors)
-      expect(state.getIn([repoName, 'nextPage'])).toEqual(2)
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+      expect(state.getIn([owner, repoName, 'error'])).toBe(null)
+      expect(state.getIn([owner, repoName, 'data']).toJS()).toEqual(contributors)
+      expect(state.getIn([owner, repoName, 'nextPage'])).toEqual(2)
     })
 
     it('sets an error state', () => {
-      const action = fetchMoreContributorsFailed(repoName, 'some-error')
+      const action = fetchMoreContributorsFailed(owner, repoName, 'some-error')
       const prevState = fromJS({
-        [repoName]: {}
+        [owner]: {
+          [repoName]: {}
+        }
       })
       const state = reducer(prevState, action)
 
-      expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-      expect(state.getIn([repoName, 'error'])).toBe('some-error')
+      expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+      expect(state.getIn([owner, repoName, 'error'])).toBe('some-error')
     })
   })
 })

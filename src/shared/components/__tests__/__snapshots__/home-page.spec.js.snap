@@ -1,24 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> matches the snapshot 1`] = `
-<styled.main>
-  <styled.header>
-    <styled.div>
-      <Title />
-    </styled.div>
-  </styled.header>
-  <styled.section>
-    <styled.div>
-      <styled.aside>
-        <withRouter(Connect(MenuContainer)) />
-        <Footer />
-      </styled.aside>
-      <styled.article>
-        <styled.div>
-          Choose a repository on the menu.
-        </styled.div>
-      </styled.article>
-    </styled.div>
-  </styled.section>
-</styled.main>
+<styled.section>
+  <styled.div>
+    <styled.article>
+      <styled.div>
+        Type a user in the input above.
+      </styled.div>
+    </styled.article>
+  </styled.div>
+</styled.section>
 `;

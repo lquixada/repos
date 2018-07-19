@@ -4,9 +4,11 @@ import {fetchRepoSucceeded, fetchRepoFailed, fetchContributorsSucceeded, REPO_RE
 import watchRepo, {loadRepo} from '../repo'
 
 describe('Sagas (Repo)', () => {
+  let owner
   let repoName
 
   beforeEach(() => {
+    owner = 'owner1'
     repoName = 'repo1'
   })
 
@@ -22,13 +24,18 @@ describe('Sagas (Repo)', () => {
 
   describe('loadRepo', () => {
     it('loads repo', () => {
-      const contributors = {nextPage: 2, data: [{login: 'user1'}]}
-      const data = { repo: {key: 'value'}, contributors }
-      const gen = loadRepo({repoName})
+      const data = {
+        repo: {key: 'value'},
+        contributors: {
+          nextPage: 2,
+          data: [{login: 'user1'}]
+        }
+      }
+      const gen = loadRepo({owner, repoName})
 
-      expect(gen.next().value).toEqual(call(fetchRepo, {repoName}))
-      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded(repoName, data.repo)))
-      expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded(repoName, data.contributors)))
+      expect(gen.next().value).toEqual(call(fetchRepo, {owner, repoName}))
+      expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded({owner, repoName, data: data.repo})))
+      expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.contributors})))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 

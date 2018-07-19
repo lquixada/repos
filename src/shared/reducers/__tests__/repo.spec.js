@@ -2,9 +2,11 @@ import {fetchRepo, fetchRepoSucceeded, fetchRepoFailed} from '../../actions'
 import reducer from '../repo'
 
 describe('Reducers (Repo)', () => {
+  let owner
   let repoName
 
   beforeEach(() => {
+    owner = 'owner1'
     repoName = 'repo1'
   })
 
@@ -14,11 +16,11 @@ describe('Reducers (Repo)', () => {
   })
 
   it('switches to isLoading state', () => {
-    const action = fetchRepo({repoName})
+    const action = fetchRepo({owner, repoName})
     const state = reducer(undefined, action)
 
-    expect(state.getIn([repoName, 'isLoading'])).toBe(true)
-    expect(state.getIn([repoName, 'error'])).toBe(null)
+    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(true)
+    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
   })
 
   it('sets the repo state', () => {
@@ -26,19 +28,19 @@ describe('Reducers (Repo)', () => {
       id: 1,
       name: repoName
     }
-    const action = fetchRepoSucceeded(repoName, data)
+    const action = fetchRepoSucceeded({owner, repoName, data})
     const state = reducer(undefined, action)
 
-    expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([repoName, 'error'])).toBe(null)
-    expect(state.getIn([repoName, 'data']).toJS()).toEqual(data)
+    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
+    expect(state.getIn([owner, repoName, 'data']).toJS()).toEqual(data)
   })
 
   it('sets an error state', () => {
-    const action = fetchRepoFailed(repoName, 'some-error')
+    const action = fetchRepoFailed(owner, repoName, 'some-error')
     const state = reducer(undefined, action)
 
-    expect(state.getIn([repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([repoName, 'error'])).toBe('some-error')
+    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
+    expect(state.getIn([owner, repoName, 'error'])).toBe('some-error')
   })
 })

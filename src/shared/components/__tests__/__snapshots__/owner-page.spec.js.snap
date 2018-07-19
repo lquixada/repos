@@ -1,22 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RepoPage /> matches the snapshot 1`] = `
+exports[`<OwnerPage /> matches the snapshot 1`] = `
 <styled.section>
-  <HelmetWrapper
-    defer={true}
-    encodeSpecialCharacters={true}
-  >
-    <title>
-       - Github Repos
-    </title>
-  </HelmetWrapper>
   <styled.div>
     <styled.aside>
       <withRouter(Connect(MenuContainer)) />
       <Footer />
     </styled.aside>
     <styled.article>
-      <withRouter(Connect(RepoContainer)) />
+      <styled.div>
+        Choose a repository on the menu.
+      </styled.div>
     </styled.article>
   </styled.div>
 </styled.section>
