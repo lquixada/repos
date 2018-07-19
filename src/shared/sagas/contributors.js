@@ -11,7 +11,7 @@ import {getNextPage} from '../selectors'
 
 export function * loadMoreContributors ({owner, repoName}) {
   try {
-    const page = yield select(getNextPage, repoName)
+    const page = yield select(getNextPage, owner, repoName)
     const {contributors} = yield call(fetchContributors, {
       owner,
       repoName,
