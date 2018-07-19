@@ -1,19 +1,19 @@
 import {take, fork, put, call} from 'redux-saga/effects'
 
-import {fetchAll, fetchRepos} from '../helpers'
+import {fetchAll, fetchCounts} from '../helpers'
 import {
   PAGE_REQUESTED,
   fetchRepoSucceeded,
-  fetchReposSucceeded,
+  fetchCountsSucceeded,
   fetchContributorsSucceeded,
   fetchPageSucceeded, fetchPageFailed
 } from '../actions'
 
 export function * loadOwnerPage ({name, owner}) {
   try {
-    const {repoCount} = yield call(fetchRepos, { owner })
+    const {repoCount} = yield call(fetchCounts, { owner })
 
-    yield put(fetchReposSucceeded({owner, data: repoCount}))
+    yield put(fetchCountsSucceeded({owner, data: repoCount}))
     yield put(fetchPageSucceeded({name}))
   } catch (error) {
     console.info(error)
@@ -26,7 +26,7 @@ export function * loadRepoPage ({name, owner, repoName}) {
     const data = yield call(fetchAll, { owner, repoName })
 
     yield put(fetchRepoSucceeded({owner, repoName, data: data.repo}))
-    yield put(fetchReposSucceeded({owner, data: data.repoCount}))
+    yield put(fetchCountsSucceeded({owner, data: data.repoCount}))
     yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
     yield put(fetchPageSucceeded({name}))
   } catch (error) {

@@ -1,7 +1,7 @@
 import {fetchReposSucceeded} from '../../actions'
-import reducer from '../repos'
+import reducer from '../counts'
 
-describe('Reducers (Repos)', () => {
+describe('Reducers (Counts)', () => {
   it('starts empty', () => {
     const state = reducer()
     expect(state.toJS()).toEqual({})

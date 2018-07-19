@@ -54,7 +54,7 @@ export const fetchRepo = async ({ owner, repoName }) => {
   return data
 }
 
-export const fetchRepos = async ({ owner }) => {
+export const fetchCounts = async ({ owner }) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`

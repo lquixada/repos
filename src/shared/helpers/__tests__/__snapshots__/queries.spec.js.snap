@@ -18,6 +18,19 @@ Object {
 }
 `;
 
+exports[`Helpers (Queries) fetchCounts returns counts from an organization 1`] = `
+Object {
+  "repoCount": Array [
+    Object {
+      "count": 2,
+      "name": "repo1",
+      Symbol(id): "ROOT_QUERY.repoCount({\\"owner\\":\\"owner1\\"}).0",
+    },
+  ],
+  Symbol(id): "ROOT_QUERY",
+}
+`;
+
 exports[`Helpers (Queries) fetchRepo returns data from a repo 1`] = `
 Object {
   "contributors": Object {
@@ -46,19 +59,6 @@ Object {
     "subscribers_count": 1,
     Symbol(id): "$ROOT_QUERY.repo({\\"name\\":\\"some-repo\\",\\"owner\\":\\"owner1\\"})",
   },
-  Symbol(id): "ROOT_QUERY",
-}
-`;
-
-exports[`Helpers (Queries) fetchRepos returns repos from an organization 1`] = `
-Object {
-  "repoCount": Array [
-    Object {
-      "count": 2,
-      "name": "repo1",
-      Symbol(id): "ROOT_QUERY.repoCount({\\"owner\\":\\"owner1\\"}).0",
-    },
-  ],
   Symbol(id): "ROOT_QUERY",
 }
 `;

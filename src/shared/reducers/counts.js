@@ -1,15 +1,15 @@
 import {Map} from 'immutable'
 import {
-  REPOS_REQUESTED,
-  REPOS_SUCCEEDED,
-  REPOS_FAILED
+  COUNTS_REQUESTED,
+  COUNTS_SUCCEEDED,
+  COUNTS_FAILED
 } from '../actions'
 
-export default function repos (state = Map(), action = {}) {
+export default function counts (state = Map(), action = {}) {
   const {payload, type} = action
 
   switch (type) {
-    case REPOS_REQUESTED:
+    case COUNTS_REQUESTED:
       return state.mergeDeep({
         [payload.owner]: {
           isLoading: true,
@@ -17,7 +17,7 @@ export default function repos (state = Map(), action = {}) {
         }
       })
 
-    case REPOS_SUCCEEDED:
+    case COUNTS_SUCCEEDED:
       let data = payload.data
         .map(repo => [repo.name, repo.count])
         // Sort result
@@ -31,7 +31,7 @@ export default function repos (state = Map(), action = {}) {
         }
       })
 
-    case REPOS_FAILED:
+    case COUNTS_FAILED:
       return state.mergeDeep({
         [payload.owner]: {
           isLoading: false,

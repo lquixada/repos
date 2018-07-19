@@ -8,7 +8,7 @@ import * as actions from '../actions'
 
 export class MenuContainer extends React.Component {
   hasLoaded () {
-    const data = this.props.repos.getIn([this.props.owner, 'data'])
+    const data = this.props.counts.getIn([this.props.owner, 'data'])
     return !!data
   }
 
@@ -23,10 +23,10 @@ export class MenuContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({repos, repo}, {match}) => ({
-  repos,
+const mapStateToProps = ({counts, repo}, {match}) => ({
+  counts,
   owner: match.params.owner,
-  items: repos.getIn([match.params.owner, 'data'], List()).map((item) => {
+  items: counts.getIn([match.params.owner, 'data'], List()).map((item) => {
     const {owner} = match.params
     const repoName = item.get(0)
     const count = item.get(1)
