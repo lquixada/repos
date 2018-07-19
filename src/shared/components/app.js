@@ -7,6 +7,7 @@ import Input from '../containers/input'
 import {Title} from './title'
 import {Ribbon} from './ribbon'
 import {Main, Header, HeaderContainer} from './grid'
+import {nprogress} from '../helpers'
 
 export class App extends React.Component {
   componentWillMount () {
@@ -105,6 +106,9 @@ const resetStyles = () => injectGlobal`
     vertical-align: middle;
   }
 
+  /* NProgress */
+  
+  ${nprogress()}
 
   /* Scrollbar */
 

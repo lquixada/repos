@@ -1,4 +1,5 @@
 export * from './mixins'
+export * from './nprogress'
 export * from './objects'
 export * from './redial'
 export * from './queries'
