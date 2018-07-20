@@ -15,6 +15,36 @@ export class InputContainer extends React.Component {
     this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
+  // Renders current owner on server-side rendering
+  componentWillMount () {
+    this.setCurrentOwner()
+  }
+
+  // Renders current owner on browser navigation
+  componentDidUpdate (prevProps) {
+    if (this.hasOwnerChanged(prevProps)) {
+      this.setCurrentOwner()
+    }
+  }
+
+  setCurrentOwner () {
+    this.setState({
+      value: this.getOwner(this.props.location)
+    })
+  }
+
+  getOwner (location) {
+    const match = /\/r\/(\w+)\/?/.exec(location.pathname)
+
+    if (match) {
+      return match[1]
+    }
+  }
+
+  hasOwnerChanged (prevProps) {
+    return this.getOwner(prevProps.location) !== this.getOwner(this.props.location)
+  }
+
   handleChange (evt) {
     const value = evt.target ? evt.target.value : evt
     this.setState({value: value.trim()})
@@ -31,7 +61,7 @@ export class InputContainer extends React.Component {
   }
 
   navigate () {
-    this.props.history.replace(`/r/${this.state.value}`)
+    this.props.history.push(`/r/${this.state.value}`)
   }
 
   render () {
