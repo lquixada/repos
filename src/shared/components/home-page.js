@@ -8,15 +8,15 @@ export const HomePage = () => (
   <Section>
     <SectionContainer>
       <Content>
-        <Wrapper>
-          Type a user in the input above.
-        </Wrapper>
+        <P>
+          Type a github user in the input above and hit Enter.
+        </P>
       </Content>
     </SectionContainer>
   </Section>
 )
 
-const Wrapper = styled.div`
+const P = styled.p`
   ${flex.display()}
   ${flex.middle()} 
   ${flex.center()}
