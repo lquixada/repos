@@ -11,8 +11,6 @@ import routes from '../shared/routes' // eslint-disable-line no-unused-vars
 
 import store from './store'
 
-const matchs = matchRoutes(routes, window.location.pathname)
-
 const renderApp = () => {
   const routes = require('../shared/routes').default
 
@@ -30,6 +28,7 @@ const renderApp = () => {
 
 // Take over if server is not capable of providing the initial state
 if (!window.__INITIAL_STATE__) {
+  const matchs = matchRoutes(routes, window.location.pathname)
   store.runnedSagas.toPromise().then(renderApp)
   trigger('fetch', matchs, store.dispatch)
 } else {
