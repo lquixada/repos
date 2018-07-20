@@ -1,6 +1,6 @@
 {
   "name": "repos",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "private": true,
   "description": "An explorer app for projects in Github.",
   "author": "Leonardo Quixada <lquixada@gmail.com>",
