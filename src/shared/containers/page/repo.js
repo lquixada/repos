@@ -30,8 +30,7 @@ export class RepoPageContainer extends React.Component {
 
   hasChanged (prevProps) {
     return (
-      prevProps.owner !== this.props.owner ||
-      prevProps.repoName !== this.props.repoName
+      prevProps.owner !== this.props.owner
     )
   }
 
