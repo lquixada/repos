@@ -20,7 +20,6 @@ export default function counts (state = Map(), action = {}) {
     case COUNTS_SUCCEEDED:
       let data = payload.data
         .map(repo => [repo.name, repo.count])
-        // Sort result
         .sort((a, b) => b[1] - a[1])
 
       return state.mergeDeep({

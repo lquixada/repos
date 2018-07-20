@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducers (Counts) sets the counts state 1`] = `
+Object {
+  "owner1": Object {
+    "data": Array [
+      Array [
+        "repo2",
+        5,
+      ],
+      Array [
+        "repo1",
+        2,
+      ],
+    ],
+    "error": null,
+    "isLoading": false,
+  },
+}
+`;

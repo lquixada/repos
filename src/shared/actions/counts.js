@@ -14,9 +14,10 @@ export const fetchCountsSucceeded = (payload) => ({
   payload
 })
 
-export const fetchCountsFailed = (error) => ({
+export const fetchCountsFailed = (owner, error) => ({
   type: COUNTS_FAILED,
   payload: {
+    owner,
     error
   }
 })
