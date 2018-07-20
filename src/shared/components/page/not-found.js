@@ -7,7 +7,9 @@ export const NotFoundPage = () => (
   <Section>
     <SectionContainer>
       <Content>
-        <P>Whoops, looks like that page doesn't exist.</P>
+        <P>
+          Whoops, looks like that page doesn't exist.
+        </P>
       </Content>
     </SectionContainer>
   </Section>

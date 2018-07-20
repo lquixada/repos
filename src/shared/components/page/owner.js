@@ -14,15 +14,15 @@ export const OwnerPage = () => (
         <Footer />
       </Aside>
       <Content>
-        <Wrapper>
+        <P>
           Choose a repository on the menu.
-        </Wrapper>
+        </P>
       </Content>
     </SectionContainer>
   </Section>
 )
 
-const Wrapper = styled.div`
+const P = styled.p`
   ${flex.display()}
   ${flex.middle()} 
   ${flex.center()}

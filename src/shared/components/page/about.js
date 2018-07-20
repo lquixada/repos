@@ -8,7 +8,6 @@ export const AboutPage = () => (
   <Section>
     <SectionContainer>
       <Content>
-
         <Subtitle>About me</Subtitle>
 
         <Image src='https://s.gravatar.com/avatar/a0ac79788f87ca12cda519b3a1bb2a7c?s=100' />

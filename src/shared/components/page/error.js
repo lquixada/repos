@@ -8,7 +8,9 @@ export const ErrorPage = ({message}) => (
   <Section>
     <SectionContainer>
       <Content>
-        <P>Whoops, looks like an error occurred.</P>
+        <P>
+          Whoops, looks like an error occurred.
+        </P>
         {message && <pre>{message}</pre>}
       </Content>
     </SectionContainer>
