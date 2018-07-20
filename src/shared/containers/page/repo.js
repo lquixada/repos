@@ -8,7 +8,7 @@ import * as actions from '../../actions'
 const hooks = {
   fetch: ({params, dispatch}) => dispatch(actions.fetchPage({
     name: 'repo',
-    owner: params.owner || 'facebook',
+    owner: params.owner,
     repoName: params.repo
   }))
 }
@@ -23,7 +23,7 @@ export class RepoPageContainer extends React.Component {
   fetch ({owner, repo}) {
     this.props.fetchPage({
       name: 'repo',
-      owner: owner || 'facebook',
+      owner: owner,
       repoName: repo
     })
   }
