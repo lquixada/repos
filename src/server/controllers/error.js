@@ -5,7 +5,7 @@ import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
 import {Helmet} from 'react-helmet'
 
 import {App} from '../../shared/components/app'
-import {ErrorPage} from '../../shared/components/error-page'
+import {ErrorPage} from '../../shared/components/page/error'
 import template from '../templates/error'
 
 const isProd = process.env.NODE_ENV === 'production'

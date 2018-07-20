@@ -1,9 +1,9 @@
 import {App} from './components/app'
-import {AboutPage} from './components/about-page'
-import {NotFoundPage} from './components/not-found-page'
-import {HomePage} from './components/home-page'
-import OwnerPage from './containers/owner-page'
-import RepoPage from './containers/repo-page'
+import {AboutPage} from './components/page/about'
+import {NotFoundPage} from './components/page/not-found'
+import {HomePage} from './components/page/home'
+import OwnerPage from './containers/page/owner'
+import RepoPage from './containers/page/repo'
 
 export default [
   {

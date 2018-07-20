@@ -1,9 +1,9 @@
 import React from 'react'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
-import {RepoPage} from '../components/repo-page'
-import {provideHooks} from '../helpers'
-import * as actions from '../actions'
+import {RepoPage} from '../../components/page/repo'
+import {provideHooks} from '../../helpers'
+import * as actions from '../../actions'
 
 const hooks = {
   fetch: ({params, dispatch}) => dispatch(actions.fetchPage({

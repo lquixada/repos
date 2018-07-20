@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Content, Section, SectionContainer} from './grid'
+import {Content, Section, SectionContainer} from '../grid'
 
 export const NotFoundPage = () => (
   <Section>

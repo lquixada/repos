@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Menu from '../containers/menu'
-import {Footer} from './footer'
-import {Aside, Content, Section, SectionContainer} from './grid'
-import {flex} from '../helpers'
+import Menu from '../../containers/menu'
+import {Footer} from '../footer'
+import {Aside, Content, Section, SectionContainer} from '../grid'
+import {flex} from '../../helpers'
 
 export const OwnerPage = () => (
   <Section>

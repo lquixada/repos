@@ -1,9 +1,9 @@
 import React from 'react'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
-import {OwnerPage} from '../components/owner-page'
-import {provideHooks} from '../helpers'
-import * as actions from '../actions'
+import {OwnerPage} from '../../components/page/owner'
+import {provideHooks} from '../../helpers'
+import * as actions from '../../actions'
 
 const hooks = {
   fetch: ({params, dispatch}) => dispatch(actions.fetchPage({

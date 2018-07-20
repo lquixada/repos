@@ -1,7 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 
-import {RepoPage} from '../repo-page'
+import {RepoPage} from '../repo'
 
 describe('<RepoPage />', () => {
   it('matches the snapshot', () => {

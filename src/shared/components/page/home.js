@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Content, Section, SectionContainer} from './grid'
-import {flex} from '../helpers'
+import {Content, Section, SectionContainer} from '../grid'
+import {flex} from '../../helpers'
 
 export const HomePage = () => (
   <Section>

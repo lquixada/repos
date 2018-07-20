@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Subtitle} from './subtitle'
-import {Content, Section, SectionContainer, P} from './grid'
+import {Subtitle} from '../subtitle'
+import {Content, Section, SectionContainer, P} from '../grid'
 
 export const AboutPage = () => (
   <Section>

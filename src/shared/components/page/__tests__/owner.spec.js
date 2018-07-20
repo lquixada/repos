@@ -1,11 +1,11 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 
-import {HomePage} from '../home-page'
+import {OwnerPage} from '../owner'
 
-describe('<HomePage />', () => {
+describe('<OwnerPage />', () => {
   it('matches the snapshot', () => {
-    const component = shallow(<HomePage />)
+    const component = shallow(<OwnerPage />)
     expect(component).toMatchSnapshot()
   })
 })

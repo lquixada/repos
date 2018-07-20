@@ -4,9 +4,9 @@ exports[`<HomePage /> matches the snapshot 1`] = `
 <styled.section>
   <styled.div>
     <styled.article>
-      <styled.div>
-        Type a user in the input above.
-      </styled.div>
+      <styled.p>
+        Type a github user in the input above and hit Enter.
+      </styled.p>
     </styled.article>
   </styled.div>
 </styled.section>

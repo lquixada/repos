@@ -1,4 +1,3 @@
-
 export const octicons = () => `
   display: inline-block;
   vertical-align: text-top;
