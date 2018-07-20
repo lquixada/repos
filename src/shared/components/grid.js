@@ -24,15 +24,14 @@ export const Aside = styled.aside`
 export const Content = styled.article`
   ${flex('1')}
   width: 100%;
-  max-width: 55rem;
   color: #666;
 `
 
 export const Container = styled.div`
   ${flex.display()}
-  ${flex.justify()} 
-  ${flex.top()}
-  width: 100%;
+  ${flex.justify()}
+  ${flex.left()}
+  width: 78rem;
 `
 
 export const Header = styled.header`
@@ -44,9 +43,8 @@ export const Header = styled.header`
 `
 
 export const HeaderContainer = Container.extend`
-  ${flex.left()}
   ${flex.middle()}
-  width: 78rem;
+
   @media (max-width: 576px) {
     ${flex.wrap('wrap')}
   }
@@ -60,11 +58,12 @@ export const Section = styled.section`
 `
 
 export const SectionContainer = Container.extend`
-  ${flex.left()} 
-
+  ${flex.top()}
+  
   @media (max-width: 576px) {
     ${flex.left()}
     ${flex.dir('column')}
+    width: 78rem;
   }
 `
 
