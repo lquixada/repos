@@ -14,7 +14,9 @@ const hooks = {
 
 export class OwnerPageContainer extends React.Component {
   componentDidMount () {
-    this.fetch()
+    if (!this.hasLoaded()) {
+      this.fetch()
+    }
   }
 
   componentDidUpdate (prevProps) {
@@ -36,6 +38,11 @@ export class OwnerPageContainer extends React.Component {
     )
   }
 
+  hasLoaded () {
+    const counts = this.props.counts.get(this.props.owner)
+    return counts && counts.get('data') && !counts.get('data').isEmpty()
+  }
+
   render () {
     return (
       <OwnerPage />
@@ -43,7 +50,8 @@ export class OwnerPageContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, {match}) => ({
+const mapStateToProps = ({counts}, {match}) => ({
+  counts,
   owner: match.params.owner,
   repoName: match.params.repo
 })
