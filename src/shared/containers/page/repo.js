@@ -20,11 +20,11 @@ export class RepoPageContainer extends React.Component {
     }
   }
 
-  fetch ({owner, repo}) {
+  fetch ({owner, repoName}) {
     this.props.fetchPage({
       name: 'repo',
       owner: owner,
-      repoName: repo
+      repoName
     })
   }
 
