@@ -6,14 +6,8 @@ import {
 } from '../actions'
 
 const data = (state = List(), action) => {
-  const {payload, type} = action
-
-  switch (type) {
-    case CONTRIBUTORS_SUCCEEDED:
-      return state.concat(fromJS(payload.data.data))
-    default:
-      return state
-  }
+  const {payload} = action
+  return state.concat(fromJS(payload.data.data))
 }
 
 export default function contributors (state = Map(), action = {}) {
