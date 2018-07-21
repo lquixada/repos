@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {NavLink} from 'react-router-dom'
 
 import {flex} from '../../helpers'
 
@@ -19,7 +20,7 @@ const Content = ({data, hasMore, isLoadingMore, onNext}) => (
     <List>
       {data.map((contributor, i) =>
         <Item key={contributor.get('login') + i}>
-          <Link href={contributor.get('html_url')}>
+          <Link to={`/r/${contributor.get('login')}`}>
             <Image src={contributor.get('avatar_url')} />
             <Text>{contributor.get('login')}</Text>
           </Link>
@@ -66,7 +67,7 @@ const Item = styled.li`
   }
 `
 
-const Link = styled.a`
+const Link = styled(NavLink)`
   ${flex.display()}
   ${flex.left()}
   ${flex.middle()}

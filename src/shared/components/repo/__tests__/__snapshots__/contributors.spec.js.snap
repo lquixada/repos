@@ -1,286 +1,457 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Contributors /> list contributors 1`] = `
-<Contributors
-  data={
-    Immutable.List [
-      Immutable.Map {
-        "login": "user1",
-        "html_url": "https://user1/\\",",
-        "avatar": "https://avatars1/",
-      },
-      Immutable.Map {
-        "login": "user2",
-        "html_url": "https://user2/\\",",
-        "avatar": "https://avatars2/",
-      },
-      Immutable.Map {
-        "login": "user3",
-        "html_url": "https://user3/\\",",
-        "avatar": "https://avatars3/",
-      },
-    ]
-  }
-  hasLoaded={true}
-  hasMore={true}
-  isLoadingMore={false}
-  onNext={[Function]}
-  total={3}
+<MemoryRouter
+  keyLength={0}
 >
-  <styled.div>
-    <div
-      className="sc-bdVaJa LrVZr"
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Contributors
+      data={
+        Immutable.List [
+          Immutable.Map {
+            "login": "user1",
+            "html_url": "https://user1/\\",",
+            "avatar": "https://avatars1/",
+          },
+          Immutable.Map {
+            "login": "user2",
+            "html_url": "https://user2/\\",",
+            "avatar": "https://avatars2/",
+          },
+          Immutable.Map {
+            "login": "user3",
+            "html_url": "https://user3/\\",",
+            "avatar": "https://avatars3/",
+          },
+        ]
+      }
+      hasLoaded={true}
+      hasMore={true}
+      isLoadingMore={false}
+      onNext={[Function]}
+      total={3}
     >
-      <styled.h3>
-        <h3
-          className="sc-bwzfXH iAozsW"
+      <styled.div>
+        <div
+          className="sc-bdVaJa LrVZr"
         >
-          Contributors (
-          3
-          )
-        </h3>
-      </styled.h3>
-      <Content
-        data={
-          Immutable.List [
-            Immutable.Map {
-              "login": "user1",
-              "html_url": "https://user1/\\",",
-              "avatar": "https://avatars1/",
-            },
-            Immutable.Map {
-              "login": "user2",
-              "html_url": "https://user2/\\",",
-              "avatar": "https://avatars2/",
-            },
-            Immutable.Map {
-              "login": "user3",
-              "html_url": "https://user3/\\",",
-              "avatar": "https://avatars3/",
-            },
-          ]
-        }
-        hasLoaded={true}
-        hasMore={true}
-        isLoadingMore={false}
-        onNext={[Function]}
-        total={3}
-      >
-        <div>
-          <styled.ul>
-            <ul
-              className="sc-htpNat hppgGZ"
+          <styled.h3>
+            <h3
+              className="sc-bwzfXH iAozsW"
             >
-              <styled.li
-                key="user10"
-              >
-                <li
-                  className="sc-bxivhb gUOEDj"
-                >
-                  <styled.a
-                    href="https://user1/\\","
-                  >
-                    <a
-                      className="sc-ifAKCX ibOcjp"
-                      href="https://user1/\\","
-                    >
-                      <styled.img>
-                        <img
-                          className="sc-EHOje dcMEop"
-                        />
-                      </styled.img>
-                      <styled.span>
-                        <span
-                          className="sc-bZQynM fGQOqI"
-                        >
-                          user1
-                        </span>
-                      </styled.span>
-                    </a>
-                  </styled.a>
-                </li>
-              </styled.li>
-              <styled.li
-                key="user21"
-              >
-                <li
-                  className="sc-bxivhb gUOEDj"
-                >
-                  <styled.a
-                    href="https://user2/\\","
-                  >
-                    <a
-                      className="sc-ifAKCX ibOcjp"
-                      href="https://user2/\\","
-                    >
-                      <styled.img>
-                        <img
-                          className="sc-EHOje dcMEop"
-                        />
-                      </styled.img>
-                      <styled.span>
-                        <span
-                          className="sc-bZQynM fGQOqI"
-                        >
-                          user2
-                        </span>
-                      </styled.span>
-                    </a>
-                  </styled.a>
-                </li>
-              </styled.li>
-              <styled.li
-                key="user32"
-              >
-                <li
-                  className="sc-bxivhb gUOEDj"
-                >
-                  <styled.a
-                    href="https://user3/\\","
-                  >
-                    <a
-                      className="sc-ifAKCX ibOcjp"
-                      href="https://user3/\\","
-                    >
-                      <styled.img>
-                        <img
-                          className="sc-EHOje dcMEop"
-                        />
-                      </styled.img>
-                      <styled.span>
-                        <span
-                          className="sc-bZQynM fGQOqI"
-                        >
-                          user3
-                        </span>
-                      </styled.span>
-                    </a>
-                  </styled.a>
-                </li>
-              </styled.li>
-            </ul>
-          </styled.ul>
-          <styled.button
-            onClick={[Function]}
+              Contributors (
+              3
+              )
+            </h3>
+          </styled.h3>
+          <Content
+            data={
+              Immutable.List [
+                Immutable.Map {
+                  "login": "user1",
+                  "html_url": "https://user1/\\",",
+                  "avatar": "https://avatars1/",
+                },
+                Immutable.Map {
+                  "login": "user2",
+                  "html_url": "https://user2/\\",",
+                  "avatar": "https://avatars2/",
+                },
+                Immutable.Map {
+                  "login": "user3",
+                  "html_url": "https://user3/\\",",
+                  "avatar": "https://avatars3/",
+                },
+              ]
+            }
+            hasLoaded={true}
+            hasMore={true}
+            isLoadingMore={false}
+            onNext={[Function]}
+            total={3}
           >
-            <button
-              className="sc-gzVnrw kKiVFV"
-              onClick={[Function]}
-            >
-              More
-            </button>
-          </styled.button>
+            <div>
+              <styled.ul>
+                <ul
+                  className="sc-htpNat hppgGZ"
+                >
+                  <styled.li
+                    key="user10"
+                  >
+                    <li
+                      className="sc-bxivhb gUOEDj"
+                    >
+                      <Styled(NavLink)
+                        to="/r/user1"
+                      >
+                        <NavLink
+                          activeClassName="active"
+                          aria-current="page"
+                          className="sc-ifAKCX ibOcjp"
+                          to="/r/user1"
+                        >
+                          <Route
+                            path="\\\\/r\\\\/user1"
+                          >
+                            <Link
+                              aria-current={null}
+                              className="sc-ifAKCX ibOcjp"
+                              replace={false}
+                              to="/r/user1"
+                            >
+                              <a
+                                aria-current={null}
+                                className="sc-ifAKCX ibOcjp"
+                                href="/r/user1"
+                                onClick={[Function]}
+                              >
+                                <styled.img>
+                                  <img
+                                    className="sc-EHOje dcMEop"
+                                  />
+                                </styled.img>
+                                <styled.span>
+                                  <span
+                                    className="sc-bZQynM fGQOqI"
+                                  >
+                                    user1
+                                  </span>
+                                </styled.span>
+                              </a>
+                            </Link>
+                          </Route>
+                        </NavLink>
+                      </Styled(NavLink)>
+                    </li>
+                  </styled.li>
+                  <styled.li
+                    key="user21"
+                  >
+                    <li
+                      className="sc-bxivhb gUOEDj"
+                    >
+                      <Styled(NavLink)
+                        to="/r/user2"
+                      >
+                        <NavLink
+                          activeClassName="active"
+                          aria-current="page"
+                          className="sc-ifAKCX ibOcjp"
+                          to="/r/user2"
+                        >
+                          <Route
+                            path="\\\\/r\\\\/user2"
+                          >
+                            <Link
+                              aria-current={null}
+                              className="sc-ifAKCX ibOcjp"
+                              replace={false}
+                              to="/r/user2"
+                            >
+                              <a
+                                aria-current={null}
+                                className="sc-ifAKCX ibOcjp"
+                                href="/r/user2"
+                                onClick={[Function]}
+                              >
+                                <styled.img>
+                                  <img
+                                    className="sc-EHOje dcMEop"
+                                  />
+                                </styled.img>
+                                <styled.span>
+                                  <span
+                                    className="sc-bZQynM fGQOqI"
+                                  >
+                                    user2
+                                  </span>
+                                </styled.span>
+                              </a>
+                            </Link>
+                          </Route>
+                        </NavLink>
+                      </Styled(NavLink)>
+                    </li>
+                  </styled.li>
+                  <styled.li
+                    key="user32"
+                  >
+                    <li
+                      className="sc-bxivhb gUOEDj"
+                    >
+                      <Styled(NavLink)
+                        to="/r/user3"
+                      >
+                        <NavLink
+                          activeClassName="active"
+                          aria-current="page"
+                          className="sc-ifAKCX ibOcjp"
+                          to="/r/user3"
+                        >
+                          <Route
+                            path="\\\\/r\\\\/user3"
+                          >
+                            <Link
+                              aria-current={null}
+                              className="sc-ifAKCX ibOcjp"
+                              replace={false}
+                              to="/r/user3"
+                            >
+                              <a
+                                aria-current={null}
+                                className="sc-ifAKCX ibOcjp"
+                                href="/r/user3"
+                                onClick={[Function]}
+                              >
+                                <styled.img>
+                                  <img
+                                    className="sc-EHOje dcMEop"
+                                  />
+                                </styled.img>
+                                <styled.span>
+                                  <span
+                                    className="sc-bZQynM fGQOqI"
+                                  >
+                                    user3
+                                  </span>
+                                </styled.span>
+                              </a>
+                            </Link>
+                          </Route>
+                        </NavLink>
+                      </Styled(NavLink)>
+                    </li>
+                  </styled.li>
+                </ul>
+              </styled.ul>
+              <styled.button
+                onClick={[Function]}
+              >
+                <button
+                  className="sc-gzVnrw kKiVFV"
+                  onClick={[Function]}
+                >
+                  More
+                </button>
+              </styled.button>
+            </div>
+          </Content>
         </div>
-      </Content>
-    </div>
-  </styled.div>
-</Contributors>
+      </styled.div>
+    </Contributors>
+  </Router>
+</MemoryRouter>
 `;
 
 exports[`<Contributors /> show button Loading 1`] = `
-<Contributors
-  data={Array []}
-  hasLoaded={true}
-  hasMore={true}
-  isLoadingMore={false}
-  onNext={[Function]}
-  total={3}
+<MemoryRouter
+  keyLength={0}
 >
-  <styled.div>
-    <div
-      className="sc-bdVaJa LrVZr"
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Contributors
+      data={Array []}
+      hasLoaded={true}
+      hasMore={true}
+      isLoadingMore={false}
+      onNext={[Function]}
+      total={3}
     >
-      <styled.h3>
-        <h3
-          className="sc-bwzfXH iAozsW"
+      <styled.div>
+        <div
+          className="sc-bdVaJa LrVZr"
         >
-          Contributors (
-          3
-          )
-        </h3>
-      </styled.h3>
-      <Content
-        data={Array []}
-        hasLoaded={true}
-        hasMore={true}
-        isLoadingMore={false}
-        onNext={[Function]}
-        total={3}
-      >
-        <div>
-          <styled.ul>
-            <ul
-              className="sc-htpNat hppgGZ"
-            />
-          </styled.ul>
-          <styled.button
-            onClick={[Function]}
-          >
-            <button
-              className="sc-gzVnrw kKiVFV"
-              onClick={[Function]}
+          <styled.h3>
+            <h3
+              className="sc-bwzfXH iAozsW"
             >
-              More
-            </button>
-          </styled.button>
+              Contributors (
+              3
+              )
+            </h3>
+          </styled.h3>
+          <Content
+            data={Array []}
+            hasLoaded={true}
+            hasMore={true}
+            isLoadingMore={false}
+            onNext={[Function]}
+            total={3}
+          >
+            <div>
+              <styled.ul>
+                <ul
+                  className="sc-htpNat hppgGZ"
+                />
+              </styled.ul>
+              <styled.button
+                onClick={[Function]}
+              >
+                <button
+                  className="sc-gzVnrw kKiVFV"
+                  onClick={[Function]}
+                >
+                  More
+                </button>
+              </styled.button>
+            </div>
+          </Content>
         </div>
-      </Content>
-    </div>
-  </styled.div>
-</Contributors>
+      </styled.div>
+    </Contributors>
+  </Router>
+</MemoryRouter>
 `;
 
 exports[`<Contributors /> show button More 1`] = `
-<Contributors
-  data={Array []}
-  hasLoaded={true}
-  hasMore={true}
-  isLoadingMore={false}
-  onNext={[Function]}
-  total={3}
+<MemoryRouter
+  keyLength={0}
 >
-  <styled.div>
-    <div
-      className="sc-bdVaJa LrVZr"
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Contributors
+      data={Array []}
+      hasLoaded={true}
+      hasMore={true}
+      isLoadingMore={false}
+      onNext={[Function]}
+      total={3}
     >
-      <styled.h3>
-        <h3
-          className="sc-bwzfXH iAozsW"
+      <styled.div>
+        <div
+          className="sc-bdVaJa LrVZr"
         >
-          Contributors (
-          3
-          )
-        </h3>
-      </styled.h3>
-      <Content
-        data={Array []}
-        hasLoaded={true}
-        hasMore={true}
-        isLoadingMore={false}
-        onNext={[Function]}
-        total={3}
-      >
-        <div>
-          <styled.ul>
-            <ul
-              className="sc-htpNat hppgGZ"
-            />
-          </styled.ul>
-          <styled.button
-            onClick={[Function]}
-          >
-            <button
-              className="sc-gzVnrw kKiVFV"
-              onClick={[Function]}
+          <styled.h3>
+            <h3
+              className="sc-bwzfXH iAozsW"
             >
-              More
-            </button>
-          </styled.button>
+              Contributors (
+              3
+              )
+            </h3>
+          </styled.h3>
+          <Content
+            data={Array []}
+            hasLoaded={true}
+            hasMore={true}
+            isLoadingMore={false}
+            onNext={[Function]}
+            total={3}
+          >
+            <div>
+              <styled.ul>
+                <ul
+                  className="sc-htpNat hppgGZ"
+                />
+              </styled.ul>
+              <styled.button
+                onClick={[Function]}
+              >
+                <button
+                  className="sc-gzVnrw kKiVFV"
+                  onClick={[Function]}
+                >
+                  More
+                </button>
+              </styled.button>
+            </div>
+          </Content>
         </div>
-      </Content>
-    </div>
-  </styled.div>
-</Contributors>
+      </styled.div>
+    </Contributors>
+  </Router>
+</MemoryRouter>
 `;
 
 exports[`<Contributors /> shows loading 1`] = `

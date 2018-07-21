@@ -8,9 +8,9 @@ exports[`<OwnerPage /> matches the snapshot 1`] = `
       <Footer />
     </styled.aside>
     <styled.article>
-      <styled.div>
+      <styled.p>
         Choose a repository on the menu.
-      </styled.div>
+      </styled.p>
     </styled.article>
   </styled.div>
 </styled.section>
