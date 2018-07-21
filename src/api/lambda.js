@@ -1,3 +1,4 @@
+import 'cross-fetch/polyfill'
 import { ApolloServer } from 'apollo-server-lambda'
 
 import config from './config'
