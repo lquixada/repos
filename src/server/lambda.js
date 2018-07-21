@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import awsServerlessExpress from 'aws-serverless-express'
 import app from './index'
 
