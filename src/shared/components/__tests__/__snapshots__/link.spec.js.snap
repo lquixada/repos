@@ -4,9 +4,7 @@ exports[`<Link /> matches the snapshot 1`] = `
 <Styled(NavLink)
   to="/r/owner1/repo1"
 >
-  <Styled(Octicon)
-    name="repo"
-  />
+  <Styled(RepoIcon) />
   <styled.span>
     repo1
      

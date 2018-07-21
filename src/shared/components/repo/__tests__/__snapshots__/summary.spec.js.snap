@@ -28,33 +28,24 @@ exports[`<Summary /> matches the snapshot 1`] = `
             href="https://github.com/owner1/Github Repos/stargazers"
           >
             <a
-              className="sc-htpNat gKbeMX"
+              className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/stargazers"
               target="_blank"
             >
-              <Octicon
-                name="star"
-              >
+              <StarIcon>
                 <svg
                   aria-hidden={true}
-                  fill="currentColor"
+                  className="octicon octicon-star"
                   height={16}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "verticalAlign": "text-top",
-                    }
-                  }
-                  version="1.1"
                   viewBox="0 0 14 16"
                   width={14}
                 >
                   <path
-                    d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"
                     fillRule="evenodd"
                   />
                 </svg>
-              </Octicon>
+              </StarIcon>
               5
                stars
             </a>
@@ -69,24 +60,15 @@ exports[`<Summary /> matches the snapshot 1`] = `
             href="https://github.com/owner1/Github Repos/watchers"
           >
             <a
-              className="sc-htpNat gKbeMX"
+              className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/watchers"
               target="_blank"
             >
-              <Octicon
-                name="eye"
-              >
+              <EyeIcon>
                 <svg
                   aria-hidden={true}
-                  fill="currentColor"
+                  className="octicon octicon-eye"
                   height={16}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "verticalAlign": "text-top",
-                    }
-                  }
-                  version="1.1"
                   viewBox="0 0 16 16"
                   width={16}
                 >
@@ -95,7 +77,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
                     fillRule="evenodd"
                   />
                 </svg>
-              </Octicon>
+              </EyeIcon>
               5
                watchers
             </a>
@@ -110,24 +92,15 @@ exports[`<Summary /> matches the snapshot 1`] = `
             href="https://github.com/owner1/Github Repos/network"
           >
             <a
-              className="sc-htpNat gKbeMX"
+              className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/network"
               target="_blank"
             >
-              <Octicon
-                name="repo-forked"
-              >
+              <RepoForkedIcon>
                 <svg
                   aria-hidden={true}
-                  fill="currentColor"
+                  className="octicon octicon-repo-forked"
                   height={16}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "verticalAlign": "text-top",
-                    }
-                  }
-                  version="1.1"
                   viewBox="0 0 10 16"
                   width={10}
                 >
@@ -136,7 +109,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
                     fillRule="evenodd"
                   />
                 </svg>
-              </Octicon>
+              </RepoForkedIcon>
               5
                forks
             </a>
@@ -151,24 +124,15 @@ exports[`<Summary /> matches the snapshot 1`] = `
             href="https://github.com/owner1/Github Repos/issues"
           >
             <a
-              className="sc-htpNat gKbeMX"
+              className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/issues"
               target="_blank"
             >
-              <Octicon
-                name="issue-opened"
-              >
+              <IssueOpenedIcon>
                 <svg
                   aria-hidden={true}
-                  fill="currentColor"
+                  className="octicon octicon-issue-opened"
                   height={16}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "verticalAlign": "text-top",
-                    }
-                  }
-                  version="1.1"
                   viewBox="0 0 14 16"
                   width={14}
                 >
@@ -177,7 +141,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
                     fillRule="evenodd"
                   />
                 </svg>
-              </Octicon>
+              </IssueOpenedIcon>
               5
                issues
             </a>
@@ -190,22 +154,13 @@ exports[`<Summary /> matches the snapshot 1`] = `
         >
           <styled.span>
             <span
-              className="sc-bxivhb kLQwIX"
+              className="sc-bxivhb jsZpbe"
             >
-              <Octicon
-                name="law"
-              >
+              <LawIcon>
                 <svg
                   aria-hidden={true}
-                  fill="currentColor"
+                  className="octicon octicon-law"
                   height={16}
-                  style={
-                    Object {
-                      "display": "inline-block",
-                      "verticalAlign": "text-top",
-                    }
-                  }
-                  version="1.1"
                   viewBox="0 0 14 16"
                   width={14}
                 >
@@ -214,7 +169,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
                     fillRule="evenodd"
                   />
                 </svg>
-              </Octicon>
+              </LawIcon>
               MIT
             </span>
           </styled.span>

@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Octicon from 'react-component-octicons'
+import EyeIcon from 'react-octicons/lib/eye'
+import ForkIcon from 'react-octicons/lib/repo-forked'
+import StarIcon from 'react-octicons/lib/star'
+import IssueIcon from 'react-octicons/lib/issue-opened'
+import LawIcon from 'react-octicons/lib/law'
 
 import {flex, issuesUrl, forksUrl, watchersUrl, stargazersUrl, addSeparator} from '../../helpers'
 
@@ -8,26 +12,26 @@ export const Summary = ({owner, repo}) => (
   <List>
     <Item>
       <Link href={stargazersUrl(owner, repo.get('name'))}>
-        <Octicon name='star' />{addSeparator(repo.get('stargazers_count'))} stars
+        <StarIcon />{addSeparator(repo.get('stargazers_count'))} stars
       </Link>
     </Item>
     <Item>
       <Link href={watchersUrl(owner, repo.get('name'))}>
-        <Octicon name='eye' />{addSeparator(repo.get('subscribers_count'))} watchers
+        <EyeIcon />{addSeparator(repo.get('subscribers_count'))} watchers
       </Link>
     </Item>
     <Item>
       <Link href={forksUrl(owner, repo.get('name'))}>
-        <Octicon name='repo-forked' />{addSeparator(repo.get('forks_count'))} forks
+        <ForkIcon />{addSeparator(repo.get('forks_count'))} forks
       </Link>
     </Item>
     <Item>
       <Link href={issuesUrl(owner, repo.get('name'))}>
-        <Octicon name='issue-opened' />{addSeparator(repo.get('open_issues_count'))} issues
+        <IssueIcon />{addSeparator(repo.get('open_issues_count'))} issues
       </Link>
     </Item>
     {repo.get('license') && <Item>
-      <NoLink><Octicon name='law' />{repo.getIn(['license', 'name'])}</NoLink>
+      <NoLink><LawIcon />{repo.getIn(['license', 'name'])}</NoLink>
     </Item>}
   </List>
 )
@@ -64,7 +68,8 @@ const BaseLink = `
   font-size: 1.2rem;
   border-left: .2rem solid transparent;
 
-  svg {
+  .octicon {
+    fill: #333;
     margin-right: .5rem;
   }
 `
@@ -78,6 +83,10 @@ const Link = styled('a').attrs({
     text-decoration: none;
     color: #327fc7;
     background-color: #f8f8f8;
+
+    .octicon {
+      fill: #327fc7;
+    }
   }
 `
 

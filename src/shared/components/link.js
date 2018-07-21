@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
-import Octicon from 'react-component-octicons'
+import RepoIcon from 'react-octicons/lib/repo'
 
 import {flex, imgUrl} from '../helpers'
 
 export const Link = ({owner, repoName, contributorsCount, isLoading}) => (
   <Wrapper to={`/r/${owner}/${repoName}`}>
-    <Icon name='repo' />
+    <Icon />
     <Text>
       {repoName}
       {' '}
@@ -46,7 +46,7 @@ const Wrapper = styled(NavLink)`
   }
 `
 
-const Icon = styled(Octicon)`
+const Icon = styled(RepoIcon)`
   margin-right: .5rem;
 `
 

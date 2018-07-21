@@ -23,24 +23,15 @@ exports[`<Header /> matches the snapshot 1`] = `
         target="_blank"
       >
         <a
-          className="sc-htpNat ckgzdb"
+          className="sc-htpNat faTJou"
           href="http://repos/"
           target="_blank"
         >
-          <Octicon
-            name="mark-github"
-          >
+          <MarkGithubIcon>
             <svg
               aria-hidden={true}
-              fill="currentColor"
+              className="octicon octicon-mark-github"
               height={16}
-              style={
-                Object {
-                  "display": "inline-block",
-                  "verticalAlign": "text-top",
-                }
-              }
-              version="1.1"
               viewBox="0 0 16 16"
               width={16}
             >
@@ -49,7 +40,7 @@ exports[`<Header /> matches the snapshot 1`] = `
                 fillRule="evenodd"
               />
             </svg>
-          </Octicon>
+          </MarkGithubIcon>
           <span>
             Github
           </span>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Octicon from 'react-component-octicons'
+import MarkIcon from 'react-octicons/lib/mark-github'
 
 import {Subtitle} from '../subtitle'
 import {flex} from '../../helpers'
@@ -11,7 +11,7 @@ export const Header = ({title, url}) => (
     <Subtitle>{title}</Subtitle>
 
     <Link href={url} target='_blank'>
-      <Octicon name='mark-github' />
+      <MarkIcon />
       <span>Github</span>
     </Link>
   </Wrapper>
@@ -41,7 +41,8 @@ const Link = styled.a`
   font-size: 1.6rem;
   text-decoration: none;
 
-  svg {
+  .octicon {
+    fill: #767676;
     margin-right: .3rem;
   }
 `
