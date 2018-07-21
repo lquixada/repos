@@ -18,4 +18,9 @@ const TextInput = styled.input`
   letter-spacing: -.1rem;
   border-radius: .4rem;
   outline: none;
+
+  @media (max-width: 576px) {
+    margin: 1rem 0 0;
+    width: 100%;
+  }
 `
