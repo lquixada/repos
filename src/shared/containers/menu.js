@@ -18,7 +18,7 @@ export class MenuContainer extends React.Component {
     }
 
     return (
-      <Menu {...this.props} />
+      <Menu owner={this.props.owner} items={this.props.items} />
     )
   }
 }
