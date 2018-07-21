@@ -16,17 +16,19 @@ const hooks = {
 export class RepoPageContainer extends React.Component {
   componentDidMount () {
     if (!this.hasLoaded()) {
-      this.fetch(this.props)
+      this.fetch()
     }
   }
 
   componentDidUpdate (prevProps) {
-    if (this.hasChanged(prevProps)) {
-      this.fetch(this.props)
+    if (this.hasChanged(prevProps) && !this.hasLoaded()) {
+      this.fetch()
     }
   }
 
-  fetch ({owner, repoName}) {
+  fetch () {
+    const {owner, repoName} = this.props
+
     this.props.fetchPage({
       name: 'repo',
       owner,
