@@ -1,12 +1,27 @@
-import {put, call} from 'redux-saga/effects'
+import {put, call, take, fork} from 'redux-saga/effects'
 import {fetchCounts} from '../../helpers'
-import {fetchCountsSucceeded, fetchCountsFailed} from '../../actions'
-import {loadCounts} from '../counts'
+import {COUNTS_REQUESTED, fetchCountsSucceeded, fetchCountsFailed} from '../../actions'
+import watchCounts, {loadCounts} from '../counts'
 
 describe('Sagas (Counts)', () => {
+  let owner
+
+  beforeEach(() => {
+    owner = 'owner1'
+  })
+
+  describe('watchCounts', () => {
+    it('watches counts request', () => {
+      const action = {payload: {owner}}
+      const gen = watchCounts()
+
+      expect(gen.next().value).toEqual(take(COUNTS_REQUESTED))
+      expect(gen.next(action).value).toEqual(fork(loadCounts, owner))
+    })
+  })
+
   describe('loadCounts', () => {
     it('loads counts', () => {
-      const owner = 'owner1'
       const repoCount = [{name: 'repo1'}, {name: 'repo2'}, {name: 'repo3'}]
       const gen = loadCounts('owner1')
 
@@ -16,7 +31,6 @@ describe('Sagas (Counts)', () => {
     })
 
     it('handle error', () => {
-      const owner = 'owner1'
       const error = {stack: 'file.js:1:2'}
       const gen = loadCounts('owner1')
 
