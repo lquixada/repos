@@ -68,6 +68,14 @@ describe('Helpers (String)', () => {
       expect(extractNext(header)).toBe('')
     })
 
+    it('returns empty if no url is provided', () => {
+      const header = [
+        '; rel="next"',
+        '; rel="last"'
+      ].join(', ')
+      expect(extractNext(header)).toBe('')
+    })
+
     it('returns empty if no header is provided', () => {
       expect(extractNext(undefined)).toBe('')
       expect(extractNext(null)).toBe('')
@@ -88,6 +96,15 @@ describe('Helpers (String)', () => {
         '<https://api.github.com/repos/?page=2>; rel="prev"',
         '<https://api.github.com/repos/?page=5>; rel="next"'
       ].join(', ')
+      expect(extractTotal(header)).toBe(0)
+    })
+
+    it('returns zero if no page is provided', () => {
+      const header = [
+        '<https://api.github.com/repos/>; rel="prev"',
+        '<https://api.github.com/repos/>; rel="last"'
+      ].join(', ')
+
       expect(extractTotal(header)).toBe(0)
     })
 

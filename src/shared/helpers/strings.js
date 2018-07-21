@@ -37,5 +37,6 @@ export const extractTotal = (header) => {
   }
 
   const match = result.match(/[&?]page=(\d+)/)
+
   return match ? parseInt(match[1], 10) : 0
 }

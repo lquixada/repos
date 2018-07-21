@@ -2,7 +2,7 @@ import {List, Map} from 'immutable'
 
 import {immutifyState} from '../objects'
 
-describe('Helpers', () => {
+describe('Helpers (Objects)', () => {
   describe('immutifyState', () => {
     let state
 
