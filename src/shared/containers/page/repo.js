@@ -14,6 +14,12 @@ const hooks = {
 }
 
 export class RepoPageContainer extends React.Component {
+  componentDidMount () {
+    if (!this.hasLoaded()) {
+      this.fetch(this.props)
+    }
+  }
+
   componentDidUpdate (prevProps) {
     if (this.hasChanged(prevProps)) {
       this.fetch(this.props)
@@ -23,7 +29,7 @@ export class RepoPageContainer extends React.Component {
   fetch ({owner, repoName}) {
     this.props.fetchPage({
       name: 'repo',
-      owner: owner,
+      owner,
       repoName
     })
   }
@@ -34,6 +40,11 @@ export class RepoPageContainer extends React.Component {
     )
   }
 
+  hasLoaded () {
+    const counts = this.props.counts.get(this.props.owner)
+    return counts && counts.get('data') && !counts.get('data').isEmpty()
+  }
+
   render () {
     return (
       <RepoPage repoName={this.props.repoName} />
@@ -41,7 +52,8 @@ export class RepoPageContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, {match}) => ({
+const mapStateToProps = ({counts}, {match}) => ({
+  counts,
   owner: match.params.owner,
   repoName: match.params.repo
 })

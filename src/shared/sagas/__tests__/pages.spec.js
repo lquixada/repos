@@ -8,7 +8,7 @@ import {
   fetchRepoSucceeded,
   fetchPageFailed
 } from '../../actions'
-import watchPages, {loadOwnerPage, loadRepoPage} from '../pages'
+import watchPages, {loadRepoPage} from '../pages'
 import {fetchAll, fetchCounts} from '../../helpers'
 
 describe('Sagas (Pages)', () => {
@@ -19,44 +19,12 @@ describe('Sagas (Pages)', () => {
   })
 
   describe('watchPages', () => {
-    it('watches owner page request', () => {
-      const action = {payload: {name: 'owner', owner}}
-      const gen = watchPages()
-
-      expect(gen.next().value).toEqual(take(PAGE_REQUESTED))
-      expect(gen.next(action).value).toEqual(fork(loadOwnerPage, action.payload))
-    })
-
     it('watches repo page request', () => {
       const action = {payload: {name: 'repo', owner}}
       const gen = watchPages()
 
       expect(gen.next().value).toEqual(take(PAGE_REQUESTED))
       expect(gen.next(action).value).toEqual(fork(loadRepoPage, action.payload))
-    })
-  })
-
-  describe('loadOwnerPage', () => {
-    it('loads owner page', () => {
-      const name = 'owner'
-      const repoCount = []
-      const gen = loadOwnerPage({name, owner})
-
-      expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-
-      expect(gen.next({repoCount}).value).toEqual(put(fetchCountsSucceeded({owner, data: repoCount})))
-      expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
-    })
-
-    it('handles errors', () => {
-      const name = 'owner'
-      const error = {
-        stack: 'file.js:1:2'
-      }
-      const gen = loadOwnerPage({name, owner})
-
-      expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-      expect(gen.throw(error).value).toEqual(put(fetchPageFailed(name, error.stack)))
     })
   })
 
@@ -69,7 +37,7 @@ describe('Sagas (Pages)', () => {
       repoName = 'repo1'
     })
 
-    it('loads repo page', () => {
+    it('loads repo page with repo', () => {
       const data = {
         repo: {},
         contributors: {},
@@ -77,11 +45,25 @@ describe('Sagas (Pages)', () => {
       }
       const gen = loadRepoPage({name, owner, repoName})
 
-      expect(gen.next().value).toEqual(call(fetchAll, { owner, repoName }))
+      expect(gen.next().value).toEqual(call(fetchAll, {owner, repoName}))
 
       expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded({owner, repoName, data: data.repo})))
-      expect(gen.next().value).toEqual(put(fetchCountsSucceeded({owner, data: data.repoCount})))
       expect(gen.next().value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.contributors})))
+      expect(gen.next().value).toEqual(put(fetchCountsSucceeded({owner, data: data.repoCount})))
+      expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
+    })
+
+    it('loads repo page without repo', () => {
+      const data = {
+        repo: {},
+        contributors: {},
+        repoCount: {}
+      }
+      const gen = loadRepoPage({name, owner})
+
+      expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
+
+      expect(gen.next(data).value).toEqual(put(fetchCountsSucceeded({owner, data: data.repoCount})))
       expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
     })
 

@@ -39,6 +39,8 @@ export class InputContainer extends React.Component {
     if (match) {
       return match[1]
     }
+
+    return ''
   }
 
   hasOwnerChanged (prevProps) {
