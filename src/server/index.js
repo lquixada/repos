@@ -1,3 +1,4 @@
+import 'cross-fetch/polyfill'
 import express from 'express'
 
 import loggerMiddleware from './middlewares/logger'

@@ -1,4 +1,3 @@
-import 'cross-fetch/polyfill'
 import ApolloClient from 'apollo-boost'
 import config from '../../server/config'
 

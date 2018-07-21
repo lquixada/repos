@@ -1,3 +1,4 @@
+import 'cross-fetch/polyfill'
 import './dotenv'
 import './enzyme'
 import './helmet'
