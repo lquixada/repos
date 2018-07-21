@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import {flex} from '../helpers'
+import {flex, phones} from '../helpers'
 
 export const Main = styled.main`
   ${flex.display()};
@@ -14,7 +14,7 @@ export const Aside = styled.aside`
   width: 20rem;
   vertical-align: top;
 
-  @media (max-width: 576px) {
+  @media (${phones}) {
     margin: 0;
     width: 100%;
     height: auto;
@@ -45,7 +45,7 @@ export const Header = styled.header`
 export const HeaderContainer = Container.extend`
   ${flex.middle()}
 
-  @media (max-width: 576px) {
+  @media (${phones}) {
     ${flex.wrap('wrap')}
   }
 `
@@ -60,7 +60,7 @@ export const Section = styled.section`
 export const SectionContainer = Container.extend`
   ${flex.top()}
   
-  @media (max-width: 576px) {
+  @media (${phones}) {
     ${flex.left()}
     ${flex.dir('column')}
     width: 78rem;

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {Link} from './link'
+import {phones} from '../helpers'
 
 export const Menu = ({owner, items}) => (
   <Wrapper>
@@ -32,7 +33,7 @@ const Wrapper = styled.div`
   box-shadow: 0 .1rem .1rem rgba(0,0,0,.1);
   overflow-y: auto;
 
-  @media (max-width: 576px) {
+  @media (${phones}) {
     max-height: 20rem;
   }
 `

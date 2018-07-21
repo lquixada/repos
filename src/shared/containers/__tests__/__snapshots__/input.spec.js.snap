@@ -28,7 +28,7 @@ exports[`<InputContainer /> renders input with owner name 1`] = `
       value="owner1"
     >
       <input
-        className="sc-bdVaJa bNrrNm"
+        className="sc-bdVaJa ddvyVk"
         onChange={[Function]}
         onKeyUp={[Function]}
         type="text"
@@ -67,7 +67,7 @@ exports[`<InputContainer /> renders new owner name when location changes 1`] = `
       value="owner2"
     >
       <input
-        className="sc-bdVaJa bNrrNm"
+        className="sc-bdVaJa ddvyVk"
         onChange={[Function]}
         onKeyUp={[Function]}
         type="text"

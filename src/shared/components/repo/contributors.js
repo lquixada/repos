@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 
-import {flex} from '../../helpers'
+import {flex, tablets} from '../../helpers'
 
 export const Contributors = (props) => (
   <Wrapper>
@@ -62,7 +62,7 @@ const Item = styled.li`
   font-size: 1.2rem;
   white-space: nowrap;
 
-  @media (max-width: 768px) {
+  @media (${tablets}) {
     width: 33.33%;
   }
 `

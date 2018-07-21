@@ -1,5 +1,7 @@
+import {phones} from '../styles'
+
 export const ribbon = () => `
-  @media (max-width: 576px) {
+  @media (${phones}) {
     .github-fork-ribbon-wrapper {
       display: none
     }
