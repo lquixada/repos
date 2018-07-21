@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputContainer /> renders input with owner name 1`] = `
+<InputContainer
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/r/owner1",
+      "search": "",
+      "state": undefined,
+    }
+  }
+>
+  <Input
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    value="owner1"
+  >
+    <styled.input
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      type="text"
+      value="owner1"
+    >
+      <input
+        className="sc-bdVaJa bNrrNm"
+        onChange={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="owner1"
+      />
+    </styled.input>
+  </Input>
+</InputContainer>
+`;
+
+exports[`<InputContainer /> renders new owner name when location changes 1`] = `
+<InputContainer
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/r/owner2",
+      "search": "",
+      "state": undefined,
+    }
+  }
+>
+  <Input
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    value="owner2"
+  >
+    <styled.input
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      type="text"
+      value="owner2"
+    >
+      <input
+        className="sc-bdVaJa bNrrNm"
+        onChange={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="owner2"
+      />
+    </styled.input>
+  </Input>
+</InputContainer>
+`;
