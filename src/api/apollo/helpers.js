@@ -1,4 +1,4 @@
-import {extractTotal} from '../shared/helpers'
+import {extractTotal} from '../../shared/helpers'
 
 export const getContributors = async (context, owner, repo, page) => {
   let nextPage = null
