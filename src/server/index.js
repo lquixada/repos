@@ -1,6 +1,7 @@
 import 'cross-fetch/polyfill'
 import express from 'express'
 
+import config from './config'
 import loggerMiddleware from './middlewares/logger'
 import staticMiddleware from './middlewares/static'
 import appController from './controllers/app'
@@ -9,7 +10,7 @@ import errorController from './controllers/error'
 const server = express()
 
 /* Middlewares */
-if (process.env.NODE_ENV === 'development') {
+if (config.env === 'development') {
   server.use(...require('./middlewares/webpack').default)
   server.use('/assets/', staticMiddleware)
 }

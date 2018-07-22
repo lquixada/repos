@@ -1,8 +1,9 @@
 import winston from 'winston'
 
+import config from './config'
+
 const {combine, colorize, simple} = winston.format
-const isProd = process.env.NODE_ENV === 'production'
-const format = isProd ? simple() : combine(colorize(), simple())
+const format = config.env === 'production' ? simple() : combine(colorize(), simple())
 
 const logger = winston.createLogger({
   transports: [

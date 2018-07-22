@@ -4,11 +4,10 @@ import {StaticRouter} from 'react-router-dom'
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
 import {Helmet} from 'react-helmet'
 
+import config from '../config'
 import {App} from '../../shared/components/app'
 import {ErrorPage} from '../../shared/components/page/error'
 import template from '../templates/error'
-
-const isProd = process.env.NODE_ENV === 'production'
 
 export default (err, req, res, next) => {
   const sheet = new ServerStyleSheet()
@@ -16,7 +15,7 @@ export default (err, req, res, next) => {
     <StyleSheetManager sheet={sheet.instance}>
       <StaticRouter location={req.url} context={{}}>
         <App>
-          <ErrorPage message={isProd ? '' : err.stack} />
+          <ErrorPage message={config.env === 'production' ? '' : err.stack} />
         </App>
       </StaticRouter>
     </StyleSheetManager>
