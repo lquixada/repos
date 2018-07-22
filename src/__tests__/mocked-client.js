@@ -2,49 +2,16 @@ import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { SchemaLink } from 'apollo-link-schema'
 import { makeExecutableSchema } from 'graphql-tools'
+import typeDefs from '../api/type-defs'
 
-const typeDefs = `
-type Query {
-  repo(name: String!): Repo
-  repoCount: [RepoCount!]!
-  contributors(repo: String!, page: Int): Contributors
-}
-
-type Repo {
-  name: String!
-  description: String!
-  html_url: String!
-  stargazers_count: Int!
-  subscribers_count: Int!
-  forks_count: Int!
-  open_issues_count: Int!
-  license: License!
-}
-
-type License {
-  name: String!
-}
-
-type Repos {
-  name: String!
-}
-
-type RepoCount {
-  name: String!
-  count: Int!
-}
-
-type Contributors {
-  nextPage: Int
-  data: [Contributor!]!
-}
-
-type Contributor {
-  login: String!
-  html_url: String!
-  avatar_url: String!
-}
-`
+const contributors = () => ({
+  nextPage: 2,
+  data: [{
+    login: 'user1',
+    html_url: 'http://html_url/',
+    avatar_url: 'http://avatar_url/'
+  }]
+})
 
 const resolvers = {
   Query: {
@@ -65,14 +32,11 @@ const resolvers = {
       {name: 'repo1', count: 2}
     ]),
 
-    contributors: () => ({
-      nextPage: 2,
-      data: [{
-        login: 'user1',
-        html_url: 'http://html_url/',
-        avatar_url: 'http://avatar_url/'
-      }]
-    })
+    contributors
+  },
+
+  Repo: {
+    contributors
   }
 }
 

@@ -15,7 +15,7 @@ export function * loadRepo ({owner, repoName}) {
     const data = yield call(fetchRepo, {owner, repoName})
 
     yield put(fetchRepoSucceeded({owner, repoName, data: data.repo}))
-    yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
+    yield put(fetchContributorsSucceeded({owner, repoName, data: data.repo.contributors}))
   } catch (error) {
     console.info(error)
     yield put(fetchRepoFailed(repoName, error.stack))

@@ -17,7 +17,7 @@ export function * loadRepoPage ({name, owner, repoName}) {
       data = yield call(fetchAll, { owner, repoName })
 
       yield put(fetchRepoSucceeded({owner, repoName, data: data.repo}))
-      yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
+      yield put(fetchContributorsSucceeded({owner, repoName, data: data.repo.contributors}))
     } else {
       data = yield call(fetchCounts, { owner })
     }

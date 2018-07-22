@@ -15,11 +15,17 @@ export default gql`
     subscribers_count: Int!
     forks_count: Int!
     open_issues_count: Int!
+    owner: Owner!
+    contributors(page: Int): Contributors
     license: License
   }
 
   type License {
     name: String!
+  }
+
+  type Owner {
+    login: String!
   }
 
   type Repos {

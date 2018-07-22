@@ -34,17 +34,16 @@ export const fetchRepo = async ({ owner, repoName }) => {
           forks_count
           subscribers_count
           open_issues_count
+          contributors {
+            nextPage
+            data {
+              login
+              html_url
+              avatar_url
+            }
+          }
           license {
             name
-          }
-        }
-
-        contributors(owner: "${owner}", repo: "${repoName}", page: 1) {
-          nextPage
-          data {
-            login
-            html_url
-            avatar_url
           }
         }
       }
@@ -86,17 +85,16 @@ export const fetchAll = async ({ owner, repoName }) => {
         forks_count
         subscribers_count
         open_issues_count
+        contributors {
+          nextPage
+          data {
+            login
+            html_url
+            avatar_url
+          }
+        }
         license {
           name
-        }
-      }
-      
-      contributors(owner: "${owner}", repo: "${repoName}", page: 1) {
-        nextPage
-        data {
-          login
-          html_url
-          avatar_url
         }
       }
     }

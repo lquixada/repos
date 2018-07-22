@@ -12,13 +12,13 @@ import {getNextPage} from '../selectors'
 export function * loadContributors ({owner, repoName}) {
   try {
     const page = yield select(getNextPage, owner, repoName)
-    const {contributors} = yield call(fetchContributors, {
+    const data = yield call(fetchContributors, {
       owner,
       repoName,
       page
     })
 
-    yield put(fetchContributorsSucceeded({owner, repoName, data: contributors}))
+    yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
   } catch (error) {
     console.info(error)
     yield put(fetchContributorsFailed(repoName, error.stack))

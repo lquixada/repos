@@ -25,17 +25,18 @@ describe('Sagas (Repo)', () => {
   describe('loadRepo', () => {
     it('loads repo', () => {
       const data = {
-        repo: {key: 'value'},
-        contributors: {
-          nextPage: 2,
-          data: [{login: 'user1'}]
+        repo: {
+          contributors: {
+            nextPage: 2,
+            data: [{login: 'user1'}]
+          }
         }
       }
       const gen = loadRepo({owner, repoName})
 
       expect(gen.next().value).toEqual(call(fetchRepo, {owner, repoName}))
       expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded({owner, repoName, data: data.repo})))
-      expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.contributors})))
+      expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.repo.contributors})))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 
