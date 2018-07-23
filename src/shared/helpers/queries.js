@@ -16,7 +16,8 @@ export const fetchContributors = async ({owner, repoName, page}) => {
           }
         }
       }
-    `})
+    `
+  })
 
   return data
 }
@@ -47,7 +48,8 @@ export const fetchRepo = async ({ owner, repoName }) => {
           }
         }
       }
-    `})
+    `
+  })
 
   return data
 }
@@ -62,7 +64,8 @@ export const fetchCounts = async ({ owner }) => {
           count
         }
       }
-    `})
+    `
+  })
 
   return data
 }
@@ -71,34 +74,35 @@ export const fetchAll = async ({ owner, repoName }) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
-    {
-      repoCount(owner: "${owner}") {
-        name
-        count
-      }
-    
-      repo(owner: "${owner}", name: "${repoName}") {
-        name
-        description
-        html_url
-        stargazers_count
-        forks_count
-        subscribers_count
-        open_issues_count
-        contributors {
-          nextPage
-          data {
-            login
-            html_url
-            avatar_url
+      {
+        repoCount(owner: "${owner}") {
+          name
+          count
+        }
+      
+        repo(owner: "${owner}", name: "${repoName}") {
+          name
+          description
+          html_url
+          stargazers_count
+          forks_count
+          subscribers_count
+          open_issues_count
+          contributors {
+            nextPage
+            data {
+              login
+              html_url
+              avatar_url
+            }
+          }
+          license {
+            name
           }
         }
-        license {
-          name
-        }
       }
-    }
-    `})
+    `
+  })
 
   return data
 }
