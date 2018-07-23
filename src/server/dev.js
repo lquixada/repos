@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import http from 'http'
 import https from 'https'
+import Loadable from 'react-loadable'
 
 import config from './config'
 import server from './index'
@@ -28,10 +29,12 @@ if (config.secure) {
       console.info('Compiling assets in memory...')
     })
 } else {
-  http
-    .createServer(server)
-    .listen(config.port, function () {
-      console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
-      console.info('Compiling assets in memory...')
-    })
+  Loadable.preloadAll().then(() => {
+    http
+      .createServer(server)
+      .listen(config.port, function () {
+        console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
+        console.info('Compiling assets in memory...')
+      })
+  })
 }

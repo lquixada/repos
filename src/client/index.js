@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Loadable from 'react-loadable'
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {renderRoutes} from 'react-router-config'
@@ -20,12 +21,14 @@ const renderApp = () => {
           {renderRoutes(routes)}
         </BrowserRouter>
       </Provider>
-    </AppContainer>
-    , document.getElementById('app')
+    </AppContainer>,
+    document.getElementById('app')
   )
 }
 
-renderApp()
+Loadable.preloadReady().then(() => {
+  renderApp()
+})
 
 if (module.hot) {
   module.hot.accept('../shared/routes', renderApp)

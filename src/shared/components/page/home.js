@@ -1,9 +1,15 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
 import styled from 'styled-components'
+import Loadable from 'react-loadable';
 
 import {Content, Section, SectionContainer} from '../grid'
 import {flex} from '../../helpers'
+
+const AsyncIntro = Loadable({
+  loader: () => import(/*webpackChunkName: 'chunk-home'*/ './async-home'),
+  loading: () => <div>loading...</div>,
+});
 
 export const HomePage = () => (
   <Section>
@@ -13,9 +19,7 @@ export const HomePage = () => (
 
     <SectionContainer>
       <Content>
-        <P>
-          Type a github user in the input above and hit Enter.
-        </P>
+        <AsyncIntro />
       </Content>
     </SectionContainer>
   </Section>

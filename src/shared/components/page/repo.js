@@ -1,12 +1,18 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
 import styled from 'styled-components'
+import Loadable from 'react-loadable';
 
 import Repo from '../../containers/repo'
 import Menu from '../../containers/menu'
 import {Footer} from '../footer'
 import {Aside, Content, Section, SectionContainer} from '../grid'
 import {flex} from '../../helpers'
+
+const AsyncRepo = Loadable({
+  loader: () => import(/*webpackChunkName: 'chunk-repo'*/ './async-repo'),
+  loading: () => <div>loading...</div>,
+});
 
 export const RepoPage = ({repoName}) => (
   <Section>
@@ -23,9 +29,7 @@ export const RepoPage = ({repoName}) => (
         {repoName
           ? <Repo />
           : (
-            <P>
-              Choose a repository on the menu.
-            </P>
+            <AsyncRepo />
           )
         }
       </Content>

@@ -8,5 +8,9 @@ module.exports = {
         }
       }
     ]
+  ],
+  plugins: [
+    '@babel/plugin-syntax-dynamic-import',
+    'dynamic-import-node-babel-7'
   ]
 }

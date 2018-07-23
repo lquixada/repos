@@ -23,17 +23,23 @@ module.exports = function (env) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['@babel/env', {
-                targets: {
-                  browsers: ['last 2 versions', 'not ie > 0']
-                },
-                modules: false
-              }]
-            ],
-            plugins: env.prod ? [] : ['react-hot-loader/babel']
+          use: {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                '@babel/react',
+                ['@babel/env', {
+                  targets: {
+                    browsers: ['last 2 versions', 'not ie > 0']
+                  },
+                  modules: false
+                }]
+              ],
+              plugins: env.prod
+                ? ['@babel/plugin-syntax-dynamic-import', 'react-loadable/babel']
+                : ['@babel/plugin-syntax-dynamic-import', 'react-loadable/babel', 'react-hot-loader/babel']
+            }
           }
         }
       ]
