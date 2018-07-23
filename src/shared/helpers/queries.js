@@ -2,12 +2,13 @@ import gql from 'graphql-tag'
 
 import {getClient} from './client'
 
-export const fetchContributors = async ({owner, repoName, page}) => {
+export const fetchContributors = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
+    variables,
     query: gql`
-      {
-        contributors(owner: "${owner}", repo: "${repoName}", page: ${page}) {
+      query($owner: String!, $repoName: String!, $page: Int) {
+        contributors(owner: $owner, repo: $repoName, page: $page) {
           nextPage
           data {
             login
@@ -22,12 +23,13 @@ export const fetchContributors = async ({owner, repoName, page}) => {
   return data
 }
 
-export const fetchRepo = async ({ owner, repoName }) => {
+export const fetchRepo = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
+    variables,
     query: gql`
-      {
-        repo(owner: "${owner}", name: "${repoName}") {
+      query($owner: String!, $repoName: String!) {
+        repo(owner: $owner, name: $repoName) {
           name
           description
           html_url
@@ -54,12 +56,13 @@ export const fetchRepo = async ({ owner, repoName }) => {
   return data
 }
 
-export const fetchCounts = async ({ owner }) => {
+export const fetchCounts = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
+    variables,
     query: gql`
-      {
-        repoCount(owner: "${owner}") {
+      query($owner: String!) {
+        repoCount(owner: $owner) {
           name
           count
         }
@@ -70,17 +73,18 @@ export const fetchCounts = async ({ owner }) => {
   return data
 }
 
-export const fetchAll = async ({ owner, repoName }) => {
+export const fetchAll = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
+    variables,
     query: gql`
-      {
-        repoCount(owner: "${owner}") {
+      query($owner: String!, $repoName: String!) {
+        repoCount(owner: $owner) {
           name
           count
         }
       
-        repo(owner: "${owner}", name: "${repoName}") {
+        repo(owner: $owner, name: $repoName) {
           name
           description
           html_url
