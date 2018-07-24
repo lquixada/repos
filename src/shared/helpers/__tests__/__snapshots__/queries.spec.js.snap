@@ -20,11 +20,11 @@ Object {
 
 exports[`Helpers (Queries) fetchCounts returns counts from an organization 1`] = `
 Object {
-  "repoCount": Array [
+  "counts": Array [
     Object {
       "count": 2,
       "name": "repo1",
-      Symbol(id): "ROOT_QUERY.repoCount({\\"owner\\":\\"owner1\\"}).0",
+      Symbol(id): "ROOT_QUERY.counts({\\"owner\\":\\"owner1\\"}).0",
     },
   ],
   Symbol(id): "ROOT_QUERY",

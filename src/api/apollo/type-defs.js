@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-express'
 export default gql`
   type Query {
     repo(owner: String, name: String!): Repo
-    repoCount(owner: String): [RepoCount!]!
+    counts(owner: String): [Counts!]!
     contributors(owner: String, repo: String!, page: Int): Contributors
   }
 
@@ -32,7 +32,7 @@ export default gql`
     name: String!
   }
 
-  type RepoCount {
+  type Counts {
     name: String!
     count: Int!
   }

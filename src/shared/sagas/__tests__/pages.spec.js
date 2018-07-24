@@ -42,7 +42,7 @@ describe('Sagas (Pages)', () => {
         repo: {
           contributors: {}
         },
-        repoCount: {}
+        counts: {}
       }
       const gen = loadRepoPage({name, owner, repoName})
 
@@ -50,7 +50,7 @@ describe('Sagas (Pages)', () => {
 
       expect(gen.next(data).value).toEqual(put(fetchRepoSucceeded({owner, repoName, data: data.repo})))
       expect(gen.next().value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.repo.contributors})))
-      expect(gen.next().value).toEqual(put(fetchCountsSucceeded({owner, data: data.repoCount})))
+      expect(gen.next().value).toEqual(put(fetchCountsSucceeded({owner, data: data.counts})))
       expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
     })
 
@@ -58,13 +58,13 @@ describe('Sagas (Pages)', () => {
       const data = {
         repo: {},
         contributors: {},
-        repoCount: {}
+        counts: {}
       }
       const gen = loadRepoPage({name, owner})
 
       expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
 
-      expect(gen.next(data).value).toEqual(put(fetchCountsSucceeded({owner, data: data.repoCount})))
+      expect(gen.next(data).value).toEqual(put(fetchCountsSucceeded({owner, data: data.counts})))
       expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
     })
 

@@ -8,7 +8,7 @@ export default {
       return data
     },
 
-    repoCount: async (root, args, context) => {
+    counts: async (root, args, context) => {
       const owner = args.owner
       const {data} = await getRepos(context.api, owner)
       const repos = data.map((repo) => repo.name)

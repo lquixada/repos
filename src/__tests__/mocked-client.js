@@ -28,7 +28,7 @@ const resolvers = {
       }
     }),
 
-    repoCount: () => ([
+    counts: () => ([
       {name: 'repo1', count: 2}
     ]),
 

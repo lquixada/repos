@@ -22,11 +22,11 @@ describe('Sagas (Counts)', () => {
 
   describe('loadCounts', () => {
     it('loads counts', () => {
-      const repoCount = [{name: 'repo1'}, {name: 'repo2'}, {name: 'repo3'}]
+      const counts = [{name: 'repo1'}, {name: 'repo2'}, {name: 'repo3'}]
       const gen = loadCounts('owner1')
 
       expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-      expect(gen.next({repoCount}).value).toEqual(put(fetchCountsSucceeded({owner, data: repoCount})))
+      expect(gen.next({counts}).value).toEqual(put(fetchCountsSucceeded({owner, data: counts})))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
 

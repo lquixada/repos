@@ -22,7 +22,7 @@ export function * loadRepoPage ({name, owner, repoName}) {
       data = yield call(fetchCounts, { owner })
     }
 
-    yield put(fetchCountsSucceeded({owner, data: data.repoCount}))
+    yield put(fetchCountsSucceeded({owner, data: data.counts}))
     yield put(fetchPageSucceeded({name}))
   } catch (error) {
     console.info(error)

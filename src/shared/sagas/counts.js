@@ -7,9 +7,9 @@ import {fetchCounts} from '../helpers'
 
 export function * loadCounts (owner) {
   try {
-    const {repoCount} = yield call(fetchCounts, {owner})
+    const {counts} = yield call(fetchCounts, {owner})
 
-    yield put(fetchCountsSucceeded({owner, data: repoCount}))
+    yield put(fetchCountsSucceeded({owner, data: counts}))
   } catch (error) {
     console.info(error)
     yield put(fetchCountsFailed(error.stack))

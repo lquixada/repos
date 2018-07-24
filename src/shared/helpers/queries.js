@@ -62,7 +62,7 @@ export const fetchCounts = async (variables) => {
     variables,
     query: gql`
       query($owner: String!) {
-        repoCount(owner: $owner) {
+        counts(owner: $owner) {
           name
           count
         }
@@ -79,7 +79,7 @@ export const fetchAll = async (variables) => {
     variables,
     query: gql`
       query($owner: String!, $repoName: String!) {
-        repoCount(owner: $owner) {
+        counts(owner: $owner) {
           name
           count
         }
