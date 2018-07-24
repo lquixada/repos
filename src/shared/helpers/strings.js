@@ -10,8 +10,6 @@ export function addSeparator (num) {
   return reverted.replace(/^\./, '')
 }
 
-export const isEnabled = (str) => ['false', '0', 0, false].indexOf(str) < 0
-
 export const extractNext = (header) => {
   const str = header || ''
   const result = str

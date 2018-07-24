@@ -1,5 +1,5 @@
 import request from 'supertest'
-import * as helpers from '../../../shared/helpers/strings'
+import * as helpers from '../../../shared/helpers/redial'
 
 describe('Error Controller', () => {
   let server
@@ -8,9 +8,9 @@ describe('Error Controller', () => {
     server = require('../../../server')
     server = server.default.listen(0)
 
-    // Simulate an error no isEnabled helper.
-    jest.spyOn(helpers, 'isEnabled').mockImplementation(() => {
-      throw new Error('mocked error on isEnabled helper.')
+    // Simulate an error on trigger helper.
+    jest.spyOn(helpers, 'trigger').mockImplementation(() => {
+      throw new Error('mocked error on trigger helper.')
     })
   })
 
@@ -32,7 +32,7 @@ describe('Error Controller', () => {
         .get('/')
         .expect((res) => {
           expect(res.text).toContain('Whoops, looks like an error occurred.')
-          expect(res.text).toContain('Error: mocked error on isEnabled helper.')
+          expect(res.text).toContain('Error: mocked error on trigger helper.')
         })
         .end(done)
     })

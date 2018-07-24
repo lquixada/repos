@@ -3,10 +3,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
-import {renderRoutes, matchRoutes} from 'react-router-config'
+import {renderRoutes} from 'react-router-config'
 import {AppContainer} from 'react-hot-loader'
 
-import {trigger} from '../shared/helpers'
 import routes from '../shared/routes' // eslint-disable-line no-unused-vars
 
 import store from './store'
@@ -26,14 +25,7 @@ const renderApp = () => {
   )
 }
 
-// Take over if server is not capable of providing the initial state
-if (!window.__INITIAL_STATE__) {
-  const matchs = matchRoutes(routes, window.location.pathname)
-  store.runnedSagas.toPromise().then(renderApp)
-  trigger('fetch', matchs, store.dispatch)
-} else {
-  renderApp()
-}
+renderApp()
 
 if (module.hot) {
   module.hot.accept('../shared/routes', renderApp)
