@@ -2,23 +2,23 @@ import 'cross-fetch/polyfill'
 import express from 'express'
 
 import config from './config'
-import loggerMiddleware from './middlewares/logger'
-import staticMiddleware from './middlewares/static'
-import appController from './controllers/app'
-import errorController from './controllers/error'
+import assets from './middlewares/assets'
+import logger from './middlewares/logger'
+import app from './controllers/app'
+import error from './controllers/error'
 
 const server = express()
 
 /* Middlewares */
 if (config.env === 'development') {
   server.use(...require('./middlewares/webpack').default)
-  server.use('/assets/', staticMiddleware)
+  server.use('/assets/', assets)
 }
 
-server.use(loggerMiddleware)
+server.use(logger)
 
 /* Controllers */
-server.use('/', appController)
-server.use(errorController)
+server.use('/', app)
+server.use(error)
 
 export default server
