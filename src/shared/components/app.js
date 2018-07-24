@@ -27,6 +27,12 @@ export class App extends React.Component {
           <meta http-equiv='x-ua-compatible' content='ie=edge' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta name='version' content={this.props.version} />
+          <link rel='dns-prefetch' href='https://static.lquixada.com' />
+          <link rel='dns-prefetch' href='https://avatars0.githubusercontent.com' />
+          <link rel='dns-prefetch' href='https://avatars1.githubusercontent.com' />
+          <link rel='dns-prefetch' href='https://avatars2.githubusercontent.com' />
+          <link rel='dns-prefetch' href='https://avatars3.githubusercontent.com' />
+
           {/* Disabled favicon for now, it is hitting the appController. */}
           <link rel='icon' href='data:,' />
           <title>Github Repos</title>
