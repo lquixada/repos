@@ -1,6 +1,4 @@
-import gql from 'graphql-tag'
-
-export default gql`
+export default `
   type Query {
     repo(owner: String, name: String!): Repo
     counts(owner: String): [Counts!]!
