@@ -37,7 +37,6 @@
   "dependencies": {
     "@octokit/rest": "15.9.4",
     "apollo-boost": "0.1.11",
-    "aws-serverless-express": "3.2.0",
     "body-parser": "1.18.3",
     "compression": "1.7.3",
     "cross-fetch": "2.2.2",
@@ -64,6 +63,7 @@
     "react-router-dom": "4.3.1",
     "redux": "4.0.0",
     "redux-saga": "1.0.0-beta.1",
+    "serverless-http": "1.6.0",
     "styled-components": "3.3.3",
     "winston": "3.0.0"
   },
