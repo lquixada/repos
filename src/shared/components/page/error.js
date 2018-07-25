@@ -4,14 +4,13 @@ import styled from 'styled-components'
 
 import {Content, Section, SectionContainer} from '../grid'
 
-export const ErrorPage = ({message}) => (
+export const ErrorPage = () => (
   <Section>
     <SectionContainer>
       <Content>
         <P>
           Whoops, looks like an error occurred.
         </P>
-        {message && <pre>{message}</pre>}
       </Content>
     </SectionContainer>
   </Section>

@@ -4,18 +4,20 @@ import {StaticRouter} from 'react-router-dom'
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
 import {Helmet} from 'react-helmet'
 
-import config from '../config'
+import logger from '../logger'
 import {App} from '../../shared/components/app'
 import {ErrorPage} from '../../shared/components/page/error'
 import template from '../templates/error'
 
 export default (err, req, res, next) => {
+  logger.error(err.stack)
+
   const sheet = new ServerStyleSheet()
   const html = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
       <StaticRouter location={req.url} context={{}}>
         <App>
-          <ErrorPage message={config.env === 'production' ? '' : err.stack} />
+          <ErrorPage />
         </App>
       </StaticRouter>
     </StyleSheetManager>

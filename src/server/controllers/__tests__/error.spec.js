@@ -32,7 +32,6 @@ describe('Error Controller', () => {
         .get('/')
         .expect((res) => {
           expect(res.text).toContain('Whoops, looks like an error occurred.')
-          expect(res.text).toContain('Error: mocked error on trigger helper.')
         })
         .end(done)
     })
