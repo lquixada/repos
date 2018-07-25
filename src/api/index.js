@@ -1,12 +1,10 @@
-import express from 'express'
+import {GraphQLServer} from 'graphql-yoga'
 
 import logger from './logger'
-import apollo from './apollo'
+import config from './graphql/config'
 
-const app = express()
+const server = new GraphQLServer(config)
 
-app.use(logger)
+server.express.use(logger)
 
-apollo.applyMiddleware({ app })
-
-export default app
+export default server

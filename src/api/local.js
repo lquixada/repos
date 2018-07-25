@@ -1,31 +1,27 @@
 import 'cross-fetch/polyfill'
 import fs from 'fs'
 import path from 'path'
-import http from 'http'
-import https from 'https'
 
-import api from './index'
+import server from './index'
 
-const {SECURE, API_PORT = 3001} = process.env
+const options = {
+  port: process.env.API_PORT || 3001,
+  endpoint: '/graphql',
+  playground: '/graphql'
+}
 
-if (SECURE) {
+if (process.env.SECURE) {
   const sslPath = path.join(__dirname, '..', 'dist', 'ssl')
-  const credentials = {
+  const https = {
     key: fs.readFileSync(path.join(sslPath, 'localhost.key')),
-    cert: fs.readFileSync(path.join(sslPath, 'localhost.cert')),
-    requestCert: false,
-    rejectUnauthorized: false
+    cert: fs.readFileSync(path.join(sslPath, 'localhost.cert'))
   }
 
-  https
-    .createServer(credentials, api)
-    .listen(API_PORT, function () {
-      console.info(`\n🔒 Secure server running on: https://localhost:${this.address().port}/`)
-    })
+  server.start({https, ...options}, () =>
+    console.info(`\n🔒 Secure server running on: https://localhost:${options.port}}/`)
+  )
 } else {
-  http
-    .createServer(api)
-    .listen(API_PORT, function () {
-      console.info(`\n🔓 Insecure server running on: http://localhost:${this.address().port}/`)
-    })
+  server.start({...options}, () =>
+    console.info(`\n🔓 Insecure server running on: http://localhost:${options.port}/`)
+  )
 }

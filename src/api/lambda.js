@@ -1,14 +1,9 @@
 import 'cross-fetch/polyfill'
-import { ApolloServer } from 'apollo-server-lambda'
+import {GraphQLServerLambda} from 'graphql-yoga'
 
-import config from './config'
+import config from './graphql/config'
 
-const server = new ApolloServer(config)
+const lambda = new GraphQLServerLambda(config)
 
-exports.handler = server.createHandler({
-  gui: true,
-  cors: {
-    origin: true,
-    credentials: true
-  }
-})
+exports.api = lambda.graphqlHandler
+exports.playground = lambda.playgroundHandler

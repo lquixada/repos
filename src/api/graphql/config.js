@@ -1,7 +1,6 @@
-import {ApolloServer} from 'apollo-server-express'
 import gitHubApi from '@octokit/rest'
 
-import typeDefs from './type-defs'
+import typeDefs from './typedefs'
 import resolvers from './resolvers'
 
 const api = gitHubApi()
@@ -11,10 +10,8 @@ api.authenticate({
   token: process.env.GITHUB_ACCESS_TOKEN
 })
 
-export default new ApolloServer({
+export default {
   typeDefs,
   resolvers,
-  playground: true,
-  introspection: true,
   context: () => ({ api })
-})
+}
