@@ -3,10 +3,7 @@ module.exports = {
     name: 'web',
     interpreter: 'babel-node',
     script: './src/server/local.js',
-    watch: ['./src/server'],
-    env: {
-      NODE_ENV: 'development'
-    }
+    watch: ['./src/server']
   }, {
     name: 'api',
     interpreter: 'babel-node',

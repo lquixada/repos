@@ -5,6 +5,12 @@ import https from 'https'
 
 import config from './config'
 import server from './index'
+import assets from './middlewares/assets'
+import webpack from './middlewares/webpack'
+
+// Install development middlewares
+server.use(...webpack)
+server.use('/assets/', assets)
 
 if (config.secure) {
   const sslPath = path.join(__dirname, '..', 'dist', 'ssl')
