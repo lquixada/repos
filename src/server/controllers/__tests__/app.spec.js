@@ -1,34 +1,32 @@
-import request from 'supertest'
+import supertest from 'supertest'
 
+import server from '../../../server'
 import createMockClient from '../../../__tests__/mocked-client'
 import * as helpers from '../../../shared/helpers/client'
 
 describe('App Controller', () => {
-  let server
+  let request
 
   beforeEach(() => {
-    server = require('../../../server')
-    server = server.default.listen(0)
+    request = supertest(server)
+
+    jest.spyOn(helpers, 'getClient')
+      .mockReturnValue(createMockClient())
   })
 
-  beforeEach(() => {
-    const client = createMockClient()
-    helpers.getClient = () => client
-  })
-
-  afterEach((done) => {
-    server.close((done))
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
   describe('/r/:owner', () => {
     it('is a valid path', (done) => {
-      request(server)
+      request
         .get('/r/owner')
         .expect(200, done)
     })
 
     it('renders the main page', (done) => {
-      request(server)
+      request
         .get('/r/owner')
         .expect((res) => {
           expect(res.text).toContain('Choose a repository on the menu.')
@@ -39,13 +37,13 @@ describe('App Controller', () => {
 
   describe('/r/:owner/:repo', () => {
     it('is a valid path', (done) => {
-      request(server)
+      request
         .get('/r/owner1/react')
         .expect(200, done)
     })
 
     it('renders the repo page', (done) => {
-      request(server)
+      request
         .get('/r/owner1/react')
         .expect((res) => {
           document.writeln(res.text)
@@ -58,13 +56,13 @@ describe('App Controller', () => {
 
   describe('/notfound', () => {
     it('is not a valid path', (done) => {
-      request(server)
+      request
         .get('/notfound')
         .expect(200, done)
     })
 
     it('renders the not found page', (done) => {
-      request(server)
+      request
         .get('/notfound')
         .expect((res) => {
           document.writeln(res.text)

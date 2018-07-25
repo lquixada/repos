@@ -1,12 +1,13 @@
-import request from 'supertest'
+import supertest from 'supertest'
+
+import server from '../../../server'
 import * as helpers from '../../../shared/helpers/redial'
 
 describe('Error Controller', () => {
-  let server
+  let request
 
   beforeEach(() => {
-    server = require('../../../server')
-    server = server.default.listen(0)
+    request = supertest(server)
 
     // Simulate an error on trigger helper.
     jest.spyOn(helpers, 'trigger').mockImplementation(() => {
@@ -14,21 +15,19 @@ describe('Error Controller', () => {
     })
   })
 
-  afterEach((done) => {
+  afterEach(() => {
     jest.clearAllMocks()
-
-    server.close((done))
   })
 
   describe('/', () => {
     it('is a valid path', (done) => {
-      request(server)
+      request
         .get('/')
         .expect(500, done)
     })
 
     it('renders the main page', (done) => {
-      request(server)
+      request
         .get('/')
         .expect((res) => {
           expect(res.text).toContain('Whoops, looks like an error occurred.')
