@@ -1,7 +1,7 @@
 import supertest from 'supertest'
 
 import server from '../../../server'
-import createMockClient from '../../../__tests__/mocked-client'
+import createMockClient from '../../../__tests__/client'
 import * as helpers from '../../../shared/helpers/client'
 
 describe('App Controller', () => {

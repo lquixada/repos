@@ -1,4 +1,4 @@
-import createMockClient from '../../../__tests__/mocked-client'
+import createMockClient from '../../../__tests__/client'
 import {fetchContributors, fetchRepo, fetchCounts} from '../queries'
 
 import * as helpers from '../client'
