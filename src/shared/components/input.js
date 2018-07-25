@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Input = (props) => (
-  <TextInput type='text' {...props} />
+  <TextInput type='text' autoFocus {...props} />
 )
 
 const TextInput = styled.input`

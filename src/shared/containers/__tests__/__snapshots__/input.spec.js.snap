@@ -22,12 +22,14 @@ exports[`<InputContainer /> renders input with owner name 1`] = `
     value="owner1"
   >
     <styled.input
+      autoFocus={true}
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"
       value="owner1"
     >
       <input
+        autoFocus={true}
         className="sc-bdVaJa ddvyVk"
         onChange={[Function]}
         onKeyUp={[Function]}
@@ -61,12 +63,14 @@ exports[`<InputContainer /> renders new owner name when location changes 1`] = `
     value="owner2"
   >
     <styled.input
+      autoFocus={true}
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"
       value="owner2"
     >
       <input
+        autoFocus={true}
         className="sc-bdVaJa ddvyVk"
         onChange={[Function]}
         onKeyUp={[Function]}
