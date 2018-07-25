@@ -42,7 +42,6 @@
     "aws-serverless-express": "3.2.0",
     "body-parser": "1.18.3",
     "compression": "1.7.3",
-    "cors": "2.8.4",
     "cross-fetch": "2.2.2",
     "dotenv": "6.0.0",
     "express": "4.16.3",
