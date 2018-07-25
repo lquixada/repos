@@ -12,35 +12,41 @@ import routes from '../../shared/routes'
 import configureStore from '../../shared/store'
 import {trigger} from '../../shared/helpers'
 
+export const renderApp = (location, store) => {
+  const sheet = new ServerStyleSheet()
+  const state = JSON.stringify(store.getState())
+  const html = ReactDOMServer.renderToString(
+    /* Provides sheet to styled-components */
+    <StyleSheetManager sheet={sheet.instance}>
+      {/* Provides store to containers */}
+      <Provider store={store}>
+        {/* Provides router to ReactRouter components (ex: Link) */}
+        <StaticRouter location={location} context={{}}>
+          {renderRoutes(routes, {version: pkg.version})}
+        </StaticRouter>
+      </Provider>
+    </StyleSheetManager>
+  )
+
+  return template({
+    helmet: Helmet.renderStatic(),
+    styles: sheet.getStyleTags(),
+    state,
+    html
+  })
+}
+
 export default (req, res, next) => {
+  const location = req.url
+  const matchs = matchRoutes(routes, location)
   const store = configureStore()
 
-  const renderApp = () => {
-    const sheet = new ServerStyleSheet()
-    const state = JSON.stringify(store.getState())
-    const html = ReactDOMServer.renderToString(
-      /* Provides sheet to styled-components */
-      <StyleSheetManager sheet={sheet.instance}>
-        {/* Provides store to containers */}
-        <Provider store={store}>
-          {/* Provides router to ReactRouter components (ex: Link) */}
-          <StaticRouter location={req.url} context={{}}>
-            {renderRoutes(routes, {version: pkg.version})}
-          </StaticRouter>
-        </Provider>
-      </StyleSheetManager>
-    )
+  store.runnedSagas
+    .toPromise()
+    .then(() => {
+      res.send(renderApp(location, store))
+    })
+    .catch(next)
 
-    res.send(template({
-      helmet: Helmet.renderStatic(),
-      styles: sheet.getStyleTags(),
-      state,
-      html
-    }))
-  }
-
-  store.runnedSagas.toPromise().then(renderApp).catch(next)
-
-  const matchs = matchRoutes(routes, req.url)
   trigger('fetch', matchs, store.dispatch)
 }
