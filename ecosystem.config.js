@@ -2,6 +2,7 @@ module.exports = {
   apps: [{
     name: 'web',
     interpreter: 'babel-node',
+    interpreter_args: '--extensions ".js,.json,.ts,.tsx"',
     script: './src/server/dev.js',
     watch: ['./src/server']
   }, {

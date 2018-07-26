@@ -18,10 +18,14 @@ module.exports = function (env) {
 
     devtool: env.prod ? 'source-map' : 'cheap-eval-source-map',
 
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json']
+    },
+
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(tsx?)|(js)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: {
