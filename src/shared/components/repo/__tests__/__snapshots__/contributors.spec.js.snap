@@ -136,9 +136,12 @@ exports[`<Contributors /> list contributors 1`] = `
                                 href="/r/user1"
                                 onClick={[Function]}
                               >
-                                <styled.img>
+                                <styled.img
+                                  src="undefined&s=40"
+                                >
                                   <img
                                     className="sc-EHOje dcMEop"
+                                    src="undefined&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>
@@ -185,9 +188,12 @@ exports[`<Contributors /> list contributors 1`] = `
                                 href="/r/user2"
                                 onClick={[Function]}
                               >
-                                <styled.img>
+                                <styled.img
+                                  src="undefined&s=40"
+                                >
                                   <img
                                     className="sc-EHOje dcMEop"
+                                    src="undefined&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>
@@ -234,9 +240,12 @@ exports[`<Contributors /> list contributors 1`] = `
                                 href="/r/user3"
                                 onClick={[Function]}
                               >
-                                <styled.img>
+                                <styled.img
+                                  src="undefined&s=40"
+                                >
                                   <img
                                     className="sc-EHOje dcMEop"
+                                    src="undefined&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>

@@ -21,7 +21,7 @@ const Content = ({data, hasMore, isLoadingMore, onNext}) => (
       {data.map((contributor, i) =>
         <Item key={contributor.get('login') + i}>
           <Link to={`/r/${contributor.get('login')}`}>
-            <Image src={contributor.get('avatar_url')} />
+            <Image src={`${contributor.get('avatar_url')}&s=40`} />
             <Text>{contributor.get('login')}</Text>
           </Link>
         </Item>
