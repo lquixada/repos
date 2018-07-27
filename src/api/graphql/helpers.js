@@ -1,6 +1,15 @@
 import {extractTotal} from '../../shared/helpers'
 
+const cache = new Map()
+
 export const getContributors = async (context, owner, repo, page) => {
+  const key = `contributors.${owner}.${repo}.${page}`
+  const cached = cache.get(key)
+
+  if (cached) {
+    return cached
+  }
+
   let nextPage = null
   const {data, headers} = await context.api.repos.getContributors({
     owner,
@@ -17,10 +26,14 @@ export const getContributors = async (context, owner, repo, page) => {
     nextPage = url.match(/[?&]page=(\d+)/)[1]
   }
 
-  return {
+  const result = {
     nextPage,
     data
   }
+
+  cache.set(key, result)
+
+  return result
 }
 
 export const getContributorsCount = async (api, owner, repo) => {
