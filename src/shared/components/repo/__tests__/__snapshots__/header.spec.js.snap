@@ -20,11 +20,11 @@ exports[`<Header /> matches the snapshot 1`] = `
       </Subtitle>
       <styled.a
         href="http://repos/"
-        target="_blank"
       >
         <a
           className="sc-htpNat faTJou"
           href="http://repos/"
+          rel="noopener"
           target="_blank"
         >
           <MarkGithubIcon>

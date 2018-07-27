@@ -10,7 +10,7 @@ export const Header = ({title, url}) => (
   <Wrapper>
     <Subtitle>{title}</Subtitle>
 
-    <Link href={url} target='_blank'>
+    <Link href={url}>
       <MarkIcon />
       <span>Github</span>
     </Link>
@@ -32,7 +32,10 @@ const Wrapper = styled.header`
   border-bottom: 1px solid #ddd;
 `
 
-const Link = styled.a`
+const Link = styled.a.attrs({
+  rel: 'noopener',
+  target: '_blank'
+})`
   ${flex.display()}
   ${flex.justify()}
   ${flex.middle()}

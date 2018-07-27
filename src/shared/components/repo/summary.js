@@ -74,7 +74,8 @@ const BaseLink = `
   }
 `
 
-const Link = styled('a').attrs({
+const Link = styled.a.attrs({
+  rel: 'noopener',
   target: '_blank'
 })`
   ${BaseLink}

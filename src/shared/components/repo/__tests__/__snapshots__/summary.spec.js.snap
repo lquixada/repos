@@ -30,6 +30,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
             <a
               className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/stargazers"
+              rel="noopener"
               target="_blank"
             >
               <StarIcon>
@@ -62,6 +63,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
             <a
               className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/watchers"
+              rel="noopener"
               target="_blank"
             >
               <EyeIcon>
@@ -94,6 +96,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
             <a
               className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/network"
+              rel="noopener"
               target="_blank"
             >
               <RepoForkedIcon>
@@ -126,6 +129,7 @@ exports[`<Summary /> matches the snapshot 1`] = `
             <a
               className="sc-htpNat iIQOQQ"
               href="https://github.com/owner1/Github Repos/issues"
+              rel="noopener"
               target="_blank"
             >
               <IssueOpenedIcon>

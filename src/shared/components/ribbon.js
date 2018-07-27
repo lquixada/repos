@@ -3,10 +3,10 @@ import GitHubForkRibbon from 'react-github-fork-ribbon'
 import config from '../config'
 
 export const Ribbon = () => (
-  <GitHubForkRibbon position='right'
+  <GitHubForkRibbon
+    position='right'
     color='orange'
-    href={config.appUrl}
-    target='_blank' >
+    href={config.appUrl}>
       Fork me on GitHub
   </GitHubForkRibbon>
 )
