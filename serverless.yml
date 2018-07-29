@@ -45,7 +45,8 @@ functions:
     - http:
         path: /graphql
         method: get
-        cors: true
+    environment:
+      GITHUB_ACCESS_TOKEN: ${file(./.env.js):env.GITHUB_ACCESS_TOKEN}
 
   server:
     handler: dist/server/lambda.handler
