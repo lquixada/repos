@@ -44,6 +44,7 @@ export default (req, res, next) => {
   store.runnedSagas
     .toPromise()
     .then(() => {
+      res.set('Cache-Control', 'max-age=3600, s-maxage=86400')
       res.send(renderApp(location, store))
     })
     .catch(next)
