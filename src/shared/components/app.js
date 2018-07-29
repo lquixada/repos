@@ -3,6 +3,7 @@ import {Helmet} from 'react-helmet'
 import {injectGlobal} from 'styled-components'
 import {renderRoutes} from 'react-router-config'
 
+import config from '../../server/config'
 import Input from '../containers/input'
 import {Title} from './title'
 import {Ribbon} from './ribbon'
@@ -27,11 +28,9 @@ export class App extends React.Component {
           <meta http-equiv='x-ua-compatible' content='ie=edge' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta name='version' content={this.props.version} />
-          <link rel='dns-prefetch' href='https://static.lquixada.com' />
-          <link rel='dns-prefetch' href='https://avatars0.githubusercontent.com' />
-          <link rel='dns-prefetch' href='https://avatars1.githubusercontent.com' />
-          <link rel='dns-prefetch' href='https://avatars2.githubusercontent.com' />
-          <link rel='dns-prefetch' href='https://avatars3.githubusercontent.com' />
+          {config.dns.map(domain => (
+            <link key={domain} rel='dns-prefetch' href={domain} />
+          ))}
 
           {/* Disabled favicon for now, it is hitting the appController. */}
           <link rel='icon' href='data:,' />
