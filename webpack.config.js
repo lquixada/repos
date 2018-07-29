@@ -16,6 +16,8 @@ module.exports = function (env) {
       app: env.prod ? ['./src/client'] : ['webpack-hot-middleware/client', './src/client']
     },
 
+    devtool: env.prod ? 'source-map' : 'cheap-eval-source-map',
+
     module: {
       rules: [
         {
