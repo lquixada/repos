@@ -45,6 +45,7 @@ export default (req, res, next) => {
     .toPromise()
     .then(() => {
       res.set('Cache-Control', 'max-age=3600, s-maxage=86400')
+      res.set('X-Date', new Date())
       res.send(renderApp(location, store))
     })
     .catch(next)
