@@ -2,7 +2,7 @@
 import config from '../shared/config'
 
 const graphql = process.env.NODE_ENV === 'production'
-  ? 'https://repos.lquixada.com/graphql'
+  ? 'https://repos-api.lquixada.com/graphql'
   : 'http://localhost:3001/graphql'
 
 export default Object.assign({ graphql }, config)
