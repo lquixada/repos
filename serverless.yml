@@ -8,7 +8,16 @@ custom:
         prefix: repos
         files:
         - source: dist/public
-          globs: '**/*'
+          globs:
+          - '**/*.js'
+          - '**/*.map'
+          headers:
+            CacheControl: max-age=31104000, s-max-age=31104000 # 1 year
+        - source: dist/public
+          globs:
+          - '**/*.gif'
+          - '**/*.jpg'
+          - '**/*.png'
 
 provider:
   name: aws
