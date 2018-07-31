@@ -6,7 +6,6 @@
   "author": "Leonardo Quixada <lquixada@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged",
     "prelambda:deploy": "npm run -s build",
     "preprod": "npm run -s build",
     "build": "npm run -s build:babel && npm run -s build:webpack",
@@ -33,6 +32,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
   },
