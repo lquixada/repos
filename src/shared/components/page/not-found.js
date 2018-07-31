@@ -1,10 +1,15 @@
 import React from 'react'
+import {Helmet} from 'react-helmet'
 import styled from 'styled-components'
 
 import {Content, Section, SectionContainer} from '../grid'
 
 export const NotFoundPage = () => (
   <Section>
+    <Helmet>
+      <title>Not Found - Github Repos</title>
+    </Helmet>
+
     <SectionContainer>
       <Content>
         <P>

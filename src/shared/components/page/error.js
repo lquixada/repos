@@ -1,11 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {Helmet} from 'react-helmet'
 import styled from 'styled-components'
 
 import {Content, Section, SectionContainer} from '../grid'
 
 export const ErrorPage = () => (
   <Section>
+    <Helmet>
+      <title>Error - Github Repos</title>
+    </Helmet>
+
     <SectionContainer>
       <Content>
         <P>
@@ -15,10 +19,6 @@ export const ErrorPage = () => (
     </SectionContainer>
   </Section>
 )
-
-ErrorPage.propTypes = {
-  message: PropTypes.string
-}
 
 const P = styled.p`
   margin-bottom: 1rem;

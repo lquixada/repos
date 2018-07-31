@@ -2,6 +2,14 @@
 
 exports[`<AboutPage /> matches the snapshot 1`] = `
 <styled.section>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      About - Github Repos
+    </title>
+  </HelmetWrapper>
   <styled.div>
     <styled.article>
       <Subtitle>

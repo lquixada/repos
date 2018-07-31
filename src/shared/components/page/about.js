@@ -1,4 +1,5 @@
 import React from 'react'
+import {Helmet} from 'react-helmet'
 import styled from 'styled-components'
 
 import {Subtitle} from '../subtitle'
@@ -6,6 +7,10 @@ import {Content, Section, SectionContainer, P} from '../grid'
 
 export const AboutPage = () => (
   <Section>
+    <Helmet>
+      <title>About - Github Repos</title>
+    </Helmet>
+
     <SectionContainer>
       <Content>
         <Subtitle>About me</Subtitle>

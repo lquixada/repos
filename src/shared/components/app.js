@@ -28,6 +28,7 @@ export class App extends React.Component {
           <meta http-equiv='x-ua-compatible' content='ie=edge' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <meta name='version' content={this.props.version} />
+          <meta name='description' content='An explorer app for projects in Github.' />
           {config.dns.map(domain => (
             <link key={domain} rel='dns-prefetch' href={domain} />
           ))}
