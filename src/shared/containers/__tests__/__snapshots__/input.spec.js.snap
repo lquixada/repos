@@ -24,7 +24,7 @@ exports[`<InputContainer /> renders input with owner name 1`] = `
     <input
       aria-label="Repository input"
       autoFocus={true}
-      className="sc-bdVaJa ddvyVk"
+      className="sc-bdVaJa cdFJtR"
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"
@@ -58,7 +58,7 @@ exports[`<InputContainer /> renders new owner name when location changes 1`] = `
     <input
       aria-label="Repository input"
       autoFocus={true}
-      className="sc-bdVaJa ddvyVk"
+      className="sc-bdVaJa cdFJtR"
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"

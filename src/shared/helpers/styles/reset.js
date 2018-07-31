@@ -1,3 +1,5 @@
+import {phones} from './breakpoints'
+
 export const reset = () => `
   /* Reset */
   @import url('https://fonts.googleapis.com/css?family=Lato:300');
@@ -12,6 +14,10 @@ export const reset = () => `
     color: #fff;
     font-size: 10px;
     font-family: Helvetica, Arial, sans-serif;
+
+    @media (${phones}) {
+      font-size: 14px;
+    }
   }
 
   html,

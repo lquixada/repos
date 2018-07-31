@@ -31,14 +31,14 @@ export const Container = styled.div`
   ${flex.display()}
   ${flex.justify()}
   ${flex.left()}
-  width: 78rem;
+  max-width: 78rem;
 `
 
 export const Header = styled.header`
   ${flex.display()}
   ${flex.left()}
   ${flex('none')}
-  padding: 1.5rem 2rem;
+  padding: 15px 20px;
   background-color: #3c4146;
 `
 

@@ -17,10 +17,10 @@ const Wrapper = styled.h1`
 
   &::after { 
     content: "/";
-    margin: 0 .5rem;
+    margin: 0 5px;
     color: #b9b9b9;
     font-family: 'Lato', Helvetica, sans-serif;
-    font-size: 2.5rem;
+    font-size: 25px;
     font-weight: normal;
     vertical-align: middle;
   }
@@ -30,8 +30,7 @@ const NavLink = styled(Link).attrs({
   'aria-label': 'Homepage'
 })`
   display: inline-block;
-  height: 3rem;
-  font-size: 1rem;
+  height: 30px;
   vertical-align: middle; 
   text-decoration: none;
 `
@@ -40,6 +39,6 @@ const Image = styled.img.attrs({
   alt: 'Github Repos logo'
 })`
   display: inline-block;
-  width: 15.8rem;
-  height: 3rem;
+  width: 158px;
+  height: 100%;
 `
