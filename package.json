@@ -31,6 +31,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
   "standard": {
     "env": "jest"
   },
@@ -89,6 +94,7 @@
     "enzyme-to-json": "3.3.4",
     "flux-standard-action": "2.0.3",
     "graphql-tools": "3.0.5",
+    "husky": "1.0.0-rc.13",
     "jest": "23.4.1",
     "lint-staged": "7.2.0",
     "nock": "9.4.3",
