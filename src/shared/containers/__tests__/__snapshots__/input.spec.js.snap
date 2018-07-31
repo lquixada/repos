@@ -16,28 +16,21 @@ exports[`<InputContainer /> renders input with owner name 1`] = `
     }
   }
 >
-  <Input
+  <styled.input
     onChange={[Function]}
     onKeyUp={[Function]}
     value="owner1"
   >
-    <styled.input
+    <input
+      aria-label="Repository input"
       autoFocus={true}
+      className="sc-bdVaJa ddvyVk"
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"
       value="owner1"
-    >
-      <input
-        autoFocus={true}
-        className="sc-bdVaJa ddvyVk"
-        onChange={[Function]}
-        onKeyUp={[Function]}
-        type="text"
-        value="owner1"
-      />
-    </styled.input>
-  </Input>
+    />
+  </styled.input>
 </InputContainer>
 `;
 
@@ -57,27 +50,20 @@ exports[`<InputContainer /> renders new owner name when location changes 1`] = `
     }
   }
 >
-  <Input
+  <styled.input
     onChange={[Function]}
     onKeyUp={[Function]}
     value="owner2"
   >
-    <styled.input
+    <input
+      aria-label="Repository input"
       autoFocus={true}
+      className="sc-bdVaJa ddvyVk"
       onChange={[Function]}
       onKeyUp={[Function]}
       type="text"
       value="owner2"
-    >
-      <input
-        autoFocus={true}
-        className="sc-bdVaJa ddvyVk"
-        onChange={[Function]}
-        onKeyUp={[Function]}
-        type="text"
-        value="owner2"
-      />
-    </styled.input>
-  </Input>
+    />
+  </styled.input>
 </InputContainer>
 `;

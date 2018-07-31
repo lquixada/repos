@@ -35,7 +35,7 @@ const Wrapper = styled(NavLink)`
 
   &:hover {
     text-decoration: none;
-    color: #327fc7;
+    color: #2d72b3;
     background-color: #fdfdfd;
   }
 
@@ -55,8 +55,8 @@ const Text = styled.span`
 `
 
 const Help = styled.span`
-  color: #327fc7;
+  color: #2d72b3;
   font-size: 1.1rem;
-  border-bottom: 1px dashed #327fc7;
+  border-bottom: 1px dashed #2d72b3;
   cursor: help;
 `

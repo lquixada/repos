@@ -4,7 +4,7 @@ import config from '../config'
 export default ({helmet, styles, html, state}) => (`
   <!DOCTYPE html>
 
-  <html>
+  <html lang="en">
     <head>
       ${helmet.meta.toString()}
       ${helmet.title.toString()}

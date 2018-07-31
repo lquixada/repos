@@ -26,7 +26,9 @@ const Wrapper = styled.h1`
   }
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled(Link).attrs({
+  'aria-label': 'Homepage'
+})`
   display: inline-block;
   height: 3rem;
   font-size: 1rem;
@@ -34,7 +36,9 @@ const NavLink = styled(Link)`
   text-decoration: none;
 `
 
-const Image = styled.img`
+const Image = styled.img.attrs({
+  alt: 'Github Repos logo'
+})`
   display: inline-block;
   width: 15.8rem;
   height: 3rem;

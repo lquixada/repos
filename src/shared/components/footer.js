@@ -18,7 +18,6 @@ const Wrapper = styled.footer`
   margin: 1rem 0;
   padding: 0 1rem;
   color: #767676;
-  opacity: .9;
   font-size: 1rem;
   line-height: 1.5;
 `

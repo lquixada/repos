@@ -1,11 +1,10 @@
-import React from 'react'
 import styled from 'styled-components'
 
-export const Input = (props) => (
-  <TextInput type='text' autoFocus {...props} />
-)
-
-const TextInput = styled.input`
+export const Input = styled.input.attrs({
+  type: 'text',
+  autoFocus: true,
+  'aria-label': 'Repository input'
+})`
   background-color: #33373c;
   border: .1rem solid;
   border-radius: .5rem;

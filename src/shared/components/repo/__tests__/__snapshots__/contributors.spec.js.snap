@@ -137,9 +137,11 @@ exports[`<Contributors /> list contributors 1`] = `
                                 onClick={[Function]}
                               >
                                 <styled.img
+                                  alt="User user1"
                                   src="undefined&s=40"
                                 >
                                   <img
+                                    alt="User user1"
                                     className="sc-EHOje dcMEop"
                                     src="undefined&s=40"
                                   />
@@ -189,9 +191,11 @@ exports[`<Contributors /> list contributors 1`] = `
                                 onClick={[Function]}
                               >
                                 <styled.img
+                                  alt="User user2"
                                   src="undefined&s=40"
                                 >
                                   <img
+                                    alt="User user2"
                                     className="sc-EHOje dcMEop"
                                     src="undefined&s=40"
                                   />
@@ -241,9 +245,11 @@ exports[`<Contributors /> list contributors 1`] = `
                                 onClick={[Function]}
                               >
                                 <styled.img
+                                  alt="User user3"
                                   src="undefined&s=40"
                                 >
                                   <img
+                                    alt="User user3"
                                     className="sc-EHOje dcMEop"
                                     src="undefined&s=40"
                                   />
