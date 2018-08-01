@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import RepoIcon from 'react-octicons/lib/repo'
@@ -17,12 +16,6 @@ export const Link = ({owner, repoName, contributorsCount, isLoading}) => (
     {isLoading ? <img src={imgUrl('loading.gif')} /> : ''}
   </Wrapper>
 )
-
-Link.propTypes = {
-  repoName: PropTypes.string,
-  contributorsCount: PropTypes.number,
-  isLoading: PropTypes.bool
-}
 
 const Wrapper = styled(NavLink)`
   ${flex.display()}
