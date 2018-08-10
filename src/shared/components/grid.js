@@ -31,7 +31,7 @@ export const Container = styled.div`
   ${flex.display()}
   ${flex.justify()}
   ${flex.left()}
-  max-width: 78rem;
+  width: 78rem;
 `
 
 export const Header = styled.header`
