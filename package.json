@@ -8,6 +8,7 @@
   "scripts": {
     "prelambda:deploy": "npm run -s build",
     "preprod": "npm run -s build",
+    "preversion": "npm test",
     "build": "npm run -s build:babel && npm run -s build:webpack",
     "build:analyze": "./tasks/analyze",
     "build:babel": "babel -D src -d dist",
@@ -32,8 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-commit": "lint-staged"
     }
   },
   "standard": {
