@@ -57,7 +57,7 @@
     "pm2": "3.0.3",
     "react": "16.4.2",
     "react-dom": "16.4.2",
-    "react-github-fork-ribbon": "0.5.1",
+    "react-github-fork-ribbon": "0.6.0",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.3.4",
     "react-octicons": "0.2.0",

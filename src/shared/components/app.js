@@ -8,7 +8,7 @@ import Input from '../containers/input'
 import {Title} from './title'
 import {Ribbon} from './ribbon'
 import {Main, Header, HeaderContainer} from './grid'
-import {nprogress, reset, scrollbar, octicons, ribbon} from '../helpers/styles'
+import {nprogress, reset, scrollbar, octicons} from '../helpers/styles'
 
 export class App extends React.Component {
   componentWillMount () {
@@ -57,7 +57,6 @@ export class App extends React.Component {
 const resetStyles = () => injectGlobal`
   ${reset()}
   ${octicons()}
-  ${ribbon()}
   ${nprogress()}
   ${scrollbar()}
 `
