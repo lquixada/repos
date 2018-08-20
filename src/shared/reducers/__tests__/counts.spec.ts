@@ -1,4 +1,4 @@
-import {fetchCounts, fetchCountsSucceeded, fetchCountsFailed} from '../../actions'
+import {fetchCounts, fetchCountsFailed, fetchCountsSucceeded} from '../../actions'
 import reducer from '../counts'
 
 describe('Reducers (Counts)', () => {

@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux'
 
 import contributors from './contributors'
-import repo from './repo'
 import counts from './counts'
+import repo from './repo'
 
 export default combineReducers({
   contributors,
+  counts,
   repo,
-  counts
 })

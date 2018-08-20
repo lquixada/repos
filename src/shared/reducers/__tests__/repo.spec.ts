@@ -1,4 +1,4 @@
-import {fetchRepo, fetchRepoSucceeded, fetchRepoFailed} from '../../actions'
+import {fetchRepo, fetchRepoFailed, fetchRepoSucceeded} from '../../actions'
 import reducer from '../repo'
 
 describe('Reducers (Repo)', () => {
@@ -26,7 +26,7 @@ describe('Reducers (Repo)', () => {
   it('sets the repo state', () => {
     const data = {
       id: 1,
-      name: repoName
+      name: repoName,
     }
     const action = fetchRepoSucceeded({owner, repoName, data})
     const state = reducer(undefined, action)

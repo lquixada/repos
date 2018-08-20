@@ -1,8 +1,8 @@
 /* eslint-disable complexity */
-import {Map, List, fromJS} from 'immutable'
+import {fromJS, List, Map} from 'immutable'
 
 import {
-  CONTRIBUTORS_SUCCEEDED, CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED
+  CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED, CONTRIBUTORS_SUCCEEDED,
 } from '../actions'
 
 const data = (state = List(), action) => {
@@ -10,18 +10,18 @@ const data = (state = List(), action) => {
   return state.concat(fromJS(payload.data.data))
 }
 
-export default function contributors (state = Map(), action = {}) {
-  const {payload, type} = action
+export default function contributors(state = Map(), action = {}) {
+  const {payload, type}: any = action
 
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
       return state.mergeDeep({
         [payload.owner]: {
           [payload.repoName]: {
+            error: null,
             isLoading: true,
-            error: null
-          }
-        }
+          },
+        },
       })
 
     case CONTRIBUTORS_SUCCEEDED:
@@ -29,21 +29,21 @@ export default function contributors (state = Map(), action = {}) {
         [payload.owner]: {
           [payload.repoName]: {
             data: data(state.getIn([payload.owner, payload.repoName, 'data']), action),
-            nextPage: payload.data.nextPage,
+            error: null,
             isLoading: false,
-            error: null
-          }
-        }
+            nextPage: payload.data.nextPage,
+          },
+        },
       })
 
     case CONTRIBUTORS_FAILED:
       return state.mergeDeep({
         [payload.owner]: {
           [payload.repoName]: {
+            error: payload.error,
             isLoading: false,
-            error: payload.error
-          }
-        }
+          },
+        },
       })
 
     default:

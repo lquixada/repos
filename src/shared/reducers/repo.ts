@@ -1,19 +1,19 @@
 import {Map} from 'immutable'
 
-import {REPO_SUCCEEDED, REPO_FAILED, REPO_REQUESTED} from '../actions'
+import {REPO_FAILED, REPO_REQUESTED, REPO_SUCCEEDED} from '../actions'
 
-export default function repo (state = Map(), action = {}) {
-  const {payload, type} = action
+export default function repo(state = Map(), action = {}) {
+  const {payload, type}: any = action
 
   switch (type) {
     case REPO_REQUESTED:
       return state.mergeDeep({
         [payload.owner]: {
           [payload.repoName]: {
+            error: null,
             isLoading: true,
-            error: null
-          }
-        }
+          },
+        },
       })
 
     case REPO_SUCCEEDED:
@@ -21,20 +21,20 @@ export default function repo (state = Map(), action = {}) {
         [payload.owner]: {
           [payload.repoName]: {
             data: payload.data,
+            error: null,
             isLoading: false,
-            error: null
-          }
-        }
+          },
+        },
       })
 
     case REPO_FAILED:
       return state.mergeDeep({
         [payload.owner]: {
           [payload.repoName]: {
+            error: payload.error,
             isLoading: false,
-            error: payload.error
-          }
-        }
+          },
+        },
       })
 
     default:

@@ -1,6 +1,6 @@
 import {fromJS} from 'immutable'
 import {
-  fetchContributors, fetchContributorsSucceeded, fetchContributorsFailed
+  fetchContributors, fetchContributorsFailed, fetchContributorsSucceeded,
 } from '../../actions'
 import reducer from '../contributors'
 
@@ -14,7 +14,7 @@ describe('Reducers (Contributors)', () => {
     repoName = 'repo1'
     contributors = [
       {id: 1, login: 'user1'},
-      {id: 2, login: 'user2'}
+      {id: 2, login: 'user2'},
     ]
   })
 
@@ -33,17 +33,17 @@ describe('Reducers (Contributors)', () => {
 
   it('sets the repo state', () => {
     const data = {
-      nextPage: 2,
       data: [
-        contributors[0]
-      ]
+        contributors[0],
+      ],
+      nextPage: 2,
     }
     const action = fetchContributorsSucceeded({owner, repoName, data})
 
     const prevState = fromJS({
       [owner]: {
-        [repoName]: {}
-      }
+        [repoName]: {},
+      },
     })
     const state = reducer(prevState, action)
 
@@ -57,8 +57,8 @@ describe('Reducers (Contributors)', () => {
     const action = fetchContributorsFailed(owner, repoName, 'some-error')
     const prevState = fromJS({
       [owner]: {
-        [repoName]: {}
-      }
+        [repoName]: {},
+      },
     })
     const state = reducer(prevState, action)
 
