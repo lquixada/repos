@@ -1,6 +1,6 @@
-import {put, call, take, fork} from 'redux-saga/effects'
+import {call, fork, put, take} from 'redux-saga/effects'
+import {COUNTS_REQUESTED, fetchCountsFailed, fetchCountsSucceeded} from '../../actions'
 import {fetchCounts} from '../../helpers'
-import {COUNTS_REQUESTED, fetchCountsSucceeded, fetchCountsFailed} from '../../actions'
 import watchCounts, {loadCounts} from '../counts'
 
 describe('Sagas (Counts)', () => {
@@ -35,7 +35,7 @@ describe('Sagas (Counts)', () => {
       const gen = loadCounts('owner1')
 
       expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-      expect(gen.throw(error).value).toEqual(put(fetchCountsFailed(error.stack)))
+      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchCountsFailed(owner, error.stack)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
   })

@@ -1,11 +1,11 @@
-import {put, call, take, fork, select} from 'redux-saga/effects'
-import {fetchContributors} from '../../helpers'
+import {call, fork, put, select, take} from 'redux-saga/effects'
 import {
   CONTRIBUTORS_REQUESTED,
-  fetchContributorsSucceeded, fetchContributorsFailed
+  fetchContributorsFailed, fetchContributorsSucceeded,
 } from '../../actions'
-import watchContributors, {loadContributors} from '../contributors'
+import {fetchContributors} from '../../helpers'
 import {getNextPage} from '../../selectors'
+import watchContributors, {loadContributors} from '../contributors'
 
 describe('Sagas (Contributors)', () => {
   let data
@@ -43,7 +43,11 @@ describe('Sagas (Contributors)', () => {
 
         expect(gen.next().value).toEqual(select(getNextPage, owner, repoName))
         expect(gen.next(nextPage).value).toEqual(call(fetchContributors, {owner, repoName, page: nextPage}))
-        expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded({owner, repoName, data: data.contributors})))
+        expect(gen.next(data).value).toEqual(put(fetchContributorsSucceeded({
+          data: data.contributors,
+          owner,
+          repoName,
+        })))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
 
@@ -52,7 +56,7 @@ describe('Sagas (Contributors)', () => {
 
         expect(gen.next().value).toEqual(select(getNextPage, owner, repoName))
         expect(gen.next(nextPage).value).toEqual(call(fetchContributors, {owner, repoName, page: nextPage}))
-        expect(gen.throw(error).value).toEqual(put(fetchContributorsFailed(repoName, error.stack)))
+        expect(gen.throw && gen.throw(error).value).toEqual(put(fetchContributorsFailed(owner, repoName, error.stack)))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
     })

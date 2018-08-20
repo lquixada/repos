@@ -1,16 +1,16 @@
-import {call, put, take, fork} from 'redux-saga/effects'
+import {call, fork, put, take} from 'redux-saga/effects'
 
 import {
-  REPO_REQUESTED,
-  fetchRepoSucceeded,
+  fetchContributorsSucceeded,
   fetchRepoFailed,
-  fetchContributorsSucceeded
+  fetchRepoSucceeded,
+  REPO_REQUESTED,
 } from '../actions'
 import {fetchRepo} from '../helpers'
 
 /* Loaders */
 
-export function * loadRepo ({owner, repoName}) {
+export function * loadRepo({owner, repoName}) {
   try {
     const data = yield call(fetchRepo, {owner, repoName})
 
@@ -24,7 +24,7 @@ export function * loadRepo ({owner, repoName}) {
 
 /* Watchers */
 
-export default function * watchRepo () {
+export default function * watchRepo() {
   while (true) {
     const {payload} = yield take(REPO_REQUESTED)
 

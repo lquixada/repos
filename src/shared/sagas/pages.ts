@@ -1,15 +1,15 @@
-import {take, fork, put, call} from 'redux-saga/effects'
+import {call, fork, put, take} from 'redux-saga/effects'
 
-import {fetchAll, fetchCounts} from '../helpers'
 import {
-  PAGE_REQUESTED,
-  fetchRepoSucceeded,
-  fetchCountsSucceeded,
   fetchContributorsSucceeded,
-  fetchPageSucceeded, fetchPageFailed
+  fetchCountsSucceeded,
+  fetchPageFailed,
+  fetchPageSucceeded,
+  fetchRepoSucceeded, PAGE_REQUESTED,
 } from '../actions'
+import {fetchAll, fetchCounts} from '../helpers'
 
-export function * loadRepoPage ({name, owner, repoName}) {
+export function * loadRepoPage({name, owner, repoName}: {name: string, owner: string, repoName?: string}) {
   try {
     let data
 
@@ -30,7 +30,7 @@ export function * loadRepoPage ({name, owner, repoName}) {
   }
 }
 
-export default function * watchPages () {
+export default function * watchPages() {
   while (true) {
     const {payload} = yield take(PAGE_REQUESTED)
 

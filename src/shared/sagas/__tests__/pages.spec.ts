@@ -1,15 +1,15 @@
-import {call, take, fork, put} from 'redux-saga/effects'
+import {call, fork, put, take} from 'redux-saga/effects'
 
 import {
-  PAGE_REQUESTED,
   fetchContributorsSucceeded,
   fetchCountsSucceeded,
+  fetchPageFailed,
   fetchPageSucceeded,
   fetchRepoSucceeded,
-  fetchPageFailed
+  PAGE_REQUESTED,
 } from '../../actions'
-import watchPages, {loadRepoPage} from '../pages'
 import {fetchAll, fetchCounts} from '../../helpers'
+import watchPages, {loadRepoPage} from '../pages'
 
 describe('Sagas (Pages)', () => {
   let owner
@@ -24,7 +24,7 @@ describe('Sagas (Pages)', () => {
       const gen = watchPages()
 
       expect(gen.next().value).toEqual(take(PAGE_REQUESTED))
-      expect(gen.next(action).value).toEqual(fork(loadRepoPage, action.payload))
+      expect(gen.next(action).value).toEqual(fork(loadRepoPage, {name: 'repo', owner}))
     })
   })
 
@@ -39,10 +39,10 @@ describe('Sagas (Pages)', () => {
 
     it('loads repo page with repo', () => {
       const data = {
+        counts: {},
         repo: {
-          contributors: {}
+          contributors: {},
         },
-        counts: {}
       }
       const gen = loadRepoPage({name, owner, repoName})
 
@@ -56,27 +56,26 @@ describe('Sagas (Pages)', () => {
 
     it('loads repo page without repo', () => {
       const data = {
-        repo: {},
         contributors: {},
-        counts: {}
+        counts: {},
+        repo: {},
       }
       const gen = loadRepoPage({name, owner})
 
       expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-
       expect(gen.next(data).value).toEqual(put(fetchCountsSucceeded({owner, data: data.counts})))
       expect(gen.next().value).toEqual(put(fetchPageSucceeded({name})))
     })
 
     it('handles errors', () => {
       const error = {
-        stack: 'some-error'
+        stack: 'some-error',
       }
 
       const gen = loadRepoPage({name, owner, repoName})
 
-      expect(gen.next().value).toEqual(call(fetchAll, { owner, repoName }))
-      expect(gen.throw(error).value).toEqual(put(fetchPageFailed(name, error.stack)))
+      expect(gen.next().value).toEqual(call(fetchAll, {owner, repoName}))
+      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchPageFailed(name, error.stack)))
     })
   })
 })
