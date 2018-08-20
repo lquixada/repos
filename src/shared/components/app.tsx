@@ -11,7 +11,7 @@ import {Ribbon} from './ribbon'
 import {Title} from './title'
 
 interface IProps {
-  version: string
+  version: string | undefined
   route: { routes: object[] }
 }
 

@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
+import {Helmet} from 'react-helmet'
+import {Provider} from 'react-redux'
 import {matchRoutes, renderRoutes} from 'react-router-config'
 import {StaticRouter} from 'react-router-dom'
-import {Provider} from 'react-redux'
-import {Helmet} from 'react-helmet'
+import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
 
 import pkg from '../../../package.json'
-import template from '../templates/app'
+import {trigger} from '../../shared/helpers'
 import routes from '../../shared/routes'
 import configureStore from '../../shared/store'
-import {trigger} from '../../shared/helpers'
+import template from '../templates/app'
 
 export const renderApp = (location, store) => {
   const sheet = new ServerStyleSheet()
@@ -25,14 +25,14 @@ export const renderApp = (location, store) => {
           {renderRoutes(routes, {version: pkg.version})}
         </StaticRouter>
       </Provider>
-    </StyleSheetManager>
+    </StyleSheetManager>,
   )
 
   return template({
     helmet: Helmet.renderStatic(),
-    styles: sheet.getStyleTags(),
+    html,
     state,
-    html
+    styles: sheet.getStyleTags(),
   })
 }
 

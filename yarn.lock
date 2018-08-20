@@ -900,6 +900,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
+"@types/webpack-env@1.13.6":
+  version "1.13.6"
+  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.6.tgz#128d1685a7c34d31ed17010fc87d6a12c1de6976"
+
 "@types/zen-observable@^0.5.3":
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.5.4.tgz#b863a4191e525206819e008097ebf0fb2e3a1cdc"

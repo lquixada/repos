@@ -92,6 +92,7 @@
     "@types/react-helmet": "5.0.7",
     "@types/react-router-config": "1.0.8",
     "@types/react-router-dom": "4.3.0",
+    "@types/webpack-env": "1.13.6",
     "apollo-cache-inmemory": "1.2.8",
     "apollo-client": "2.4.0",
     "apollo-link-schema": "1.1.0",
