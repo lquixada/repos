@@ -29,7 +29,7 @@ export default {
 
       const {data} = await getRepos(context.api, owner)
       const repos = data.map((repo) => repo.name)
-      const counts = await Promise.all(repos.map(repo => getContributorsCount(context.api, owner, repo)))
+      const counts = await Promise.all(repos.map((repo) => getContributorsCount(context.api, owner, repo)))
 
       const result = repos.map((name, i) => ({name, count: counts[i]}))
       cache.set(key, result)
@@ -38,12 +38,12 @@ export default {
 
     contributors: async (_, args, context) => {
       return getContributors(context, args.owner, args.repo, args.page)
-    }
+    },
   },
 
   Repo: {
     contributors: async (repo, args, context) => {
       return getContributors(context, repo.owner.login, repo.name, args.page)
-    }
-  }
+    },
+  },
 }

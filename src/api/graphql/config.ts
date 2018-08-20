@@ -1,17 +1,17 @@
 import gitHubApi from '@octokit/rest'
 
-import typeDefs from './typedefs'
 import resolvers from './resolvers'
+import typeDefs from './typedefs'
 
-const api = gitHubApi()
+const api = (gitHubApi as any)()
 
 api.authenticate({
+  token: process.env.GITHUB_ACCESS_TOKEN,
   type: 'token',
-  token: process.env.GITHUB_ACCESS_TOKEN
 })
 
 export default {
-  typeDefs,
+  context: () => ({ api }),
   resolvers,
-  context: () => ({ api })
+  typeDefs,
 }

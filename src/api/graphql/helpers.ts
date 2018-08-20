@@ -10,25 +10,29 @@ export const getContributors = async (context, owner, repo, page) => {
     return cached
   }
 
-  let nextPage = null
+  let nextPage: any = null
   const {data, headers} = await context.api.repos.getContributors({
     owner,
-    repo,
+    page: page || 1,
     per_page: 40,
-    page: page || 1
+    repo,
   })
 
   const regex = /<([^>]*)>;\s*rel="next"/
   const match = regex.exec(headers.link)
 
   if (match) {
-    let url = match[1]
-    nextPage = url.match(/[?&]page=(\d+)/)[1]
+    const url = match[1]
+    const pageMatch = url.match(/[?&]page=(\d+)/)
+
+    if (pageMatch) {
+      nextPage = pageMatch[1]
+    }
   }
 
   const result = {
+    data,
     nextPage,
-    data
   }
 
   cache.set(key, result)
@@ -39,9 +43,9 @@ export const getContributors = async (context, owner, repo, page) => {
 export const getContributorsCount = async (api, owner, repo) => {
   const {headers} = await api.repos.getContributors({
     owner,
-    repo,
+    page: 1,
     per_page: 1,
-    page: 1
+    repo,
   })
 
   return extractTotal(headers.link)
@@ -52,12 +56,12 @@ export const getRepos = async (api, owner) => {
 
   if (data.type === 'User') {
     return api.repos.getForUser({
-      username: owner
+      username: owner,
     })
   }
 
   return api.repos.getForOrg({
     org: owner,
-    type: 'public'
+    type: 'public',
   })
 }

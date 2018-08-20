@@ -1,7 +1,7 @@
 import {GraphQLServer} from 'graphql-yoga'
 
-import logger from './logger'
 import config from './graphql/config'
+import logger from './logger'
 
 const server = new GraphQLServer(config)
 

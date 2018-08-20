@@ -9,7 +9,7 @@ module.exports = {
     name: 'api',
     interpreter: 'babel-node',
     interpreter_args: '--extensions ".js,.json,.ts,.tsx" --require node_modules/dotenv/config',
-    script: './src/api/dev.js',
+    script: './src/api/dev.ts',
     watch: ['./src/api']
   }]
 }
