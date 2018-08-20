@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Input = styled.input.attrs({
-  "aria-label": "Repository input",
-  "autoFocus": true,
-  "type": "text",
+  'aria-label': 'Repository input',
+  'autoFocus': true,
+  'type': 'text',
 })`
   background-color: #33373c;
   border: 1px solid;
@@ -22,4 +22,4 @@ export const Input = styled.input.attrs({
     margin: 10px 0 0;
     width: 100%;
   }
-`;
+`

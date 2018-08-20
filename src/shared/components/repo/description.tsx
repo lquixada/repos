@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import {P} from "../grid";
+import {P} from '../grid'
 
 interface IProps {
-  text: string | undefined;
+  text: string | undefined
 }
 
 export const Description = ({text}: IProps) => (
   <P>{text}</P>
-);
+)

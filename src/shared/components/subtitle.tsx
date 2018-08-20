@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 interface IProps {
-  children: string | undefined;
+  children: string | undefined
 }
 
 export const Subtitle = ({children}: IProps) => (
   <Wrapper>{children}</Wrapper>
-);
+)
 
 const Wrapper: any = styled.h2`
   color: #3c4146;
@@ -17,4 +17,4 @@ const Wrapper: any = styled.h2`
   letter-spacing: -.1rem;
   line-height: 1.5;
   vertical-align: middle;
-`;
+`

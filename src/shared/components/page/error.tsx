@@ -1,8 +1,8 @@
-import React from "react";
-import {Helmet} from "react-helmet";
-import styled from "styled-components";
+import React from 'react'
+import {Helmet} from 'react-helmet'
+import styled from 'styled-components'
 
-import {Content, Section, SectionContainer} from "../grid";
+import {Content, Section, SectionContainer} from '../grid'
 
 export const ErrorPage = () => (
   <Section>
@@ -18,11 +18,11 @@ export const ErrorPage = () => (
       </Content>
     </SectionContainer>
   </Section>
-);
+)
 
 const P = styled.p`
   margin-bottom: 1rem;
   font-size: 4rem;
   font-weight: lighter;
   letter-spacing: -.1rem;
-`;
+`

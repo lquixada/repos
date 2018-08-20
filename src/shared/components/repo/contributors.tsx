@@ -1,17 +1,17 @@
-import {Map} from "immutable";
-import React from "react";
-import {NavLink} from "react-router-dom";
-import styled from "styled-components";
+import {Map} from 'immutable'
+import React from 'react'
+import {NavLink} from 'react-router-dom'
+import styled from 'styled-components'
 
-import {flex, tablets} from "../../helpers";
+import {flex, tablets} from '../../helpers'
 
 interface IProps {
-  data: Array<Map<string, string>>;
-  total: number;
-  hasLoaded: boolean;
-  hasMore: boolean;
-  isLoadingMore: boolean;
-  onNext(f: any): any;
+  data: Array<Map<string, string>>
+  total: number
+  hasLoaded: boolean
+  hasMore: boolean
+  isLoadingMore: boolean
+  onNext(f: any): any
 }
 
 export const Contributors = (props: IProps) => (
@@ -19,49 +19,49 @@ export const Contributors = (props: IProps) => (
     <Title>Contributors ({props.total})</Title>
     {!props.hasLoaded ? <Loading /> : <Content {...props} />}
   </Wrapper>
-);
+)
 
 const Loading = () => (
   <div>Loading...</div>
-);
+)
 
 const Content = ({data, hasMore, isLoadingMore, onNext}: IProps) => (
   <div>
     <List>
       {data.map((contributor, i) =>
-        <Item key={contributor.get("login") + i}>
-          <Link to={`/r/${contributor.get("login")}`}>
-            <Image alt={`User ${contributor.get("login")}`} src={`${contributor.get("avatar_url")}&s=40`} />
-            <Text>{contributor.get("login")}</Text>
+        <Item key={contributor.get('login') + i}>
+          <Link to={`/r/${contributor.get('login')}`}>
+            <Image alt={`User ${contributor.get('login')}`} src={`${contributor.get('avatar_url')}&s=40`} />
+            <Text>{contributor.get('login')}</Text>
           </Link>
         </Item>,
       )}
     </List>
     {hasMore &&
       <Button onClick={onNext}>
-        {isLoadingMore ? "Loading..." : "More"}
+        {isLoadingMore ? 'Loading...' : 'More'}
       </Button>
     }
   </div>
-);
+)
 
 const Wrapper = styled.div`
   margin: 2rem 0;
-`;
+`
 
 const Title = styled.h3`
   color: #767676;
   font-size: 1.4rem;
   font-weight: normal;
   line-height: 1.5;
-`;
+`
 
 const List = styled.ul`
   ${flex.display()}
   ${flex.left()}
-  ${flex.flow("row", "wrap")};
+  ${flex.flow('row', 'wrap')};
   margin-top: 1rem;
-`;
+`
 
 const Item = styled.li`
   ${flex.display()}
@@ -75,7 +75,7 @@ const Item = styled.li`
   @media (${tablets}) {
     width: 33.33%;
   }
-`;
+`
 
 const Link = styled(NavLink)`
   ${flex.display()}
@@ -84,7 +84,7 @@ const Link = styled(NavLink)`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-`;
+`
 
 const Image = styled.img`
   margin-right: 1rem;
@@ -92,14 +92,14 @@ const Image = styled.img`
   height: 4rem;
   border-radius: 2rem;
   overflow: hidden;
-`;
+`
 
 const Text = styled.span`
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-`;
+`
 
 const Button = styled.button`
   display: block;
@@ -117,4 +117,4 @@ const Button = styled.button`
   &:hover, &:focus {
     background-color: #f6f8fa;
   }
-`;
+`

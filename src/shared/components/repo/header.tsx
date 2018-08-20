@@ -1,13 +1,13 @@
-import React from "react";
-import MarkIcon from "react-octicons/lib/mark-github";
-import styled from "styled-components";
+import React from 'react'
+import MarkIcon from 'react-octicons/lib/mark-github'
+import styled from 'styled-components'
 
-import {flex} from "../../helpers";
-import {Subtitle} from "../subtitle";
+import {flex} from '../../helpers'
+import {Subtitle} from '../subtitle'
 
 interface IProps {
-  title: string | undefined;
-  url: string | undefined;
+  title: string | undefined
+  url: string | undefined
 }
 
 export const Header = ({title, url}: IProps) => (
@@ -19,7 +19,7 @@ export const Header = ({title, url}: IProps) => (
       <span>Github</span>
     </Link>
   </Wrapper>
-);
+)
 
 const Wrapper = styled.header`
   ${flex.display()}
@@ -29,11 +29,11 @@ const Wrapper = styled.header`
   margin-bottom: 2rem;
   padding-bottom: .5rem;
   border-bottom: 1px solid #ddd;
-`;
+`
 
 const Link = styled.a.attrs({
-  rel: "noopener",
-  target: "_blank",
+  rel: 'noopener',
+  target: '_blank',
 })`
   ${flex.display()}
   ${flex.justify()}
@@ -47,4 +47,4 @@ const Link = styled.a.attrs({
     fill: #767676;
     margin-right: .3rem;
   }
-`;
+`

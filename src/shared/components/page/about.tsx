@@ -1,9 +1,9 @@
-import React from "react";
-import {Helmet} from "react-helmet";
-import styled from "styled-components";
+import React from 'react'
+import {Helmet} from 'react-helmet'
+import styled from 'styled-components'
 
-import {Content, P, Section, SectionContainer} from "../grid";
-import {Subtitle} from "../subtitle";
+import {Content, P, Section, SectionContainer} from '../grid'
+import {Subtitle} from '../subtitle'
 
 export const AboutPage = () => (
   <Section>
@@ -15,7 +15,7 @@ export const AboutPage = () => (
       <Content>
         <Subtitle>About me</Subtitle>
 
-        <Image src="https://s.gravatar.com/avatar/a0ac79788f87ca12cda519b3a1bb2a7c?s=100" />
+        <Image src='https://s.gravatar.com/avatar/a0ac79788f87ca12cda519b3a1bb2a7c?s=100' />
 
         <P>Loving Software, Delivering Product.</P>
 
@@ -37,9 +37,9 @@ export const AboutPage = () => (
       </Content>
     </SectionContainer>
   </Section>
-);
+)
 
 const Image = styled.img`
   margin: 0 1rem 1rem 0;
   float: left;
-`;
+`

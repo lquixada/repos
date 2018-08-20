@@ -1,9 +1,9 @@
-import React from "react";
-import {Helmet} from "react-helmet";
-import styled from "styled-components";
+import React from 'react'
+import {Helmet} from 'react-helmet'
+import styled from 'styled-components'
 
-import {flex} from "../../helpers";
-import {Content, Section, SectionContainer} from "../grid";
+import {flex} from '../../helpers'
+import {Content, Section, SectionContainer} from '../grid'
 
 export const HomePage = () => (
   <Section>
@@ -19,7 +19,7 @@ export const HomePage = () => (
       </Content>
     </SectionContainer>
   </Section>
-);
+)
 
 const P = styled.p`
   ${flex.display()}
@@ -30,4 +30,4 @@ const P = styled.p`
   border-radius: .6rem;
   font-size: 1.4rem;
   letter-spacing: -.1px;
-`;
+`

@@ -1,21 +1,21 @@
-import React from "react";
-import {Helmet} from "react-helmet";
-import styled from "styled-components";
+import React from 'react'
+import {Helmet} from 'react-helmet'
+import styled from 'styled-components'
 
-import Menu from "../../containers/menu";
-import Repo from "../../containers/repo";
-import {flex} from "../../helpers";
-import {Footer} from "../footer";
-import {Aside, Content, Section, SectionContainer} from "../grid";
+import Menu from '../../containers/menu'
+import Repo from '../../containers/repo'
+import {flex} from '../../helpers'
+import {Footer} from '../footer'
+import {Aside, Content, Section, SectionContainer} from '../grid'
 
 interface IProps {
-  repoName: string | undefined;
+  repoName: string | undefined
 }
 
 export const RepoPage = ({repoName}: IProps) => (
   <Section>
     <Helmet>
-      <title>{repoName ? `${repoName} -` : ""}Github Repos</title>
+      <title>{repoName ? `${repoName} -` : ''}Github Repos</title>
     </Helmet>
 
     <SectionContainer>
@@ -35,7 +35,7 @@ export const RepoPage = ({repoName}: IProps) => (
       </Content>
     </SectionContainer>
   </Section>
-);
+)
 
 const P = styled.p`
   ${flex.display()}
@@ -46,4 +46,4 @@ const P = styled.p`
   border-radius: .6rem;
   font-size: 1.4rem;
   letter-spacing: -.1px;
-`;
+`
