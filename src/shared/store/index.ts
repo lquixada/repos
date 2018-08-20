@@ -7,11 +7,11 @@ import sagas from '../sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const configureStore = (state = {}, middlewares = [], devTools = (f) => f) => {
+const configureStore = (state = {}, middlewares: any[] = [], devTools = (f) => f) => {
   state = immutifyState(state)
   middlewares = middlewares.concat([sagaMiddleware])
-  middlewares = compose(applyMiddleware(...middlewares), devTools)
-  const store = createStore(reducers, state, middlewares)
+  const enhancer: any = compose(applyMiddleware(...middlewares), devTools)
+  const store = createStore(reducers, state, enhancer) as any
   store.runnedSagas = sagaMiddleware.run(sagas)
   return store
 }
