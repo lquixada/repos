@@ -1,6 +1,6 @@
-import React from 'react'
-import {fromJS} from 'immutable'
 import {shallow} from 'enzyme'
+import {fromJS} from 'immutable'
+import React from 'react'
 import {ContributorsContainer} from '../contributors'
 
 describe('<ContributorsContainer />', () => {
@@ -14,16 +14,16 @@ describe('<ContributorsContainer />', () => {
     owner = 'owner1'
     repoName = 'repo1'
     actions = {
-      fetchContributors: jest.fn()
+      fetchContributors: jest.fn(),
     }
 
     contributors = fromJS({
-      isLoading: false,
-      nextPage: 2,
       data: [
         {id: 1, login: 'user1'},
-        {id: 2, login: 'user2'}
-      ]
+        {id: 2, login: 'user2'},
+      ],
+      isLoading: false,
+      nextPage: 2,
     })
 
     count = fromJS(['repo1', 2])
@@ -36,7 +36,7 @@ describe('<ContributorsContainer />', () => {
         repoName={repoName}
         contributors={undefined}
         {...actions}
-      />
+      />,
     )
     expect(component.html()).toBeNull()
   })
@@ -49,7 +49,7 @@ describe('<ContributorsContainer />', () => {
         contributors={contributors}
         count={count}
         {...actions}
-      />
+      />,
     )
     expect(component).toMatchSnapshot()
   })
@@ -63,7 +63,7 @@ describe('<ContributorsContainer />', () => {
         contributors={contributors}
         count={count}
         {...actions}
-      />
+      />,
     )
     expect(component).toMatchSnapshot()
   })
@@ -77,7 +77,7 @@ describe('<ContributorsContainer />', () => {
         contributors={contributors}
         count={count}
         {...actions}
-      />
+      />,
     )
     expect(component).toMatchSnapshot()
   })
@@ -90,10 +90,10 @@ describe('<ContributorsContainer />', () => {
         contributors={contributors}
         count={count}
         {...actions}
-      />
+      />,
     )
 
-    const {onNext} = component.find('Contributors').props()
+    const {onNext} = component.find('Contributors').props() as {onNext(): void}
     onNext()
     expect(actions.fetchContributors).toBeCalledWith({owner: 'owner1', repoName: 'repo1'})
   })

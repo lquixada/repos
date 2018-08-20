@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<RepoContainer /> renders null if there is no repo 1`] = `
-<div>
-  Loading...
-</div>
-`;

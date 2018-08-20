@@ -1,56 +1,68 @@
+import {Map} from 'immutable'
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
-import {Repo} from '../../components/repo'
 import * as actions from '../../actions'
+import {Repo} from '../../components/repo'
 
-export class RepoContainer extends React.Component {
-  componentDidMount () {
+interface IProps {
+  owner: string
+  repo: Map<string, any> | undefined
+  repoName: string
+  fetchRepo(payload: object): void
+}
+
+export class RepoContainer extends React.Component<IProps, any> {
+  public componentDidMount() {
     this.fetch()
   }
 
-  componentDidUpdate (prevProps) {
+  public componentDidUpdate(prevProps) {
     if (this.hasChanged(prevProps)) {
       this.fetch()
     }
   }
 
-  fetch () {
+  public fetch() {
     if (!this.hasLoaded()) {
       this.props.fetchRepo({
         owner: this.props.owner,
-        repoName: this.props.repoName
+        repoName: this.props.repoName,
       })
     }
   }
 
-  hasLoaded () {
+  public getRepo() {
     const {repo} = this.props
     return repo && repo.get('data')
   }
 
-  hasChanged (prevProps) {
+  public hasLoaded() {
+    return !!this.getRepo()
+  }
+
+  public hasChanged(prevProps) {
     return (
       prevProps.owner !== this.props.owner ||
       prevProps.repoName !== this.props.repoName
     )
   }
 
-  render () {
+  public render() {
     if (!this.hasLoaded()) {
       return <div>Loading...</div>
     }
 
     return (
-      <Repo owner={this.props.owner} repo={this.props.repo.get('data')} />
+      <Repo owner={this.props.owner} repo={this.getRepo()} />
     )
   }
 }
 
 const mapStateToProps = ({repo}, {match}) => ({
   owner: match.params.owner,
+  repo: repo.getIn([match.params.owner, match.params.repo]),
   repoName: match.params.repo,
-  repo: repo.getIn([match.params.owner, match.params.repo])
 })
 export default withRouter(connect(mapStateToProps, actions)(RepoContainer))

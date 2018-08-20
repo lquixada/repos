@@ -1,6 +1,6 @@
-import React from 'react'
-import {fromJS} from 'immutable'
 import {shallow} from 'enzyme'
+import {fromJS} from 'immutable'
+import React from 'react'
 
 import {RepoPageContainer} from '../repo'
 
@@ -17,9 +17,9 @@ describe('<RepoPageContainer />', () => {
     counts = fromJS({
       [owner]: {
         data: [
-          {name: repoName, count: 5}
-        ]
-      }
+          {name: repoName, count: 5},
+        ],
+      },
     })
   })
 
@@ -34,7 +34,7 @@ describe('<RepoPageContainer />', () => {
     expect(fetchPage).toBeCalledWith({
       name: 'repo',
       owner,
-      repoName
+      repoName,
     })
   })
 
@@ -58,13 +58,13 @@ describe('<RepoPageContainer />', () => {
     />)
 
     component.setProps({
-      owner: 'owner2'
+      owner: 'owner2',
     })
 
     expect(fetchPage).toBeCalledWith({
       name: 'repo',
       owner: 'owner2',
-      repoName
+      repoName,
     })
   })
 
@@ -77,7 +77,7 @@ describe('<RepoPageContainer />', () => {
     />)
 
     component.setProps({
-      owner
+      owner,
     })
 
     expect(fetchPage).not.toBeCalled()

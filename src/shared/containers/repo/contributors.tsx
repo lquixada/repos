@@ -1,42 +1,51 @@
+import {List, Map} from 'immutable'
 import React from 'react'
 import {connect} from 'react-redux'
-import {List} from 'immutable'
 
-import {Contributors} from '../../components/repo/contributors'
 import * as actions from '../../actions'
+import {Contributors} from '../../components/repo/contributors'
 
-export class ContributorsContainer extends React.Component {
-  constructor (props) {
+interface IProps {
+  owner: string
+  repoName: string
+  contributors: Map<string, any>
+  count: List<string>
+  fetchContributors(payload: object): void
+  onNext(f: any): any
+}
+
+export class ContributorsContainer extends React.Component<IProps, any> {
+  constructor(props) {
     super(props)
     this.fetchNext = this.fetchNext.bind(this)
   }
 
-  fetchNext () {
+  public fetchNext() {
     this.props.fetchContributors({
       owner: this.props.owner,
-      repoName: this.props.repoName
+      repoName: this.props.repoName,
     })
   }
 
-  hasLoaded () {
+  public hasLoaded() {
     const {contributors} = this.props
     return contributors && contributors.get('data') && !contributors.get('data').isEmpty()
   }
 
-  hasMore () {
+  public hasMore() {
     return !!this.props.contributors.get('nextPage')
   }
 
-  isLoading () {
+  public isLoading(): boolean {
     return this.props.contributors.get('isLoading')
   }
 
-  getCount () {
+  public getCount(): string {
     const {count} = this.props
     return count ? count.get(1) : 'error'
   }
 
-  render () {
+  public render() {
     if (!this.hasLoaded()) {
       return null
     }
@@ -55,10 +64,10 @@ export class ContributorsContainer extends React.Component {
 }
 
 const mapStateToProps = ({contributors, counts}, {owner, repoName}) => ({
+  contributors: contributors.getIn([owner, repoName]),
   // REMEMBER: "counts" has the following
   // scheme [[repoName1, count1, false], [repoName2, count2, false]]
   count: counts.get('data', List()).find((count) => count.get(0) === repoName),
-  contributors: contributors.getIn([owner, repoName])
 })
 
 export default connect(mapStateToProps, actions)(ContributorsContainer)

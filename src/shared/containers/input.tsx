@@ -1,14 +1,15 @@
+import * as H from 'history'
 import React from 'react'
 import {withRouter} from 'react-router'
 
 import {Input} from '../components/input'
 
-export class InputContainer extends React.Component {
-  constructor (props) {
+export class InputContainer extends React.Component<any, any, any> {
+  constructor(props) {
     super(props)
     this.state = {
+      minLength: 2,
       value: '',
-      minLength: 2
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -16,24 +17,24 @@ export class InputContainer extends React.Component {
   }
 
   // Renders current owner on server-side rendering
-  componentWillMount () {
+  public componentWillMount() {
     this.setCurrentOwner()
   }
 
   // Renders current owner on browser navigation
-  componentDidUpdate (prevProps) {
+  public componentDidUpdate(prevProps) {
     if (this.hasOwnerChanged(prevProps)) {
       this.setCurrentOwner()
     }
   }
 
-  setCurrentOwner () {
+  public setCurrentOwner() {
     this.setState({
-      value: this.getOwner(this.props.location)
+      value: this.getOwner(this.props.location),
     })
   }
 
-  getOwner (location) {
+  public getOwner(location) {
     const match = /\/r\/(\w+)\/?/.exec(location.pathname)
 
     if (match) {
@@ -43,16 +44,16 @@ export class InputContainer extends React.Component {
     return ''
   }
 
-  hasOwnerChanged (prevProps) {
+  public hasOwnerChanged(prevProps) {
     return this.getOwner(prevProps.location) !== this.getOwner(this.props.location)
   }
 
-  handleChange (evt) {
+  public handleChange(evt) {
     const value = evt.target ? evt.target.value : evt
     this.setState({value: value.trim()})
   }
 
-  handleKeyUp (evt) {
+  public handleKeyUp(evt) {
     if (this.state.value.length < this.state.minLength) {
       return
     }
@@ -62,11 +63,11 @@ export class InputContainer extends React.Component {
     }
   }
 
-  navigate () {
+  public navigate() {
     this.props.history.push(`/r/${this.state.value}`)
   }
 
-  render () {
+  public render() {
     return (
       <Input value={this.state.value}
         onChange={this.handleChange}

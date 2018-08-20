@@ -7,7 +7,7 @@ import {flex, tablets} from '../../helpers'
 
 interface IProps {
   data: Array<Map<string, string>>
-  total: number
+  total: string
   hasLoaded: boolean
   hasMore: boolean
   isLoadingMore: boolean

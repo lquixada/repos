@@ -1,6 +1,6 @@
-import React from 'react'
-import {fromJS} from 'immutable'
 import {shallow} from 'enzyme'
+import {fromJS, Map} from 'immutable'
+import React from 'react'
 
 import {RepoContainer} from '../index'
 
@@ -13,27 +13,28 @@ describe('<RepoContainer />', () => {
 
     repo = fromJS({
       data: {
-        name: 'repo1'
-      }
+        name: 'repo1',
+      },
     })
   })
 
   it('renders null if there is no repo', () => {
-    const component = shallow(<RepoContainer owner='owner1' name='repo1' fetchRepo={fetchRepo} />)
+    const component = shallow(<RepoContainer owner='owner1' repoName='repo1' fetchRepo={fetchRepo} repo={undefined} />)
     expect(component).toMatchSnapshot()
   })
 
   it('renders Repo component', () => {
-    const component = shallow(<RepoContainer owner='owner1' name='repo1' fetchRepo={fetchRepo} repo={repo} />)
-    expect(component.find('Repo').prop('repo').toJS()).toEqual(repo.get('data').toJS())
+    const component = shallow(<RepoContainer owner='owner1' repoName='repo1' fetchRepo={fetchRepo} repo={repo} />)
+    const repoProp = component.find('Repo').prop('repo') as Map<string, string>
+    expect(repoProp.toJS()).toEqual(repo.get('data').toJS())
   })
 
   it('fetches other Repo component', () => {
-    const component = shallow(<RepoContainer owner='owner1' name='repo1' fetchRepo={fetchRepo} repo={repo} />)
+    const component = shallow(<RepoContainer owner='owner1' repoName='repo1' fetchRepo={fetchRepo} repo={repo} />)
 
     component.setProps({
       repo: undefined, // at this point there's any data from the new repo available
-      repoName: 'repo2'
+      repoName: 'repo2',
     })
 
     expect(fetchRepo).toBeCalledWith({owner: 'owner1', repoName: 'repo2'})
