@@ -1,6 +1,6 @@
-import React from 'react'
 import {mount} from 'enzyme'
 import {createLocation} from 'history'
+import React from 'react'
 
 import {InputContainer} from '../input'
 
@@ -12,7 +12,7 @@ describe('<InputContainer />', () => {
   beforeEach(() => {
     location = createLocation('/r/owner1')
     history = {
-      push: jest.fn()
+      push: jest.fn(),
     }
     component = mount(<InputContainer location={location} history={history} />)
   })
@@ -23,7 +23,7 @@ describe('<InputContainer />', () => {
 
   it('renders new owner name when location changes', () => {
     component.setProps({
-      location: createLocation('/r/owner2')
+      location: createLocation('/r/owner2'),
     })
     expect(component.update()).toMatchSnapshot()
   })
