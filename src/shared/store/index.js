@@ -1,9 +1,9 @@
-import {createStore, applyMiddleware, compose} from 'redux'
+import {applyMiddleware, compose, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
+import {immutifyState} from '../helpers'
 import reducers from '../reducers'
 import sagas from '../sagas'
-import {immutifyState} from '../helpers'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -11,7 +11,7 @@ const configureStore = (state = {}, middlewares = [], devTools = (f) => f) => {
   state = immutifyState(state)
   middlewares = middlewares.concat([sagaMiddleware])
   middlewares = compose(applyMiddleware(...middlewares), devTools)
-  let store = createStore(reducers, state, middlewares)
+  const store = createStore(reducers, state, middlewares)
   store.runnedSagas = sagaMiddleware.run(sagas)
   return store
 }

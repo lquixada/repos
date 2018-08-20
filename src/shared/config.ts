@@ -4,8 +4,6 @@ const staticUrl = process.env.NODE_ENV === 'production'
   : '/assets'
 
 export default {
-  staticUrl,
-  github: 'https://github.com',
   appUrl: 'https://github.com/lquixada/repos',
   dns: [
     'https://repos-api.lquixada.com',
@@ -13,6 +11,8 @@ export default {
     'https://avatars0.githubusercontent.com',
     'https://avatars1.githubusercontent.com',
     'https://avatars2.githubusercontent.com',
-    'https://avatars3.githubusercontent.com'
-  ]
+    'https://avatars3.githubusercontent.com',
+  ],
+  github: 'https://github.com',
+  staticUrl,
 }

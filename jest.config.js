@@ -18,8 +18,8 @@ module.exports = {
   coverageDirectory: '<rootDir>/.reports/coverage',
   coverageThreshold: {
     global: {
-      branches: 65,
-      functions: 85,
+      branches: 60,
+      functions: 80,
       lines: 85,
       statements: 85
     }

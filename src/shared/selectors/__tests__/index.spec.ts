@@ -8,10 +8,10 @@ describe('Selectors', () => {
         contributors: fromJS({
           owner1: {
             repo1: {
-              nextPage: 2
-            }
-          }
-        })
+              nextPage: 2,
+            },
+          },
+        }),
       }
 
       expect(getNextPage(state, 'owner1', 'repo1')).toBe(2)

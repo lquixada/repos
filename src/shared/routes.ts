@@ -1,31 +1,31 @@
 import {App} from './components/app'
 import {AboutPage} from './components/page/about'
-import {NotFoundPage} from './components/page/not-found'
 import {HomePage} from './components/page/home'
+import {NotFoundPage} from './components/page/not-found'
 import RepoPage from './containers/page/repo'
 
 export default [
   {
-    path: '/',
     component: App,
+    path: '/',
     routes: [
       {
-        path: '/',
+        component: HomePage,
         exact: true,
-        component: HomePage
+        path: '/',
       },
       {
+        component: RepoPage,
         path: '/r/:owner/:repo?',
-        component: RepoPage
       },
       {
+        component: AboutPage,
         path: '/about',
-        component: AboutPage
       },
       {
+        component: NotFoundPage,
         path: '*',
-        component: NotFoundPage
-      }
-    ]
-  }
+      },
+    ],
+  },
 ]
