@@ -42,10 +42,10 @@ describe('Sagas (Repo)', () => {
 
     it('handle error', () => {
       const error = {stack: 'file.js:1:2'}
-      const gen = loadRepo({repoName})
+      const gen = loadRepo({owner, repoName})
 
-      expect(gen.next().value).toEqual(call(fetchRepo, {repoName}))
-      expect(gen.throw(error).value).toEqual(put(fetchRepoFailed(repoName, error.stack)))
+      expect(gen.next().value).toEqual(call(fetchRepo, {owner, repoName}))
+      expect(gen.throw(error).value).toEqual(put(fetchRepoFailed(owner, repoName, error.stack)))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
   })

@@ -1,6 +1,6 @@
 import {isFSA} from 'flux-standard-action'
 
-import {fetchCounts, fetchCountsSucceeded, fetchCountsFailed} from '../counts'
+import {fetchCounts, fetchCountsFailed, fetchCountsSucceeded} from '../counts'
 
 describe('Actions (Counts)', () => {
   it('fetchCounts is FSA-compliant', () => {
@@ -14,6 +14,6 @@ describe('Actions (Counts)', () => {
 
   it('fetchCountsFailed is FSA-compliant', () => {
     const error = {}
-    expect(isFSA(fetchCountsFailed(error))).toBe(true)
+    expect(isFSA(fetchCountsFailed('some-owner', error))).toBe(true)
   })
 })

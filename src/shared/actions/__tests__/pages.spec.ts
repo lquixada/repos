@@ -1,6 +1,6 @@
 import {isFSA} from 'flux-standard-action'
 
-import {fetchPage, fetchPageSucceeded, fetchPageFailed} from '../pages'
+import {fetchPage, fetchPageFailed, fetchPageSucceeded} from '../pages'
 
 describe('Actions (Repos)', () => {
   it('fetchPage is FSA-compliant', () => {

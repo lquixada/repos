@@ -3,21 +3,21 @@ export const COUNTS_SUCCEEDED = 'COUNTS_SUCCEEDED'
 export const COUNTS_FAILED = 'COUNTS_FAILED'
 
 export const fetchCounts = (owner) => ({
-  type: COUNTS_REQUESTED,
   payload: {
-    owner
-  }
+    owner,
+  },
+  type: COUNTS_REQUESTED,
 })
 
 export const fetchCountsSucceeded = (payload) => ({
+  payload,
   type: COUNTS_SUCCEEDED,
-  payload
 })
 
 export const fetchCountsFailed = (owner, error) => ({
-  type: COUNTS_FAILED,
   payload: {
+    error,
     owner,
-    error
-  }
+  },
+  type: COUNTS_FAILED,
 })
