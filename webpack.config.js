@@ -71,8 +71,8 @@ module.exports = function (env) {
         ? new CleanWebpackPlugin(path.join(assets, 'scripts'))
         : new webpack.HotModuleReplacementPlugin(),
       new webpack.NormalModuleReplacementPlugin(
-        /\/server\/config\.js/,
-        path.join(__dirname, 'src', 'client', 'config.js')
+        /\/server\/config\.ts/,
+        path.join(__dirname, 'src', 'client', 'config.ts')
       ),
       new DotenvPlugin({systemvars: true}),
       new CopyWebpackPlugin([

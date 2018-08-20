@@ -1,7 +1,7 @@
 import supertest from 'supertest'
 
-import server from '../../../server'
 import createMockClient from '../../../__tests__/client'
+import server from '../../../server'
 import * as helpers from '../../../shared/helpers/client'
 
 describe('App Controller', () => {
@@ -47,7 +47,7 @@ describe('App Controller', () => {
         .get('/r/owner1/react')
         .expect((res) => {
           document.writeln(res.text)
-          const h2 = document.querySelector('h2')
+          const h2 = document.querySelector('h2') as HTMLHeadingElement
           expect(h2.innerHTML).toBe('repo1')
         })
         .end(done)
@@ -66,7 +66,7 @@ describe('App Controller', () => {
         .get('/notfound')
         .expect((res) => {
           document.writeln(res.text)
-          const p = document.querySelector('p')
+          const p = document.querySelector('p') as HTMLParagraphElement
           expect(p.innerHTML).toBe('Whoops, looks like that page doesn\'t exist.')
         })
         .end(done)

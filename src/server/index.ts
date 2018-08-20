@@ -1,9 +1,9 @@
 import 'cross-fetch/polyfill'
 import express from 'express'
 
-import logger from './middlewares/logger'
 import app from './controllers/app'
 import error from './controllers/error'
+import logger from './middlewares/logger'
 
 const server = express()
 

@@ -11,7 +11,7 @@ export default [
   webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: options.output.publicPath,
-    stats: options.stats
+    stats: options.stats,
   }),
-  webpackHotMiddleware(compiler)
+  webpackHotMiddleware(compiler),
 ]
