@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> matches the snapshot 1`] = `
+<styled.footer>
+  <styled.a
+    href="http://linkedin.com/in/lquixada"
+  >
+    LinkedIn
+  </styled.a>
+   
+  |
+   
+  <styled.a
+    href="https://github.com/lquixada/"
+  >
+    Github
+  </styled.a>
+   
+  |
+   
+  <Styled(NavLink)
+    to="/about"
+  >
+    About me
+  </Styled(NavLink)>
+  <br />
+  Made with ❤ by Leonardo Quixadá.
+</styled.footer>
+`;

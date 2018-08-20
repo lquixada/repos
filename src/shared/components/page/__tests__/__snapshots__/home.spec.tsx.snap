@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> matches the snapshot 1`] = `
+<styled.section>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      Github Repos
+    </title>
+  </HelmetWrapper>
+  <styled.div>
+    <styled.article>
+      <styled.p>
+        Type a github user in the input above and hit Enter.
+      </styled.p>
+    </styled.article>
+  </styled.div>
+</styled.section>
+`;

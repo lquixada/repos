@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Description /> matches the snapshot 1`] = `
+<Description
+  text="some text"
+>
+  <styled.p>
+    <p
+      className="sc-htoDjs BulxG"
+    >
+      some text
+    </p>
+  </styled.p>
+</Description>
+`;

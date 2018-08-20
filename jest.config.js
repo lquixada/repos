@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   testMatch: [
-    '<rootDir>/src/**/*.spec.js'
+    '<rootDir>/src/**/*.spec.(js|tsx)'
   ],
   moduleFileExtensions: [
     'ts',
@@ -18,10 +18,10 @@ module.exports = {
   coverageDirectory: '<rootDir>/.reports/coverage',
   coverageThreshold: {
     global: {
-      branches: 60,
-      functions: 80,
-      lines: 85,
-      statements: 85
+      branches: 85,
+      functions: 95,
+      lines: 95,
+      statements: 95
     }
   }
 }

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RepoPage /> renders a selection message when repo name is not given 1`] = `
+<styled.section>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      Github Repos
+    </title>
+  </HelmetWrapper>
+  <styled.div>
+    <styled.aside>
+      <withRouter(Connect(MenuContainer)) />
+      <Footer />
+    </styled.aside>
+    <styled.article>
+      <styled.p>
+        Choose a repository on the menu.
+      </styled.p>
+    </styled.article>
+  </styled.div>
+</styled.section>
+`;
+
+exports[`<RepoPage /> renders the repo info when repo name is given 1`] = `
+<styled.section>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      repo1 -
+      Github Repos
+    </title>
+  </HelmetWrapper>
+  <styled.div>
+    <styled.aside>
+      <withRouter(Connect(MenuContainer)) />
+      <Footer />
+    </styled.aside>
+    <styled.article>
+      <withRouter(Connect(RepoContainer)) />
+    </styled.article>
+  </styled.div>
+</styled.section>
+`;

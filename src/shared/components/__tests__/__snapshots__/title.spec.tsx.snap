@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> matches the snapshot 1`] = `
+<styled.h1>
+  <Styled(Link)
+    to="/"
+  >
+    <styled.img
+      src="/assets/images/logo.png"
+    />
+  </Styled(Link)>
+</styled.h1>
+`;
