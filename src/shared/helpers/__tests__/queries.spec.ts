@@ -1,12 +1,12 @@
 import createMockClient from '../../../__tests__/client'
-import {fetchContributors, fetchRepo, fetchCounts} from '../queries'
+import {fetchContributors, fetchCounts, fetchRepo} from '../queries'
 
 import * as helpers from '../client'
 
 describe('Helpers (Queries)', () => {
   beforeEach(() => {
-    const client = createMockClient()
-    helpers.getClient = () => client
+    jest.spyOn(helpers, 'getClient')
+      .mockReturnValue(createMockClient())
   })
 
   describe('fetchContributors', () => {

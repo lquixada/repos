@@ -9,7 +9,7 @@ describe('Helpers (Objects)', () => {
     beforeEach(() => {
       state = immutifyState({
         a: {},
-        b: []
+        b: [],
       })
     })
 

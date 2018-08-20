@@ -1,4 +1,4 @@
-export const flex = (values) => `
+export const flex: any = (values) => `
   flex: ${values};
   -ms-flex: ${values};
 `

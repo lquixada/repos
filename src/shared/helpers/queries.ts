@@ -5,7 +5,6 @@ import {getClient} from './client'
 export const fetchContributors = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
-    variables,
     query: gql`
       query($owner: String!, $repoName: String!, $page: Int) {
         contributors(owner: $owner, repo: $repoName, page: $page) {
@@ -17,7 +16,8 @@ export const fetchContributors = async (variables) => {
           }
         }
       }
-    `
+    `,
+    variables,
   })
 
   return data
@@ -26,7 +26,6 @@ export const fetchContributors = async (variables) => {
 export const fetchRepo = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
-    variables,
     query: gql`
       query($owner: String!, $repoName: String!) {
         repo(owner: $owner, name: $repoName) {
@@ -50,7 +49,8 @@ export const fetchRepo = async (variables) => {
           }
         }
       }
-    `
+    `,
+    variables,
   })
 
   return data
@@ -59,7 +59,6 @@ export const fetchRepo = async (variables) => {
 export const fetchCounts = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
-    variables,
     query: gql`
       query($owner: String!) {
         counts(owner: $owner) {
@@ -67,7 +66,8 @@ export const fetchCounts = async (variables) => {
           count
         }
       }
-    `
+    `,
+    variables,
   })
 
   return data
@@ -76,14 +76,13 @@ export const fetchCounts = async (variables) => {
 export const fetchAll = async (variables) => {
   const client = getClient()
   const {data} = await client.query({
-    variables,
     query: gql`
       query($owner: String!, $repoName: String!) {
         counts(owner: $owner) {
           name
           count
         }
-      
+
         repo(owner: $owner, name: $repoName) {
           name
           description
@@ -105,7 +104,8 @@ export const fetchAll = async (variables) => {
           }
         }
       }
-    `
+    `,
+    variables,
   })
 
   return data

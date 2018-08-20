@@ -55,7 +55,7 @@ describe('Helpers (String)', () => {
     it('extract the next url from Link header', () => {
       const header = [
         '<https://api.github.com/repos/?page=2>; rel="next"',
-        '<https://api.github.com/repos/?page=5>; rel="last"'
+        '<https://api.github.com/repos/?page=5>; rel="last"',
       ].join(', ')
       expect(extractNext(header)).toBe('https://api.github.com/repos/?page=2')
     })
@@ -63,7 +63,7 @@ describe('Helpers (String)', () => {
     it('returns empty if there is no next url', () => {
       const header = [
         '<https://api.github.com/repos/?page=2>; rel="prev"',
-        '<https://api.github.com/repos/?page=5>; rel="last"'
+        '<https://api.github.com/repos/?page=5>; rel="last"',
       ].join(', ')
       expect(extractNext(header)).toBe('')
     })
@@ -71,7 +71,7 @@ describe('Helpers (String)', () => {
     it('returns empty if no url is provided', () => {
       const header = [
         '; rel="next"',
-        '; rel="last"'
+        '; rel="last"',
       ].join(', ')
       expect(extractNext(header)).toBe('')
     })
@@ -86,7 +86,7 @@ describe('Helpers (String)', () => {
     it('extract total pages from Link header\'s last url', () => {
       const header = [
         '<https://api.github.com/repos/?page=2>; rel="prev"',
-        '<https://api.github.com/repos/?page=5>; rel="last"'
+        '<https://api.github.com/repos/?page=5>; rel="last"',
       ].join(', ')
       expect(extractTotal(header)).toBe(5)
     })
@@ -94,7 +94,7 @@ describe('Helpers (String)', () => {
     it('returns zero if there is no last url on Link header', () => {
       const header = [
         '<https://api.github.com/repos/?page=2>; rel="prev"',
-        '<https://api.github.com/repos/?page=5>; rel="next"'
+        '<https://api.github.com/repos/?page=5>; rel="next"',
       ].join(', ')
       expect(extractTotal(header)).toBe(0)
     })
@@ -102,7 +102,7 @@ describe('Helpers (String)', () => {
     it('returns zero if no page is provided', () => {
       const header = [
         '<https://api.github.com/repos/>; rel="prev"',
-        '<https://api.github.com/repos/>; rel="last"'
+        '<https://api.github.com/repos/>; rel="last"',
       ].join(', ')
 
       expect(extractTotal(header)).toBe(0)

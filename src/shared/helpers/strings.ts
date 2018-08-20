@@ -1,12 +1,12 @@
-export function addSeparator (num) {
+export function addSeparator(num) {
   if (typeof num !== 'string' && typeof num !== 'number') {
     return '0'
   }
 
-  let str = num + ''
-  let reversed = str.split('').reverse().join('')
-  let separated = reversed.replace(/(\d{3})/g, '$1.')
-  let reverted = separated.split('').reverse().join('')
+  const str = num + ''
+  const reversed = str.split('').reverse().join('')
+  const separated = reversed.replace(/(\d{3})/g, '$1.')
+  const reverted = separated.split('').reverse().join('')
   return reverted.replace(/^\./, '')
 }
 

@@ -1,9 +1,10 @@
-import {githubUrl, issuesUrl, forksUrl, stargazersUrl, watchersUrl} from '../urls'
+import {forksUrl, githubUrl, issuesUrl, stargazersUrl, watchersUrl} from '../urls'
 
 describe('Helpers (Urls)', () => {
   describe('githubUrl', () => {
     it('returns a repo\'s Github url for a given resource', () => {
-      expect(githubUrl('owner1', 'some-repo', 'some-resource')).toBe('https://github.com/owner1/some-repo/some-resource')
+      const url = 'https://github.com/owner1/some-repo/some-resource'
+      expect(githubUrl('owner1', 'some-repo', 'some-resource')).toBe(url)
     })
   })
 
