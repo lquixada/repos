@@ -9,7 +9,7 @@ module.exports = {
     'js',
     'json'
   ],
-  setupTestFrameworkScriptFile: '<rootDir>/src/__tests__/setup.js',
+  setupTestFrameworkScriptFile: '<rootDir>/src/__tests__/setup.ts',
   snapshotSerializers: ['enzyme-to-json/serializer'],
   transform: {
     '^.+\\.(jsx?|tsx?)$': 'babel-jest'
