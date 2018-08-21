@@ -23,11 +23,11 @@
     "test": "npm run -s test:jest && npm run -s test:lint",
     "test:codecov": "codecov",
     "test:jest": "jest --coverage",
-    "test:lint": "tslint './src/**/*.tsx'"
+    "test:lint": "tslint './src/**/*.{ts,tsx}'"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tslint --fix './src/**/*.tsx'",
+      "tslint --fix './src/**/*.{ts,tsx}'",
       "git add"
     ]
   },
