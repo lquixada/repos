@@ -4,7 +4,7 @@ import {HomePage} from './components/page/home'
 import {NotFoundPage} from './components/page/not-found'
 import RepoPage from './containers/page/repo'
 
-export default [
+const routes: object[] = [
   {
     component: App,
     path: '/',
@@ -29,3 +29,5 @@ export default [
     ],
   },
 ]
+
+export default routes
