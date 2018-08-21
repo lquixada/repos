@@ -7,13 +7,14 @@ const DotenvPlugin = require('dotenv-webpack')
 
 const dist = path.join(__dirname, 'dist')
 const assets = path.join(dist, 'public')
+const entry = ['regenerator-runtime/runtime', './src/client']
 
 module.exports = function (env) {
   return {
     mode: env.prod ? 'production' : 'development',
 
     entry: {
-      app: env.prod ? ['./src/client'] : ['webpack-hot-middleware/client', './src/client']
+      app: env.prod ? entry : ['webpack-hot-middleware/client'].concat(entry)
     },
 
     devtool: env.prod ? 'source-map' : 'cheap-eval-source-map',
