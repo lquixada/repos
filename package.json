@@ -17,13 +17,12 @@
     "deploy:minor": "npm version minor && git push --follow-tags",
     "deploy:patch": "npm version patch && git push --follow-tags",
     "dev": "pm2 start --no-daemon",
+    "specs": "jest --coverage",
     "lambda:deploy": "serverless deploy -v",
+    "lint": "tslint './src/**/*.{ts,tsx}'",
     "prod": "NODE_ENV=production serverless offline --noEnvironment --skipCacheInvalidation --dontPrintOutput",
     "ssl:build": "./tasks/ssl",
-    "test": "npm run -s test:jest && npm run -s test:lint",
-    "test:codecov": "codecov",
-    "test:jest": "jest --coverage",
-    "test:lint": "tslint './src/**/*.{ts,tsx}'"
+    "test": "npm run -s specs && npm run -s lint"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

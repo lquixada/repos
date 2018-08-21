@@ -4,9 +4,9 @@ branches:
   only:
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
 script:
-- yarn -s test:lint
-- yarn -s test:jest
-- yarn -s test:codecov
+- yarn -s lint
+- yarn -s specs
+- yarn -s codecov
 deploy:
   provider: script
   skip_cleanup: true
