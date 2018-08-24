@@ -10,7 +10,7 @@ exports[`<AboutPage /> matches the snapshot 1`] = `
       About - Github Repos
     </title>
   </HelmetWrapper>
-  <styled.div>
+  <Styled(styled.div)>
     <styled.article>
       <Subtitle>
         About me
@@ -31,6 +31,6 @@ exports[`<AboutPage /> matches the snapshot 1`] = `
         Innovation is key. To create new ideas or to make old things better is to reassess the pre-established paradigms. I believe my multidisciplinary education and thirteen years of experience in the Internet industry have put me in a position able to provide that. Having a broad base of technical skills can bring new perspectives to the table and unlock distinct ways of thinking.
       </styled.p>
     </styled.article>
-  </styled.div>
+  </Styled(styled.div)>
 </styled.section>
 `;

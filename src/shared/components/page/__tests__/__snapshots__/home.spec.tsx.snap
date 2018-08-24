@@ -10,12 +10,12 @@ exports[`<HomePage /> matches the snapshot 1`] = `
       Github Repos
     </title>
   </HelmetWrapper>
-  <styled.div>
+  <Styled(styled.div)>
     <styled.article>
       <styled.p>
         Type a github user in the input above and hit Enter.
       </styled.p>
     </styled.article>
-  </styled.div>
+  </Styled(styled.div)>
 </styled.section>
 `;

@@ -42,7 +42,7 @@ export const Header = styled.header`
   background-color: #3c4146;
 `
 
-export const HeaderContainer = Container.extend`
+export const HeaderContainer = styled(Container)`
   ${flex.middle()}
 
   @media (${phones}) {
@@ -57,7 +57,7 @@ export const Section = styled.section`
   padding: 2rem;
 `
 
-export const SectionContainer = Container.extend`
+export const SectionContainer = styled(Container)`
   ${flex.top()}
 
   @media (${phones}) {

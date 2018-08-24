@@ -10,7 +10,7 @@ exports[`<RepoPage /> renders a selection message when repo name is not given 1`
       Github Repos
     </title>
   </HelmetWrapper>
-  <styled.div>
+  <Styled(styled.div)>
     <styled.aside>
       <withRouter(Connect(MenuContainer)) />
       <Footer />
@@ -20,7 +20,7 @@ exports[`<RepoPage /> renders a selection message when repo name is not given 1`
         Choose a repository on the menu.
       </styled.p>
     </styled.article>
-  </styled.div>
+  </Styled(styled.div)>
 </styled.section>
 `;
 
@@ -35,7 +35,7 @@ exports[`<RepoPage /> renders the repo info when repo name is given 1`] = `
       Github Repos
     </title>
   </HelmetWrapper>
-  <styled.div>
+  <Styled(styled.div)>
     <styled.aside>
       <withRouter(Connect(MenuContainer)) />
       <Footer />
@@ -43,6 +43,6 @@ exports[`<RepoPage /> renders the repo info when repo name is given 1`] = `
     <styled.article>
       <withRouter(Connect(RepoContainer)) />
     </styled.article>
-  </styled.div>
+  </Styled(styled.div)>
 </styled.section>
 `;
