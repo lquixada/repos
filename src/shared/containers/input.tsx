@@ -4,7 +4,12 @@ import {withRouter} from 'react-router'
 
 import {Input} from '../components/input'
 
-export class InputContainer extends React.Component<any, any, any> {
+interface IState {
+  minLength: number
+  value: string
+}
+
+export class InputContainer extends React.Component<any, IState, any> {
   constructor(props) {
     super(props)
     this.state = {
