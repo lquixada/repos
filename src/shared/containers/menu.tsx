@@ -1,4 +1,5 @@
 import {List, Map} from 'immutable'
+import get from 'lodash.get'
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
@@ -14,7 +15,7 @@ interface IProps {
 
 export class MenuContainer extends React.Component<IProps, any> {
   public hasLoaded() {
-    const data = this.props.counts.getIn([this.props.owner, 'data'])
+    const data = get(this.props.counts, `${this.props.owner}.data`)
     return !!data
   }
 
@@ -31,10 +32,10 @@ export class MenuContainer extends React.Component<IProps, any> {
 
 const mapStateToProps = ({counts, repo}, {match}) => ({
   counts,
-  items: counts.getIn([match.params.owner, 'data'], List()).map((item) => {
+  items: get(counts, `${match.params.owner}.data`, []).map((item) => {
     const {owner} = match.params
-    const repoName = item.get(0)
-    const count = item.get(1)
+    const repoName = item[0]
+    const count = item[1]
     const isLoading = repo.getIn([owner, repoName, 'isLoading'])
 
     return List.of(repoName, count, isLoading)

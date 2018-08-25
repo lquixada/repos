@@ -12,15 +12,15 @@ describe('Reducers (Counts)', () => {
 
   it('starts empty', () => {
     const state = reducer()
-    expect(state.toJS()).toEqual({})
+    expect(state).toEqual({})
   })
 
   it('switches to isLoading state', () => {
     const action = fetchCounts(owner)
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, 'isLoading'])).toBe(true)
-    expect(state.getIn([owner, 'error'])).toBe(null)
+    expect(state[owner].isLoading).toBe(true)
+    expect(state[owner].error).toBe(null)
   })
 
   it('sets the counts state', () => {
@@ -28,14 +28,14 @@ describe('Reducers (Counts)', () => {
     const action = fetchCountsSucceeded({owner, data})
     const state = reducer(undefined, action)
 
-    expect(state.toJS()).toMatchSnapshot()
+    expect(state).toMatchSnapshot()
   })
 
   it('sets an error state', () => {
     const action = fetchCountsFailed(owner, 'some-error')
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, 'isLoading'])).toBe(false)
-    expect(state.getIn([owner, 'error'])).toBe('some-error')
+    expect(state[owner].isLoading).toBe(false)
+    expect(state[owner].error).toBe('some-error')
   })
 })

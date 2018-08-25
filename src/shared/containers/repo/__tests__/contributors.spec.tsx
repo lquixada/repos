@@ -26,7 +26,7 @@ describe('<ContributorsContainer />', () => {
       nextPage: 2,
     })
 
-    count = fromJS(['repo1', 2])
+    count = ['repo1', 2]
   })
 
   it('renders null if there is no repo', () => {

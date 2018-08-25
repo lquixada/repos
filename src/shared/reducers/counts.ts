@@ -1,16 +1,17 @@
-import {Map} from 'immutable'
+import merge from 'lodash.merge'
+
 import {
   COUNTS_FAILED,
   COUNTS_REQUESTED,
   COUNTS_SUCCEEDED,
 } from '../actions'
 
-export default function counts(state = Map(), action = {}) {
+export default function counts(state = {}, action = {}) {
   const {payload, type}: any = action
 
   switch (type) {
     case COUNTS_REQUESTED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           error: null,
           isLoading: true,
@@ -22,7 +23,7 @@ export default function counts(state = Map(), action = {}) {
         .map((repo) => [repo.name, repo.count])
         .sort((a, b) => b[1] - a[1])
 
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           data,
           error: null,
@@ -31,7 +32,7 @@ export default function counts(state = Map(), action = {}) {
       })
 
     case COUNTS_FAILED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           error: payload.error,
           isLoading: false,

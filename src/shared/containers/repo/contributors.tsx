@@ -1,4 +1,5 @@
 import {List, Map} from 'immutable'
+import get from 'lodash.get'
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -42,7 +43,7 @@ export class ContributorsContainer extends React.Component<IProps, any> {
 
   public getCount(): string {
     const {count} = this.props
-    return count ? count.get(1) : 'error'
+    return count ? count[1] : 'error'
   }
 
   public render() {
@@ -67,7 +68,7 @@ const mapStateToProps = ({contributors, counts}, {owner, repoName}) => ({
   contributors: contributors.getIn([owner, repoName]),
   // REMEMBER: "counts" has the following
   // scheme [[repoName1, count1, false], [repoName2, count2, false]]
-  count: counts.get('data', List()).find((count) => count.get(0) === repoName),
+  count: get(counts, 'data', []).find((count) => count.get(0) === repoName),
 })
 
 export default connect(mapStateToProps, actions)(ContributorsContainer)

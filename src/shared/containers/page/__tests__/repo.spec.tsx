@@ -14,20 +14,20 @@ describe('<RepoPageContainer />', () => {
     owner = 'owner1'
     repoName = 'repo1'
     fetchPage = jest.fn()
-    counts = fromJS({
+    counts = {
       [owner]: {
         data: [
           {name: repoName, count: 5},
         ],
       },
-    })
+    }
   })
 
   it('fetches all data when counts is not loaded', () => {
     shallow(<RepoPageContainer
       owner={owner}
       repoName={repoName}
-      counts={fromJS({})}
+      counts={{}}
       fetchPage={fetchPage}
     />)
 

@@ -1,4 +1,3 @@
-import {Map} from 'immutable'
 import React from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
@@ -15,7 +14,7 @@ const hooks = {
 }
 
 interface IProps {
-  counts: Map<string, any>
+  counts: object
   owner: string
   repoName: string | undefined
   fetchPage(payload: object): void
@@ -51,8 +50,8 @@ export class RepoPageContainer extends React.Component<IProps, any> {
   }
 
   public hasLoaded() {
-    const counts = this.props.counts.get(this.props.owner)
-    return counts && counts.get('data') && !counts.get('data').isEmpty()
+    const counts = this.props.counts[this.props.owner]
+    return counts && counts.data && counts.data.length !== 0
   }
 
   public render() {
