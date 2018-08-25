@@ -1,13 +1,14 @@
 import React from 'react'
 
 import Contributors from '../../containers/repo/contributors'
+import {IRepo} from '../../types'
 import {Description} from './description'
 import {Header} from './header'
 import {Summary} from './summary'
 
 interface IProps {
   owner: string
-  repo: any
+  repo: IRepo
 }
 
 export const Repo = ({owner, repo}: IProps) => (

@@ -4,12 +4,7 @@ import {connect} from 'react-redux'
 
 import * as actions from '../../actions'
 import {Contributors} from '../../components/repo/contributors'
-
-interface IContributors {
-  data: any[]
-  isLoading: boolean
-  nextPage: number,
-}
+import {IContributors} from '../../types'
 
 interface IProps {
   owner: string

@@ -3,12 +3,8 @@ import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 
 import {flex, tablets} from '../../helpers'
+import {IContributor} from '../../types'
 
-interface IContributor {
-  login: string
-  avatar_url: string
-  html_url: string
-}
 interface IProps {
   data: IContributor[]
   total: string | number

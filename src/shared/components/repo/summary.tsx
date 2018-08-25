@@ -8,15 +8,7 @@ import StarIcon from 'react-octicons/lib/star'
 import styled from 'styled-components'
 
 import {addSeparator, flex, forksUrl, issuesUrl, stargazersUrl, watchersUrl} from '../../helpers'
-
-interface IRepo {
-  name: string
-  stargazers_count: number
-  subscribers_count: number
-  forks_count: number
-  open_issues_count: number
-  license: object
-}
+import {IRepo} from '../../types'
 
 interface IProps {
   owner: string

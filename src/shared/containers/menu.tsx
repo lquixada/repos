@@ -5,10 +5,11 @@ import {withRouter} from 'react-router'
 
 import * as actions from '../actions'
 import {Menu} from '../components/menu'
+import {Count, ICounts} from '../types'
 
 interface IProps {
-  counts: any
-  items: Array<[string, string, boolean]>
+  counts: ICounts
+  items: Count[]
   owner: string
 }
 

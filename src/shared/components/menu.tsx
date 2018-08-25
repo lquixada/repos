@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {phones} from '../helpers'
+import {Count} from '../types'
 import {Link} from './link'
-
-type Count = [string, number, boolean]
 
 interface IProps {
   owner: string
