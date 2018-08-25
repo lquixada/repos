@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import {phones} from '../helpers'
 import {Link} from './link'
 
+type Count = [string, number, boolean]
+
 interface IProps {
   owner: string
-  items: Array<[string, number, boolean]>
+  items: Count[]
 }
 
 export const Menu = ({owner, items}: IProps) => (

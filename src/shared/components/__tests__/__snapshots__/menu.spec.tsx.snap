@@ -9,6 +9,7 @@ exports[`<Menu /> matches the snapshot 1`] = `
       <Link
         contributorsCount={2}
         isLoading={false}
+        owner="some-owner"
         repoName="repo1"
       />
     </styled.li>
@@ -18,6 +19,7 @@ exports[`<Menu /> matches the snapshot 1`] = `
       <Link
         contributorsCount={5}
         isLoading={false}
+        owner="some-owner"
         repoName="repo2"
       />
     </styled.li>
