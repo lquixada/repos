@@ -5,9 +5,14 @@ import styled from 'styled-components'
 
 import {flex, tablets} from '../../helpers'
 
+interface IContributor {
+  login: string
+  avatar_url: string
+  html_url: string
+}
 interface IProps {
-  data: Array<Map<string, string>>
-  total: string
+  data: IContributor[]
+  total: string | number
   hasLoaded: boolean
   hasMore: boolean
   isLoadingMore: boolean
@@ -29,10 +34,10 @@ const Content = ({data, hasMore, isLoadingMore, onNext}: IProps) => (
   <div>
     <List>
       {data.map((contributor, i) =>
-        <Item key={contributor.get('login') + i}>
-          <Link to={`/r/${contributor.get('login')}`}>
-            <Image alt={`User ${contributor.get('login')}`} src={`${contributor.get('avatar_url')}&s=40`} />
-            <Text>{contributor.get('login')}</Text>
+        <Item key={contributor.login + i}>
+          <Link to={`/r/${contributor.login}`}>
+            <Image alt={`User ${contributor.login}`} src={`${contributor.avatar_url}&s=40`} />
+            <Text>{contributor.login}</Text>
           </Link>
         </Item>,
       )}

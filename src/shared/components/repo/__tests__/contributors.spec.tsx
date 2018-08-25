@@ -1,5 +1,4 @@
 import {mount} from 'enzyme'
-import {fromJS} from 'immutable'
 import React from 'react'
 import {MemoryRouter} from 'react-router'
 
@@ -7,11 +6,11 @@ import {Contributors} from '../contributors'
 
 describe('<Contributors />', () => {
   it('list contributors', () => {
-    const data = fromJS([
-      {login: 'user1', html_url: 'https://user1/",', avatar: 'https://avatars1/'},
-      {login: 'user2', html_url: 'https://user2/",', avatar: 'https://avatars2/'},
-      {login: 'user3', html_url: 'https://user3/",', avatar: 'https://avatars3/'},
-    ])
+    const data = [
+      {login: 'user1', html_url: 'https://user1/",', avatar_url: 'https://avatars1/'},
+      {login: 'user2', html_url: 'https://user2/",', avatar_url: 'https://avatars2/'},
+      {login: 'user3', html_url: 'https://user3/",', avatar_url: 'https://avatars3/'},
+    ]
     const component = mount(
       <MemoryRouter keyLength={0}>
         <Contributors
@@ -29,7 +28,14 @@ describe('<Contributors />', () => {
   })
 
   it('shows loading', () => {
-    const component = mount(<Contributors total={3} hasLoaded={false} />)
+    const component = mount(<Contributors
+      data={[]}
+      hasMore={false}
+      total={3}
+      hasLoaded={false}
+      isLoadingMore={false}
+      onNext={(f) => f}
+    />)
     expect(component).toMatchSnapshot()
   })
 

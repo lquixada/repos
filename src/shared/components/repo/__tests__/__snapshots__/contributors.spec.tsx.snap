@@ -38,21 +38,21 @@ exports[`<Contributors /> list contributors 1`] = `
   >
     <Contributors
       data={
-        Immutable.List [
-          Immutable.Map {
-            "login": "user1",
+        Array [
+          Object {
+            "avatar_url": "https://avatars1/",
             "html_url": "https://user1/\\",",
-            "avatar": "https://avatars1/",
+            "login": "user1",
           },
-          Immutable.Map {
-            "login": "user2",
+          Object {
+            "avatar_url": "https://avatars2/",
             "html_url": "https://user2/\\",",
-            "avatar": "https://avatars2/",
+            "login": "user2",
           },
-          Immutable.Map {
-            "login": "user3",
+          Object {
+            "avatar_url": "https://avatars3/",
             "html_url": "https://user3/\\",",
-            "avatar": "https://avatars3/",
+            "login": "user3",
           },
         ]
       }
@@ -77,21 +77,21 @@ exports[`<Contributors /> list contributors 1`] = `
           </styled.h3>
           <Content
             data={
-              Immutable.List [
-                Immutable.Map {
-                  "login": "user1",
+              Array [
+                Object {
+                  "avatar_url": "https://avatars1/",
                   "html_url": "https://user1/\\",",
-                  "avatar": "https://avatars1/",
+                  "login": "user1",
                 },
-                Immutable.Map {
-                  "login": "user2",
+                Object {
+                  "avatar_url": "https://avatars2/",
                   "html_url": "https://user2/\\",",
-                  "avatar": "https://avatars2/",
+                  "login": "user2",
                 },
-                Immutable.Map {
-                  "login": "user3",
+                Object {
+                  "avatar_url": "https://avatars3/",
                   "html_url": "https://user3/\\",",
-                  "avatar": "https://avatars3/",
+                  "login": "user3",
                 },
               ]
             }
@@ -138,12 +138,12 @@ exports[`<Contributors /> list contributors 1`] = `
                               >
                                 <styled.img
                                   alt="User user1"
-                                  src="undefined&s=40"
+                                  src="https://avatars1/&s=40"
                                 >
                                   <img
                                     alt="User user1"
                                     className="sc-EHOje dcMEop"
-                                    src="undefined&s=40"
+                                    src="https://avatars1/&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>
@@ -192,12 +192,12 @@ exports[`<Contributors /> list contributors 1`] = `
                               >
                                 <styled.img
                                   alt="User user2"
-                                  src="undefined&s=40"
+                                  src="https://avatars2/&s=40"
                                 >
                                   <img
                                     alt="User user2"
                                     className="sc-EHOje dcMEop"
-                                    src="undefined&s=40"
+                                    src="https://avatars2/&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>
@@ -246,12 +246,12 @@ exports[`<Contributors /> list contributors 1`] = `
                               >
                                 <styled.img
                                   alt="User user3"
-                                  src="undefined&s=40"
+                                  src="https://avatars3/&s=40"
                                 >
                                   <img
                                     alt="User user3"
                                     className="sc-EHOje dcMEop"
-                                    src="undefined&s=40"
+                                    src="https://avatars3/&s=40"
                                   />
                                 </styled.img>
                                 <styled.span>
@@ -471,7 +471,11 @@ exports[`<Contributors /> show button More 1`] = `
 
 exports[`<Contributors /> shows loading 1`] = `
 <Contributors
+  data={Array []}
   hasLoaded={false}
+  hasMore={false}
+  isLoadingMore={false}
+  onNext={[Function]}
   total={3}
 >
   <styled.div>

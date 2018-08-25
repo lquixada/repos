@@ -17,14 +17,14 @@ describe('<ContributorsContainer />', () => {
       fetchContributors: jest.fn(),
     }
 
-    contributors = fromJS({
+    contributors = {
       data: [
         {id: 1, login: 'user1'},
         {id: 2, login: 'user2'},
       ],
       isLoading: false,
       nextPage: 2,
-    })
+    }
 
     count = ['repo1', 2]
   })
@@ -55,7 +55,7 @@ describe('<ContributorsContainer />', () => {
   })
 
   it('renders loading Contributors component', () => {
-    contributors = contributors.set('isLoading', true)
+    contributors.isLoading = true
     const component = shallow(
       <ContributorsContainer
         owner={owner}
@@ -69,7 +69,7 @@ describe('<ContributorsContainer />', () => {
   })
 
   it('renders the end of Contributors component', () => {
-    contributors = contributors.set('nextPage', '')
+    contributors.nextPage = ''
     const component = shallow(
       <ContributorsContainer
         owner={owner}
@@ -79,6 +79,7 @@ describe('<ContributorsContainer />', () => {
         {...actions}
       />,
     )
+
     expect(component).toMatchSnapshot()
   })
 

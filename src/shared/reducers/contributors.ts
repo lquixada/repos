@@ -1,21 +1,21 @@
-/* eslint-disable complexity */
-import {fromJS, List, Map} from 'immutable'
+import get from 'lodash.get'
+import merge from 'lodash.merge'
 
 import {
   CONTRIBUTORS_FAILED, CONTRIBUTORS_REQUESTED, CONTRIBUTORS_SUCCEEDED,
 } from '../actions'
 
-const data = (state = List(), action) => {
+const data = (state = [], action) => {
   const {payload} = action
-  return state.concat(fromJS(payload.data.data))
+  return state.concat(payload.data.data)
 }
 
-export default function contributors(state = Map(), action = {}) {
+export default function contributors(state = {}, action = {}) {
   const {payload, type}: any = action
 
   switch (type) {
     case CONTRIBUTORS_REQUESTED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
             error: null,
@@ -25,10 +25,10 @@ export default function contributors(state = Map(), action = {}) {
       })
 
     case CONTRIBUTORS_SUCCEEDED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
-            data: data(state.getIn([payload.owner, payload.repoName, 'data']), action),
+            data: data(get(state, `${payload.owner}.${payload.repoName}.data`), action),
             error: null,
             isLoading: false,
             nextPage: payload.data.nextPage,
@@ -37,7 +37,7 @@ export default function contributors(state = Map(), action = {}) {
       })
 
     case CONTRIBUTORS_FAILED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
             error: payload.error,

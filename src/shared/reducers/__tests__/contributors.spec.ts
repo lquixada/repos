@@ -1,4 +1,3 @@
-import {fromJS} from 'immutable'
 import {
   fetchContributors, fetchContributorsFailed, fetchContributorsSucceeded,
 } from '../../actions'
@@ -20,15 +19,15 @@ describe('Reducers (Contributors)', () => {
 
   it('starts empty', () => {
     const state = reducer()
-    expect(state.toJS()).toEqual({})
+    expect(state).toEqual({})
   })
 
   it('switches to isLoading state', () => {
     const action = fetchContributors({owner, repoName})
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(true)
-    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
+    expect(state[owner][repoName].isLoading).toBe(true)
+    expect(state[owner][repoName].error).toBe(null)
   })
 
   it('sets the repo state', () => {
@@ -40,29 +39,29 @@ describe('Reducers (Contributors)', () => {
     }
     const action = fetchContributorsSucceeded({owner, repoName, data})
 
-    const prevState = fromJS({
+    const prevState = {
       [owner]: {
         [repoName]: {},
       },
-    })
+    }
     const state = reducer(prevState, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
-    expect(state.getIn([owner, repoName, 'data']).toJS()).toEqual([contributors[0]])
-    expect(state.getIn([owner, repoName, 'nextPage'])).toEqual(2)
+    expect(state[owner][repoName].isLoading).toBe(false)
+    expect(state[owner][repoName].error).toBe(null)
+    expect(state[owner][repoName].data).toEqual([contributors[0]])
+    expect(state[owner][repoName].nextPage).toEqual(2)
   })
 
   it('sets an error state', () => {
     const action = fetchContributorsFailed(owner, repoName, 'some-error')
-    const prevState = fromJS({
+    const prevState = {
       [owner]: {
         [repoName]: {},
       },
-    })
+    }
     const state = reducer(prevState, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([owner, repoName, 'error'])).toBe('some-error')
+    expect(state[owner][repoName].isLoading).toBe(false)
+    expect(state[owner][repoName].error).toBe('some-error')
   })
 })

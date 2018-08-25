@@ -7,7 +7,7 @@ export const immutifyState = (obj) => {
   const immutable = fromJS(obj)
 
   immutable.forEach((value, key) => {
-    root[key] = key === 'counts' ? value.toJS() : value
+    root[key] = key === 'repo' ? value : value.toJS()
   })
 
   return root

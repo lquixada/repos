@@ -1,1 +1,3 @@
-export const getNextPage = (state, owner, repoName) => state.contributors.getIn([owner, repoName, 'nextPage'])
+import get from 'lodash.get'
+
+export const getNextPage = (state, owner, repoName) => get(state.contributors, `${owner}.${repoName}.nextPage`)
