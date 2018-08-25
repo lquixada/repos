@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {flex} from '../../helpers'
 import {Content, Section, SectionContainer} from '../grid'
 
-export const HomePage = () => (
+export const HomePage: React.SFC = () => (
   <Section>
     <Helmet>
       <title>Github Repos</title>
@@ -19,7 +19,7 @@ export const HomePage = () => (
       </Content>
     </SectionContainer>
   </Section>
-)
+) as React.ReactElement<any>
 
 const P = styled.p`
   ${flex.display()}

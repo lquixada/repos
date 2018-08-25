@@ -10,7 +10,7 @@ interface IProps {
   items: Count[]
 }
 
-export const Menu = ({owner, items}: IProps) => (
+export const Menu: React.SFC<IProps> = ({owner, items}) => (
   <Wrapper>
     <List>
       {items.map((item) => (
@@ -25,7 +25,7 @@ export const Menu = ({owner, items}: IProps) => (
       ))}
     </List>
   </Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled.div`
   margin-bottom: 1rem;

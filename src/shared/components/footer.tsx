@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 
-export const Footer = () => (
+export const Footer: React.SFC = () => (
   <Wrapper>
     <OutLink href='http://linkedin.com/in/lquixada'>LinkedIn</OutLink>
     {' '}|{' '}
@@ -12,7 +12,7 @@ export const Footer = () => (
     <br />
     Made with ❤ by Leonardo Quixadá.
   </Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled.footer`
   margin: 1rem 0;

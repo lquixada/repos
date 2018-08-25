@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {Content, P, Section, SectionContainer} from '../grid'
 import {Subtitle} from '../subtitle'
 
-export const AboutPage = () => (
+export const AboutPage: React.SFC = () => (
   <Section>
     <Helmet>
       <title>About - Github Repos</title>
@@ -37,7 +37,7 @@ export const AboutPage = () => (
       </Content>
     </SectionContainer>
   </Section>
-)
+) as React.ReactElement<any>
 
 const Image = styled.img`
   margin: 0 1rem 1rem 0;

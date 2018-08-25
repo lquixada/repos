@@ -11,11 +11,11 @@ interface IProps {
   repo: IRepo
 }
 
-export const Repo = ({owner, repo}: IProps) => (
+export const Repo: React.SFC<IProps> = ({owner, repo}) => (
   <div>
     <Header title={repo.name} url={repo.html_url} />
     <Description text={repo.description} />
     <Summary owner={owner} repo={repo} />
     <Contributors owner={owner} repoName={repo.name} />
   </div>
-)
+) as React.ReactElement<any>

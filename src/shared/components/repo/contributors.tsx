@@ -14,18 +14,18 @@ interface IProps {
   onNext(f: any): any
 }
 
-export const Contributors = (props: IProps) => (
+export const Contributors: React.SFC<IProps> = (props) => (
   <Wrapper>
     <Title>Contributors ({props.total})</Title>
     {!props.hasLoaded ? <Loading /> : <Content {...props} />}
   </Wrapper>
-)
+) as React.ReactElement<any>
 
-const Loading = () => (
+const Loading: React.SFC = () => (
   <div>Loading...</div>
-)
+) as React.ReactElement<any>
 
-const Content = ({data, hasMore, isLoadingMore, onNext}: IProps) => (
+const Content: React.SFC<IProps> = ({data, hasMore, isLoadingMore, onNext}) => (
   <div>
     <List>
       {data.map((contributor, i) =>
@@ -43,7 +43,7 @@ const Content = ({data, hasMore, isLoadingMore, onNext}: IProps) => (
       </Button>
     }
   </div>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled.div`
   margin: 2rem 0;

@@ -6,6 +6,6 @@ interface IProps {
   text: string | undefined
 }
 
-export const Description = ({text}: IProps) => (
+export const Description: React.SFC<IProps> = ({text}) => (
   <P>{text}</P>
-)
+) as React.ReactElement<any>

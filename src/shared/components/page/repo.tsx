@@ -12,7 +12,7 @@ interface IProps {
   repoName: string | undefined
 }
 
-export const RepoPage = ({repoName}: IProps) => (
+export const RepoPage: React.SFC<IProps> = ({repoName}) => (
   <Section>
     <Helmet>
       <title>{repoName ? `${repoName} -` : ''}Github Repos</title>
@@ -35,7 +35,7 @@ export const RepoPage = ({repoName}: IProps) => (
       </Content>
     </SectionContainer>
   </Section>
-)
+) as React.ReactElement<any>
 
 const P = styled.p`
   ${flex.display()}

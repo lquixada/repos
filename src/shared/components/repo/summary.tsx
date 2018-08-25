@@ -15,7 +15,7 @@ interface IProps {
   repo: IRepo
 }
 
-export const Summary = ({owner, repo}: IProps) => (
+export const Summary: React.SFC<IProps> = ({owner, repo}) => (
   <List>
     <Item>
       <Link href={stargazersUrl(owner, repo.name)}>
@@ -41,7 +41,7 @@ export const Summary = ({owner, repo}: IProps) => (
       <NoLink><LawIcon />{get(repo, 'license.name')}</NoLink>
     </Item>}
   </List>
-)
+) as React.ReactElement<any>
 
 const List = styled.ul`
   ${flex.display()}

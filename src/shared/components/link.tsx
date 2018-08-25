@@ -12,7 +12,7 @@ interface IProps {
   isLoading: boolean
 }
 
-export const Link = ({owner, repoName, contributorsCount, isLoading}: IProps) => (
+export const Link: React.SFC<IProps> = ({owner, repoName, contributorsCount, isLoading}) => (
   <Wrapper to={`/r/${owner}/${repoName}`}>
     <Icon />
     <Text>
@@ -22,7 +22,7 @@ export const Link = ({owner, repoName, contributorsCount, isLoading}: IProps) =>
     </Text>
     {isLoading ? <img src={imgUrl('loading.gif')} /> : ''}
   </Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled(NavLink)`
   ${flex.display()}

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {Content, Section, SectionContainer} from '../grid'
 
-export const NotFoundPage = () => (
+export const NotFoundPage: React.SFC = () => (
   <Section>
     <Helmet>
       <title>Not Found - Github Repos</title>
@@ -18,7 +18,7 @@ export const NotFoundPage = () => (
       </Content>
     </SectionContainer>
   </Section>
-)
+) as React.ReactElement<any>
 
 const P = styled.p`
   font-size: 4rem;

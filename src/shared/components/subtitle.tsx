@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface IProps {
-  children: string | undefined
-}
-
-export const Subtitle = ({children}: IProps) => (
+export const Subtitle: React.SFC = ({children}) => (
   <Wrapper>{children}</Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper: any = styled.h2`
   color: #3c4146;

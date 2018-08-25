@@ -4,13 +4,13 @@ import styled from 'styled-components'
 
 import {imgUrl} from '../helpers'
 
-export const Title = () => (
+export const Title: React.SFC = () => (
   <Wrapper>
     <NavLink to='/'>
       <Image src={imgUrl('logo.png')} />
     </NavLink>
   </Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled.h1`
   line-height: 1;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {Content, Section, SectionContainer} from '../grid'
 
-export const ErrorPage = () => (
+export const ErrorPage: React.SFC = () => (
   <Section>
     <Helmet>
       <title>Error - Github Repos</title>
@@ -18,7 +18,7 @@ export const ErrorPage = () => (
       </Content>
     </SectionContainer>
   </Section>
-)
+) as React.ReactElement<any>
 
 const P = styled.p`
   margin-bottom: 1rem;

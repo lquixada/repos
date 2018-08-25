@@ -10,7 +10,7 @@ interface IProps {
   url: string | undefined
 }
 
-export const Header = ({title, url}: IProps) => (
+export const Header: React.SFC<IProps> = ({title, url}) => (
   <Wrapper>
     <Subtitle>{title}</Subtitle>
 
@@ -19,7 +19,7 @@ export const Header = ({title, url}: IProps) => (
       <span>Github</span>
     </Link>
   </Wrapper>
-)
+) as React.ReactElement<any>
 
 const Wrapper = styled.header`
   ${flex.display()}
