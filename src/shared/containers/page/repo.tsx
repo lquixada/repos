@@ -27,7 +27,7 @@ export class RepoPageContainer extends React.Component<IProps, any> {
     }
   }
 
-  public componentDidUpdate(prevProps) {
+  public componentDidUpdate(prevProps: IProps) {
     if (this.hasChanged(prevProps) && !this.hasLoaded()) {
       this.fetch()
     }
@@ -49,13 +49,13 @@ export class RepoPageContainer extends React.Component<IProps, any> {
     })
   }
 
-  private hasChanged(prevProps) {
+  private hasChanged(prevProps: IProps): boolean {
     return (
       prevProps.owner !== this.props.owner
     )
   }
 
-  private hasLoaded() {
+  private hasLoaded(): boolean {
     const counts = this.props.counts[this.props.owner]
     return counts && counts.data && counts.data.length !== 0
   }

@@ -18,7 +18,7 @@ export class RepoContainer extends React.Component<IProps, any> {
     this.fetch()
   }
 
-  public componentDidUpdate(prevProps) {
+  public componentDidUpdate(prevProps: IProps) {
     if (this.hasChanged(prevProps)) {
       this.fetch()
     }
@@ -34,14 +34,14 @@ export class RepoContainer extends React.Component<IProps, any> {
     )
   }
 
-  private hasChanged(prevProps) {
+  private hasChanged(prevProps: IProps) {
     return (
       prevProps.owner !== this.props.owner ||
       prevProps.repoName !== this.props.repoName
     )
   }
 
-  private hasLoaded() {
+  private hasLoaded(): boolean {
     return !!this.getRepo()
   }
 

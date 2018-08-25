@@ -23,7 +23,8 @@ export class MenuContainer extends React.Component<IProps, any> {
       <Menu owner={this.props.owner} items={this.props.items} />
     )
   }
-  private hasLoaded() {
+
+  private hasLoaded(): boolean {
     const data = get(this.props.counts, `${this.props.owner}.data`)
     return !!data
   }

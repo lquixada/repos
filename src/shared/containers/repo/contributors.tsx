@@ -47,11 +47,11 @@ export class ContributorsContainer extends React.Component<IProps, any> {
     return this.props.contributors.isLoading
   }
 
-  private hasMore() {
+  private hasMore(): boolean {
     return !!this.props.contributors.nextPage
   }
 
-  private hasLoaded() {
+  private hasLoaded(): boolean {
     const {contributors} = this.props
     return contributors && contributors.data && contributors.data.length > 0
   }
