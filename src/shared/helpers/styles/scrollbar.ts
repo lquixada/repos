@@ -1,5 +1,5 @@
 
-export const scrollbar = () => `
+export const scrollbar = (): string => `
   ::-webkit-scrollbar {
     width: 1rem;
     height: 1rem;

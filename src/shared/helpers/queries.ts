@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 import {getClient} from './client'
 
-export const fetchContributors = async (variables) => {
+export const fetchContributors = async (variables: object) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
@@ -23,7 +23,7 @@ export const fetchContributors = async (variables) => {
   return data
 }
 
-export const fetchRepo = async (variables) => {
+export const fetchRepo = async (variables: object) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
@@ -56,7 +56,7 @@ export const fetchRepo = async (variables) => {
   return data
 }
 
-export const fetchCounts = async (variables) => {
+export const fetchCounts = async (variables: object) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`
@@ -73,7 +73,7 @@ export const fetchCounts = async (variables) => {
   return data
 }
 
-export const fetchAll = async (variables) => {
+export const fetchAll = async (variables: object) => {
   const client = getClient()
   const {data} = await client.query({
     query: gql`

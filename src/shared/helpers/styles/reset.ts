@@ -1,6 +1,6 @@
 import {phones} from './breakpoints'
 
-export const reset = () => `
+export const reset = (): string => `
   /* Reset */
   @import url('https://fonts.googleapis.com/css?family=Lato:300');
 

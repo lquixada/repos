@@ -1,3 +1,3 @@
-export const phones = 'max-width: 576px'
+export const phones: string = 'max-width: 576px'
 
-export const tablets = 'max-width: 768px'
+export const tablets: string = 'max-width: 768px'

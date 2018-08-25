@@ -1,4 +1,4 @@
-export const nprogress = () => `
+export const nprogress = (): string => `
   /* Make clicks pass-through */
   #nprogress {
     pointer-events: none;

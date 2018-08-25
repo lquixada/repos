@@ -1,4 +1,4 @@
-export function addSeparator(num) {
+export function addSeparator(num: string | number): string {
   if (typeof num !== 'string' && typeof num !== 'number') {
     return '0'
   }
@@ -10,7 +10,7 @@ export function addSeparator(num) {
   return reverted.replace(/^\./, '')
 }
 
-export const extractNext = (header) => {
+export const extractNext = (header: string): string => {
   const str = header || ''
   const result = str
     .split(',')
@@ -24,7 +24,7 @@ export const extractNext = (header) => {
   return match ? match[1] : ''
 }
 
-export const extractTotal = (header) => {
+export const extractTotal = (header: string): number => {
   const str = header || ''
   const result = str
     .split(',')
