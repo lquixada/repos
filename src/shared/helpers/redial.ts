@@ -3,7 +3,7 @@ import {END} from 'redux-saga'
 
 export const provideHooks = (hooks) => (ComposedComponent) => Object.assign(ComposedComponent, {hooks})
 
-export const trigger = (hookName, matchs, dispatch) => {
+export const trigger = (hookName, matchs, dispatch): void => {
   matchs.forEach(({match, route}) => {
     const {hooks} = route.component
     const {params} = match
