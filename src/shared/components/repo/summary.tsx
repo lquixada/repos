@@ -1,4 +1,3 @@
-import { Map } from 'immutable'
 import get from 'lodash.get'
 import React from 'react'
 import EyeIcon from 'react-octicons/lib/eye'

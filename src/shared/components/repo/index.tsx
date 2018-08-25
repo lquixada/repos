@@ -1,4 +1,3 @@
-import {Map} from 'immutable'
 import React from 'react'
 
 import Contributors from '../../containers/repo/contributors'

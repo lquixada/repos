@@ -1,5 +1,4 @@
 import {shallow} from 'enzyme'
-import {fromJS, Map} from 'immutable'
 import React from 'react'
 
 import {RepoContainer} from '../index'
@@ -25,7 +24,7 @@ describe('<RepoContainer />', () => {
 
   it('renders Repo component', () => {
     const component = shallow(<RepoContainer owner='owner1' repoName='repo1' fetchRepo={fetchRepo} repo={repo} />)
-    const repoProp = component.find('Repo').prop('repo') as Map<string, string>
+    const repoProp = component.find('Repo').prop('repo') as any
     expect(repoProp).toEqual(repo.data)
   })
 

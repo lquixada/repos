@@ -1,5 +1,4 @@
 import {mount} from 'enzyme'
-import {fromJS} from 'immutable'
 import React from 'react'
 
 import {Summary} from '../summary'
