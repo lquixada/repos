@@ -35,6 +35,9 @@ package:
   include:
     - dist/**
     - node_modules/**
+    - '!node_modules/aws-lambda/**'
+    - '!node_modules/aws-sdk/**'
+    - '!node_modules/typescript/**'
     - package.json
 
 functions:
