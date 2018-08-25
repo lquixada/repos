@@ -14,11 +14,6 @@ interface IProps {
 }
 
 export class MenuContainer extends React.Component<IProps, any> {
-  public hasLoaded() {
-    const data = get(this.props.counts, `${this.props.owner}.data`)
-    return !!data
-  }
-
   public render() {
     if (!this.hasLoaded()) {
       return <div style={{color: '#333'}}>Loading...</div>
@@ -27,6 +22,10 @@ export class MenuContainer extends React.Component<IProps, any> {
     return (
       <Menu owner={this.props.owner} items={this.props.items} />
     )
+  }
+  private hasLoaded() {
+    const data = get(this.props.counts, `${this.props.owner}.data`)
+    return !!data
   }
 }
 

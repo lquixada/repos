@@ -24,31 +24,6 @@ export class RepoContainer extends React.Component<IProps, any> {
     }
   }
 
-  public fetch() {
-    if (!this.hasLoaded()) {
-      this.props.fetchRepo({
-        owner: this.props.owner,
-        repoName: this.props.repoName,
-      })
-    }
-  }
-
-  public getRepo() {
-    const {repo} = this.props
-    return repo && repo.data
-  }
-
-  public hasLoaded() {
-    return !!this.getRepo()
-  }
-
-  public hasChanged(prevProps) {
-    return (
-      prevProps.owner !== this.props.owner ||
-      prevProps.repoName !== this.props.repoName
-    )
-  }
-
   public render() {
     if (!this.hasLoaded()) {
       return <div>Loading...</div>
@@ -57,6 +32,31 @@ export class RepoContainer extends React.Component<IProps, any> {
     return (
       <Repo owner={this.props.owner} repo={this.getRepo()} />
     )
+  }
+
+  private hasChanged(prevProps) {
+    return (
+      prevProps.owner !== this.props.owner ||
+      prevProps.repoName !== this.props.repoName
+    )
+  }
+
+  private hasLoaded() {
+    return !!this.getRepo()
+  }
+
+  private getRepo() {
+    const {repo} = this.props
+    return repo && repo.data
+  }
+
+  private fetch() {
+    if (!this.hasLoaded()) {
+      this.props.fetchRepo({
+        owner: this.props.owner,
+        repoName: this.props.repoName,
+      })
+    }
   }
 }
 

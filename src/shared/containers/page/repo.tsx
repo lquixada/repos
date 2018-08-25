@@ -33,7 +33,13 @@ export class RepoPageContainer extends React.Component<IProps, any> {
     }
   }
 
-  public fetch() {
+  public render() {
+    return (
+      <RepoPage repoName={this.props.repoName} />
+    )
+  }
+
+  private fetch() {
     const {owner, repoName} = this.props
 
     this.props.fetchPage({
@@ -43,21 +49,15 @@ export class RepoPageContainer extends React.Component<IProps, any> {
     })
   }
 
-  public hasChanged(prevProps) {
+  private hasChanged(prevProps) {
     return (
       prevProps.owner !== this.props.owner
     )
   }
 
-  public hasLoaded() {
+  private hasLoaded() {
     const counts = this.props.counts[this.props.owner]
     return counts && counts.data && counts.data.length !== 0
-  }
-
-  public render() {
-    return (
-      <RepoPage repoName={this.props.repoName} />
-    )
   }
 }
 

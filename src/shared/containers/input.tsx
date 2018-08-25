@@ -33,32 +33,24 @@ export class InputContainer extends React.Component<any, IState, any> {
     }
   }
 
-  public setCurrentOwner() {
-    this.setState({
-      value: this.getOwner(this.props.location),
-    })
+  public render() {
+    return (
+      <Input value={this.state.value}
+        onChange={this.handleChange}
+        onKeyUp={this.handleKeyUp} />
+    )
   }
 
-  public getOwner(location) {
-    const match = /\/r\/(\w+)\/?/.exec(location.pathname)
-
-    if (match) {
-      return match[1]
-    }
-
-    return ''
-  }
-
-  public hasOwnerChanged(prevProps) {
+  private hasOwnerChanged(prevProps) {
     return this.getOwner(prevProps.location) !== this.getOwner(this.props.location)
   }
 
-  public handleChange(evt) {
+  private handleChange(evt) {
     const value = evt.target ? evt.target.value : evt
     this.setState({value: value.trim()})
   }
 
-  public handleKeyUp(evt) {
+  private handleKeyUp(evt) {
     if (this.state.value.length < this.state.minLength) {
       return
     }
@@ -68,16 +60,24 @@ export class InputContainer extends React.Component<any, IState, any> {
     }
   }
 
-  public navigate() {
+  private navigate() {
     this.props.history.push(`/r/${this.state.value}`)
   }
 
-  public render() {
-    return (
-      <Input value={this.state.value}
-        onChange={this.handleChange}
-        onKeyUp={this.handleKeyUp} />
-    )
+  private setCurrentOwner() {
+    this.setState({
+      value: this.getOwner(this.props.location),
+    })
+  }
+
+  private getOwner(location) {
+    const match = /\/r\/(\w+)\/?/.exec(location.pathname)
+
+    if (match) {
+      return match[1]
+    }
+
+    return ''
   }
 }
 

@@ -21,31 +21,6 @@ export class ContributorsContainer extends React.Component<IProps, any> {
     this.fetchNext = this.fetchNext.bind(this)
   }
 
-  public fetchNext() {
-    this.props.fetchContributors({
-      owner: this.props.owner,
-      repoName: this.props.repoName,
-    })
-  }
-
-  public hasLoaded() {
-    const {contributors} = this.props
-    return contributors && contributors.data && contributors.data.length > 0
-  }
-
-  public hasMore() {
-    return !!this.props.contributors.nextPage
-  }
-
-  public isLoading(): boolean {
-    return this.props.contributors.isLoading
-  }
-
-  public getCount(): string {
-    const {count} = this.props
-    return count ? count[1] : 'error'
-  }
-
   public render() {
     if (!this.hasLoaded()) {
       return null
@@ -61,6 +36,31 @@ export class ContributorsContainer extends React.Component<IProps, any> {
         onNext={this.fetchNext}
       />
     )
+  }
+
+  private getCount(): string {
+    const {count} = this.props
+    return count ? count[1] : 'error'
+  }
+
+  private isLoading(): boolean {
+    return this.props.contributors.isLoading
+  }
+
+  private hasMore() {
+    return !!this.props.contributors.nextPage
+  }
+
+  private hasLoaded() {
+    const {contributors} = this.props
+    return contributors && contributors.data && contributors.data.length > 0
+  }
+
+  private fetchNext() {
+    this.props.fetchContributors({
+      owner: this.props.owner,
+      repoName: this.props.repoName,
+    })
   }
 }
 
