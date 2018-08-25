@@ -1,4 +1,3 @@
-import {List as ImmutableList} from 'immutable'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -7,19 +6,19 @@ import {Link} from './link'
 
 interface IProps {
   owner: string
-  items: ImmutableList<any>
+  items: Array<[string, number, boolean]>
 }
 
 export const Menu = ({owner, items}: IProps) => (
   <Wrapper>
     <List>
       {items.map((item) => (
-        <Item key={item.get(0)}>
+        <Item key={item[0]}>
           <Link
             owner={owner}
-            repoName={item.get(0)}
-            contributorsCount={item.get(1)}
-            isLoading={item.get(2)}
+            repoName={item[0]}
+            contributorsCount={item[1]}
+            isLoading={item[2]}
           />
         </Item>
       ))}

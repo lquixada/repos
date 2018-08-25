@@ -1,4 +1,3 @@
-import {Map} from 'immutable'
 import get from 'lodash.get'
 import React from 'react'
 import {connect} from 'react-redux'
@@ -9,7 +8,7 @@ import {Repo} from '../../components/repo'
 
 interface IProps {
   owner: string
-  repo: Map<string, any> | undefined
+  repo: any
   repoName: string
   fetchRepo(payload: object): void
 }

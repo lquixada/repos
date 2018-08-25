@@ -12,10 +12,10 @@ import {addSeparator, flex, forksUrl, issuesUrl, stargazersUrl, watchersUrl} fro
 
 interface IRepo {
   name: string
-  stargazers_count: string
-  subscribers_count: string
-  forks_count: string
-  open_issues_count: string
+  stargazers_count: number
+  subscribers_count: number
+  forks_count: number
+  open_issues_count: number
   license: object
 }
 

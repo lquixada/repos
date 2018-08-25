@@ -8,7 +8,7 @@ import {flex, imgUrl} from '../helpers'
 interface IProps {
   owner: string
   repoName: string
-  contributorsCount: string
+  contributorsCount: number
   isLoading: boolean
 }
 

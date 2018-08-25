@@ -1,4 +1,3 @@
-import {List, Map} from 'immutable'
 import get from 'lodash.get'
 import React from 'react'
 import {connect} from 'react-redux'
@@ -8,8 +7,8 @@ import * as actions from '../actions'
 import {Menu} from '../components/menu'
 
 interface IProps {
-  counts: Map<string, string>
-  items: List<any>
+  counts: any
+  items: Array<[string, string, boolean]>
   owner: string
 }
 
@@ -38,7 +37,7 @@ const mapStateToProps = ({counts, repo}, {match}) => ({
     const count = item[1]
     const isLoading = get(repo, `${owner}.${repoName}.isLoading`)
 
-    return List.of(repoName, count, isLoading)
+    return [repoName, count, isLoading]
   }),
   owner: match.params.owner,
 })

@@ -8,7 +8,7 @@ import {Summary} from './summary'
 
 interface IProps {
   owner: string
-  repo: object
+  repo: any
 }
 
 export const Repo = ({owner, repo}: IProps) => (
