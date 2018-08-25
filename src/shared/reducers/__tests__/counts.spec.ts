@@ -32,7 +32,7 @@ describe('Reducers (Counts)', () => {
   })
 
   it('sets an error state', () => {
-    const action = fetchCountsFailed(owner, 'some-error')
+    const action = fetchCountsFailed({owner, error: 'some-error'})
     const state = reducer(undefined, action)
 
     expect(state[owner].isLoading).toBe(false)

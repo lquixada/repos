@@ -8,12 +8,18 @@ describe('Actions (Repo)', () => {
   })
 
   it('fetchRepoSucceeded is FSA-compliant', () => {
-    const data = {}
-    expect(isFSA(fetchRepoSucceeded(data))).toBe(true)
+    expect(isFSA(fetchRepoSucceeded({
+      data: {},
+      owner: 'some-owner',
+      repoName: 'some-repo',
+    }))).toBe(true)
   })
 
   it('fetchRepoFailed is FSA-compliant', () => {
-    const error = {}
-    expect(isFSA(fetchRepoFailed('some-owner', 'some-repo', error))).toBe(true)
+    expect(isFSA(fetchRepoFailed({
+      error: 'some-error',
+      owner: 'some-owner',
+      repoName: 'some-repo',
+    }))).toBe(true)
   })
 })

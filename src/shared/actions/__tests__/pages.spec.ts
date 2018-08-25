@@ -8,12 +8,10 @@ describe('Actions (Repos)', () => {
   })
 
   it('fetchPageSucceeded is FSA-compliant', () => {
-    const data = {}
-    expect(isFSA(fetchPageSucceeded(data))).toBe(true)
+    expect(isFSA(fetchPageSucceeded({name: 'page1'}))).toBe(true)
   })
 
   it('fetchPageFailed is FSA-compliant', () => {
-    const error = {}
-    expect(isFSA(fetchPageFailed('page1', error))).toBe(true)
+    expect(isFSA(fetchPageFailed({name: 'page1', error: 'some-error'}))).toBe(true)
   })
 })

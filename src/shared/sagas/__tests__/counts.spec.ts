@@ -35,7 +35,7 @@ describe('Sagas (Counts)', () => {
       const gen = loadCounts('owner1')
 
       expect(gen.next().value).toEqual(call(fetchCounts, {owner}))
-      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchCountsFailed(owner, error.stack)))
+      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchCountsFailed({owner, error: error.stack})))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
   })

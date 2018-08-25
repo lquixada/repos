@@ -12,7 +12,7 @@ export function * loadCounts(owner) {
     yield put(fetchCountsSucceeded({owner, data: counts}))
   } catch (error) {
     console.info(error)
-    yield put(fetchCountsFailed(owner, error.stack))
+    yield put(fetchCountsFailed({owner, error: error.stack}))
   }
 }
 

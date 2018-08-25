@@ -75,7 +75,7 @@ describe('Sagas (Pages)', () => {
       const gen = loadRepoPage({name, owner, repoName})
 
       expect(gen.next().value).toEqual(call(fetchAll, {owner, repoName}))
-      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchPageFailed(name, error.stack)))
+      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchPageFailed({name, error: error.stack})))
     })
   })
 })

@@ -56,7 +56,11 @@ describe('Sagas (Contributors)', () => {
 
         expect(gen.next().value).toEqual(select(getNextPage, owner, repoName))
         expect(gen.next(nextPage).value).toEqual(call(fetchContributors, {owner, repoName, page: nextPage}))
-        expect(gen.throw && gen.throw(error).value).toEqual(put(fetchContributorsFailed(owner, repoName, error.stack)))
+        expect(gen.throw && gen.throw(error).value).toEqual(put(fetchContributorsFailed({
+          error: error.stack,
+          owner,
+          repoName,
+        })))
         expect(gen.next()).toEqual({done: true, value: undefined})
       })
     })

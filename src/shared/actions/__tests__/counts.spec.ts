@@ -8,12 +8,10 @@ describe('Actions (Counts)', () => {
   })
 
   it('fetchCountsSucceeded is FSA-compliant', () => {
-    const data = {}
-    expect(isFSA(fetchCountsSucceeded(data))).toBe(true)
+    expect(isFSA(fetchCountsSucceeded({owner: 'some-owner', data: {}}))).toBe(true)
   })
 
   it('fetchCountsFailed is FSA-compliant', () => {
-    const error = {}
-    expect(isFSA(fetchCountsFailed('some-owner', error))).toBe(true)
+    expect(isFSA(fetchCountsFailed({owner: 'some-owner', error: 'some-error'}))).toBe(true)
   })
 })

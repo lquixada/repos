@@ -26,7 +26,7 @@ export function * loadRepoPage({name, owner, repoName}: {name: string, owner: st
     yield put(fetchPageSucceeded({name}))
   } catch (error) {
     console.info(error)
-    yield put(fetchPageFailed(name, error.stack))
+    yield put(fetchPageFailed({name, error: error.stack}))
   }
 }
 

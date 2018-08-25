@@ -11,13 +11,19 @@ describe('Actions (Contributors)', () => {
     })
 
     it('fetchContributorsSucceeded is FSA-compliant', () => {
-      const data = {}
-      expect(isFSA(fetchContributorsSucceeded(data))).toBe(true)
+      expect(isFSA(fetchContributorsSucceeded({
+        data: {},
+        owner: 'some-owner',
+        repoName: 'some-repo',
+      }))).toBe(true)
     })
 
     it('fetchContributorsFailed is FSA-compliant', () => {
-      const error = {}
-      expect(isFSA(fetchContributorsFailed('some-owner', 'some-repo', error))).toBe(true)
+      expect(isFSA(fetchContributorsFailed({
+        error: 'some-error',
+        owner: 'some-owner',
+        repoName: 'some-repo',
+      }))).toBe(true)
     })
   })
 })

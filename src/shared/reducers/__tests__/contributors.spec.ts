@@ -53,7 +53,7 @@ describe('Reducers (Contributors)', () => {
   })
 
   it('sets an error state', () => {
-    const action = fetchContributorsFailed(owner, repoName, 'some-error')
+    const action = fetchContributorsFailed({owner, repoName, error: 'some-error'})
     const prevState = {
       [owner]: {
         [repoName]: {},

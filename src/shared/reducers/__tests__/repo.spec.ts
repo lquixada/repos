@@ -37,7 +37,7 @@ describe('Reducers (Repo)', () => {
   })
 
   it('sets an error state', () => {
-    const action = fetchRepoFailed(owner, repoName, 'some-error')
+    const action = fetchRepoFailed({owner, repoName, error: 'some-error'})
     const state = reducer(undefined, action)
 
     expect(state[owner][repoName].isLoading).toBe(false)

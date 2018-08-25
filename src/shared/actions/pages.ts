@@ -7,15 +7,12 @@ export const fetchPage = (payload) => ({
   type: PAGE_REQUESTED,
 })
 
-export const fetchPageSucceeded = (payload) => ({
+export const fetchPageSucceeded = (payload: {name: string}) => ({
   payload,
   type: PAGE_SUCCEEDED,
 })
 
-export const fetchPageFailed = (name, error) => ({
-  payload: {
-    error,
-    name,
-  },
+export const fetchPageFailed = (payload: {name: string, error: string}) => ({
+  payload,
   type: PAGE_FAILED,
 })

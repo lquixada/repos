@@ -21,7 +21,7 @@ export function * loadContributors({owner, repoName}) {
     yield put(fetchContributorsSucceeded({owner, repoName, data: data.contributors}))
   } catch (error) {
     console.info(error)
-    yield put(fetchContributorsFailed(owner, repoName, error.stack))
+    yield put(fetchContributorsFailed({owner, repoName, error: error.stack}))
   }
 }
 

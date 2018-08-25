@@ -49,7 +49,7 @@ describe('Sagas (Repo)', () => {
       const gen = loadRepo({owner, repoName})
 
       expect(gen.next().value).toEqual(call(fetchRepo, {owner, repoName}))
-      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchRepoFailed(owner, repoName, error.stack)))
+      expect(gen.throw && gen.throw(error).value).toEqual(put(fetchRepoFailed({owner, repoName, error: error.stack})))
       expect(gen.next()).toEqual({done: true, value: undefined})
     })
   })

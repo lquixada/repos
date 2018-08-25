@@ -7,16 +7,12 @@ export const fetchRepo = (payload) => ({
   type: REPO_REQUESTED,
 })
 
-export const fetchRepoSucceeded = (payload) => ({
+export const fetchRepoSucceeded = (payload: {owner: string, repoName: string, data: any}) => ({
   payload,
   type: REPO_SUCCEEDED,
 })
 
-export const fetchRepoFailed = (owner, repoName, error) => ({
-  payload: {
-    error,
-    owner,
-    repoName,
-  },
+export const fetchRepoFailed = (payload: {owner: string, repoName: string, error: string}) => ({
+  payload,
   type: REPO_FAILED,
 })
