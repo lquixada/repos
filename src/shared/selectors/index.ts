@@ -1,3 +1,13 @@
 import get from 'lodash.get'
 
-export const getNextPage = (state, owner, repoName) => get(state.contributors, `${owner}.${repoName}.nextPage`)
+import {IContributors} from '../types'
+
+type Repo = Map<string, IContributors>
+type Owner = Map<string, Repo>
+
+interface IState {
+  contributors: Owner
+}
+
+export const getNextPage = (state: IState, owner: string, repoName: string) =>
+  get(state.contributors, `${owner}.${repoName}.nextPage`)

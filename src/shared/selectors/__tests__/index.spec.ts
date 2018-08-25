@@ -3,7 +3,7 @@ import {getNextPage} from '../index'
 describe('Selectors', () => {
   describe('getNextPage', () => {
     it('gets the contributors next page', () => {
-      const state = {
+      const state: any = {
         contributors: {
           owner1: {
             repo1: {
