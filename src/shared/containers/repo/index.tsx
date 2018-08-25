@@ -1,4 +1,5 @@
 import {Map} from 'immutable'
+import get from 'lodash.get'
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
@@ -35,7 +36,7 @@ export class RepoContainer extends React.Component<IProps, any> {
 
   public getRepo() {
     const {repo} = this.props
-    return repo && repo.get('data')
+    return repo && repo.data
   }
 
   public hasLoaded() {
@@ -62,7 +63,7 @@ export class RepoContainer extends React.Component<IProps, any> {
 
 const mapStateToProps = ({repo}, {match}) => ({
   owner: match.params.owner,
-  repo: repo.getIn([match.params.owner, match.params.repo]),
+  repo: get(repo, `${match.params.owner}.${match.params.repo}`),
   repoName: match.params.repo,
 })
 export default withRouter(connect(mapStateToProps, actions)(RepoContainer))

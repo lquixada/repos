@@ -36,7 +36,7 @@ const mapStateToProps = ({counts, repo}, {match}) => ({
     const {owner} = match.params
     const repoName = item[0]
     const count = item[1]
-    const isLoading = repo.getIn([owner, repoName, 'isLoading'])
+    const isLoading = get(repo, `${owner}.${repoName}.isLoading`)
 
     return List.of(repoName, count, isLoading)
   }),

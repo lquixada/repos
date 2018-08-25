@@ -4,9 +4,9 @@ exports[`<Summary /> matches the snapshot 1`] = `
 <Summary
   owner="owner1"
   repo={
-    Immutable.Map {
+    Object {
       "forks_count": 5,
-      "license": Immutable.Map {
+      "license": Object {
         "name": "MIT",
       },
       "name": "Github Repos",

@@ -8,14 +8,14 @@ import {Summary} from './summary'
 
 interface IProps {
   owner: string
-  repo: Map<string, string>
+  repo: object
 }
 
 export const Repo = ({owner, repo}: IProps) => (
   <div>
-    <Header title={repo.get('name')} url={repo.get('html_url')} />
-    <Description text={repo.get('description')} />
+    <Header title={repo.name} url={repo.html_url} />
+    <Description text={repo.description} />
     <Summary owner={owner} repo={repo} />
-    <Contributors owner={owner} repoName={repo.get('name')} />
+    <Contributors owner={owner} repoName={repo.name} />
   </div>
 )

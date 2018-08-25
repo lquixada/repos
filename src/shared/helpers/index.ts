@@ -1,4 +1,3 @@
-export * from './objects'
 export * from './redial'
 export * from './queries'
 export * from './strings'

@@ -1,4 +1,5 @@
 import { Map } from 'immutable'
+import get from 'lodash.get'
 import React from 'react'
 import EyeIcon from 'react-octicons/lib/eye'
 import IssueIcon from 'react-octicons/lib/issue-opened'
@@ -9,35 +10,44 @@ import styled from 'styled-components'
 
 import {addSeparator, flex, forksUrl, issuesUrl, stargazersUrl, watchersUrl} from '../../helpers'
 
+interface IRepo {
+  name: string
+  stargazers_count: string
+  subscribers_count: string
+  forks_count: string
+  open_issues_count: string
+  license: object
+}
+
 interface IProps {
   owner: string
-  repo: Map<string, string>
+  repo: IRepo
 }
 
 export const Summary = ({owner, repo}: IProps) => (
   <List>
     <Item>
-      <Link href={stargazersUrl(owner, repo.get('name'))}>
-        <StarIcon />{addSeparator(repo.get('stargazers_count'))} stars
+      <Link href={stargazersUrl(owner, repo.name)}>
+        <StarIcon />{addSeparator(repo.stargazers_count)} stars
       </Link>
     </Item>
     <Item>
-      <Link href={watchersUrl(owner, repo.get('name'))}>
-        <EyeIcon />{addSeparator(repo.get('subscribers_count'))} watchers
+      <Link href={watchersUrl(owner, repo.name)}>
+        <EyeIcon />{addSeparator(repo.subscribers_count)} watchers
       </Link>
     </Item>
     <Item>
-      <Link href={forksUrl(owner, repo.get('name'))}>
-        <ForkIcon />{addSeparator(repo.get('forks_count'))} forks
+      <Link href={forksUrl(owner, repo.name)}>
+        <ForkIcon />{addSeparator(repo.forks_count)} forks
       </Link>
     </Item>
     <Item>
-      <Link href={issuesUrl(owner, repo.get('name'))}>
-        <IssueIcon />{addSeparator(repo.get('open_issues_count'))} issues
+      <Link href={issuesUrl(owner, repo.name)}>
+        <IssueIcon />{addSeparator(repo.open_issues_count)} issues
       </Link>
     </Item>
-    {repo.get('license') && <Item>
-      <NoLink><LawIcon />{repo.getIn(['license', 'name'])}</NoLink>
+    {repo.license && <Item>
+      <NoLink><LawIcon />{get(repo, 'license.name')}</NoLink>
     </Item>}
   </List>
 )

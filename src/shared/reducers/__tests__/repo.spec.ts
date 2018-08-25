@@ -12,15 +12,15 @@ describe('Reducers (Repo)', () => {
 
   it('starts empty', () => {
     const state = reducer()
-    expect(state.toJS()).toEqual({})
+    expect(state).toEqual({})
   })
 
   it('switches to isLoading state', () => {
     const action = fetchRepo({owner, repoName})
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(true)
-    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
+    expect(state[owner][repoName].isLoading).toBe(true)
+    expect(state[owner][repoName].error).toBe(null)
   })
 
   it('sets the repo state', () => {
@@ -31,16 +31,16 @@ describe('Reducers (Repo)', () => {
     const action = fetchRepoSucceeded({owner, repoName, data})
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([owner, repoName, 'error'])).toBe(null)
-    expect(state.getIn([owner, repoName, 'data']).toJS()).toEqual(data)
+    expect(state[owner][repoName].isLoading).toBe(false)
+    expect(state[owner][repoName].error).toBe(null)
+    expect(state[owner][repoName].data).toEqual(data)
   })
 
   it('sets an error state', () => {
     const action = fetchRepoFailed(owner, repoName, 'some-error')
     const state = reducer(undefined, action)
 
-    expect(state.getIn([owner, repoName, 'isLoading'])).toBe(false)
-    expect(state.getIn([owner, repoName, 'error'])).toBe('some-error')
+    expect(state[owner][repoName].isLoading).toBe(false)
+    expect(state[owner][repoName].error).toBe('some-error')
   })
 })

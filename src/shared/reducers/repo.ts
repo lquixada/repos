@@ -1,13 +1,13 @@
-import {Map} from 'immutable'
+import merge from 'lodash.merge'
 
 import {REPO_FAILED, REPO_REQUESTED, REPO_SUCCEEDED} from '../actions'
 
-export default function repo(state = Map(), action = {}) {
+export default function repo(state = {}, action = {}) {
   const {payload, type}: any = action
 
   switch (type) {
     case REPO_REQUESTED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
             error: null,
@@ -17,7 +17,7 @@ export default function repo(state = Map(), action = {}) {
       })
 
     case REPO_SUCCEEDED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
             data: payload.data,
@@ -28,7 +28,7 @@ export default function repo(state = Map(), action = {}) {
       })
 
     case REPO_FAILED:
-      return state.mergeDeep({
+      return merge({}, state, {
         [payload.owner]: {
           [payload.repoName]: {
             error: payload.error,

@@ -6,7 +6,7 @@ import {Summary} from '../summary'
 
 describe('<Summary />', () => {
   it('matches the snapshot', () => {
-    const repo = fromJS({
+    const repo = {
       forks_count: 5,
       license: {
         name: 'MIT',
@@ -15,7 +15,7 @@ describe('<Summary />', () => {
       open_issues_count: 5,
       stargazers_count: 5,
       subscribers_count: 5,
-    })
+    }
     const component = mount(<Summary owner='owner1' repo={repo} />)
     expect(component).toMatchSnapshot()
   })

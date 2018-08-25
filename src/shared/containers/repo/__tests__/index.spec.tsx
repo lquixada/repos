@@ -11,11 +11,11 @@ describe('<RepoContainer />', () => {
   beforeEach(() => {
     fetchRepo = jest.fn()
 
-    repo = fromJS({
+    repo = {
       data: {
         name: 'repo1',
       },
-    })
+    }
   })
 
   it('renders null if there is no repo', () => {
@@ -26,7 +26,7 @@ describe('<RepoContainer />', () => {
   it('renders Repo component', () => {
     const component = shallow(<RepoContainer owner='owner1' repoName='repo1' fetchRepo={fetchRepo} repo={repo} />)
     const repoProp = component.find('Repo').prop('repo') as Map<string, string>
-    expect(repoProp.toJS()).toEqual(repo.get('data').toJS())
+    expect(repoProp).toEqual(repo.data)
   })
 
   it('fetches other Repo component', () => {
