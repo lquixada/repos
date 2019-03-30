@@ -5,7 +5,9 @@ exports[`<Summary /> matches the snapshot 1`] = `
   owner="owner1"
   repo={
     Object {
+      "description": "Github Repos",
       "forks_count": 5,
+      "html_url": "http://github-repos/",
       "license": Object {
         "name": "MIT",
       },
