@@ -12,7 +12,7 @@ module.exports = {
   setupTestFrameworkScriptFile: '<rootDir>/src/__tests__/setup.ts',
   snapshotSerializers: ['enzyme-to-json/serializer'],
   transform: {
-    '^.+\\.(jsx?|tsx?)$': 'babel-jest'
+    '^.+\\.(jsx?|ts|tsx)$': 'babel-jest'
   },
   collectCoverage: false,
   coverageDirectory: '<rootDir>/.reports/coverage',

@@ -18,6 +18,6 @@ const logger = winston.createLogger({
 
 export default middleware('combined', {
   stream: {
-    write: (message, encoding) => logger.info(message),
+    write: (message) => logger.info(message),
   },
 })

@@ -3,7 +3,7 @@ import {PAGE_FAILED, PAGE_REQUESTED, PAGE_SUCCEEDED} from '../../shared/actions'
 
 NProgress.configure({ showSpinner: false })
 
-export default (store) => (next) => (action) => {
+export default () => (next) => (action) => {
   const { type } = action
 
   if (type === PAGE_REQUESTED) {

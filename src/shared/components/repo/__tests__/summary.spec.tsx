@@ -6,7 +6,9 @@ import {Summary} from '../summary'
 describe('<Summary />', () => {
   it('matches the snapshot', () => {
     const repo = {
+      description: 'Github Repos',
       forks_count: 5,
+      html_url: 'http://github-repos/',
       license: {
         name: 'MIT',
       },
